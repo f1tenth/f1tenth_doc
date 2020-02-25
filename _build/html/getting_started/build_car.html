@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building the Car &mdash; F1tenth latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="alternate" hreflang="en" href="https://docs.godotengine.org/en/" />
+    <link rel="alternate" hreflang="de" href="https://docs.godotengine.org/de/" />
+    <link rel="alternate" hreflang="es" href="https://docs.godotengine.org/es/" />
+    <link rel="alternate" hreflang="fr" href="https://docs.godotengine.org/fr/" />
+    <link rel="alternate" hreflang="ko" href="https://docs.godotengine.org/ko/" />
+    <link rel="alternate" hreflang="pl" href="https://docs.godotengine.org/pl/" />
+    <link rel="alternate" hreflang="pt-br" href="https://docs.godotengine.org/pt-br/" />
+    <link rel="alternate" hreflang="uk" href="https://docs.godotengine.org/uk/" />
+    <link rel="alternate" hreflang="zh-cn" href="https://docs.godotengine.org/zh-cn/" />
+    <link rel="alternate" hreflang="x-default" href="https://docs.godotengine.org/" />
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Software Setup" href="software_setup/index.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+
+
+  <script type="text/javascript">
+    <!-- Adds target=_blank to external links -->
+
+    $(document).ready(function () {
+      $('a[href^="http://"], a[href^="https://"]').not('a[class*=internal]').attr('target', '_blank');
+    });
+  </script>
+
+ 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/f1_stickers_02.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building the Car</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-and-assembling-the-car">Preparing and Assembling the Car</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparing-the-car">Preparing the Car</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-the-body-standoffs">Installing the Body Standoffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mounting-the-focbox-to-the-chassis">Mounting the FOCbox to the Chassis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-the-chassis-standoffs">Installing the Chassis Standoffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detaching-the-jetson-from-the-development-board">Detaching the Jetson from the Development Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mounting-the-wi-fi-antennas-to-the-power-board">Mounting the Wi-Fi Antennas to the Power Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mounting-the-power-board-to-the-chassis">Mounting the Power Board to the Chassis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attaching-the-orbitty-to-the-jetson">Attaching the Orbitty to the Jetson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-the-jetson-and-power-board">Connecting the Jetson and Power Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mounting-the-jetson-to-the-chassis">Mounting the Jetson to the Chassis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mounting-the-chassis-to-the-car-underbody">Mounting the Chassis to the Car Underbody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mounting-the-lidar">Mounting the LIDAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mounting-the-usb-hubs">Mounting the USB Hubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-the-lidar">Connecting the LIDAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-the-focbox">Connecting the FOCbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-the-car-to-the-battery">Connecting the Car to the Battery</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software_setup/index.html">Software Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_setup/software_host.html">Host/Laptop Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_host.html#installing-ubuntu">Installing Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_host.html#installing-ros">Installing ROS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_setup/software_jetson.html">Jetson Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_jetson.html#connect-terminals-to-the-jetson-aka-the-device">Connect terminals to the Jetson (aka “the device”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_jetson.html#install-linux">1. Install Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_jetson.html#flashing-the-jetpack">2. Flashing the Jetpack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_jetson.html#re-flashing-the-orbitty">3. Re-flashing the Orbitty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_jetson.html#installing-ros">4. Installing ROS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_setup/software_combine.html">Bringing the Host and Jetson Together</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_combine.html#connecting-the-jetson-car-to-the-access-point">Connecting the Jetson/Car to the Access Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_combine.html#connecting-your-host-laptop-to-the-access-point">Connecting Your Host/Laptop to the Access Point</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_setup/software_combine.html#linux">Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_setup/software_combine.html#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_setup/software_combine.html#mac-os">Mac OS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_combine.html#sshing-into-the-car">SSHing into the Car</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_combine.html#setting-up-wireless-hot-spot-on-jetson">Setting Up Wireless Hot Spot on Jetson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_setup/software_combine.html#setting-up-vnc-server-on-jetson">Setting Up VNC Server on Jetson</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="firmware.html">Installing Firmware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="firmware.html#tuning-the-focboxs-pid-gains">Tuning the FOCbox’s PID Gains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firmware.html#hokuyo-10lx-ethernet-connection-setup">Hokuyo 10LX Ethernet Connection Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firmware.html#working-directory-setup">Working Directory Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firmware.html#udev-rules-setup">Udev Rules Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firmware.html#manual-control">Manual Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="firmware.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firmware.html#tuning-the-vesc-parameters">Tuning the VESC Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="firmware.html#testing-the-lidar-usb-only">Testing the Lidar (USB Only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firmware.html#recording-bag-data-on-the-car">Recording Bag Data on the Car</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/index.html">Appendices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/appendix_a.html">Appendix A: Flashing Jetpack via a VM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendix/appendix_a.html#spin-up-an-ubuntu-vm">1.2 Spin up an Ubuntu VM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix/appendix_a.html#download-nvidia-jetpack">1.3 Download NVIDIA JetPack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix/appendix_a.html#install-jetpack">1.4 Install JetPack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix/appendix_a.html#validation-flash">1.5 Validation Flash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/appendix_b.html">Appendix B: Shared Folders between Host and VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#mechanical">Mechanical</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#do-i-have-a-broken-drive-train-how-can-i-fix-it">Do I have a broken drive train? How can I fix it?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#differential-makes-excessive-noise">Differential makes excessive noise…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#im-not-able-to-steer-the-car-no-response-from-the-steering-servo">I’m not able to steer the car, no response from the steering servo…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#system-identification-failure-and-vesc-tuning">System identification failure and VESC tuning…</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#wireless-network">Wireless Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#high-packet-loss-excessive-latency-on-wireless-network">High packet-loss, excessive latency on wireless network…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#increasing-range-of-the-gamepad">Increasing range of the gamepad</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#software">Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#vesc-serial-failures-vesc-hardware-and-software-revisions">VESC serial failures, VESC hardware and software revisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#lidar-variants">LIDAR variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#installing-pytorch">Installing pyTorch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="faq.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#kernel">Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#simulation-and-experiments-without-hardware">Simulation and Experiments without Hardware</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Going Forward</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../going_forward/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../going_forward/simulation.html">Simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/simulation.html#want-a-different-navigation-algorithm">Want a Different Navigation Algorithm?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/simulation.html#want-a-different-track">Want a Different Track?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/simulation.html#dont-want-the-gui">Don’t Want the GUI?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/simulation.html#moving-the-car-manually-in-simulation">Moving the Car Manually in Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/simulation.html#creating-a-world">Creating a World</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../going_forward/algorithms.html">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/algorithms.html#wall-following">Wall Following</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#wall-following-with-explicit-instructions">Wall Following with Explicit Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/algorithms.html#gap-finding-in-lidar-scans-houssam">Gap-finding in LiDAR Scans [Houssam]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/algorithms.html#scan-matching-odometry-sheil">Scan Matching Odometry [Sheil]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#installing-packages">Installing Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#getting-the-example-launch-file">Getting the Example Launch File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/algorithms.html#localization">Localization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#localization-with-hector-slam">Localization with Hector SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#localization-with-amcl-adaptive-monte-carlo-localization">Localization with AMCL (Adaptive Monte Carlo Localization)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#localization-with-particle-filter-faster-and-more-accurate-than-amcl">Localization with Particle Filter (Faster and More Accurate than AMCL)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/algorithms.html#working-with-waypoints">Working with Waypoints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#generating-waypoints">Generating Waypoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#following-waypoints-with-pure-pursuit">Following Waypoints with Pure Pursuit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#pure-pursuit-speed-control-algorithm">Pure Pursuit Speed Control Algorithm</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../going_forward/algorithms.html#path-planning">Path Planning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#path-planning-with-ros-move-base">Path Planning with ROS move_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../going_forward/algorithms.html#path-planning-with-teb-timed-elastic-band-local-planner">Path Planning with TEB (Timed Elastic Band) Local Planner</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">F1tenth</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Building the Car</li>
+    
+    
+
+
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/godotengine/godot-docs/blob/master/getting_started/build_car.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="building-the-car">
+<span id="doc-build-car"></span><h1>Building the Car<a class="headerlink" href="#building-the-car" title="Permalink to this headline">¶</a></h1>
+<p>Bill of Materials:
+<strong>KIM NEEDS TO UPDAT LINK BECAUSE THIS IS OUTDATED</strong>
+The master BOM can be found <a class="reference external" href="https://docs.google.com/spreadsheets/d/1ykUyrZq-vLlMTf0TIcdMrRbGKcRWglW6ol76QyGst2I/edit#gid=2038095912">here</a></p>
+<p>Tools Needed:
+<strong>KIM NEEDS TO UPDATE</strong>
+- list things here</p>
+<p>Difficulty Level: Medium
+<strong>KIM NEEDS TO UPDATE</strong></p>
+<p>Approximate Time Investment: 1 hour</p>
+<p><strong>KIM WILL REBUILD CAR AND UPDATE THESE SECTIONS</strong>
+<strong>KIM ADD VIDEO OF BUILD AND UPDATE CAR BUILD</strong></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p><strong>LIPO (LITHIUM POLYMER) BATTERY SAFETY WARNING</strong></p>
+<p>LiPO batteries allow your car to run for a long time, but they are not something to play with or joke about. They store a large amount of energy in a small space and can damage your car and cause a fire if used improperly. With this in mind, here are some safety tips for using them with the car.</p>
+<ul class="last simple">
+<li>When charging batteries, always monitor them and place them in a fireproof bag on a non-flammable surface clear of any other objects.</li>
+<li>Do not leave a LIPO battery connected to the car when you’re not using it. The battery will discharge and its voltage will drop to a level too low to charge it safely again.</li>
+<li>Unplug the battery from the car immediately if you notice any popping sounds, bloating of the battery, burning smell, or smoke.</li>
+<li>Never short the battery leads.</li>
+<li>Do not plug the battery in backwards. This will damage the VESC and power board (and likely the Jetson as well) and could cause a short circuit.</li>
+<li>See ​this <a class="reference external" href="https://www.youtube.com/watch?v=gz3hCqjk4yc">video</a> for an example of what might happen if you don’t take care of your batteries. Be safe and don’t let these happen to you!</li>
+</ul>
+</div>
+<div class="section" id="preparing-and-assembling-the-car">
+<h2>Preparing and Assembling the Car<a class="headerlink" href="#preparing-and-assembling-the-car" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/F10Materials.png" src="../_images/F10Materials.png" />
+<div class="section" id="preparing-the-car">
+<h3>Preparing the Car<a class="headerlink" href="#preparing-the-car" title="Permalink to this headline">¶</a></h3>
+<p>Coming Soon: will fill out when the fourth Traxxas car arrives</p>
+<p>Obtaining the Power Board
+[Instructions on getting the power board from Penn,
+and a link to files that you would send to a PCB company like 4PCB or PCBWay. Currently on ​github​]
+A note on why we have a power board:​ The power board is used to provide a stable voltage source for the car and its peripherals since the battery voltage drops as the battery runs out. The board does not do any charging of the battery, so you will need a Traxxas EZ-Peak charger to charge it (you can find them on Traxxas’ website). At present, there’s no way to know the battery’s charge level except by measuring it with a multimeter or the BLDC Tool as it runs, but we could think about adding a low voltage LED or seven-segment LCD display (to show the voltage) to the next iteration of the board. The LIPO protection module and green connectors are currently unused and are a legacy from previous F1/10 car iterations which used the Teensy microcontroller as a motor driver.</p>
+</div>
+<div class="section" id="installing-the-body-standoffs">
+<h3>Installing the Body Standoffs<a class="headerlink" href="#installing-the-body-standoffs" title="Permalink to this headline">¶</a></h3>
+<p>Begin by installing four 45mm M3 standoffs into the holes of the main car body pictured below. Secure the standoffs to the bottom of the car using 10mm M3 screws, and use either nosepliers or a hex driver to hold the standoff in place while you turn the screw on the other side. Pay attention to where you install the standoffs since there are several mounting holes on the car’s base. See the picture below for clarification.</p>
+<p>Next, install two threaded 14mm M3 standoffs into the front holes in the car base, using the pliers or hex driver to thread the standoffs into the holes. Don’t mount the chassis to the car yet since we still need to mount the Jetson and power board to the chassis.</p>
+<img alt="../_images/InstallingStandOffs.png" src="../_images/InstallingStandOffs.png" />
+<img alt="../_images/InstallingStandOffs2.png" src="../_images/InstallingStandOffs2.png" />
+</div>
+<div class="section" id="mounting-the-focbox-to-the-chassis">
+<h3>Mounting the FOCbox to the Chassis<a class="headerlink" href="#mounting-the-focbox-to-the-chassis" title="Permalink to this headline">¶</a></h3>
+<p>Feed the three motor wires for the FOCbox through the rectangular slot in the chassis as shown below.</p>
+<img alt="../_images/FOCBoxToChassis.png" src="../_images/FOCBoxToChassis.png" />
+<p>Alternate method of securing the FOCbox if screws don’t fit​ : Some FOCboxes (the more recently-made ones) have smaller screw holes that won’t fit M3-size screws. If this is the case for your FOCbox, you can use a few pieces of double-sided tape to secure the FOCbox instead.</p>
+<img alt="../_images/AlternateFOCbox.png" src="../_images/AlternateFOCbox.png" />
+</div>
+<div class="section" id="installing-the-chassis-standoffs">
+<h3>Installing the Chassis Standoffs<a class="headerlink" href="#installing-the-chassis-standoffs" title="Permalink to this headline">¶</a></h3>
+<p>Mount eight 35mm M3 standoffs to the ​ glossy side​ of the black laser-cut chassis in the positions shown below. Thread 10mm M3 screws through the drill holes and screw them into the standoffs to secure them. (​ Important​ : If you do not mount the standoffs to the glossy side, the power board won’t fit since the screw holes will be misaligned.)</p>
+<p>Note there are several drill holes in the chassis, so make sure you’re using the right ones. In the image below, the 4 screws on the left(which is the back of the car) will eventually hold the power board, so that’s a good way to see if they’re properly placed. The 4 screws on the right (2 on each side of the oval cutout) will eventually hold the Orbitty carrier attached to the Jetson.</p>
+<img alt="../_images/chasisstandoff1.png" src="../_images/chasisstandoff1.png" />
+<p>Mount two more (19mm M3) standoffs to the front part of the chassis for the LIDAR, and secure with 10mm screws. The top part of the chassis should look like the picture below.</p>
+</div>
+<div class="section" id="detaching-the-jetson-from-the-development-board">
+<h3>Detaching the Jetson from the Development Board<a class="headerlink" href="#detaching-the-jetson-from-the-development-board" title="Permalink to this headline">¶</a></h3>
+<p>When you purchase a Jetson, it is attached to a development board. In order to use it on the car, you will need to unscrew the Jetson and its Wi-Fi antenna from the development board.</p>
+<p>Before you remove the antenna, you will need to remove the bottom plate from the development board. Remove the four screws marked below and lift the development board away from the plate.</p>
+<img alt="../_images/jetson1.png" src="../_images/jetson1.png" />
+<p>Next, remove the Wi-Fi antenna by unscrewing the two screws marked below. Keep the screws in a safe place, as you’ll use them in a bit to attach the antennas to standoffs.</p>
+<img alt="../_images/jetson2.png" src="../_images/jetson2.png" />
+<p>Remove the two brass-colored nuts holding the antennas to the L-shaped bracket, and then remove the two antennas from the bracket. It helps to use two pairs of pliers: one to hold the rear nuts in place and another to unscrew the nuts on the end with the antenna connectors.</p>
+<img alt="../_images/jetson3.png" src="../_images/jetson3.png" />
+<p>Using a Phillips screwdriver, thread the two screws you saved earlier completely into the bracket as pictured below. Attach two standoffs to the opposite ends of the screws and hand-tighten them until they won’t turn anymore. Use the pliers to tighten the standoffs more while you hold the head of the screw in place using the screwdriver. Once you’ve done these steps, place the antennas and washers back into the bracket, and tighten the brass nuts onto the threaded connectors again.</p>
+<img alt="../_images/jetson4.png" src="../_images/jetson4.png" />
+<p>Unplug the Jetson’s fan and remove the Jetson from the development board by using a T3 Torx screwdriver to unscrew the Jetson (the large silver heat sink), and then pull up gently to detach it from the development board. Keep the Jetson in a safe place while you attach the antennas to the power board.</p>
+<img alt="../_images/jetson5.png" src="../_images/jetson5.png" />
+</div>
+<div class="section" id="mounting-the-wi-fi-antennas-to-the-power-board">
+<h3>Mounting the Wi-Fi Antennas to the Power Board<a class="headerlink" href="#mounting-the-wi-fi-antennas-to-the-power-board" title="Permalink to this headline">¶</a></h3>
+<p>Attach the two standoffs for the Wi-Fi antenna bracket to the power board, making sure the antennas, when installed and extended, lie ​ over ​ the board and now away from it. Install the two black antennas onto the threaded connectors if they aren’t already on.</p>
+<img alt="../_images/wifi1.png" src="../_images/wifi1.png" />
+<p>Attach the two wires for the Jetson Wi-Fi antenna to the two gold-colored connectors near the fan connector on the heat sink (the order of the wires doesn’t matter). This can be a little tricky, so you might want to use a flathead screwdriver to ensure the connections are tight. ​ Don’t press too hard​ , however as you can easily damage the connectors if you use excessive force!</p>
+<img alt="../_images/wifi2.png" src="../_images/wifi2.png" />
+</div>
+<div class="section" id="mounting-the-power-board-to-the-chassis">
+<h3>Mounting the Power Board to the Chassis<a class="headerlink" href="#mounting-the-power-board-to-the-chassis" title="Permalink to this headline">¶</a></h3>
+<p>Screw the power board onto its chassis standoffs using 10mm M3 screws. The screw positions are indicated with arrows below.</p>
+<img alt="../_images/powerboard1.png" src="../_images/powerboard1.png" />
+</div>
+<div class="section" id="attaching-the-orbitty-to-the-jetson">
+<h3>Attaching the Orbitty to the Jetson<a class="headerlink" href="#attaching-the-orbitty-to-the-jetson" title="Permalink to this headline">¶</a></h3>
+<p>Attach the Orbitty to the Jetson by connecting the two long black ports and connect the Jetson’s fan to the Orbitty’s fan connector as shown in the pictures below.</p>
+<img alt="../_images/orbittyjetson.png" src="../_images/orbittyjetson.png" />
+</div>
+<div class="section" id="connecting-the-jetson-and-power-board">
+<h3>Connecting the Jetson and Power Board<a class="headerlink" href="#connecting-the-jetson-and-power-board" title="Permalink to this headline">¶</a></h3>
+<p>Cut two 8-inch pieces of wire of different colors (preferably red and black), and strip both ends to a short length (1/8 inch). Locate the green terminal block on the Jetson and attach one end of one wire to the + ​ Vin​ terminal, and the other end to one of the green 1 ​ 2V​ terminals on the power board. (Any of the 12 volt terminals are acceptable. To attach, insert the stripped end into the terminal and screw the little screw tight with a small flathead screwdriver.) Attach the other stripped wire to the G ​ ND​ terminal on the Jetson and to the G ​ ND​ terminal on the corresponding terminal block on the power board.</p>
+<img alt="../_images/orbittyjetson.png" src="../_images/orbittyjetson.png" />
+</div>
+<div class="section" id="mounting-the-jetson-to-the-chassis">
+<h3>Mounting the Jetson to the Chassis<a class="headerlink" href="#mounting-the-jetson-to-the-chassis" title="Permalink to this headline">¶</a></h3>
+<p>Your kit comes with four white plastic standoffs; place these between the Jetson PCB and heatsink (see picture) ​ before ​ threading the screws through. Otherwise, you risk bending the Orbitty while screwing it in. Use 20mm screws to secure the Jetson to its chassis standoffs.</p>
+<img alt="../_images/jetsonchassis.png" src="../_images/jetsonchassis.png" />
+<p>Ensure that when you mount the Jetson that the wires for neither the Wi-Fi antenna nor the Jetson’s power connections get pinched. It might help to tuck both sets of wires underneath the power board. (Don’t tuck them underneath the Jetson because they might restrict airflow or obstruct the fan’s blades.) Your configuration should now look something like this:</p>
+<img alt="../_images/jetsonchassis2.png" src="../_images/jetsonchassis2.png" />
+</div>
+<div class="section" id="mounting-the-chassis-to-the-car-underbody">
+<h3>Mounting the Chassis to the Car Underbody<a class="headerlink" href="#mounting-the-chassis-to-the-car-underbody" title="Permalink to this headline">¶</a></h3>
+<p>Place the chassis onto the five standoffs on the car base and align the chassis’ drill holes with the car’s base standoffs you attached earlier as shown below. Use six 10mm M3 screws to secure the chassis to the standoffs.</p>
+<img alt="../_images/chassisunderbody.png" src="../_images/chassisunderbody.png" />
+</div>
+<div class="section" id="mounting-the-lidar">
+<h3>Mounting the LIDAR<a class="headerlink" href="#mounting-the-lidar" title="Permalink to this headline">¶</a></h3>
+<p>The LIDAR should have two cords: one for power and another for either Ethernet or USB. Cut the end of the power cord, leaving 1-2 feet of cable. Strip the end, cut away all wires except for the blue and brown ones, and strip those two wires to 1/8 inch as shown below.</p>
+<img alt="../_images/lidar1.png" src="../_images/lidar1.png" />
+<p>Attach the LIDAR to the tree-shaped base using two (10LX) or four (30LX) screws, such that the wires protruding from the LIDAR go towards the back of the car. (For the 30LX, the two LEDs at the top of the LIDAR should face the front of the car.) Then mount the C-shaped brackets to the black tree-shaped base as shown in the pictures below. ​ Note: if the black mount does not fit in the holes of the C brackets, sand the inserts until they do.</p>
+<img alt="../_images/lidar2.png" src="../_images/lidar2.png" />
+<p>Mount the LIDAR to the car by fitting the two thick protruding parts of the mounting brackets into the holes. The open part of the “C” in the brackets should face forward as shown below.</p>
+<img alt="../_images/lidar3.png" src="../_images/lidar3.png" />
+<p>If you completed the previous steps correctly, two of the holes on the narrow end of the LIDAR base should match up with the two 19mm standoffs you mounted earlier. Wind the power and USB cords of the LIDAR around its base so that there is just enough available to plug into the power board and Jetson, with a little bit of slack so that it is not too tight. Tuck both cords under the LIDAR mounting plate between the two silverstandoffs, and secure the LIDAR base to the standoffs on the chassis using two 10mm M3 screws.</p>
+<img alt="../_images/lidar4.png" src="../_images/lidar4.png" />
+</div>
+<div class="section" id="mounting-the-usb-hubs">
+<h3>Mounting the USB Hubs<a class="headerlink" href="#mounting-the-usb-hubs" title="Permalink to this headline">¶</a></h3>
+<p>Attack two pieces of double-sided tape to a USB hub. Place the hub onto the empty space of the chassis directly below the Jetson and to the right of the power board as shown. If your hub has power buttons, make sure all of them are turned on.</p>
+<img alt="../_images/usb1.png" src="../_images/usb1.png" />
+<p>If you need more USB ports (required if your LiDAR uses USB), you can stack a second hub onto the top of the first. Again, use double-sided tape to secure the second hub and make sure all power buttons are on.</p>
+<p>Plug the first USB hub into the Orbitty board. If you’re using a second hub, use the white micro USB adapter that comes with the Jetson to plug in the second hub.</p>
+<img alt="../_images/usb2.png" src="../_images/usb2.png" />
+</div>
+<div class="section" id="connecting-the-lidar">
+<h3>Connecting the LIDAR<a class="headerlink" href="#connecting-the-lidar" title="Permalink to this headline">¶</a></h3>
+<p>Attach the LIDAR’s power cable to a free 12V terminal block on the power board. The brown wire should go to the 12V terminal, and the blue wire should go to the corresponding GND terminal. The side of the LIDAR has a pinout as well if you forget.</p>
+<img alt="../_images/connect_lidar1.png" src="../_images/connect_lidar1.png" />
+<p>If the LIDAR has an Ethernet cable, attach it to the Ethernet port on the Jetson. If it has a USB cable, plug it into the USB hub. Route any excess cables behind the USB hubs as shown.</p>
+<img alt="../_images/connect_lidar2.jpg" src="../_images/connect_lidar2.jpg" />
+</div>
+<div class="section" id="connecting-the-focbox">
+<h3>Connecting the FOCbox<a class="headerlink" href="#connecting-the-focbox" title="Permalink to this headline">¶</a></h3>
+<p>Pass the 3 round FOCbox wires through the rectangular slot in the plastic chassis, then connect the 3 circular bullet connectors to the three motor wires. (The order in which you connect the wires kinda doesn’t matter (electrically speaking). If you run the car and it goes backwards when it should go forwards, you can swap any two of the three wires.) Connect the 3-wire servo ribbon cable as well, making sure the colors match up.</p>
+<img alt="../_images/foc1.jpg" src="../_images/foc1.jpg" />
+<img alt="../_images/foc2.jpg" src="../_images/foc2.jpg" />
+<p>If your micro USB cable is thin enough, thread it through the rectangular wire slot and around the FOCbox to the USB connector as shown below, or route it around the rear end of the chassis if it isn’t. Plug the cable into the FOCbox’s USB connector and into a free port on your USB hub. Tie the USB cable up using a cable tie, and tuck all of the wires underneath the chassis. You can also use this time to plug in the LIDAR (if it is USB), the external Wi-FI adapter, and the receiver for the F710 gamepad.</p>
+<img alt="../_images/foc3.jpg" src="../_images/foc3.jpg" />
+<img alt="../_images/foc4.jpg" src="../_images/foc4.jpg" />
+<img alt="../_images/foc5.jpg" src="../_images/foc5.jpg" />
+</div>
+<div class="section" id="connecting-the-car-to-the-battery">
+<h3>Connecting the Car to the Battery<a class="headerlink" href="#connecting-the-car-to-the-battery" title="Permalink to this headline">¶</a></h3>
+<p>Connect the battery to the FOCbox using the battery connector. ​Make sure that red is aligned with red and black is aligned with black - otherwise things will get hot and dicey. ​Then connect the FOCbox to the power board using the white port shown in the picture below.</p>
+<img alt="../_images/foc6.jpg" src="../_images/foc6.jpg" />
+<p>At this point, your car should be assembled, the Jetson lights should flash when you flip the power switch, and the car is ready to run!</p>
+<p>Note: At present, there’s no way to know the battery’s charge level except by measuring it with a multimeter as it runs. You might consider adding a low voltage LED or seven-segment LCD display (to show the voltage).</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="software_setup/index.html" class="btn btn-neutral float-right" title="Software Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2020, f1tenth community (CC-BY-NC-SA 4.0)
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

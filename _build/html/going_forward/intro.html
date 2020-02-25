@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; F1tenth latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="alternate" hreflang="en" href="https://docs.godotengine.org/en/" />
+    <link rel="alternate" hreflang="de" href="https://docs.godotengine.org/de/" />
+    <link rel="alternate" hreflang="es" href="https://docs.godotengine.org/es/" />
+    <link rel="alternate" hreflang="fr" href="https://docs.godotengine.org/fr/" />
+    <link rel="alternate" hreflang="ko" href="https://docs.godotengine.org/ko/" />
+    <link rel="alternate" hreflang="pl" href="https://docs.godotengine.org/pl/" />
+    <link rel="alternate" hreflang="pt-br" href="https://docs.godotengine.org/pt-br/" />
+    <link rel="alternate" hreflang="uk" href="https://docs.godotengine.org/uk/" />
+    <link rel="alternate" hreflang="zh-cn" href="https://docs.godotengine.org/zh-cn/" />
+    <link rel="alternate" hreflang="x-default" href="https://docs.godotengine.org/" />
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Simulation" href="simulation.html" />
+    <link rel="prev" title="FAQ" href="../getting_started/faq.html" />
+
+
+  <script type="text/javascript">
+    <!-- Adds target=_blank to external links -->
+
+    $(document).ready(function () {
+      $('a[href^="http://"], a[href^="https://"]').not('a[class*=internal]').attr('target', '_blank');
+    });
+  </script>
+
+ 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/f1_stickers_02.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/build_car.html">Building the Car</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/build_car.html#preparing-and-assembling-the-car">Preparing and Assembling the Car</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#preparing-the-car">Preparing the Car</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#installing-the-body-standoffs">Installing the Body Standoffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#mounting-the-focbox-to-the-chassis">Mounting the FOCbox to the Chassis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#installing-the-chassis-standoffs">Installing the Chassis Standoffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#detaching-the-jetson-from-the-development-board">Detaching the Jetson from the Development Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#mounting-the-wi-fi-antennas-to-the-power-board">Mounting the Wi-Fi Antennas to the Power Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#mounting-the-power-board-to-the-chassis">Mounting the Power Board to the Chassis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#attaching-the-orbitty-to-the-jetson">Attaching the Orbitty to the Jetson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#connecting-the-jetson-and-power-board">Connecting the Jetson and Power Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#mounting-the-jetson-to-the-chassis">Mounting the Jetson to the Chassis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#mounting-the-chassis-to-the-car-underbody">Mounting the Chassis to the Car Underbody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#mounting-the-lidar">Mounting the LIDAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#mounting-the-usb-hubs">Mounting the USB Hubs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#connecting-the-lidar">Connecting the LIDAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#connecting-the-focbox">Connecting the FOCbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/build_car.html#connecting-the-car-to-the-battery">Connecting the Car to the Battery</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/software_setup/index.html">Software Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/software_setup/software_host.html">Host/Laptop Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_host.html#installing-ubuntu">Installing Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_host.html#installing-ros">Installing ROS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/software_setup/software_jetson.html">Jetson Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_jetson.html#connect-terminals-to-the-jetson-aka-the-device">Connect terminals to the Jetson (aka “the device”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_jetson.html#install-linux">1. Install Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_jetson.html#flashing-the-jetpack">2. Flashing the Jetpack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_jetson.html#re-flashing-the-orbitty">3. Re-flashing the Orbitty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_jetson.html#installing-ros">4. Installing ROS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/software_setup/software_combine.html">Bringing the Host and Jetson Together</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_combine.html#connecting-the-jetson-car-to-the-access-point">Connecting the Jetson/Car to the Access Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_combine.html#connecting-your-host-laptop-to-the-access-point">Connecting Your Host/Laptop to the Access Point</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/software_setup/software_combine.html#linux">Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/software_setup/software_combine.html#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/software_setup/software_combine.html#mac-os">Mac OS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_combine.html#sshing-into-the-car">SSHing into the Car</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_combine.html#setting-up-wireless-hot-spot-on-jetson">Setting Up Wireless Hot Spot on Jetson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/software_setup/software_combine.html#setting-up-vnc-server-on-jetson">Setting Up VNC Server on Jetson</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/firmware.html">Installing Firmware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/firmware.html#tuning-the-focboxs-pid-gains">Tuning the FOCbox’s PID Gains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/firmware.html#hokuyo-10lx-ethernet-connection-setup">Hokuyo 10LX Ethernet Connection Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/firmware.html#working-directory-setup">Working Directory Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/firmware.html#udev-rules-setup">Udev Rules Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/firmware.html#manual-control">Manual Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/firmware.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/firmware.html#tuning-the-vesc-parameters">Tuning the VESC Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/firmware.html#testing-the-lidar-usb-only">Testing the Lidar (USB Only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/firmware.html#recording-bag-data-on-the-car">Recording Bag Data on the Car</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/appendix/index.html">Appendices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/appendix/appendix_a.html">Appendix A: Flashing Jetpack via a VM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/appendix/appendix_a.html#spin-up-an-ubuntu-vm">1.2 Spin up an Ubuntu VM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/appendix/appendix_a.html#download-nvidia-jetpack">1.3 Download NVIDIA JetPack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/appendix/appendix_a.html#install-jetpack">1.4 Install JetPack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/appendix/appendix_a.html#validation-flash">1.5 Validation Flash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/appendix/appendix_b.html">Appendix B: Shared Folders between Host and VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/faq.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/faq.html#mechanical">Mechanical</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/faq.html#do-i-have-a-broken-drive-train-how-can-i-fix-it">Do I have a broken drive train? How can I fix it?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/faq.html#differential-makes-excessive-noise">Differential makes excessive noise…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/faq.html#im-not-able-to-steer-the-car-no-response-from-the-steering-servo">I’m not able to steer the car, no response from the steering servo…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/faq.html#system-identification-failure-and-vesc-tuning">System identification failure and VESC tuning…</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/faq.html#wireless-network">Wireless Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/faq.html#high-packet-loss-excessive-latency-on-wireless-network">High packet-loss, excessive latency on wireless network…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/faq.html#increasing-range-of-the-gamepad">Increasing range of the gamepad</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/faq.html#software">Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/faq.html#vesc-serial-failures-vesc-hardware-and-software-revisions">VESC serial failures, VESC hardware and software revisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/faq.html#lidar-variants">LIDAR variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/faq.html#installing-pytorch">Installing pyTorch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/faq.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/faq.html#kernel">Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/faq.html#simulation-and-experiments-without-hardware">Simulation and Experiments without Hardware</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Going Forward</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html#want-a-different-navigation-algorithm">Want a Different Navigation Algorithm?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html#want-a-different-track">Want a Different Track?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html#dont-want-the-gui">Don’t Want the GUI?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html#moving-the-car-manually-in-simulation">Moving the Car Manually in Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html#creating-a-world">Creating a World</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#wall-following">Wall Following</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#wall-following-with-explicit-instructions">Wall Following with Explicit Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#gap-finding-in-lidar-scans-houssam">Gap-finding in LiDAR Scans [Houssam]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#scan-matching-odometry-sheil">Scan Matching Odometry [Sheil]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#installing-packages">Installing Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#getting-the-example-launch-file">Getting the Example Launch File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#localization">Localization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#localization-with-hector-slam">Localization with Hector SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#localization-with-amcl-adaptive-monte-carlo-localization">Localization with AMCL (Adaptive Monte Carlo Localization)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#localization-with-particle-filter-faster-and-more-accurate-than-amcl">Localization with Particle Filter (Faster and More Accurate than AMCL)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#working-with-waypoints">Working with Waypoints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#generating-waypoints">Generating Waypoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#following-waypoints-with-pure-pursuit">Following Waypoints with Pure Pursuit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#pure-pursuit-speed-control-algorithm">Pure Pursuit Speed Control Algorithm</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#path-planning">Path Planning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#path-planning-with-ros-move-base">Path Planning with ROS move_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms.html#path-planning-with-teb-timed-elastic-band-local-planner">Path Planning with TEB (Timed Elastic Band) Local Planner</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">F1tenth</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+
+
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/godotengine/godot-docs/blob/master/going_forward/intro.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<span id="doc-going-forward-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Now that you’ve built the car, a whole world of possibilities begin. Here are a few additional add ons that would make things a lot more interesting and fun. This section will go over how get a simulator working on the host laptop and run some algorithms in it.</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="simulation.html#doc-going-forward-simulation"><span class="std std-ref">Setting up the Simulator</span></a></li>
+<li><a class="reference internal" href="algorithms.html#doc-going-forward-algorithms"><span class="std std-ref">Algorithms</span></a></li>
+</ol>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="simulation.html" class="btn btn-neutral float-right" title="Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../getting_started/faq.html" class="btn btn-neutral float-left" title="FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2020, f1tenth community (CC-BY-NC-SA 4.0)
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
