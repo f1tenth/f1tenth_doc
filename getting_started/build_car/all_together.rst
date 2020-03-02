@@ -10,11 +10,11 @@ Mounting the Upper Level Chassis to the Lower Level Chassis
 ------------------------------------------------------------
 Gently place the upper level chassis on top of the standoffs of the lower level chassis. The VESC should be towards the back of the car. Thread the ppm cable from the lower level chassis, through one of the acrylic slot, and plug it into the ppm slot on the VESC.
 
-.. image:: img/together/together01.jpg  
+.. image:: img/together/together01.JPG  
 
-.. image:: img/together/together03.jpg  
+.. image:: img/together/together03.JPG  
 
-.. image:: img/together/together02.jpg  
+.. image:: img/together/together02.JPG  
 
 Use three M3 screws to attach the acrylic to the standoffs on the lower level chassis.
 
@@ -26,7 +26,7 @@ Voila!
 -------
 Finally, screw on the antenna and your final vehicle should look like the following:
 
- .. image:: img/together/together04.jpg  
+ .. image:: img/together/together04.JPG  
 
  Now we're ready to start driving!
 
