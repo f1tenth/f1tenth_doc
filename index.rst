@@ -7,6 +7,8 @@ If you want to learn how to make the vehicle, :ref:`Getting Started <doc_build_i
 
 If you already have a working car and the work environment set up, then check out :ref:`Going Forward <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
 
+If you don't want to build a physical car and just want to play around in the simulator, head straight to :ref:`Simulation <doc_going_forward_simulation>`
+
 Join in the discussion with us on Slack! There, you can ask build questions, bring up software concerns, look for competition updates, and much more.
 
 .. image:: img/add-to-slack.png
@@ -43,7 +45,7 @@ The main documentation for the site is organized into the following sections:
    :name: sec-build
 
    getting_started/intro 
-   getting_started/build_car
+   getting_started/build_car/index
    getting_started/software_setup/index
    getting_started/firmware
    getting_started/appendix/index
