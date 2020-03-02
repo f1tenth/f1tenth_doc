@@ -10,25 +10,25 @@ Removing Traxxas Stock Components
 -----------------------------------
 Take the Traxxas from its box and remove the outer shell so you are left with just this:
 
-.. image:: img/llchassis/llchassis01.jpg
+.. image:: img/llchassis/llchassis01.JPG
 
 We are going to remove everything except for the servo, which is the little blue box in the upper left. There are three hex keys that come with the traxxas. You will use this to remove and/or install almost all of the screws on the chassis. You may want to have a bowl or container of sorts nearby to hold all the screws that you’ll be removing as these screws will come in handy later. 
 
 Remove the servo box by first unscrewing the lid of the box.
 
-.. figure:: img/llchassis/llchassis02.jpg
+.. figure:: img/llchassis/llchassis02.JPG
 
 Once the top is open, use a screwdriver to pry the black box below out. This will also help with removal of the blue antenna. There are screws beneath the black box that we have to access in order to completely remove the ESC box.
 
-.. image:: img/llchassis/llchassis03.jpg
+.. image:: img/llchassis/llchassis03.JPG
 
 Once the ESC has been removed, you will see the two screws underneath. Unscrew these and then you’ll be able to remove the box.
 
-.. image:: img/llchassis/llchassis04.jpg
+.. image:: img/llchassis/llchassis04.JPG
 
 Remove the motor and the rest of the other components so that your final lower level chassis looks like the following:
 
-.. image:: img/llchassis/llchassis05.jpg
+.. image:: img/llchassis/llchassis05.JPG
 
 The plastic fork will also need be removed. 
 
@@ -36,33 +36,33 @@ Installing the Brushless Motor
 -------------------------------
 To install the brushless motor, first remove the blue plate and the spur gear connected to the brushed (stock) motor. The spur gear is attached to the brushed motor with a set screw. Loosen the set screw with one of the hex keys provided in the Traxxas kit then pull the spur gear off. If it feels a bit stuck, carefully use a flathead screwdriver to push it off.
 
-.. image:: img/llchassis/llchassis06.jpg
+.. image:: img/llchassis/llchassis06.JPG
 
-.. image:: img/llchassis/llchassis07.jpg
+.. image:: img/llchassis/llchassis07.JPG
 
 Install the blue plate and spur gear onto the brushless motor so your brushless motor now looks like this:
 
-.. image:: img/llchassis/llchassis08.jpg
+.. image:: img/llchassis/llchassis08.JPG
 
 We have to align the spur gear with the rest of the gears on the lower level chassis. Remove the gear casing on the lower level chassis so you can see if the gears align or not.
 
-.. image:: img/llchassis/llchassis09.jpg
+.. image:: img/llchassis/llchassis09.JPG
 
-.. image:: img/llchassis/llchassis10.jpg
+.. image:: img/llchassis/llchassis10.JPG
 
 Adjust the position of the spur gear accordingly so that when you move the car back and forth on the table, the movement should feel smooth and you can see the gears mesh and move without slipping or skipping teeth. Replace the covering once you are satisfied.
 
-.. image:: img/llchassis/llchassis11.jpg
+.. image:: img/llchassis/llchassis11.JPG
 
 Once the brushless motor has been installed and all other components except the servo has been removed, the final lower level chassis should look like this:
 
-.. image:: img/llchassis/llchassis12.jpg
+.. image:: img/llchassis/llchassis12.JPG
 
 Attaching the Standoffs
 -------------------------
 Install three M3 screws and three 45mm M3 FF standoffs into the lower chassis.
 
-.. image:: img/llchassis/llchassis13.jpg
+.. image:: img/llchassis/llchassis13.JPG
 
 We only install three standoffs so that we can have easy access to the battery. You may want to use `thread lock <https://www.amazon.com/Loctite-Heavy-Duty-Threadlocker-Single/dp/B000I1RSNS/ref=sxin_1_ac_d_pm?ac_md=1-0-VW5kZXIgJDEw-ac_d_pm&cv_ct_cx=thread+lock&keywords=thread+lock&link_code=qs&pd_rd_i=B000I1RSNS&pd_rd_r=94268c5a-3e09-4447-a20e-0f4af52ac1b2&pd_rd_w=zvAiv&pd_rd_wg=WpfTu&pf_rd_p=516e6e17-ed95-417b-b7a4-ad2c7b9cbae3&pf_rd_r=ZPGZWZ9518Z8FR6860B5&psc=1&qid=1583189105>`_ to secure these standoffs as the vibrations of the car during movement may loosen them.
 
@@ -82,32 +82,32 @@ Setting Up the Battery
 
 Place the battery into the compartment opposite of the motor.
 
-.. image:: img/llchassis/llchassis14.jpg
+.. image:: img/llchassis/llchassis14.JPG
 
 Plug the `charge adapter <https://www.amazon.com/gp/product/B078P9V99B/ref=crt_ewc_title_huc_1?ie=UTF8&psc=1&smid=A87AJ0MK8WLZZ>`_ into the battery plug,
 
-.. image:: img/llchassis/llchassis15.jpg
+.. image:: img/llchassis/llchassis15.JPG
 
 Then, connect the other side of the charge adapter to a TRX to XT90 cable.
 
-.. image:: img/llchassis/llchassis16.jpg
+.. image:: img/llchassis/llchassis16.JPG
 
 It should look like this:
 
-.. image:: img/llchassis/llchassis17.jpg
+.. image:: img/llchassis/llchassis17.JPG
 
 Attaching the PPM Cable
 -------------------------
 Take 3 header pins,
 
-.. image:: img/llchassis/llchassis18.jpg
+.. image:: img/llchassis/llchassis18.JPG
 
 Plug it into the servo wires.
 
-.. image:: img/llchassis/llchassis19.jpg
+.. image:: img/llchassis/llchassis19.JPG
 
 Connect the ppm cable with the servo wire.
 
-.. image:: img/llchassis/llchassis20.jpg
+.. image:: img/llchassis/llchassis20.JPG
 
 The lower level chassis is now set up and we can move on to the autonomy elements.
