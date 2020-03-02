@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bringing the Host and Jetson Together &mdash; F1tenth latest documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/f1_stickers_02.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="alternate" hreflang="en" href="https://docs.godotengine.org/en/" />
+    <link rel="alternate" hreflang="de" href="https://docs.godotengine.org/de/" />
+    <link rel="alternate" hreflang="es" href="https://docs.godotengine.org/es/" />
+    <link rel="alternate" hreflang="fr" href="https://docs.godotengine.org/fr/" />
+    <link rel="alternate" hreflang="ko" href="https://docs.godotengine.org/ko/" />
+    <link rel="alternate" hreflang="pl" href="https://docs.godotengine.org/pl/" />
+    <link rel="alternate" hreflang="pt-br" href="https://docs.godotengine.org/pt-br/" />
+    <link rel="alternate" hreflang="uk" href="https://docs.godotengine.org/uk/" />
+    <link rel="alternate" hreflang="zh-cn" href="https://docs.godotengine.org/zh-cn/" />
+    <link rel="alternate" hreflang="x-default" href="https://docs.godotengine.org/" />
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Installing Firmware" href="../firmware.html" />
+    <link rel="prev" title="Jetson Setup" href="software_jetson.html" />
+
+
+  <script type="text/javascript">
+    <!-- Adds target=_blank to external links -->
+
+    $(document).ready(function () {
+      $('a[href^="http://"], a[href^="https://"]').not('a[class*=internal]').attr('target', '_blank');
+    });
+  </script>
+
+ 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/f1_stickers_02.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build_car/index.html">Building the Car</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../build_car/lower_level_chassis.html">Lower Level Chassis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/lower_level_chassis.html#removing-traxxas-stock-components">Removing Traxxas Stock Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/lower_level_chassis.html#installing-the-brushless-motor">Installing the Brushless Motor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/lower_level_chassis.html#attaching-the-standoffs">Attaching the Standoffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/lower_level_chassis.html#setting-up-the-battery">Setting Up the Battery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/lower_level_chassis.html#attaching-the-ppm-cable">Attaching the PPM Cable</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../build_car/autonomy_elements.html">Autonomy Elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/autonomy_elements.html#removing-the-tx2-and-antenna">Removing the TX2 and Antenna</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/autonomy_elements.html#attaching-the-orbitty-to-the-tx2">Attaching the Orbitty to the TX2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../build_car/upper_level_chassis.html">Upper Level Chassis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/upper_level_chassis.html#mounting-the-vesc-and-the-powerboard">Mounting the VESC and the Powerboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/upper_level_chassis.html#mounting-the-tx2-and-antenna">Mounting the TX2 and Antenna</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/upper_level_chassis.html#mounting-and-connecting-the-lidar-and-usb-hub">Mounting and Connecting the Lidar and USB Hub</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../build_car/upper_level_chassis.html#cable-management">Cable Management</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../build_car/all_together.html">Putting it all together</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/all_together.html#mounting-the-upper-level-chassis-to-the-lower-level-chassis">Mounting the Upper Level Chassis to the Lower Level Chassis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/all_together.html#connecting-the-brushless-motor-to-the-vesc">Connecting the Brushless Motor to the VESC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../build_car/all_together.html#voila">Voila!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Software Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="software_host.html">Host/Laptop Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_host.html#installing-ubuntu">Installing Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_host.html#installing-ros">Installing ROS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_jetson.html">Jetson Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_jetson.html#connect-terminals-to-the-jetson-aka-the-device">Connect terminals to the Jetson (aka “the device”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_jetson.html#install-linux">1. Install Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_jetson.html#flashing-the-jetpack">2. Flashing the Jetpack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_jetson.html#re-flashing-the-orbitty">3. Re-flashing the Orbitty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_jetson.html#installing-ros">4. Installing ROS</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bringing the Host and Jetson Together</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-the-jetson-car-to-the-access-point">Connecting the Jetson/Car to the Access Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-your-host-laptop-to-the-access-point">Connecting Your Host/Laptop to the Access Point</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mac-os">Mac OS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sshing-into-the-car">SSHing into the Car</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-wireless-hot-spot-on-jetson">Setting Up Wireless Hot Spot on Jetson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-vnc-server-on-jetson">Setting Up VNC Server on Jetson</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../firmware.html">Installing Firmware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../firmware.html#tuning-the-focboxs-pid-gains">Tuning the FOCbox’s PID Gains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../firmware.html#hokuyo-10lx-ethernet-connection-setup">Hokuyo 10LX Ethernet Connection Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../firmware.html#working-directory-setup">Working Directory Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../firmware.html#udev-rules-setup">Udev Rules Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../firmware.html#manual-control">Manual Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../firmware.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../firmware.html#tuning-the-vesc-parameters">Tuning the VESC Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../firmware.html#testing-the-lidar-usb-only">Testing the Lidar (USB Only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../firmware.html#recording-bag-data-on-the-car">Recording Bag Data on the Car</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/appendix_a.html">Appendix A: Flashing Jetpack via a VM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../appendix/appendix_a.html#spin-up-an-ubuntu-vm">1.2 Spin up an Ubuntu VM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../appendix/appendix_a.html#download-nvidia-jetpack">1.3 Download NVIDIA JetPack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../appendix/appendix_a.html#install-jetpack">1.4 Install JetPack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../appendix/appendix_a.html#validation-flash">1.5 Validation Flash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/appendix_b.html">Appendix B: Shared Folders between Host and VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#mechanical">Mechanical</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#do-i-have-a-broken-drive-train-how-can-i-fix-it">Do I have a broken drive train? How can I fix it?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#differential-makes-excessive-noise">Differential makes excessive noise…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#im-not-able-to-steer-the-car-no-response-from-the-steering-servo">I’m not able to steer the car, no response from the steering servo…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#system-identification-failure-and-vesc-tuning">System identification failure and VESC tuning…</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#wireless-network">Wireless Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#high-packet-loss-excessive-latency-on-wireless-network">High packet-loss, excessive latency on wireless network…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#increasing-range-of-the-gamepad">Increasing range of the gamepad</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#software">Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#vesc-serial-failures-vesc-hardware-and-software-revisions">VESC serial failures, VESC hardware and software revisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#lidar-variants">LIDAR variants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#installing-pytorch">Installing pyTorch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../faq.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#kernel">Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#simulation-and-experiments-without-hardware">Simulation and Experiments without Hardware</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Going Forward</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../going_forward/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../going_forward/simulation.html">Simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/simulation.html#want-a-different-navigation-algorithm">Want a Different Navigation Algorithm?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/simulation.html#want-a-different-track">Want a Different Track?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/simulation.html#dont-want-the-gui">Don’t Want the GUI?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/simulation.html#moving-the-car-manually-in-simulation">Moving the Car Manually in Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/simulation.html#creating-a-world">Creating a World</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../going_forward/algorithms.html">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/algorithms.html#wall-following">Wall Following</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#wall-following-with-explicit-instructions">Wall Following with Explicit Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/algorithms.html#gap-finding-in-lidar-scans-houssam">Gap-finding in LiDAR Scans [Houssam]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/algorithms.html#scan-matching-odometry-sheil">Scan Matching Odometry [Sheil]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#installing-packages">Installing Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#getting-the-example-launch-file">Getting the Example Launch File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/algorithms.html#localization">Localization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#localization-with-hector-slam">Localization with Hector SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#localization-with-amcl-adaptive-monte-carlo-localization">Localization with AMCL (Adaptive Monte Carlo Localization)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#localization-with-particle-filter-faster-and-more-accurate-than-amcl">Localization with Particle Filter (Faster and More Accurate than AMCL)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/algorithms.html#working-with-waypoints">Working with Waypoints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#generating-waypoints">Generating Waypoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#following-waypoints-with-pure-pursuit">Following Waypoints with Pure Pursuit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#pure-pursuit-speed-control-algorithm">Pure Pursuit Speed Control Algorithm</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../going_forward/algorithms.html#path-planning">Path Planning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#path-planning-with-ros-move-base">Path Planning with ROS move_base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../going_forward/algorithms.html#path-planning-with-teb-timed-elastic-band-local-planner">Path Planning with TEB (Timed Elastic Band) Local Planner</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contact.html">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">F1tenth</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Software Setup</a> &raquo;</li>
+        
+      <li>Bringing the Host and Jetson Together</li>
+    
+    
+
+
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/godotengine/godot-docs/blob/master/getting_started/software_setup/software_combine.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bringing-the-host-and-jetson-together">
+<span id="doc-software-combine"></span><h1>Bringing the Host and Jetson Together<a class="headerlink" href="#bringing-the-host-and-jetson-together" title="Permalink to this headline">¶</a></h1>
+<p>We could log into the Jetson using a monitor, keyboard, and mouse, but what about when we’re driving the car? Fortunately, the Jetson has Wi-Fi capability and can be accessed remotely via an SSH session. Throughout this tutorial, you will be asked to configure the Jetson’s and your laptop’s network settings. Make sure to get these right! Using the wrong IP address may lead to conflicts with another classmate, meaning neither of you will be able to connect.</p>
+<div class="section" id="connecting-the-jetson-car-to-the-access-point">
+<h2>Connecting the Jetson/Car to the Access Point<a class="headerlink" href="#connecting-the-jetson-car-to-the-access-point" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Click the wireless icon at the top right of the screen and click the f110 network to start connecting to it. You will be prompted for a Wi-Fi password for the network: enter the password the TAs give you.</p>
+<blockquote>
+<div><ul class="simple">
+<li>It’s normal for the wireless icon to appear as if the Jetson is not connected immediately to the network since we still need to assign it an IP address.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">In the same menu, click “Edit Connections.” In the pop-up value that appears, highlight the f110 network and click the Edit button.</p>
+</li>
+<li><p class="first">Navigate to the IPv4 Settings tab and, under “Addresses,”, click the Add button.</p>
+<blockquote>
+<div><ul class="simple">
+<li>In the “Address” field, type ​192.168.2.xxx​, where ​xxx​ is your team’s number plus 200. (For example, if I was on team 2, I would type ​192.168.2.202​.)</li>
+<li>In the “Netmask” field, type ​255.255.255.0​.</li>
+<li>In the “Gateway” field, type ​192.168.2.1​.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">In the “DNS servers” field, type the same entry you used for the default gateway: 192.168.2.1​. (The router already has DNS servers configured in its internal settings.)</p>
+</li>
+<li><p class="first">You should now be connected. Try opening Chromium and connecting to a site like Google, or using the ​ping​ utility from a terminal to test internet connectivity.</p>
+<blockquote>
+<div><ul class="simple">
+<li>If you experience signal strength issues, try moving closer to the router.</li>
+<li>If you can’t see the router at all, ensure that your Wi-Fi antennas are securely connected to the Jetson. You can also try toggling the adapter on and off via the “Enable Wi-Fi” option in the wireless settings menu.</li>
+<li>If you are connected to the router but can’t reach the internet, you may need to set up the Hokuyo to not allow routing through it.</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="connecting-your-host-laptop-to-the-access-point">
+<h2>Connecting Your Host/Laptop to the Access Point<a class="headerlink" href="#connecting-your-host-laptop-to-the-access-point" title="Permalink to this headline">¶</a></h2>
+<p>Important Note​: when connecting your laptop to the router, use an IP address of the form 192.168.2.xxx​, where ​xxx​ is your team’s number multiplied by 4, added to 100, and then added to a number between 0 and 3 according to the alphabetical order of your last name in your team. For example, if I am on team 2, my name is Jack Harkins, and my teammates are Chris Kao, Sheil Sarda, and Houssam Abbas, I would add 1 since my last name (Harkins) comes second, making my final IP address ​192.168.2.209​.</p>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>If you’re running Linux in a dual-boot configuration or as a standalone OS, the steps to connect are the same as those for the Jetson above; just make sure you use the correct IP address for your laptop instead of the one for the Jetson. If you’re running Linux in a VM, connect your ​host​ computer to the router using the instructions below. Depending on which VM software you have and the default VM configuration, you may also need to set its network adapter configuration to NAT mode. This ensures your VM will share the wireless connection with your host OS instead of controlling the adapter itself.</p>
+</div>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<p>These instructions are for Windows 10, but they should be easily replicable on older Windows versions as well.</p>
+<ol class="arabic">
+<li><p class="first">Click the wireless icon at the bottom right of the taskbar, select the f110 network, and click the Connect button. Enter the network password when prompted.</p>
+</li>
+<li><p class="first">Right-click the same wireless icon and click “Open Network &amp; Internet settings.” Click “Change connection properties” in the window that pops up.</p>
+</li>
+<li><p class="first">Scroll down, and under “IP settings,” hit the Edit button. Change “Automatic (DHCP)” to manual, click the IPv4 slider, and enter the IP address, gateway, and DNS server as described previously.</p>
+<blockquote>
+<div><ul class="simple">
+<li>“Subnet prefix” should be set to ​24​, not ​255.255.255.0​ as you did with the Jetson.</li>
+<li>You can leave “Alternate DNS” blank.</li>
+<li>Remember to use the correct IP address for your computer; it should be different from the one you used on the car.)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">If successful, the yellow exclamation mark on the wireless icon should go away. You can test connectivity using the ​ping​ utility included with the Windows command prompt.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="mac-os">
+<h3>Mac OS<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></h3>
+<p>Coming Soon</p>
+</div>
+</div>
+<div class="section" id="sshing-into-the-car">
+<h2>SSHing into the Car<a class="headerlink" href="#sshing-into-the-car" title="Permalink to this headline">¶</a></h2>
+<p>The ​ssh​ utility is useful for gaining terminal access to your car when you don’t have a monitor around and when you don’t need to do visualization (e.g. via rviz​). Using this utility will give you the ability to edit and run your ROS code remotely and is especially useful when you want to rapidly develop and test new algorithms without the hassle a monitor can bring.</p>
+<p>Before doing this, make sure both your laptop and car are connected to the f110 network as described ​here​.</p>
+<ol class="arabic">
+<li><p class="first">Open a terminal on your laptop and type $ ​ssh your car’s IP address​ to connect to the car. You will be prompted for your Jetson login password; type this in as well.</p>
+<blockquote>
+<div><ul class="simple">
+<li>The first time you SSH into the car, you will probably be told that the “authenticity of the host can’t be established.” Just type in “yes” and the dialog will not appear again.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">If successful, you should see a prompt similar to ​</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ubuntu@tegra-ubuntu:~$​,
+</pre></div>
+</div>
+<p>which indicates that you’re now connected to the car’s terminal. Try starting ​ roscore​ and running some ROS scripts. Don’t forget to source your working directory’s setup file beforehand.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Don’t forget that while you’re SSH’ed into the car, you’re running over the wireless network. Try not to get too far away from the car so you don’t accidentally get logged out, and make sure you ​save your work often​.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="setting-up-wireless-hot-spot-on-jetson">
+<h2>Setting Up Wireless Hot Spot on Jetson<a class="headerlink" href="#setting-up-wireless-hot-spot-on-jetson" title="Permalink to this headline">¶</a></h2>
+<p>As you begin to test on larger tracks, you may find a need to have a direct connection to your car, so as to not have to rely on the car being within a certain distance of your router. The solution here is to set up wireless hot spot on the Jetson. It is extremely easy.</p>
+<p>Go to System Settings on your Jetson. Then Network.</p>
+<img alt="../../_images/wireless1.jpg" src="../../_images/wireless1.jpg" />
+<p>On the bottom center of the pop-up window for the network, click on “Use as Hotspot…” You will no longer have internet connection because your wireless antennas will now be used as a hot spot rather than to connect to the previous Wi-Fi connection that you were on.</p>
+<p>Note that if you plan on using the wireless hotspot feature often, you will want it to boot up on startup. To do this, open up Network Connections, under Wi-Fi select Hotspot and Edit.</p>
+<img alt="../../_images/wireless2.jpg" src="../../_images/wireless2.jpg" />
+<p>Under General click on “Automatically connect to this network when available”.</p>
+<p>On your phone, tablet, or laptop you can now connect directly to this Hotspot, and you can use it with VNC viewer as well if you have set up a VNC server. The default IP address for Hotspot on the Jetson is 10.42.0.1.</p>
+</div>
+<div class="section" id="setting-up-vnc-server-on-jetson">
+<h2>Setting Up VNC Server on Jetson<a class="headerlink" href="#setting-up-vnc-server-on-jetson" title="Permalink to this headline">¶</a></h2>
+<p>(This is not essential, just useful if you feel strongly about having a GUI-type of desktop)</p>
+<p>Setting up a VNC server on the Jetson allows you to control the Jetson remotely. Why is this beneficial? When the car is running in the real world we won’t be able to connect the Jetson to an HDMI display. The traditional solution has been to ssh into the Jetson to see the directories, but what if we want to see graphical programs such as Rviz? (in order to see laser scans in live time and camera feeds). Or what if we want to be able to see multiple terminal windows open on the Jetson? A VNC server does this trick.</p>
+<p>Here are sequential instructions to install x11vnc and set it up so it loads every time at boot up, taken from ​http://c-nergy.be/blog/?p=10426​ . The article linked contains a link to a shell file to launch all these instructions. We have just pasted it here in case the original article or its link become inaccessible.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#​ ​##################################################################</span>
+<span class="c1">#​ Script Name : vnc-startup.sh</span>
+<span class="c1">#​ Description : Perform an automated install of X11Vnc</span>
+<span class="c1">#​ Configure it to run at startup of the machine</span>
+<span class="c1">#​ Date : Feb 2016</span>
+<span class="c1">#​ Written by : Griffon</span>
+<span class="c1">#​ Web Site :http://www.c-nergy.be - http://www.c-nergy.be/blog</span>
+<span class="c1">#​ Version : 1.0</span>
+<span class="c1">#</span>
+<span class="c1">#​ Disclaimer : Script provided AS IS. Use it at your own risk....</span>
+<span class="c1">#</span>
+<span class="c1">#​ ​#################################################################</span>
+
+<span class="c1">#​ Step 1 - Install X11VNC</span>
+<span class="c1">#​ ​#################################################################</span>
+
+sudo apt-get install x11vnc -y
+
+<span class="c1">#​ Step 2 - Specify Password to be used ​for​ VNC Connection</span>
+<span class="c1">#​ ​#################################################################</span>
+
+sudo x11vnc -storepasswd /etc/x11vnc.pass
+
+<span class="c1">#​ Step 3 - Create the Service Unit File</span>
+<span class="c1">#​ ​#################################################################</span>
+
+cat &gt; /lib/systemd/system/x11vnc.service <span class="s">&lt;&lt; EOF</span>
+<span class="s">[Unit]</span>
+<span class="s">Description=Start x11vnc at startup.</span>
+<span class="s">After=multi-user.target</span>
+
+<span class="s">[Service]</span>
+<span class="s">Type=simple</span>
+<span class="s">ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat</span>
+<span class="s">-rfbauth /etc/x11vnc.pass -rfbport 5900 -shared</span>
+
+<span class="s">[Install]</span>
+<span class="s">WantedBy=multi-user.target</span>
+<span class="s">EOF</span>
+
+<span class="c1">#​ Step 4 -Configure the Service</span>
+<span class="c1">#​ ​################################################################</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Configure Services&quot;</span>
+sudo systemctl <span class="nb">enable</span> x11vnc.service
+sudo systemctl daemon-reload
+sleep  5s
+sudo shutdown -r now
+</pre></div>
+</div>
+<p>Note that if you want to change the port that the VNC server lives on, then simply change 5900 to some other number. The article states that if 5900 is used on the Jetson, then the VNC server will automatically forward through 5901. And if that is taken, then 5902, and so on and so forth.</p>
+<p>To connect to your VNC server, use a VNC viewer. A free one that works pretty well is ​ Real VNC’s VNC Viewer​. If you are on a mac, you can also use the included Screen Sharing app. Connect by typing into the url [jetson’s ip address]:[port number]. So for instance, if the jetson is connected on ip address 192.168.2.9 with port number 5900, then type in 192.168.2.9:5900.</p>
+<p>Lastly, you will want to use an HDMI emulator, like this one, in order to trick the Jetson to thinking that a display is connected so that it will display at higher resolutions by running the GPU. Otherwise, if the Jetson is booted up with nothing connected into the HDMI port, the VNC server will default to a really low resolution, like 640 x 480. There is probably also an OS way to configure this, but it’s a lot easier to buy a $10 piece that solves the issue by hardware.</p>
+<p>Note that there are existing softwares to be able to set up VNC servers as well, such as Real VNC. However, we found that these could not install on the Jetson TX2 because it uses an AARM64 processor. That is why we had to use x11vnc.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../firmware.html" class="btn btn-neutral float-right" title="Installing Firmware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="software_jetson.html" class="btn btn-neutral float-left" title="Jetson Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2020, f1tenth community (CC-BY-NC-SA 4.0)
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
