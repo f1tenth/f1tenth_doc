@@ -28,6 +28,8 @@ Finally, screw on the antenna and your final vehicle should look like the follow
 
  .. image:: img/together/together04.JPG  
 
+
  Now we're ready to start driving!
 
  .. image:: img/together/together05.gif
+ 	:align: center

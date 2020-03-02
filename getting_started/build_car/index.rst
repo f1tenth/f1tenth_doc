@@ -19,7 +19,7 @@ Approximate Time Investment: 1.5 hour
 .. warning:: 
 	**LIPO (LITHIUM POLYMER) BATTERY SAFETY WARNING**
 	
-	LiPO batteries allow your car to run for a long time, but they are not something to play with or joke about. They store a large amount of energy in a small space and can damage your car and cause a fire if used improperly. With this in mind, here are some safety tips for using them with the car.
+	The F1/10 Autonomous Vehicle uses lithium polymer batteries. LiPO batteries allow your car to run for a long time, but they are not something to play with or joke about. They store a large amount of energy in a small space and can damage your car and cause a fire if used improperly. With this in mind, here are some safety tips for using them with the car.
 
 	* When charging batteries, always monitor them and place them in a fireproof bag on a non-flammable surface clear of any other objects.
 	* Do not leave a LIPO battery connected to the car when you’re not using it. The battery will discharge and its voltage will drop to a level too low to charge it safely again.

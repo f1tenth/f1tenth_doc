@@ -110,4 +110,7 @@ Connect the ppm cable with the servo wire.
 
 .. image:: img/llchassis/llchassis20.JPG
 
+.. note:: 
+	Make sure the polarity of the PPM cable to servo is correct. **BROWN is GROUND**
+
 The lower level chassis is now set up and we can move on to the autonomy elements.
