@@ -14,11 +14,11 @@ Take the Traxxas from its box and remove the outer shell so you are left with ju
 
 We are going to remove everything except for the servo, which is the little blue box in the upper left. There are three hex keys that come with the traxxas. You will use this to remove and/or install almost all of the screws on the chassis. You may want to have a bowl or container of sorts nearby to hold all the screws that you’ll be removing as these screws will come in handy later. 
 
-Remove the servo box by first unscrewing the lid of the box.
+Remove the black receiver box by first unscrewing the lid of the box.
 
 .. figure:: img/llchassis/llchassis02.JPG
 
-Once the top is open, use a screwdriver to pry the black box below out. This will also help with removal of the blue antenna. There are screws beneath the black box that we have to access in order to completely remove the ESC box.
+Once the top is open, use a screwdriver to pry the black box below out. This will also help with removal of the blue antenna. There are screws beneath the black box that we have to access in order to completely remove the receiver box.
 
 .. image:: img/llchassis/llchassis03.JPG
 
