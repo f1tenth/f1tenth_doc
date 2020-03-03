@@ -1,4 +1,4 @@
-\.. _doc_build_upper_level:
+.. _doc_build_upper_level:
 
 
 Upper Level Chassis
@@ -6,56 +6,64 @@ Upper Level Chassis
 
 Now we’re going to assemble the upper level chassis.
 
-Place the laser cut piece so it’s facing you like this. The laser cut piece will be referred to as the **acrylic** for the rest of the build documentation.
+Place the laser cut piece so it’s facing you like this. The laser cut piece will be referred to as the **Platform Deck** for the rest of the build documentation.
 
 .. image:: img/ulchassis/ulchassis01.JPG
 
 .. note:: 
 	**This piece is not symmetric.** Notice that the big M5 VESC mounting holes on the left are not centered. The holes need to be skewed closer to you. 
 
-The following image shows the five components that we will be mounting on the acrylic.
+The following image shows the five components that we will be mounting on the Platform Deck.
 
 .. image:: img/ulchassis/ulchassis02.JPG
 
 Mounting the VESC and the Powerboard
 --------------------------------------
-Place the VESC on the acrylic so that the power wires are facing AWAY from you and the yellow, blue, and white cables are facing TOWARDS you.
+Place the VESC on the Platform Deck so that the power wires are facing AWAY from you and the yellow, blue, and white cables are facing TOWARDS you.
 
 .. image:: img/ulchassis/ulchassis03.JPG 
 
-Flip the acrylic and the VESC over and use two M5 screws mounted diagonal from each other to attach the VESC to the acrylic, like shown below.
+Flip the Platform Deck and the VESC over and use two M5 screws mounted diagonal from each other to attach the VESC to the Platform Deck, like shown below.
 
 .. image:: img/ulchassis/ulchassis04.JPG 
 
-Flip the acrylic with the VESC attached to it back over so the VESC is facing up. Use an M3 x 8mm then a M3 25mm FF standoff for each mounting hole. Only three of the powerboard mounting holes are used. 
+The image above shows the three holes used to mount the Powerboard. Only three of the Powerboard mounting holes are used. Flip the Platform Deck with the VESC attached to it back over so the VESC is facing up. Attach the Powerboard to the Platform deck by using the M3 screws that were removed from the chassis in the Lower Level Chassis section. Thread the M3 screw from underneath the Platform Deck up and secure with a 25mm standoff. Then, Secure the Powerboard to the 25mm standoff with a M3 x 8mm screw.
+
+.. image:: img/ulchassis/ulchassis19.JPG
+
 
 .. image:: img/ulchassis/ulchassis05.JPG
 
-There should be a gap between the powerboard and the VESC.
+There should be a gap between the Powerboard and the VESC.
 
 .. image:: img/ulchassis/ulchassis06.JPG  
 
 Mounting the TX2 and Antenna
 ------------------------------------------------
-Mount the TX2 so that the USB ports are facing the VESC. Use four screws. Most of the components require M3 screws so can also use the screws that you unscrewed from the lower level chassis. The fan should be immediately above the middle opening of the acrylic.
+Using four of the M3 screws that held the Nerf Bars to the chassis, attach the TX2 assembly to the Platform Deck. The screws attach from the bottom side of the Platform Deck. The I/O connectors on the TX2 assembly should face towards the rear of the vehicle and the fan should be immediately above the middle opening of the Platform Deck.
 
 .. image:: img/ulchassis/ulchassis07.JPG  
 
-We will need to power the TX2 so connect a power wire and a ground wire from the green terminal of the Orbitty to one of the 12V terminal on the power board.
+Connect two wires (preferably red and black) from the green terminal on the Orbitty to one 12V terminal on the Power Board. Make sure that the red wire connects +VIN on the Orbitty to 12V on the Power Board terminal. The black wire should connect GND on the Orbitty to GND on the Power Board terminal.
 
 .. image:: img/ulchassis/ulchassis11.JPG  
 
-Mount the antenna to the left of the VESC. 
+.. warning::
+	**MAKE SURE THE POLARITY IS CORRECT. +VIN TO 12V. ORBITTY GND TO GND.** If you plug this in backwards, fire will happen and global warming will immediately speed up exponentially.
+
+Mount the antenna to the rear of the VESC. 
 
 .. image:: img/ulchassis/ulchassis08.JPG  
 
-Make sure to also plug the gray antenna wires into the TX2.
-
-.. image:: img/ulchassis/ulchassis09.JPG  
-
 Mounting and Connecting the Lidar and USB Hub
 ----------------------------------------------
-The last component to mount is the lidar. Use four M3 screws to mount from underneath. 
+The last component to mount is the lidar. Here, we use the Hokuyo UTM-30LX. The mounting holes for the Hokuyo UST-10LX are slightly different.
+
+.. image:: img/ulchassis/ulchassis20.JPG  
+
+Use the appropriate mounting holes for your lidar.
+
+Use four M3 screws to mount from underneath. 
 
 .. image:: img/ulchassis/ulchassis10.JPG  
 
@@ -73,21 +81,26 @@ Plug the USB hub into the USB port on the Orbitty Carrier Board. So far, the top
 
 Cable Management
 ^^^^^^^^^^^^^^^^^^^
-The lidar comes with two very long cables. We are going to try out best to manage them. Split the two cables of the lidar and loop them under the slots on the acrylic.
+The lidar comes with two very long cables. We are going to try out best to manage them. Split the two cables of the lidar and loop them under the slots on the Platform Deck.
 
 .. image:: img/ulchassis/ulchassis15.JPG  
 
-Using a twist tie, rubber band, or zip tie, gather the majority of the cables on each side. For the stripped cable side, insert the **BROWN (POWER)** and **BLUE (GROUND)** wires into one of the 12V terminal blocks on the powerboard. 
+Using a twist tie, rubber band, or zip tie, gather the majority of the cables on each side. For the stripped cable side, insert the **BROWN (POWER)** and **BLUE (GROUND)** wires into one of the 12V terminal blocks on the Powerboard. 
 
-.. note::
-	***BROWN is POWER and BLUE is GROUND.*  DO NOT MIX THESE UP OTHERWISE YOU WILL FRY YOUR VERY EXPENSIVE LIDAR.** When in doubt, check the side of the Hokuyo. It will list out the correspondence of each wire.
+.. warning::
+	***BROWN is POWER and BLUE is GROUND.*  DO NOT MIX THESE UP OTHERWISE YOU WILL FRY YOUR VERY EXPENSIVE LIDAR.** And then life will be very very sad. When in doubt, check the side of the Hokuyo. It will list out the correspondence of each wire.
 
 .. image:: img/ulchassis/ulchassis16.JPG  
 
 .. image:: img/ulchassis/ulchassis17.JPG  
 
-On the USB side, simply plug into one of the ports on the USB hub.
+If using the UTM-30LX, plug the USB into one of the ports on the USB hub.
 
 .. image:: img/ulchassis/ulchassis18.JPG  
 
+If using the UST-10LX, plug the ethernet cable into the ethernet port on the Orbitty board.
+
 The upper level chassis is complete and we're ready to assemble everything!
+
+.. image:: img/ulchassis/ulchassis21.gif
+   :align: center

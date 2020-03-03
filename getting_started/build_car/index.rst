@@ -32,14 +32,14 @@ There are three main sections to the car.
 
 .. image:: img/build_outline.JPG
 
-| [1] will be referred to as the **lower level chassis**
-| [2] will be referred to as the **autonomy elements**
+| [1] will be referred to as the **Lower Level Chassis**
+| [2] will be referred to as the **Autonomy Elements**
 | [3] will be referred to as the **upper level chassis**
 
-#. First, we start off by setting up the :ref:`lower level chassis <doc_build_lower_level>` , which serves as the foundation of the vehicle.
-#. Then, we put together all of the :ref:`autonomy elements <doc_build_autonomy_elements>`.
-#. Next, all of the autonomy elements will be mounted on the :ref:`upper level chassis <doc_build_upper_level>`.
-#. Finally, the upper level chassis will be :ref:`connected <doc_build_all_together>` with the lower level chassis.
+#. First, we start off by setting up the :ref:`Lower Level Chassis <doc_build_lower_level>` , which serves as the foundation of the vehicle.
+#. Then, we put together all of the :ref:`Autonomy Elements <doc_build_autonomy_elements>`.
+#. Next, all of the Autonomy Elements will be mounted on the :ref:`upper level chassis <doc_build_upper_level>`.
+#. Finally, the upper level chassis will be :ref:`connected <doc_build_all_together>` with the Lower Level Chassis.
 
 If you plan on doing a lot of hardware build, it would make life a lot easier if you purchase a `cabinet <https://www.amazon.com/dp/B07DFDS56H/ref=sspa_dk_detail_0?pd_rd_i=B07DFDS56H&pd_rd_w=ozKLb&pf_rd_p=c83c55b0-5d97-454a-a592-a891098a9709&pd_rd_wg=KgL0C&pf_rd_r=8JJYY9JNB12JSW30ZM0K&pd_rd_r=ebf4fbec-a1e1-46cd-b8f8-8edde070e37c&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFRU00wWTJZWEdIWlYmZW5jcnlwdGVkSWQ9QTA2NTk5NTQyV1pFWENSQlZPUDFVJmVuY3J5cHRlZEFkSWQ9QTAxNDkwNDlXNzlIQ1RKMEtYOU0md2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWMmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl&th=1>`_ of sorts and a label maker to organize all the components.  
 
