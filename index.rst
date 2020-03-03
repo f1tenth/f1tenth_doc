@@ -28,7 +28,7 @@ in the top left corner.
           Submit an issue or pull request on the `GitHub repository
           <https://github.com/kimnluong/f1tenth_doc>`_.
 
-Many thanks to the `f1tenth <http://f1tenth.org/>`_ community at the University of Pennsylvania, `Kim Luong <kim-luong.com>`_ for compiling this documentation, and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
+Many thanks to the `f1tenth <http://f1tenth.org/>`_ community at the University of Pennsylvania, `Kim Luong <https://www.kim-luong.com>`_ for compiling this documentation, and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
 
 The main documentation for the site is organized into the following sections:
 
