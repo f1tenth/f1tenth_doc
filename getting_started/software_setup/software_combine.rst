@@ -95,63 +95,24 @@ Setting Up VNC Server on Jetson
 
 Setting up a VNC server on the Jetson allows you to control the Jetson remotely. Why is this beneficial? When the car is running in the real world we won’t be able to connect the Jetson to an HDMI display. The traditional solution has been to ssh into the Jetson to see the directories, but what if we want to see graphical programs such as Rviz? (in order to see laser scans in live time and camera feeds). Or what if we want to be able to see multiple terminal windows open on the Jetson? A VNC server does this trick.
 
-Here are sequential instructions to install x11vnc and set it up so it loads every time at boot up, taken from ​http://c-nergy.be/blog/?p=10426​ . The article linked contains a link to a shell file to launch all these instructions. We have just pasted it here in case the original article or its link become inaccessible.
+#. Install XIIVNC
+	
+	.. code-block:: bash
 
-.. code-block:: bash
+		sudo apt install x11vnc
+#. Create a password file
 
-	#​ ​##################################################################
-	#​ Script Name : vnc-startup.sh
-	#​ Description : Perform an automated install of X11Vnc
-	#​ Configure it to run at startup of the machine
-	#​ Date : Feb 2016
-	#​ Written by : Griffon
-	#​ Web Site :http://www.c-nergy.be - http://www.c-nergy.be/blog
-	#​ Version : 1.0
-	#
-	#​ Disclaimer : Script provided AS IS. Use it at your own risk....
-	#
-	#​ ​#################################################################
+	.. code-block:: bash
 
-	#​ Step 1 - Install X11VNC
-	#​ ​#################################################################
+		echo mypassword > /home/nvidia/.vnc/password
 
-	sudo apt-get install x11vnc -y
+	Change this to your own password. You might have to create the .vnc directory
+#. Press windows/command/super key and search for ‘startup applications’. Create a new startup command, give it a name, and the command is:
+	
+	.. code-block:: bash
 
-	#​ Step 2 - Specify Password to be used ​for​ VNC Connection
-	#​ ​#################################################################
+		/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -passwdfile /home/nvidia/.vnc/password -rfbport 5900 -shared
+#. Restart the Jetson.
 
-	sudo x11vnc -storepasswd /etc/x11vnc.pass
 
-	#​ Step 3 - Create the Service Unit File
-	#​ ​#################################################################
 
-	cat > /lib/systemd/system/x11vnc.service << EOF
-	[Unit]
-	Description=Start x11vnc at startup.
-	After=multi-user.target
-
-	[Service]
-	Type=simple
-	ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat
-	-rfbauth /etc/x11vnc.pass -rfbport 5900 -shared
-
-	[Install]
-	WantedBy=multi-user.target
-	EOF
-
-	#​ Step 4 -Configure the Service
-	#​ ​################################################################
-
-	echo "Configure Services"
-	sudo systemctl enable x11vnc.service
-	sudo systemctl daemon-reload
-	sleep  5s
-	sudo shutdown -r now
-
-Note that if you want to change the port that the VNC server lives on, then simply change 5900 to some other number. The article states that if 5900 is used on the Jetson, then the VNC server will automatically forward through 5901. And if that is taken, then 5902, and so on and so forth.
-
-To connect to your VNC server, use a VNC viewer. A free one that works pretty well is ​ Real VNC’s VNC Viewer​. If you are on a mac, you can also use the included Screen Sharing app. Connect by typing into the url [jetson’s ip address]:[port number]. So for instance, if the jetson is connected on ip address 192.168.2.9 with port number 5900, then type in 192.168.2.9:5900.
-
-Lastly, you will want to use an HDMI emulator, like this one, in order to trick the Jetson to thinking that a display is connected so that it will display at higher resolutions by running the GPU. Otherwise, if the Jetson is booted up with nothing connected into the HDMI port, the VNC server will default to a really low resolution, like 640 x 480. There is probably also an OS way to configure this, but it’s a lot easier to buy a $10 piece that solves the issue by hardware.
-
-Note that there are existing softwares to be able to set up VNC servers as well, such as Real VNC. However, we found that these could not install on the Jetson TX2 because it uses an AARM64 processor. That is why we had to use x11vnc.

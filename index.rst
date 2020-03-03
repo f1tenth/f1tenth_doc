@@ -28,16 +28,9 @@ in the top left corner.
           Submit an issue or pull request on the `GitHub repository
           <https://github.com/kimnluong/f1tenth_doc>`_.
 
+Many thanks to the `f1tenth <http://f1tenth.org/>`_ community at the University of Pennsylvania, `Kim Luong <kim-luong.com>`_ for compiling this documentation, and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
+
 The main documentation for the site is organized into the following sections:
-
-.. 
-	.. toctree::
-..    :maxdepth: 1
-..    :caption: General
-..    :name: sec-general
-
-..    about/index
-
 
 .. toctree::
    :maxdepth: 1
@@ -60,25 +53,6 @@ The main documentation for the site is organized into the following sections:
    going_forward/intro
    going_forward/simulation
    going_forward/algorithms
-
-
-.. 
-	.. toctree::
-..    :maxdepth: 1
-..    :caption: Learn
-..    :name: sec-learn
-
-..    learn/index
-  
-
-.. 
-	.. toctree::
-..    :maxdepth: 1
-..    :caption: Press
-..    :name: sec-press
-
-..    press/index
-
 
 .. toctree::
    :maxdepth: 1
