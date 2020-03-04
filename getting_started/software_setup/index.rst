@@ -1,7 +1,7 @@
 .. _doc_software_setup:
 
-Software Setup
-===============
+System Configuration
+=====================
 
 This section has three sections:
 

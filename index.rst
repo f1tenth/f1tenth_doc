@@ -3,20 +3,22 @@ f1tenth - build documentation
 
 Welcome to the official build documentation of `F1tenth <http://f1tenth.org/>`_. 
 
-If you want to learn how to make the vehicle, :ref:`Getting Started <doc_build_intro>` walks through how to build the car from ground up. It will also explain how to install all of the required firmware and software.
+If you want to learn how to make the vehicle, :ref:`Getting Started <doc_build_intro>` walks through how to build the car from ground up and get things running.
 
 If you already have a working car and the work environment set up, then check out :ref:`Going Forward <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
 
-If you don't want to build a physical car and just want to play around in the simulator, head straight to :ref:`Simulation <doc_going_forward_simulation>`
+If you don't want to build a physical car and just want to play around in the simulator, head straight to :ref:`Simulation <doc_going_forward_simulation>`.
 
-Join in the discussion with us on Slack! There, you can ask build questions, bring up software concerns, look for competition updates, and much more.
+.. note:: 
+  If you have any build questions, post to the `forum <http://f1tenth.org/forum.html>`_.
+
+Join in the discussion with other teams on Slack! 
 
 .. image:: img/add-to-slack.png
    :target: https://join.slack.com/t/f1tenth-teams/shared_invite/enQtMzc3ODU2ODM1NzE3LTBjMmVkMzZjZTJiNWUzZDFhZTJiODgzMjg0MTA1MDAxZTUxMzkwMDRhNTM2NzdjNDc5MTk5YTc5YmNhNTdhMTU
 
-The table of contents below and in the sidebar should let you easily access the
-documentation for your topic of interest. You can also use the search function
-in the top left corner.
+Many thanks to the `f1tenth <http://f1tenth.org/>`_ community at the University of Pennsylvania, `Kim Luong <https://www.kim-luong.com>`_ for writing and compiling this documentation, and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
+
 
 .. note:: F1tenth is an open source project developed by a community of
           researchers and students. The documentation team can always use your
@@ -25,10 +27,11 @@ in the top left corner.
           are looking for in the docs, help us make the documentation better
           by letting us know!
 
-          Submit an issue or pull request on the `GitHub repository
-          <https://github.com/kimnluong/f1tenth_doc>`_.
+          Submit an issue `GitHub repository <https://github.com/f1tenth/f1tenth_doc>`_.
 
-Many thanks to the `f1tenth <http://f1tenth.org/>`_ community at the University of Pennsylvania, `Kim Luong <https://www.kim-luong.com>`_ for compiling this documentation, and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
+The table of contents below and in the sidebar should let you easily access the
+documentation for your topic of interest. You can also use the search function
+in the top left corner.
 
 The main documentation for the site is organized into the following sections:
 
