@@ -17,9 +17,6 @@ Join in the discussion with other teams on Slack!
 .. image:: img/add-to-slack.png
    :target: https://join.slack.com/t/f1tenth-teams/shared_invite/enQtMzc3ODU2ODM1NzE3LTBjMmVkMzZjZTJiNWUzZDFhZTJiODgzMjg0MTA1MDAxZTUxMzkwMDRhNTM2NzdjNDc5MTk5YTc5YmNhNTdhMTU
 
-Many thanks to the `f1tenth <http://f1tenth.org/>`_ community at the University of Pennsylvania, `Kim Luong <https://www.kim-luong.com>`_ for writing and compiling this documentation, and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
-
-
 .. note:: F1tenth is an open source project developed by a community of
           researchers and students. The documentation team can always use your
           feedback and help to improve the tutorials and class reference. If
@@ -28,6 +25,8 @@ Many thanks to the `f1tenth <http://f1tenth.org/>`_ community at the University 
           by letting us know!
 
           Submit an issue `GitHub repository <https://github.com/f1tenth/f1tenth_doc>`_.
+
+Many thanks to the `f1tenth <http://f1tenth.org/>`_ community at the University of Pennsylvania, `Kim Luong <https://www.kim-luong.com>`_ for writing and compiling this documentation, and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
 
 The table of contents below and in the sidebar should let you easily access the
 documentation for your topic of interest. You can also use the search function
