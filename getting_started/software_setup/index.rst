@@ -25,7 +25,9 @@ This section has three subsections:
    software_jetson
    software_host
    software_combine
+   software_vesc
 
 | :ref:`Jetson setup <doc_software_jetson>` goes over how to set up the Jetson TX2.
 | :ref:`Host setup <doc_software_host>` details how to install ROS and the simulators on your laptop. 
 | :ref:`Combine setup <doc_software_combine>` goes over how to communicate between your host laptop and the TX2 once you have already completed the above two sections.
+| :ref:`Combine setup <doc_software_vesc>` goes over how to tune the VESC.
