@@ -64,8 +64,6 @@ After installation of the Brushless Motor, the Lower Level chassis should look l
 
 .. image:: img/llchassis/llchassis12.JPG
 
-because the Platform Standoffs still need to be attached.
-
 Attaching the Standoffs
 -------------------------
 First, remove the two Nerf Bars (black handles) located on either side of the chassis. There are 4 screws that hold each Nerf Bar in place. The screws are accessible from underneath the chassis.
