@@ -25,7 +25,24 @@ It may be useful to use a zip tie to secure the USB cable from the lidar to the 
 
 Connecting the Brushless Motor to the VESC
 -------------------------------------------
-**Kim add pics when we get in adapter orders**
+Take three 3mm to 3.5mm bullet adapters.
+
+.. image:: img/together/together07.png
+
+Attach the adapters to the blue, yellow, and white wires of the Brushless Motor.
+
+ .. image:: img/together/together08.JPG
+
+ 
+The VESC also has three wires labelled "A", "B", and "C".
+
+ .. image:: img/together/together10.JPG
+
+Now, we are going to connect these to the VESC. This part is a tad tricky. Connect the middle yellow cable to the cable connected to the label "B" on the VESC.
+
+.. image:: img/together/together09.JPG
+
+For now, connect the middle YELLOW wire to the VESC wire "B", the WHITE wire to "A", and BLUE wire to "C". After you flash the firmware on the VESC, if the vehicle runs backwards to the expected motion, simply swap the WHITE wire to "C" and BLUE wire to "A".
 
 Final Touches
 ------------------------------
