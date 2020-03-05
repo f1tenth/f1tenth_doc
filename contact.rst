@@ -6,4 +6,4 @@ F1tenth is an open source project developed by a community of researchers and st
 by letting us know!
 
 Submit an issue or pull request on the `GitHub repository
-<https://github.com/kimnluong/f1tenth_doc>`_.
+<https://github.com/f1tenth/f1tenth_doc>`_.
