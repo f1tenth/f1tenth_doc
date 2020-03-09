@@ -56,14 +56,16 @@ Connect a micro USB from the VESC to the USB hub.
 
 .. image:: img/together/together06.JPG  
 
-Finally, screw on the antennas included with the Jetson TX2 Kit to the Antenna Terminals. Your final vehicle should look like the following:
+Finally, screw on the antennas included with the Jetson TX2 Kit to the Antenna Terminals. 
 
 Voila!
 -------
+Your final vehicle should look like the following:
+
  .. image:: img/together/together04.JPG  
 
 
- Now we're ready to start driving!
+Now we're ready to start driving!
 
- .. image:: img/together/together05.gif
- 	:align: center
+.. image:: img/together/together05.gif
+   :align: center
