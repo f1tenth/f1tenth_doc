@@ -6,7 +6,7 @@ Upper Level Chassis
 
 Now we’re going to assemble the upper level chassis.
 
-Place the laser cut piece so it’s facing you like this. The laser cut piece will be referred to as the **Platform Deck** for the rest of the build documentation.
+Place the laser cut piece so it’s facing you like this. The laser cut piece will be referred to as the `**Platform Deck** <https://drive.google.com/drive/u/1/folders/1emwVnfmk-XC0Gmi_FlR5dDSzg32j1fCX>`_ for the rest of the build documentation.
 
 .. image:: img/ulchassis/ulchassis01.JPG
 
