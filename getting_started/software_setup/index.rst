@@ -9,7 +9,7 @@ The image below represents the flow of information on the F1TENTH Autonomous Veh
 
 .. image:: img/f1tenth_sys_flow.png
 
-The TX2 is the main brain of the entire system. It gives commands to the VESC which controls the Servo and the Brushless Motor. The TX2 also  receives information from the Lidar and sends it to the Pit. The Pit laptop is where we can connect to the TX2 to control it. 
+The **TX2** is the main brain of the entire system. It gives commands to the **VESC**which controls the **Servo** and the **Brushless Motor**. The **TX2** also receives information from the **Lidar**. The **Pit** laptop is where we can connect remotely to the **TX2**. 
 
 .. note:: 
   If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
