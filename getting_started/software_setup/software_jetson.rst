@@ -24,13 +24,15 @@ The TX2 is essentially a supercomputer on a module. We attach it to the Orbitty 
 
 The TX2 should power on. If it doesn't, press the ON button.
 
-.. warning::
+.. note::
+
 	**KIM WILL PROBABLY HAVE TO TRANSCRIBE THIS (after Billy does the checking)**
 
-`Professor Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University has compiled a fantastic `document <https://drive.google.com/file/d/1N1FiPtAqpbeAYlKoFA4Tsxl0XC_Y8niT/view?usp=sharing>`_ on how to set up the software.
+`Professor Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University has compiled a fantastic on how to set up the software.
 
-.. image:: img/jetson/jetson_install/ModuleA_2InstallSoftware-01.jpg
-   :target: https://drive.google.com/file/d/1N1FiPtAqpbeAYlKoFA4Tsxl0XC_Y8niT/view?usp=sharing
+.. raw:: html
+
+	<iframe width="700" height="500" src="https://drive.google.com/file/d/1N1FiPtAqpbeAYlKoFA4Tsxl0XC_Y8niT/preview" width="640" height="480"></iframe>
 
 ..
 	A command prompt window asking for login credentials should show on your Monitor. The login information is:

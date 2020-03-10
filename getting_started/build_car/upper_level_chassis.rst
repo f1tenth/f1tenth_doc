@@ -11,7 +11,7 @@ Place the laser cut piece so it’s facing you like this. The laser cut piece wi
 .. image:: img/ulchassis/ulchassis01.JPG
 
 .. note:: 
-	**This piece is not symmetric.** Notice that the big M5 VESC mounting holes on the left are not centered. The holes need to be skewed closer to you. 
+	**This piece is not symmetric.** Notice that the big M5 VESC mounting holes to the rear of the car (towards the left in the left in the image above) are not centered. The holes need to be skewed closer to you. 
 
 The following image shows the five components that we will be mounting on the Platform Deck.
 

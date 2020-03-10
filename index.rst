@@ -23,7 +23,7 @@ Talk with other F1TENTH teams on Slack!
 
           Submit an issue `GitHub repository <https://github.com/f1tenth/f1tenth_doc>`_.
 
-Many thanks to the `F1TENTH <http://f1tenth.org/>`_ community at the University of Pennsylvania, `Kim Luong <https://www.kim-luong.com>`_ for writing and compiling this documentation, and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
+Many thanks to the `F1TENTH <http://f1tenth.org/>`_ community at the University of Pennsylvania and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
 
 The table of contents below and in the sidebar should let you easily access the
 documentation for your topic of interest. You can also use the search function

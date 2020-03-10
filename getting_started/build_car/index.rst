@@ -6,13 +6,17 @@ Building the Car
 
 At the end of this build section, you will have a fully functioning F1TENTH Autonomous Vehicle.
 
-**Bill of Materials**:
-The master BOM can be found `here <https://docs.google.com/spreadsheets/d/1ykUyrZq-vLlMTf0TIcdMrRbGKcRWglW6ol76QyGst2I/edit#gid=2038095912>`_
+| **Bill of Materials**:
+| `Master BOM <https://docs.google.com/spreadsheets/d/1ykUyrZq-vLlMTf0TIcdMrRbGKcRWglW6ol76QyGst2I/edit#gid=2038095912>`_
 
-| **Tools Needed:**
-|   - M5 hex key
-|   - the three hex keys (M3, M2.5, M2) included in the TRAXXAS kit 
-|   - `T3 Torx Screwdriver <https://www.ifixit.com/Store/Tools/T3-Torx-Screwdriver/IF145-041?o=2>`_
+.. raw:: html
+
+    <iframe width="560" height="950" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQpeGA74hmfi7aZCqyUDgmA6UDSbyWWVRLzpCmqXuTEX1TZNTnYAlQf3Kv69imXkLvwF-V_q2LC5tEd/pubhtml?widget=true&amp;headers=false"></iframe>
+
+**Tools Needed:**
+	- M5 hex key
+	- the three hex keys (M3, M2.5, M2) included in the TRAXXAS kit 
+	- `T3 Torx Screwdriver <https://www.ifixit.com/Store/Tools/T3-Torx-Screwdriver/IF145-041?o=2>`_
 
 **Difficulty Level:** Medium
 
