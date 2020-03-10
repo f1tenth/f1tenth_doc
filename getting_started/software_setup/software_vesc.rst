@@ -1,9 +1,16 @@
 .. _doc_software_vesc:
 
-.. TODO
-
 Configuring the VESC
 ==========================
+
+.. warning:: 
+    **Important Safety Tips**
+
+    * Put your car on an elevated stand so that its wheels can turn without it going anywhere. If you don’t have an RC car stand, you can use the box that came with your Jetson.
+    * Make sure you hold on to the car while testing the motor to prevent it from flying off the stand.
+    * Make sure there are no objects (or people) in the vicinity of the wheels while testing.
+    * It’s a good idea to use a fully-charged LiPO battery instead of a power supply to ensure the motor has enough current to spin up.
+    
 
 We need to configure the VESC so that it works with the ROS driver package. Before you start, you'll need to install the latest `VESC Tool <https://vesc-project.com/vesc_tool>`_ on a laptop or a PC.
 
