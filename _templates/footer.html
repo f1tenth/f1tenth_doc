@@ -1,0 +1,37 @@
+  
+<footer>
+  {% if next or prev %}
+    <div class="rst-footer-buttons">
+      {% if next %}
+        <a href="{{ next.link|e }}" class="btn btn-neutral float-right" title="{{ next.title|striptags|e }}"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      {% endif %}
+      {% if prev %}
+        <a href="{{ prev.link|e }}" class="btn btn-neutral" title="{{ prev.title|striptags|e }}"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <hr/>
+
+  <p style="font-size: 85%">
+<!-- 
+  {%- if show_copyright %}
+    {%- if hasdoc('copyright') %}
+      {% trans path=pathto('copyright'), copyright=copyright|e %}<a href="{{ path }}">Copyright</a> &copy; {{ copyright }}{% endtrans %}
+    {%- else %}
+      {% trans copyright=copyright|e %}Copyright &copy; {{ copyright }}{% endtrans %}
+    {%- endif %} -->
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png" /></a>
+    <br/>
+    Content on this site by the <a xmlns:cc="http://creativecommons.org/ns#" href="http://f1tenth.org" property="cc:attributionName" rel="cc:attributionURL">F1TENTH Foundation</a>
+    is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+  {%- endif %}
+  <br/>
+  {%- if last_updated %}
+    {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
+  {%- endif %}
+  </p>
+
+ 
+</footer>

@@ -23,9 +23,9 @@ source_encoding = 'utf-8-sig'
 master_doc = 'index'
 
 # General information about the project
-project = 'F1tenth'
-copyright = '2018-2020, f1tenth community (CC-BY-NC-SA 4.0)'
-author = 'f1tenth community'
+# project = 'F1tenth'
+# copyright = '2018-2020, f1tenth community (CC-BY-NC-SA 4.0)'
+# author = 'f1tenth community'
 
 # Version info for the project, acts as replacement for |version| and |release|
 # The short X.Y version
@@ -81,14 +81,15 @@ html_theme_options = {
 # VCS options: https://docs.readthedocs.io/en/latest/vcs.html#github
 html_context = {
     "display_github": not is_i18n, # Integrate GitHub
-    "github_user": "godotengine", # Username
-    "github_repo": "godot-docs", # Repo name
+    "github_user": "f1tenth", # Username
+    "github_repo": "f1tenth_doc", # Repo name
     "github_version": "master", # Version
     "conf_py_path": "/", # Path in the checkout to the docs root
 }
 
-html_logo = 'img/logo/f1_stickers_02.png'
-html_favicon = 'img/logo/f1_stickers_02.png'
+html_logo = 'press/img/logo/f1_stickers_02.png'
+html_favicon = 'press/img/logo/f1_stickers_02.png'
+
 # These folders are copied to the documentation's HTML output
 html_static_path = ['_static']
 
@@ -103,6 +104,11 @@ html_css_files = [
 html_js_files = [
     'js/custom.js',
 ]
+
+# Hide copyright in footer
+html_show_copyright = True
+html_show_sphinx = True
+html_last_updated_fmt = '%b %d, %Y'
 
 # Output file base name for HTML help builder
 htmlhelp_basename = 'F1tenthdoc'
