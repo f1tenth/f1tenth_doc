@@ -5,8 +5,18 @@ Bringing the Host and Jetson Together
 ======================================
 We could log into the Jetson using a monitor, keyboard, and mouse, but what about when we’re driving the car? Fortunately, the Jetson has Wi-Fi capability and can be accessed remotely via an SSH session. Throughout this tutorial, you will be asked to configure the Jetson’s and your laptop’s network settings. Make sure to get these right! Using the wrong IP address may lead to conflicts with another classmate, meaning neither of you will be able to connect.
 
-Connecting the Jetson/Car to the Access Point
+We provide two options to connect the Jetson and the host laptop in the same network.
+
+Setting up the Hardware for wireless network
 ----------------------------------------------
+If you have a TX2, it comes with a network card onboard, make sure you connect the atennas.
+
+If you have a Nano/Xavier NX, or a Xavier, you'll need to install a M.2 network card from Intel to enable wireless networking.
+
+Connecting the Jetson/Car to a dedicated router
+-------------------------------------------------
+
+Note that you'll need a wireless router for this option.
 
 #. Click the wireless icon at the top right of the screen and click the f110 network to start connecting to it. You will be prompted for a Wi-Fi password for the network: enter the password the TAs give you.
 
