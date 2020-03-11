@@ -4,66 +4,66 @@ Installing Firmware
 ====================
 Now that the physical car is built and the software has been setup, we can start to install the firmware on the car.
 
-Tuning the FOCbox’s PID Gains
-------------------------------
-In this section we use the words FOCbox and VESC interchangeably.
+.. Tuning the FOCbox’s PID Gains
+.. ------------------------------
+.. In this section we use the words FOCbox and VESC interchangeably.
 
-.. warning:: 
-	**Important Safety Tips**
+.. .. warning:: 
+.. 	**Important Safety Tips**
 
-	* Make sure you hold on to the car while testing the motor to prevent it from flying off the stand.
-	* Make sure there are no objects (or people) in the vicinity of the wheels while testing.
-	* It’s a good idea to use a fully-charged LiPO battery instead of a power supply to ensure the motor has enough current to spin up.
+.. 	* Make sure you hold on to the car while testing the motor to prevent it from flying off the stand.
+.. 	* Make sure there are no objects (or people) in the vicinity of the wheels while testing.
+.. 	* It’s a good idea to use a fully-charged LiPO battery instead of a power supply to ensure the motor has enough current to spin up.
 
-#. Put your car on an elevated stand so that its wheels can turn without it going anywhere. If you don’t have an RC car stand, you can use the box that came with your Jetson.
-#. Connect the host laptop to the FOCbox using a USB cable.
-#. Download bldc tool from `JetsonHacks <https://github.com/jetsonhacks/installBLDC>`_, following his instructions for installation.
-#. Open BLDC Tool and click the “Connect” button at the top right of the window to connect to the VESC.
+.. #. Put your car on an elevated stand so that its wheels can turn without it going anywhere. If you don’t have an RC car stand, you can use the box that came with your Jetson.
+.. #. Connect the host laptop to the FOCbox using a USB cable.
+.. #. Download bldc tool from `JetsonHacks <https://github.com/jetsonhacks/installBLDC>`_, following his instructions for installation.
+.. #. Open BLDC Tool and click the “Connect” button at the top right of the window to connect to the VESC.
 
-	* If you get the error “Device not found”, try running the command ​lsusb​ in a terminal. You should see an entry for “STMicroelectronics STMF407” or something similar. If you don’t, try unplugging and plugging in the USB cable on both ends. If the problem doesn’t go away, try rebooting the Jetson.
+.. 	* If you get the error “Device not found”, try running the command ​lsusb​ in a terminal. You should see an entry for “STMicroelectronics STMF407” or something similar. If you don’t, try unplugging and plugging in the USB cable on both ends. If the problem doesn’t go away, try rebooting the Jetson.
 
-	.. image:: img/tuning1.jpg
+.. 	.. image:: img/tuning1.jpg
 
-	* If you are using a VESC 4.12 (including a FOCbox), ensure the firmware version is 2.18.
+.. 	* If you are using a VESC 4.12 (including a FOCbox), ensure the firmware version is 2.18.
 
-	.. image:: img/tuning2.jpg
+.. 	.. image:: img/tuning2.jpg
 
-#. Disable keyboard control by clicking the “KB Ctrl” button at the lower right. This will prevent your keyboard’s arrow keys from controlling the motor and is important to prevent damage to the car from it moving unexpectedly.
+.. #. Disable keyboard control by clicking the “KB Ctrl” button at the lower right. This will prevent your keyboard’s arrow keys from controlling the motor and is important to prevent damage to the car from it moving unexpectedly.
 
-	.. image:: img/tuning3.jpg
+.. 	.. image:: img/tuning3.jpg
 
-#. Start plotting the realtime RPM data by clicking the “Realtime Data” tab, and checking the “Activate sampling” checkbox at the bottom left of the window. Click the “RPM” tab above the graph.
+.. #. Start plotting the realtime RPM data by clicking the “Realtime Data” tab, and checking the “Activate sampling” checkbox at the bottom left of the window. Click the “RPM” tab above the graph.
 
-	* We will keep referring to this plot of the motor’s RPM as we tune the PID gains. Out goal is to get the motor to spin up as quickly as possible when we set it to a certain RPM. We also don’t want the motor to cog (not spin) or overshoot the target speed if possible.
+.. 	* We will keep referring to this plot of the motor’s RPM as we tune the PID gains. Out goal is to get the motor to spin up as quickly as possible when we set it to a certain RPM. We also don’t want the motor to cog (not spin) or overshoot the target speed if possible.
 
-	.. image:: img/tuning4.jpg
+.. 	.. image:: img/tuning4.jpg
 
-#. Test the motor first (without PID speed control) by setting the “Duty Cycle” to 0.20. This will spin the motor up to approximately 16,000 - 17,000 RPM. Let this run for a few seconds, and then press the “Release Motor” button at the bottom right to stop it.
+.. #. Test the motor first (without PID speed control) by setting the “Duty Cycle” to 0.20. This will spin the motor up to approximately 16,000 - 17,000 RPM. Let this run for a few seconds, and then press the “Release Motor” button at the bottom right to stop it.
 
-	* Observe the RPM graph. If the motor is spinning backwards (the RPM is negative), try reversing two of the connections from the VESC to the motor. (It doesn’t matter which wires you reverse.)
-	* If the wheels don’t spin and the motor makes no noise, check to make sure all connections to the motor are tight.
-	* If the wheels don’t spin and the motor does, ensure the motor’s gear is attached correctly to the gearbox at the back of the car. Spin both front wheels with your hand to verify that the gear is making good contact. You should feel some resistance when turning the wheels.
-	* If the motor doesn’t spin and makes a humming or hissing sound, you might need to replace the motor. If this doesn’t work, try replacing the VESC.
+.. 	* Observe the RPM graph. If the motor is spinning backwards (the RPM is negative), try reversing two of the connections from the VESC to the motor. (It doesn’t matter which wires you reverse.)
+.. 	* If the wheels don’t spin and the motor makes no noise, check to make sure all connections to the motor are tight.
+.. 	* If the wheels don’t spin and the motor does, ensure the motor’s gear is attached correctly to the gearbox at the back of the car. Spin both front wheels with your hand to verify that the gear is making good contact. You should feel some resistance when turning the wheels.
+.. 	* If the motor doesn’t spin and makes a humming or hissing sound, you might need to replace the motor. If this doesn’t work, try replacing the VESC.
 
-	.. image:: img/tuning5.jpg
+.. 	.. image:: img/tuning5.jpg
 
-#. Click the “Motor Configuration” tab at the top and the “Advanced” tab on the left. Set Ki and Kd to 0.00000, and set Kp to 0.00001. Click the “Write Configuration” button at the bottom, go back to the data plotting tab and run the car at 3000 RPM.
+.. #. Click the “Motor Configuration” tab at the top and the “Advanced” tab on the left. Set Ki and Kd to 0.00000, and set Kp to 0.00001. Click the “Write Configuration” button at the bottom, go back to the data plotting tab and run the car at 3000 RPM.
 
-	* You will notice that the car won’t even make it close, as it only goes up to around 1200 RPM. (High steady-state error.)
-	* Try turning Kp up to 0.00002, 0.00004, and 0.00008. (Don’t forget to write the configuration each time.) The motor will start to cog out at higher Kp values.
+.. 	* You will notice that the car won’t even make it close, as it only goes up to around 1200 RPM. (High steady-state error.)
+.. 	* Try turning Kp up to 0.00002, 0.00004, and 0.00008. (Don’t forget to write the configuration each time.) The motor will start to cog out at higher Kp values.
 	
-	.. image:: img/tuning6.jpg
+.. 	.. image:: img/tuning6.jpg
 
-#. Set Kp back to 0.00002, and set Ki to 0.00002, and run the car at 3000 RPM again. Notice how the car slowly reaches the 3000 RPM target. (This is because adding Ki helps to eliminate steady-state error.) Keep increasing Ki; set it to 0.00005 and then double that value a few times until the car is able to reach 3000 RPM without overshooting or cogging out.
+.. #. Set Kp back to 0.00002, and set Ki to 0.00002, and run the car at 3000 RPM again. Notice how the car slowly reaches the 3000 RPM target. (This is because adding Ki helps to eliminate steady-state error.) Keep increasing Ki; set it to 0.00005 and then double that value a few times until the car is able to reach 3000 RPM without overshooting or cogging out.
 
-#. Now, try increasing the speed to 6000 RPM. The motor might cog out and overshoot. If it does, try halving Kp.
+.. #. Now, try increasing the speed to 6000 RPM. The motor might cog out and overshoot. If it does, try halving Kp.
 
-#. Increase the speed to 10,000 RPM and then 20,000 RPM. ​Make sure you hold the car! If the motor cogs out and overshoots, halve Kp until it doesn’t. It may also help to halve Ki if halving Kp doesn’t work. If done correctly, the motor should not overshoot to more than 2 times the set RPM. (That is, if the RPM is set to 15,000, its peak value should not exceed 30,000.)
+.. #. Increase the speed to 10,000 RPM and then 20,000 RPM. ​Make sure you hold the car! If the motor cogs out and overshoots, halve Kp until it doesn’t. It may also help to halve Ki if halving Kp doesn’t work. If done correctly, the motor should not overshoot to more than 2 times the set RPM. (That is, if the RPM is set to 15,000, its peak value should not exceed 30,000.)
 
 
 Hokuyo 10LX Ethernet Connection Setup
 -----------------------------------------
-Coming Soon: Add pictures and snippets.
+.. Coming Soon: Add pictures and snippets.
 
 In order to utilize the 10LX you must first configure the eth0 network. From the factory the 10LX is assigned the following ip: 192.168.0.10. Note that the lidar is on subnet 0.
 
@@ -77,23 +77,23 @@ In the racecar config folder under ``lidar_node`` set the following parameter: `
 
 Working Directory Setup
 --------------------------
-On your host computer (e.g., your laptop), setup your working directory (the F1/10th car and simulator) by following these steps.
+On your host computer (e.g., your laptop), setup your working directory (for the F1TENTH simulator and skeleton code for course modules) by following these steps.
 
 Clone the following repository into a folder on your computer.
 
 .. code-block:: bash
 
 	$​ ​cd​ ~/sandbox (or whatever folder you want to work ​in​)
-	$​ git ​clone​ https://github.com/mlab-upenn/f110-fall2018-skeletons.git
+	$​ git ​clone​ https://github.com/f1tenth/f110_ros
 
 Create a workspace folder if you haven’t already, here called f110_ws, and copy the simulator folder into it:
 
 .. code-block:: bash
 
 	$​ mkdir -p f110_ws/src
-	$​ cp -r f110-fall2018-skeletons f110_ws/src/
+	$​ cp -r f110_ros f110_ws/src/
 
-You will need to install these with apt-get in order for the car and Gazebo simulator to work.
+You might need to install these for the simulator.
 
 .. code-block:: bash
 
@@ -144,9 +144,12 @@ Then open ​``/etc/udev/rules.d/99-joypad-f710.rules​`` and add this rule for
 .. code-block:: bash
 
 	KERNEL=="js[0-9]*", ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c219", SYMLINK+="input/joypad-f710"
-	Finally, trigger (activate) the rules by running
 
-	​$ sudo ​udevadm control --reload-rules && udevadm trigger​
+Finally, trigger (activate) the rules by running
+
+.. code-block:: bash
+
+	$ sudo ​udevadm control --reload-rules && udevadm trigger​
 
 Reboot your system, and you should find three new devices by running
 

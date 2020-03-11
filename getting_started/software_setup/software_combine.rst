@@ -16,23 +16,81 @@ If you have a Nano/Xavier NX, or a Xavier, you'll need to install a M.2 network 
 Connecting the Jetson/Car to a dedicated router
 -------------------------------------------------
 
-Note that you'll need a wireless router for this option.
+Note that you'll need a wireless router, or use your phone as a wireless hotspot for this option.
 
-#. Click the wireless icon at the top right of the screen and click the f110 network to start connecting to it. You will be prompted for a Wi-Fi password for the network: enter the password the TAs give you.
+.. #. Click the wireless icon at the top right of the screen and click the f110 network to start connecting to it. You will be prompted for a Wi-Fi password for the network: enter the password the TAs give you.
 
-	* It’s normal for the wireless icon to appear as if the Jetson is not connected immediately to the network since we still need to assign it an IP address.
+.. 	* It’s normal for the wireless icon to appear as if the Jetson is not connected immediately to the network since we still need to assign it an IP address.
 
-#. In the same menu, click “Edit Connections.” In the pop-up value that appears, highlight the f110 network and click the Edit button.
+.. #. In the same menu, click “Edit Connections.” In the pop-up value that appears, highlight the f110 network and click the Edit button.
 
-#. Navigate to the IPv4 Settings tab and, under “Addresses,”, click the Add button.
+.. #. Navigate to the IPv4 Settings tab and, under “Addresses,”, click the Add button.
 
-	* In the “Address” field, type ​192.168.2.xxx​, where ​xxx​ is your team’s number plus 200. (For example, if I was on team 2, I would type ​192.168.2.202​.)
-	* In the “Netmask” field, type ​255.255.255.0​.
-	* In the “Gateway” field, type ​192.168.2.1​.
+.. 	* In the “Address” field, type ​192.168.2.xxx​, where ​xxx​ is your team’s number plus 200. (For example, if I was on team 2, I would type ​192.168.2.202​.)
+.. 	* In the “Netmask” field, type ​255.255.255.0​.
+.. 	* In the “Gateway” field, type ​192.168.2.1​.
 
-#. In the “DNS servers” field, type the same entry you used for the default gateway: 192.168.2.1​. (The router already has DNS servers configured in its internal settings.)
+.. #. In the “DNS servers” field, type the same entry you used for the default gateway: 192.168.2.1​. (The router already has DNS servers configured in its internal settings.)
 
-#. You should now be connected. Try opening Chromium and connecting to a site like Google, or using the ​ping​ utility from a terminal to test internet connectivity.
+Connect the Jetson to the wireless router or the wireless hotspot in the Jetson's OS. It might take a while for the Jetson to discover the wireless network.
+
+After you're connected to the wireless network, in your terminal:
+
+.. code-block:: bash
+
+	$ ifconfig
+
+You should see something like this:
+
+.. code-block:: bash
+
+	$ eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+	$         ether 00:04:4b:cb:d9:52  txqueuelen 1000  (Ethernet)
+	$         RX packets 0  bytes 0 (0.0 B)
+	$         RX errors 0  dropped 0  overruns 0  frame 0
+	$         TX packets 0  bytes 0 (0.0 B)
+	$         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+	$         device interrupt 40  
+	$ 
+	$ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+	$         inet 127.0.0.1  netmask 255.0.0.0
+	$         inet6 ::1  prefixlen 128  scopeid 0x10<host>
+	$         loop  txqueuelen 1  (Local Loopback)
+	$         RX packets 1047  bytes 82631 (82.6 KB)
+	$         RX errors 0  dropped 0  overruns 0  frame 0
+	$         TX packets 1047  bytes 82631 (82.6 KB)
+	$         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+	$ 
+	$ rndis0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+	$         ether ea:a2:37:fd:d0:e1  txqueuelen 1000  (Ethernet)
+	$         RX packets 0  bytes 0 (0.0 B)
+	$         RX errors 0  dropped 0  overruns 0  frame 0
+	$         TX packets 0  bytes 0 (0.0 B)
+	$         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+	$ 
+	$ usb0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+	$         ether ea:a2:37:fd:d0:e3  txqueuelen 1000  (Ethernet)
+	$         RX packets 0  bytes 0 (0.0 B)
+	$         RX errors 0  dropped 0  overruns 0  frame 0
+	$         TX packets 0  bytes 0 (0.0 B)
+	$         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+	$ 
+	$ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+	$         inet 195.0.0.5  netmask 255.255.255.0  broadcast 195.0.0.255
+	$         inet6 fe80::4df8:b83b:9390:319d  prefixlen 64  scopeid 0x20<link>
+	$         ether 0c:dd:24:99:e6:52  txqueuelen 1000  (Ethernet)
+	$         RX packets 12511  bytes 4918686 (4.9 MB)
+	$         RX errors 0  dropped 0  overruns 0  frame 0
+	$         TX packets 1262  bytes 196668 (196.6 KB)
+	$         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+You should be able to find your car's assigned IP address under :code:`wlan0`.
+
+Then connect your laptop to the same wireless network. If you're laptop is on Linux or macOS, you could use the same :code:`ifconfig` command in the terminal.
+
+Now that the car and the laptop are on the same network, you should check that you can ping the laptop from the car, and you can ping the car from the laptop with the :code:`ping` command.
+
+.. #. You should now be connected. Try opening Chromium and connecting to a site like Google, or using the ​ping​ utility from a terminal to test internet connectivity.
 
 	* If you experience signal strength issues, try moving closer to the router.
 	* If you can’t see the router at all, ensure that your Wi-Fi antennas are securely connected to the Jetson. You can also try toggling the adapter on and off via the “Enable Wi-Fi” option in the wireless settings menu.
