@@ -13,7 +13,7 @@ If you have a TX2, it comes with a network card onboard, make sure you connect t
 
 If you have a Nano/Xavier NX, or a Xavier, you'll need to install a M.2 network card from Intel to enable wireless networking.
 
-Connecting the Jetson/Car to a dedicated router
+Connecting to a dedicated router
 -------------------------------------------------
 
 Note that you'll need a wireless router, or use your phone as a wireless hotspot for this option.
@@ -86,9 +86,13 @@ You should see something like this:
 
 You should be able to find your car's assigned IP address under :code:`wlan0`.
 
-Then connect your laptop to the same wireless network. If you're laptop is on Linux or macOS, you could use the same :code:`ifconfig` command in the terminal.
+Then connect your laptop to the same wireless network and find its IP Address. If you're laptop is on Linux or macOS, you could use the same :code:`ifconfig` command in the terminal.
+
+If you’re running Linux in a VM, connect your ​host​ computer to the router using the instructions below. Depending on which VM software you have and the default VM configuration, you may also need to set its network adapter configuration to NAT mode. This ensures your VM will share the wireless connection with your host OS instead of controlling the adapter itself.
 
 Now that the car and the laptop are on the same network, you should check that you can ping the laptop from the car, and you can ping the car from the laptop with the :code:`ping` command.
+
+You can now ssh into your car from your laptop. Use :code:`ssh` in the terminal if you're on macOS or Linux, use PuTTY if you're on Windows. We recommend using :code:`tmux` while you're ssh-ed into the car. You can install :code:`tmux` via apt-get.
 
 .. #. You should now be connected. Try opening Chromium and connecting to a site like Google, or using the ​ping​ utility from a terminal to test internet connectivity.
 
@@ -96,52 +100,52 @@ Now that the car and the laptop are on the same network, you should check that y
 	* If you can’t see the router at all, ensure that your Wi-Fi antennas are securely connected to the Jetson. You can also try toggling the adapter on and off via the “Enable Wi-Fi” option in the wireless settings menu.
 	* If you are connected to the router but can’t reach the internet, you may need to set up the Hokuyo to not allow routing through it.
 
-Connecting Your Host/Laptop to the Access Point
--------------------------------------------------
-Important Note​: when connecting your laptop to the router, use an IP address of the form 192.168.2.xxx​, where ​xxx​ is your team’s number multiplied by 4, added to 100, and then added to a number between 0 and 3 according to the alphabetical order of your last name in your team. For example, if I am on team 2, my name is Jack Harkins, and my teammates are Chris Kao, Sheil Sarda, and Houssam Abbas, I would add 1 since my last name (Harkins) comes second, making my final IP address ​192.168.2.209​.
+.. Connecting Your Host/Laptop to the Access Point
+.. -------------------------------------------------
+.. Important Note​: when connecting your laptop to the router, use an IP address of the form 192.168.2.xxx​, where ​xxx​ is your team’s number multiplied by 4, added to 100, and then added to a number between 0 and 3 according to the alphabetical order of your last name in your team. For example, if I am on team 2, my name is Jack Harkins, and my teammates are Chris Kao, Sheil Sarda, and Houssam Abbas, I would add 1 since my last name (Harkins) comes second, making my final IP address ​192.168.2.209​.
 
-Linux
-^^^^^^
-If you’re running Linux in a dual-boot configuration or as a standalone OS, the steps to connect are the same as those for the Jetson above; just make sure you use the correct IP address for your laptop instead of the one for the Jetson. If you’re running Linux in a VM, connect your ​host​ computer to the router using the instructions below. Depending on which VM software you have and the default VM configuration, you may also need to set its network adapter configuration to NAT mode. This ensures your VM will share the wireless connection with your host OS instead of controlling the adapter itself.
+.. Linux
+.. ^^^^^^
+.. If you’re running Linux in a dual-boot configuration or as a standalone OS, the steps to connect are the same as those for the Jetson above; just make sure you use the correct IP address for your laptop instead of the one for the Jetson. If you’re running Linux in a VM, connect your ​host​ computer to the router using the instructions below. Depending on which VM software you have and the default VM configuration, you may also need to set its network adapter configuration to NAT mode. This ensures your VM will share the wireless connection with your host OS instead of controlling the adapter itself.
 
-Windows
-^^^^^^^^
-These instructions are for Windows 10, but they should be easily replicable on older Windows versions as well.
+.. Windows
+.. ^^^^^^^^
+.. These instructions are for Windows 10, but they should be easily replicable on older Windows versions as well.
 
-#. Click the wireless icon at the bottom right of the taskbar, select the f110 network, and click the Connect button. Enter the network password when prompted.
-#. Right-click the same wireless icon and click “Open Network & Internet settings.” Click “Change connection properties” in the window that pops up.
-#. Scroll down, and under “IP settings,” hit the Edit button. Change “Automatic (DHCP)” to manual, click the IPv4 slider, and enter the IP address, gateway, and DNS server as described previously.
+.. #. Click the wireless icon at the bottom right of the taskbar, select the f110 network, and click the Connect button. Enter the network password when prompted.
+.. #. Right-click the same wireless icon and click “Open Network & Internet settings.” Click “Change connection properties” in the window that pops up.
+.. #. Scroll down, and under “IP settings,” hit the Edit button. Change “Automatic (DHCP)” to manual, click the IPv4 slider, and enter the IP address, gateway, and DNS server as described previously.
 
-		* “Subnet prefix” should be set to ​24​, not ​255.255.255.0​ as you did with the Jetson.
-		* You can leave “Alternate DNS” blank.
-		* Remember to use the correct IP address for your computer; it should be different from the one you used on the car.)
-#. If successful, the yellow exclamation mark on the wireless icon should go away. You can test connectivity using the ​ping​ utility included with the Windows command prompt.
+.. 		* “Subnet prefix” should be set to ​24​, not ​255.255.255.0​ as you did with the Jetson.
+.. 		* You can leave “Alternate DNS” blank.
+.. 		* Remember to use the correct IP address for your computer; it should be different from the one you used on the car.)
+.. #. If successful, the yellow exclamation mark on the wireless icon should go away. You can test connectivity using the ​ping​ utility included with the Windows command prompt.
 
-Mac OS
-^^^^^^^^
-Coming Soon
+.. Mac OS
+.. ^^^^^^^^
+.. Coming Soon
 
-SSHing into the Car
--------------------------------------------
-The ​ssh​ utility is useful for gaining terminal access to your car when you don’t have a monitor around and when you don’t need to do visualization (e.g. via rviz​). Using this utility will give you the ability to edit and run your ROS code remotely and is especially useful when you want to rapidly develop and test new algorithms without the hassle a monitor can bring.
+.. SSHing into the Car
+.. -------------------------------------------
+.. The ​ssh​ utility is useful for gaining terminal access to your car when you don’t have a monitor around and when you don’t need to do visualization (e.g. via rviz​). Using this utility will give you the ability to edit and run your ROS code remotely and is especially useful when you want to rapidly develop and test new algorithms without the hassle a monitor can bring.
 
-Before doing this, make sure both your laptop and car are connected to the f110 network as described ​here​.
+.. Before doing this, make sure both your laptop and car are connected to the f110 network as described ​here​.
 
-#. Open a terminal on your laptop and type $ ​ssh your car’s IP address​ to connect to the car. You will be prompted for your Jetson login password; type this in as well.
+.. #. Open a terminal on your laptop and type $ ​ssh your car’s IP address​ to connect to the car. You will be prompted for your Jetson login password; type this in as well.
 
-	* The first time you SSH into the car, you will probably be told that the “authenticity of the host can’t be established.” Just type in “yes” and the dialog will not appear again.
-#. If successful, you should see a prompt similar to ​
+.. 	* The first time you SSH into the car, you will probably be told that the “authenticity of the host can’t be established.” Just type in “yes” and the dialog will not appear again.
+.. #. If successful, you should see a prompt similar to ​
 
-	.. code-block:: bash
+.. 	.. code-block:: bash
 
-		ubuntu@tegra-ubuntu:~$​, 
+.. 		ubuntu@tegra-ubuntu:~$​, 
 
-	which indicates that you’re now connected to the car’s terminal. Try starting ​ roscore​ and running some ROS scripts. Don’t forget to source your working directory’s setup file beforehand.
-#. Don’t forget that while you’re SSH’ed into the car, you’re running over the wireless network. Try not to get too far away from the car so you don’t accidentally get logged out, and make sure you ​save your work often​.
+.. 	which indicates that you’re now connected to the car’s terminal. Try starting ​ roscore​ and running some ROS scripts. Don’t forget to source your working directory’s setup file beforehand.
+.. #. Don’t forget that while you’re SSH’ed into the car, you’re running over the wireless network. Try not to get too far away from the car so you don’t accidentally get logged out, and make sure you ​save your work often​.
 
 Setting Up Wireless Hot Spot on Jetson
 -------------------------------------------
-As you begin to test on larger tracks, you may find a need to have a direct connection to your car, so as to not have to rely on the car being within a certain distance of your router. The solution here is to set up wireless hot spot on the Jetson. It is extremely easy.
+As you begin to test on larger tracks, you may find a need to have a direct connection to your car, so as to not have to rely on the car being within a certain distance of your router. The solution here is to set up wireless hot spot on the Jetson.
 
 Go to System Settings on your Jetson. Then Network.
 
@@ -155,11 +159,11 @@ Note that if you plan on using the wireless hotspot feature often, you will want
 
 Under General click on “Automatically connect to this network when available”.
 
-On your phone, tablet, or laptop you can now connect directly to this Hotspot, and you can use it with VNC viewer as well if you have set up a VNC server. The default IP address for Hotspot on the Jetson is 10.42.0.1.
+On your phone, tablet, or laptop you can now connect directly to this Hotspot, and ssh into it. You can use a VNC client as well if you have set up a VNC server on the car. The default IP address for Hotspot on the Jetson is 10.42.0.1.
 
 Setting Up VNC Server on Jetson
 -------------------------------------------
-(This is not essential, just useful if you feel strongly about having a GUI-type of desktop)
+When you start running mapping and localization algorithms, you'll need to see RViz and use its tools for some applications, meaning that you'll need a GUI interface for the remote desktop.
 
 Setting up a VNC server on the Jetson allows you to control the Jetson remotely. Why is this beneficial? When the car is running in the real world we won’t be able to connect the Jetson to an HDMI display. The traditional solution has been to ssh into the Jetson to see the directories, but what if we want to see graphical programs such as Rviz? (in order to see laser scans in live time and camera feeds). Or what if we want to be able to see multiple terminal windows open on the Jetson? A VNC server does this trick.
 
@@ -180,7 +184,9 @@ Setting up a VNC server on the Jetson allows you to control the Jetson remotely.
 	.. code-block:: bash
 
 		/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -passwdfile /home/nvidia/.vnc/password -rfbport 5900 -shared
-#. Restart the Jetson.
+#. Restart the Jetson, and the vnc server should be running after you restart.
+#. In your favorite VNC client (Ubuntu has Remmina installed by default, and VNC Viewer is available across most platforms), connect to your car's IP with port number 5900 to see the remote desktop. Note that the resolution of the car when it was booted without a monitor plugged in is low, you can plug in the HDMI Emulator included in the BOM or a working monitor to fix that.
 
-
+.. note:: 
+  We've had spotty experience with TX2's network card, the hotspot sometimes just doesn't work. If your TX2's network card is faulty, you can use a USB wifi dongle and use your network through the dongle instead of the TX2 network card.
 
