@@ -87,8 +87,8 @@ html_context = {
     "conf_py_path": "/", # Path in the checkout to the docs root
 }
 
-html_logo = 'press/img/logo/f1_stickers_02.png'
-html_favicon = 'press/img/logo/f1_stickers_02.png'
+# html_logo = 'img/logo/f1_stickers_02.png'
+html_favicon = 'img/logo/f1_stickers_02.png'
 
 # These folders are copied to the documentation's HTML output
 html_static_path = ['_static']
