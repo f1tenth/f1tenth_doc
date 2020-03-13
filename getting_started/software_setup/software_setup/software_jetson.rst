@@ -11,7 +11,7 @@ Configuring the Jetson TX2
 
 The TX2 is essentially a supercomputer on a module. We attach it to the Orbitty Carrier board so that we can access the TX2's peripheral.
 
-Connecting the TX2
+0. Connecting the TX2
 -------------------------
 4 things need to be connected to the TX2.
 
@@ -24,9 +24,11 @@ Connecting the TX2
 
 The TX2 should power on. If it doesn't, press the ON button.
 
-`Professor Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University has compiled a fantastic on how to set up the software.
+.. note::
 
-Please note that Section 2.3 of the document below may not contain applicable information as it is specific to her course.
+	**KIM WILL PROBABLY HAVE TO TRANSCRIBE THIS (after Billy does the checking)**
+
+`Professor Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University has compiled a fantastic on how to set up the software.
 
 .. raw:: html
 

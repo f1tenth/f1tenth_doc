@@ -1,13 +1,20 @@
-F1TENTH - build documentation
+F1TENTH - Build Documentation
 ================================================
 
 Welcome to the official build documentation of `F1TENTH <http://f1tenth.org/>`_. 
 
+This is the most up to date documentation. If you are looking for the old page, you can find it `here <https://f1tenth.github.io/build-old.html>`_. Please note that we no longer provide support for the old build page. If you have questions, please post to the `forum <http://f1tenth.org/forum.html>`_.
+
+.. image:: img/f10cover.png
+
 If you want to learn how to make the vehicle, :ref:`Getting Started <doc_build_intro>` walks through how to build the car from ground up and get things running.
 
-If you already have a working car and the work environment set up, then check out :ref:`Going Forward <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
+.. note:: 
+  For this stable branch, only the :ref:`Build <doc_build_intro>` section is complete and up to date. We are currently working on updating the software documentation.
 
-If you don't want to build a physical car and just want to play around in the simulator, head straight to :ref:`Simulation <doc_going_forward_simulation>`.
+.. If you already have a working car and the work environment set up, then check out :ref:`Going Forward <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
+
+.. If you don't want to build a physical car and just want to play around in the simulator, head straight to :ref:`Simulation <doc_going_forward_simulation>`.
 
 Talk with other F1TENTH teams on Slack! 
 
@@ -39,6 +46,7 @@ The main documentation for the site is organized into the following sections:
    getting_started/intro 
    getting_started/build_car/index
    getting_started/software_setup/index
+..
    getting_started/firmware
    getting_started/appendix/index
    getting_started/faq
@@ -49,6 +57,7 @@ The main documentation for the site is organized into the following sections:
    :caption: Going Forward
    :name: sec-forward
 
+..
    going_forward/intro
    going_forward/simulation
    going_forward/algorithms

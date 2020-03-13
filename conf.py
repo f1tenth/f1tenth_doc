@@ -23,6 +23,7 @@ source_encoding = 'utf-8-sig'
 master_doc = 'index'
 
 # General information about the project
+
 project = 'F1TENTH - Build'
 # copyright = '2018-2020, f1tenth community (CC-BY-NC-SA 4.0)'
 # author = 'f1tenth community'
@@ -111,7 +112,7 @@ html_show_sphinx = True
 html_last_updated_fmt = '%b %d, %Y'
 
 # Output file base name for HTML help builder
-htmlhelp_basename = 'F1tenthdoc'
+htmlhelp_basename = 'F1TENTH_build'
 
 # -- Options for reStructuredText parser ----------------------------------
 
@@ -124,7 +125,7 @@ file_insertion_enabled = False
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'F1tenth.tex', 'F1tenth Documentation',
+  (master_doc, 'F1tenth.tex', 'F1tenth Build Documentation',
    'f1tenth community', 'manual'),
 ]
 
