@@ -398,8 +398,7 @@ When you launch this file, you will see both Gazebo and Rviz open up. You may al
 ``Move_base_sim.launch`` calls a Python file called ``follow_move_base_cmd_vel.py`` which subscribes to the ``/cmd_vel`` topic. ``/cmd_vel`` is published by ``move_base``’s local planner and is a list of Twist messages which basically tells the car what x, y, z velocities and what x, y, z angular velocities to move at. The strategy here is to just take these output values in order to compute the car velocity and steering angle. The equations are as follows:
 
 	Velocity = sqrt(x^2 + y^2)
-	Steering angle = atan2(WHEELBASE_LENGTH * theta_dot
-	 / velocity), where theta_dot is the z angular velocity (aka yaw)
+	Steering angle = atan2(WHEELBASE_LENGTH * theta_dot / velocity), where theta_dot is the z angular velocity (aka yaw)
 
 Note that because the default local planner in move_base is designed for differential drive robots (robots that can spin in place, like the Roomba vacuum cleaner robots), the paths that are generated are not ideal for our car which is an Ackermann steering robot. Hence in the next section we will talk about the TEB (Timed Elastic Band) local planner which can be used for Ackermann robots. But before we get there, you may also want to test out move_base in the real world.
 
