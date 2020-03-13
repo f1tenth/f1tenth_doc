@@ -23,7 +23,7 @@ source_encoding = 'utf-8-sig'
 master_doc = 'index'
 
 # General information about the project
-project = 'F1TENTH'
+project = 'F1TENTH - Build'
 # copyright = '2018-2020, f1tenth community (CC-BY-NC-SA 4.0)'
 # author = 'f1tenth community'
 
