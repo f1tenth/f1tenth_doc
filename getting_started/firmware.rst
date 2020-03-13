@@ -2,7 +2,7 @@
 
 Installing Firmware
 ====================
-Now that the physical car is built and the software has been setup, we can start to install the firmware on the car.
+Now that the physical car is built and the software has been setup, we can start to installing the firmware needed on the car.
 
 .. Tuning the FOCbox’s PID Gains
 .. ------------------------------
@@ -64,43 +64,53 @@ Now that the physical car is built and the software has been setup, we can start
 Hokuyo 10LX Ethernet Connection Setup
 -----------------------------------------
 .. Coming Soon: Add pictures and snippets.
+.. note::
+	If you have a 30LX or a LIDAR that connects via USB, you can skip this section.
 
-In order to utilize the 10LX you must first configure the eth0 network. From the factory the 10LX is assigned the following ip: 192.168.0.10. Note that the lidar is on subnet 0.
+In order to utilize the 10LX you must first configure the eth0 network. From the factory the 10LX is assigned the following ip: ``192.168.0.10``. Note that the lidar is on subnet 0.
 
 First create a new wired connection.
 
-In the ipv4 tab add a route such that the eth0 port on the Jetson is assigned ip address 192.168.0.15, the subnet mask is 255.255.255.0, and the gateway is 192.168.0.1. Call the connection Hokuyo. Save the connection and close the network configuration GUI.
+In the ipv4 tab add a route such that the eth0 port on the Jetson is assigned ip address ``192.168.0.15``, the subnet mask is ``255.255.255.0``, and the gateway is ``192.168.0.1``. Call the connection Hokuyo. Save the connection and close the network configuration GUI.
 
-When you plug in the 10LX make sure that the Hokuyo connection is selected. If everything is configured properly you should now be able to ping 192.168.0.1.
+When you plug in the 10LX make sure that the Hokuyo connection is selected. If everything is configured properly you should now be able to ping ``192.168.0.1``.
 
-In the racecar config folder under ``lidar_node`` set the following parameter: ``ip_address: 192.168.0.10``. In addition in the sensors.launch.xml change the argument for the lidar launch from ``hokuyo_node`` to ``urg_node`` do the same thing for the node_type parameter.
+In the racecar config folder under ``lidar_node`` set the following parameter: ``ip_address: 192.168.0.10``. In addition in the ``sensors.launch.xml`` change the argument for the lidar launch from ``hokuyo_node`` to ``urg_node`` do the same thing for the ``node_type`` parameter.
 
-Working Directory Setup
+Workspace Setup
 --------------------------
-On your host computer (e.g., your laptop), setup your working directory (for the F1TENTH simulator and skeleton code for course modules) by following these steps.
+On your host computer (e.g., your laptop), setup your ROS workspace (for the driver nodes onboard the vehicle) by following these steps.
 
 Clone the following repository into a folder on your computer.
 
 .. code-block:: bash
 
 	$​ ​cd​ ~/sandbox (or whatever folder you want to work ​in​)
-	$​ git ​clone​ https://github.com/f1tenth/f110_ros
+	$​ git ​clone​ https://github.com/f1tenth/f110_system
 
-Create a workspace folder if you haven’t already, here called f110_ws, and copy the simulator folder into it:
+Create a workspace folder if you haven’t already, here called f110_ws, and copy the f110_system folder into it:
 
 .. code-block:: bash
 
 	$​ mkdir -p f110_ws/src
-	$​ cp -r f110_ros f110_ws/src/
+	$​ cp -r f110_system f110_ws/src/
 
-You might need to install these for the simulator.
+You might need to install these packages. For ROS Kinetic:
 
 .. code-block:: bash
 
 	$​ sudo apt-get update
-	$​ sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers ros-kinetic-gazebo-ros-control ros-kinetic-ackermann-msgs ros-kinetic-joy ros-kinetic-driver-base
+	$​ sudo apt-get install ros-kinetic-driver-base
 
-Make all the Python scripts executable (by default they are set to non-executable when cloned from Github).
+For ROS Melodic:
+
+.. code-block:: bash
+
+	$​ sudo apt-get update
+	$​ sudo apt-get install ros-melodic-driver-base
+
+
+Make all the Python scripts executable.
 
 .. code-block:: bash
 
@@ -119,25 +129,28 @@ Finally, source your working directory into your shell using
 
 	$​ source devel/setup.bash
 
-Congratulations! Your working directory is all set up. Now if you examine the contents of your workspace, you will see 3 folders (In the ROS world we call them meta-packages since they contain packages): algorithms, simulator, and system. Algorithms contains the brains of the car which run high level algorithms, such as wall following, pure pursuit, localization. Simulator contains racecar-simulator which is based off of MIT Racecar’s repository and includes some new worlds such as Levine 2nd floor loop. Simulator also contains f1_10_sim which contains some message types useful for passing drive parameters data from the algorithm nodes to the VESC nodes that drive the car. Lastly, System contains code from MIT Racecar that the car would not be able to work without. For instance, System contains ackermann_msgs (for Ackermann steering), racecar (which contains parameters for max speed, sensor IP addresses, and teleoperation), serial (for USB serial communication with VESC), and vesc (written by MIT for VESC to work with the racecar).
+Congratulations! Your onboard driver workspace is all set up.
+
+.. Now if you examine the contents of your workspace, you will see 3 folders (In the ROS world we call them meta-packages since they contain packages): algorithms, simulator, and system. Algorithms contains the brains of the car which run high level algorithms, such as wall following, pure pursuit, localization. Simulator contains racecar-simulator which is based off of MIT Racecar’s repository and includes some new worlds such as Levine 2nd floor loop. Simulator also contains f1_10_sim which contains some message types useful for passing drive parameters data from the algorithm nodes to the VESC nodes that drive the car.
+.. Lastly, System contains code from MIT Racecar that the car would not be able to work without. For instance, System contains ackermann_msgs (for Ackermann steering), racecar (which contains parameters for max speed, sensor IP addresses, and teleoperation), serial (for USB serial communication with VESC), and vesc (written by MIT for VESC to work with the racecar).
 
 Udev Rules Setup
 -------------------
-When you connect the VESC and LIDAR to the Jetson, the operating system will assign them device names of the form ​``/dev/ttyACMx​``, where x is a number that depends on the order in which they were plugged in. For example, if you plug in the LIDAR before you plug in the VESC, the LIDAR will be assigned the name ``/dev/ttyACM0​``, and the VESC will be assigned ``/dev/ttyACM1​``. This is a problem, as the car’s ROS configuration scripts need to know which device names the LIDAR and VESC are assigned, and these can vary every time we reboot the Jetson, depending on the order in which the devices are initialized.
+When you connect the VESC and a USB LIDAR to the Jetson, the operating system will assign them device names of the form ``/dev/ttyACMx``, where x is a number that depends on the order in which they were plugged in. For example, if you plug in the LIDAR before you plug in the VESC, the LIDAR will be assigned the name ``/dev/ttyACM0​``, and the VESC will be assigned ``/dev/ttyACM1​``. This is a problem, as the car’s ROS configuration scripts need to know which device names the LIDAR and VESC are assigned, and these can vary every time we reboot the Jetson, depending on the order in which the devices are initialized.
 
-Fortunately, Linux has a utility named ​udev​ that allows us to assign each device a “virtual” name based on its vendor and product IDs. For example, if we plug a USB device in and its vendor ID matches the ID for Hokuyo laser scanners (15d1), ​udev​ could assign the device the name ​``/dev/sensors/hokuyo​`` instead of the more generic ``/dev/ttyACMx​``. This allows our configuration scripts to refer to things like ​``/dev/sensors/hokuyo​`` and ``/dev/sensors/vesc​``, which do not depend on the order in which the devices were initialized. We will use udev to assign persistent device names to the LIDAR, VESC, and joypad by creating three configuration files (“rules”) in the directory ​``/etc/udev/rules.d​``.
+Fortunately, Linux has a utility named ​udev​ that allows us to assign each device a “virtual” name based on its vendor and product IDs. For example, if we plug a USB device in and its vendor ID matches the ID for Hokuyo laser scanners (15d1), ​udev​ could assign the device the name ``/dev/sensors/hokuyo`` instead of the more generic ``/dev/ttyACMx​``. This allows our configuration scripts to refer to things like ``/dev/sensors/hokuyo`` and ``/dev/sensors/vesc​``, which do not depend on the order in which the devices were initialized. We will use udev to assign persistent device names to the LIDAR, VESC, and joypad by creating three configuration files (“rules”) in the directory ``/etc/udev/rules.d``.
 
-First, as root, open ​``/etc/udev/rules.d/99-hokuyo.rules​`` in a text editor to create a new rules file for the Hokuyo. Copy the following rule exactly as it appears below and save it:
+First, as root, open ``/etc/udev/rules.d/99-hokuyo.rules`` in a text editor to create a new rules file for the Hokuyo. Copy the following rule exactly as it appears below and save it:
 
 .. code-block:: bash
 
 	KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="15d1", MODE="0666", GROUP="dialout", SYMLINK+="sensors/hokuyo"
 
-Next, open ​``/etc/udev/rules.d/99-vesc.rules​`` and copy in the following rule for the VESC:
+Next, open ``/etc/udev/rules.d/99-vesc.rules`` and copy in the following rule for the VESC:
 
 .. code-block:: bash
-
-	KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0666", GROUP="dialout", SYMLINK+="sensors/vesc"
+	
+	KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5749", MODE="0666", GROUP="dialout", SYMLINK+="sensors/vesc"
 
 Then open ​``/etc/udev/rules.d/99-joypad-f710.rules​`` and add this rule for the joypad:
 
@@ -149,16 +162,22 @@ Finally, trigger (activate) the rules by running
 
 .. code-block:: bash
 
-	$ sudo ​udevadm control --reload-rules && udevadm trigger​
+	$ sudo ​udevadm control --reload-rules
+	$ sudo udevadm trigger​
 
 Reboot your system, and you should find three new devices by running
 
 .. code-block:: bash
 
-	>> ls /dev
-	/dev/sensors/hokuyo​
-	/dev/sensors/vesc​
-	/dev/input/joypad-f710​
+	$ ls /dev/sensors
+	$ hokuyo​    vesc
+
+and:
+
+.. code-block:: bash
+
+	$ ls /dev/input
+	$ joypad-f710​
 
 If you want to add additional devices and don’t know their vendor or product IDs, you can use the command
 
@@ -166,7 +185,7 @@ If you want to add additional devices and don’t know their vendor or product I
 
 	$ sudo ​udevadm info --name=<your_device_name> --attribute-walk
 
-making sure to replace ​``<your_device_name>​`` with the name of your device (e.g. ttyACM0 if that’s what the OS assigned it. The Unix utility ​dmesg​ can help you find that). The topmost entry will be the entry for your device; lower entries are for the device’s parents.
+making sure to replace ``<your_device_name>`` with the name of your device (e.g. ttyACM0 if that’s what the OS assigned it. The Unix utility ​dmesg​ can help you find that). The topmost entry will be the entry for your device; lower entries are for the device’s parents.
 
 Manual Control
 -----------------
@@ -177,15 +196,15 @@ Before you begin:
 * Make sure you have the car running off its LIPO battery and that you have a Logitech F710 joypad handy with its receiver (i.e., USB dongle) plugged into the Jetson’s USB hub.
 * Make sure you have the VESC connected!
 * Ensure that both your car and laptop are connected to a wireless access point if you need the car connected to the Internet while you drive it. Otherwise, follow this tutorial​ so your laptop and phone can connect directly to the car.
-* Make sure you’ve cloned the course repository and set up your working directory (as explained ​here​)
-* This tutorial uses the program ​tmux​(available via apt-get) to let you run multiple terminals over one SSH connection. You can also use VNC​ if you prefer a GUI.
+* Make sure you’ve cloned the ``f110_system`` repository and set up your working directory (as explained ​here​)
+* This tutorial uses the program ``tmux`` (available via apt-get) to let you run multiple terminals over one SSH connection. You can also use VNC​ if you prefer a GUI.
 
 Now, we’re ready to begin.
 
-#. Open a terminal and SSH into the car from your computer. Once you’re in, run ​tmux​so that you can spawn new terminal sessions over the same SSH connection.
-#. In your tmux session, spawn a new window (using ​``Ctrl-A “​``) and run ​roscore​ to start ROS.
-#. In the other free terminal, navigate to your working directory, run ``$ catkin make`` and source the directory using ``$ source devel/setup.bash``.
-#. Run ``roslaunch racecar teleop.launch​`` to launch the car. Place the car on the ground and press the center button on your joystick so you can control the car. If this gives you a segmentation error, and it’s caused by compiling the joy package (which you can check by running the joy_node on its own), this could be because you are using the joy package from the ROS distribution (i.e., installed with apt-get). Remove that (11sudo apt-get remove joy11) and re-compile. This should compile the joy package that’s in the repo.
+#. Open a terminal and SSH into the car from your computer. Once you’re in, run ​tmux so that you can spawn new terminal sessions over the same SSH connection.
+#. In your tmux session, spawn a new window (using ``Ctrl-B`` and then ``C``) and run ​roscore​ to start ROS.
+#. Navigate to other free terminal using ``Ctrl-B`` and then ``P`` or ``N`` by switch to previous or next session, or using ``Ctrl-B`` and then the number of the session, navigate to your workspace that we set up before, run ``$ catkin make`` and source the directory using ``$ source devel/setup.bash``.
+#. Run ``$ roslaunch racecar teleop.launch​`` to launch the car. Place the car on the ground and press the center button on your joystick so you can control the car. If this gives you a segmentation error, and it’s caused by compiling the joy package (which you can check by running the joy_node on its own), this could be because you are using the joy package from the ROS distribution (i.e., installed with apt-get). Remove that (11sudo apt-get remove joy11) and re-compile. This should compile the joy package that’s in the repo.
 #. Hold the LB button on the controller to start controlling the car. Use the left joystick to move the car forward and backward and the right joystick for steering.
 
 	* If nothing happens, one reason can be that the joy_node is listening for inputs on the js0 port, but the OS has assigned a different port to it, like js1. Edit the yaml file which specifies which port to listen to. You can tell what file that is by reading the launch file (and following the call tree to other launch files).
