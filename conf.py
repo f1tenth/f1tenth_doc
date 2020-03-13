@@ -23,7 +23,7 @@ source_encoding = 'utf-8-sig'
 master_doc = 'index'
 
 # General information about the project
-# project = 'F1tenth'
+project = 'F1TENTH'
 # copyright = '2018-2020, f1tenth community (CC-BY-NC-SA 4.0)'
 # author = 'f1tenth community'
 
@@ -71,7 +71,7 @@ html_theme_options = {
     # 'typekit_id': 'hiw1hhg',
     # 'analytics_id': '',
     # 'sticky_navigation': True  # Set to False to disable the sticky nav while scrolling.
-    'logo_only': True,  # if we have a html_logo below, this shows /only/ the logo with no title text
+    'logo_only': False,  # if we have a html_logo below, this shows /only/ the logo with no title text
     'collapse_navigation': False,  # Collapse navigation (False makes it tree-like)
     'prev_next_buttons_location': 'bottom',
     # 'display_version': True,  # Display the docs version

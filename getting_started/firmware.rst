@@ -152,7 +152,7 @@ Next, open ``/etc/udev/rules.d/99-vesc.rules`` and copy in the following rule fo
 	
 	KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5749", MODE="0666", GROUP="dialout", SYMLINK+="sensors/vesc"
 
-Then open ​``/etc/udev/rules.d/99-joypad-f710.rules​`` and add this rule for the joypad:
+Then open ``/etc/udev/rules.d/99-joypad-f710.rules`` and add this rule for the joypad:
 
 .. code-block:: bash
 

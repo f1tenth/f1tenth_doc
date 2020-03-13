@@ -36,7 +36,7 @@ Attach the adapters to the blue, yellow, and white wires of the Brushless Motor.
  
 The VESC also has three wires labelled "A", "B", and "C".
 
- .. image:: img/together/together10.JPG
+ .. image:: img/together/together10.jpg
 
 Now, we are going to connect these to the VESC. This part is a tad tricky. Connect the middle yellow cable to the cable connected to the label "B" on the VESC.
 
