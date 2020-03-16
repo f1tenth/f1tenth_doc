@@ -7,7 +7,7 @@ Pit/Host Setup
 
 Overview
 ----------
-The F1TENTH vehicle runs on a Linux operating system. You will need to have Linux and ROS (Robot Operating System) on your **Pit** laptop. 
+The F1TENTH vehicle runs on a Linux operating system. You will need to have Linux and ROS (Robot Operating System) on your **Pit** laptop. We will assume that you already have some basic knowledge of Linux and ROS as explaining either systems in depth is beyond the scope of this documentation.
 
 We will refer to the **Pit** computer as **Pit** or **Host** computer/laptop interchangeably.
 
@@ -15,7 +15,9 @@ We will refer to the **Pit** computer as **Pit** or **Host** computer/laptop int
 
 Installing Ubuntu
 ------------------
-If you do not already have Linux running natively on your laptop, we suggestion you dual boot or install Ubuntu on an external hard drive. You can download the Ubuntu image `here <https://ubuntu.com/download/desktop>`_. Instructions for installing Ubuntu can be found `here <https://ubuntu.com/tutorials/tutorial-install-ubuntu-desktop#1-overview>`_. If you use a VM instead, see :ref:`Appendix B <doc_appendix_b>` on sharing folders.
+If you do not already have Linux running natively on your laptop, we suggestion you dual boot or install Ubuntu on an external hard drive. You can download the Ubuntu image `here <https://ubuntu.com/download/desktop>`_. Instructions for installing Ubuntu can be found `here <https://ubuntu.com/tutorials/tutorial-install-ubuntu-desktop#1-overview>`_. 
+
+If you use a VM instead, see :ref:`Appendix B <doc_appendix_b>` on sharing folders.
 
 Installing ROS
 ------------------
