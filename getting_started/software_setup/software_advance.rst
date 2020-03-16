@@ -58,3 +58,7 @@ Setting up a VNC server on the Jetson allows you to control the Jetson remotely.
 .. note:: 
   We've had spotty experience with TX2's network card, the hotspot sometimes just doesn't work. If your TX2's network card is faulty, you can use a USB wifi dongle and use your network through the dongle instead of the TX2 network card.
 
+Good work on making it through the advanced section!
+
+.. image:: img/combine/wireless4.gif
+	:align: center
