@@ -1,9 +1,15 @@
 .. _doc_software_host:
 
-Host/Laptop Setup
+Pit/Host Setup
 ==================
+**Equipment Used:**
+	* Laptop/Computer
 
-The f1tenth vehicle runs using ROS. This page walks you through how to set up the operating system on your laptop and install the simulator. 
+Overview
+----------
+The F1TENTH vehicle runs on a Linux operating system. You will need to have Linux and ROS (Robot Operating System) on your **Pit** laptop. 
+
+We will refer to the **Pit** computer as **Pit** or **Host** computer/laptop interchangeably.
 
 .. note:: We currently support Ubuntu Xenial 16.04/ROS Kinetic and Bionic 18.04/ROS Melodic.
 
@@ -13,38 +19,12 @@ If you do not already have Linux running natively on your laptop, we suggestion 
 
 Installing ROS
 ------------------
-Follow the instructions `here <https://wiki.ros.org/ROS/Installation>`_ to install ROS.
-
-.. Note: you might get the following error message when you execute
-
-.. .. code-block:: bash
-
-.. 	$ sudo apt-get install ros-kinetic-desktop-full
-.. 	Building dependency tree
-.. 	Reading state information... Done
-.. 	Some packages could not be installed. This may mean that you have requested an impossible situation or if you are using the unstable distribution that some required packages have not yet been created or been moved out of Incoming.
-.. 	The following information may help to resolve the situation:
-
-.. 	The following packages have unmet dependencies:
-.. 	ros-kinetic-desktop-full : Depends: ros-kinetic-desktop but it is not going to be installed
-
-.. 	E: Unable to correct problems, you have held broken packages.
-
-.. You will find many suggestions online. `This one <https://askubuntu.com/questions/140246/how-do-i-resolve-unmet-dependencies-after-adding-a-ppa>`_ worked for us.
-
-.. Specifically, these steps (but it's goot to try the steps in the suggested order):
-
-.. .. code-block:: bash
-
-.. 	$ sudo apt-get -u dist-upgrade
-.. 	$ sudo apt-get -o Debug::pkgProblemResolver=yes dist-upgrade
-
-.. Then re-run
-
-.. .. code-block:: bash
-
-.. 	$ sudo apt-get update
-
-.. and re-try installing ros-kinetic-desktop-full
+Follow the instructions `here <https://wiki.ros.org/ROS/Installation>`_ to install the supported ROS versions above.
 
 If you have never used ROS before, ROS has many in-depth and useful tutorials `here <https://wiki.ros.org/ROS/Tutorials>`_ that you may want to try after installing.
+
+With a Linux operating system on the **Pit/Host** computer, you're ready to move on to setting up the **TX2!**
+
+.. image:: img/host/host01.gif
+	:align: center
+

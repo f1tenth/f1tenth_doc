@@ -1,79 +1,135 @@
 .. _doc_software_jetson:
 
-Configuring the Jetson TX2
+Configuring the TX2
 ==========================
-| We need to install 4 items on the Jetson:
+**Equipment Used:**
+	* Pit/Host laptop/computer running Ubuntu 16.04 or 18.04
+	* Fully built F1TENTH vehicle
+	* External monitor/display
+	* HDMI cable
+	* Keyboard
+	* Mouse
 
-#. Linux GUI
-#. Jetpack 3.2 flash
-#. A re-flash of the Connect Tech Orbitty
-#. ROS Kinetic
+Overview
+---------
+The **TX2** is essentially a supercomputer on a module. We attach it to the Orbitty Carrier board so that we can access the TX2's peripheral. In order to configure the Jetson TX2, we need to install a few software on the **Pit/Host** laptop first and then use them to flash the **TX2**.
 
-The TX2 is essentially a supercomputer on a module. We attach it to the Orbitty Carrier board so that we can access the TX2's peripheral.
+| Note that there are many available versions of the Jetpack and Jetson hardware.
+| Jetson hardware versions:
 
-0. Connecting the TX2
+	* Jetson Nano
+	* Jetson AGX Xavier
+	* **Jetson TX2 (what we use)**
+	* Jetxon TX1
+
+JetPack versions:
+
+	* **JetPack 4.3 - OS L4T (Linux4Tegra) 32.3.1 (works w/ Ubuntu Melodic 18.04) (what we use)**
+	* JetPack 3.2 - OS L4T 28.3.1 (Works w/ Ubuntu Xenial 16.04) 
+	* JetPack 2.4 - OS L4T 24.2.3 (old version OK for TX1)
+
+Hardware Setup
+---------------
+The battery on the vehicle should be plugged in and the Powerboard should be turned on.
+
+Install NVIDIA SDK Manager on Pit/Host Computer
+------------------------------------------------
+We first need to install NVIDIA SDK Manager. It provides an end-to-end development environment setup solution for NVIDIA’s DRIVE and Jetson SDKs for both host machine and target devices.
+
+#. Go to nvidia.com and create a user account for yourself
+#. Download `NVIDIA SDK Manager <https://developer.nvidia.com/nvidia-sdk-manager>`_ for *“All Jetson Developer Kits”* and run SDKM. Installation help can be found `here <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html#install-with-sdkm-jetson>`_.
+#. On host computer, extract and launch `SDK Manager <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html>`_.
+
+	.. image:: img/jetson/jetson02.png
+
+Installing JetPack on Pit/Host Computer
+-----------------------------------------
+Install JetPack 4.3 (L4T 32.3.1) on **Pit/Host** computer with `NVIDIA SDK Manager <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html>`_.
+	#. In Hardware Configuration: choose Host Machine, deselect Target Hardware
+	#. If your window does not display all information, press Tab to scroll down, or use a bigger monitor.
+	#. Follow instructions in SDKM;
+	
+* If running into errors, close and relaunch SDKM, then choose repair/uninstall under the STEP 4 button.
+
+Installing Orbitty BSP on Pit/Host Computer
+----------------------------------------------
+Download and install `BST for Orbitty Carrier board <http://connecttech.com/support/resource-center/nvidia-jetson-tx2-tx1-product-support/>`_ on **Pit/Host** computer.
+
+On *Board Support Packages* tab, under *Looking for board support packages for your TX2 4GB solution?*, select the **Jetpack 4.3** to download. The file name is ``CTI-L4T-TX2.32.3.2-V001.tgz``.
+
+	.. image:: img/jetson/jetson03.png
+
+Extract the .tgz file and find ``readme.txt`` in the folder; read the instructions and go through steps 1-4.
+
+	#. Make sure the sdk manager is installed under ``$home/nvidia/nvidia_sdk``
+	#. Copy the ``CTI-L4T-TX2-32.3.1-V001.tgz`` into ``$home/nvidia/nvidia_sdk/JetPack.3_Linux_GA_P3310/Linux_for_Tegra/``
+	#. Extract the BSP by double clicking it or by running commands in Terminal under the correct directory
+
+		.. code:: bash
+
+			tar -xzf CTI-L4T-TX2-32.3.1-V001.tgz
+			cd ..
+
+	#. In the Terminal, under ``$home/nvidia/nvidia_sdk/JetPack.3_Linux_GA_P3310/``, run ``sudo ./install.sh``
+
+Connecting the TX2
 -------------------------
-4 things need to be connected to the TX2.
+4 things need to be connected to the Orbitty Carrier Board.
+#. A display via the HDMI port (P2)
+#. A keyboard and mouse connected to the USB ports on the USB hub (P7) connected to the Orbitty
+#. The Pit laptop via a micro USB (P8)
+#. Power (green 12V terminal block)
 
-#. A display via the HDMI port
-#. A keyboard via one of the USB ports on the USB hub.
-#. The Pit laptop via a micro USB
-#. Power
+.. image:: img/jetson/jetson04.png
 
-.. image:: img/jetson/jetson01.JPG
+Turn the *SYS PWR switch S1* to the left. Turn the powerboard on. The monitor shall display some text in a terminal window.
 
-The TX2 should power on. If it doesn't, press the ON button.
+Note that the display and keyboard are separate from the **Pit/Host** computer. You essentially have two separate computers set up side by side at this point: the **TX2** and the **Pit/Host** computer.
 
-.. note::
+Flashing the TX2 with the Orbitty Carrier
+-------------------------------------------
+Watch the first two minutes of `this <http://connecttech.com/flashing-nvidia-jetson-tx2-tx1-module/>`_.
 
-	**KIM WILL PROBABLY HAVE TO TRANSCRIBE THIS (after Billy does the checking)**
+#. Put the Orbitty board and Jetson in to RECOVERY mode.
+	
+	#. Press and hold the RECOVERY key, then press the RESET button, the SYS LED shall be off;
+	#. Release the RESET button, wait 2 seconds and release the RECOVERY button. The monitor shall display nothing now. The Jetson and Orbitty are in RECOVERY mode.
 
-`Professor Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University has compiled a fantastic on how to set up the software.
+#. On the **Pit/Host** computer manually flash the boards by typing the following into the terminal
+	
+	.. code:: bash
 
-.. raw:: html
+		$sudo ./flash.sh cti/tx2/orbitty mmcblk0p1
 
-	<iframe width="700" height="500" src="https://drive.google.com/file/d/1N1FiPtAqpbeAYlKoFA4Tsxl0XC_Y8niT/preview" width="640" height="480"></iframe>
+	It will take about 10 minutes to finish flashing. When completed, the terminal should display:
 
-..
-	A command prompt window asking for login credentials should show on your Monitor. The login information is:
+	.. code:: bash
 
-	.. code-block:: bash
+		The target t186ref has been flashed successfully.
+		Reset the board to boot from internal eMMC.
 
-		Login: nvidia
-		Password: nvidia
+	Note: CTI assisted flash does not work. (i.e. ``$sudo ./cti-flash.sh`` (error message ``flash.sh requires root privilege`` if no sudo), then choose 3 (Orbitty) in Menu 1 and 1 or 3 in Menu 2. error message saying ``failed flashing t186ref``
 
-	.. seealso::
-		These instructions are also in the Jetson’s `Quick Start Guide <https://docs.nvidia.com/jetson/archives/l4t-archived/l4t-282/index.html>`_ under “Force USB Recovery Mode”. Refer to it to see all the buttons, ports and whatnot.
+3. Turn the *SYS PWR switch (S1)* to the right. Press the *PWR button* on Orbitty. The monitor on Orbitty shall
+display CTI-L4T welcome screen.
 
+Working on the TX2
+-------------------
+This is where you will need to use the keyboard and mouse connected to the USB hub on the vehicle.
 
-	1. Installing the Linux GUI
-	------------------------------
-	In the command prompt window, run
+Follow instructions on screen to finish setting up CTI-L4T on Jetson.
 
-	.. code-block:: bash
+Install ROS like you did in the previous section, :ref:`Pit/Host Setup <doc_software_host>`.
 
-		$ cat NVIDIA-INSTALLER/README.txt
-		
-	Follow the instructions that are in that file to install Ubuntu Linux. Note that TX1 comes with 14.04 LTS and TX2 comes with 16.04 LTS. There may be an additional step for TX1 if the course is using 16.04 LTS.
+	If you are tired of entering all those commands again, then download the installation script `installROS.sh <https://github.com/jetsonhacks/installROSTX2>`_ and adapt it for the new ROS version. Similarly, you may modify ``setupCatkinWorkspace.sh`` for the new Ubuntu+ROS versions.
 
-	2. Flashing the Jetpack
-	^^^^^^^^^^^^^^^^^^^^^^^^^
-	.. note:: 
-		You will need some 14GB of free space on the host computer for this step. If you have previously used the same TX2 for other projects, you may need to remove some files to make space.
+Now you should have the TX2 up and running and ready to use!
 
-	Now that we have the GUI, we want to flash the Jetson with Nvidia’s `Jetpack 4.3 <https://developer.nvidia.com/embedded/jetpack>`_.
+.. image:: img/jetson/jetson05.gif
+	:align: center
 
-	To do this, we need a host computer that is running Linux 14.04 (it seems 16.04 also works - try it if that’s what you have). The Jetpack is first downloaded onto the host computer and then transferred by micro USB cable over to the Jetson. Download the file and follow the instructions `here <https://developer.nvidia.com/embedded/jetpack>`_ to transfer.
+.. `Professor Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University has compiled a fantastic on how to set up the software.
 
-	What if you don’t have a Linux 14.04 computer laying around? (Most of us don’t.) See ​
-	:ref:`Appendix A <doc_appendix_a>` of this doc for an amazing set of instructions by Klein Yuan which details how to use a virtual machine with a Mac to do the flash. Steps would probably work similarly for a PC that is running Virtual Box.
+	.. raw:: html
 
-	3. Re-flashing the Orbitty
-	^^^^^^^^^^^^^^^^^^^^^^^^^^^
-	After the Jetson has been flashed with Jetpack, we will actually need to re-flash it with the Connect Tech Orbitty firmware. Otherwise on the TX2 there can be issues with the USB 3.0 not working on the Orbitty carrier board. A great link to instructions is from `NVIDIA-Jetson <https://github.com/NVIDIA-AI-IOT/jetson-trashformers/wiki/Jetson%E2%84%A2-Flashing-and-Setup-Guide-for-a-Connect-Tech-Carrier-Board>`_. Note that each time you flash all of the files will essentially be deleted from your Jetson​. So make sure to save any work you may have already done and upload it.
-
-	4. Installing ROS 
-	^^^^^^^^^^^^^^^^^^^^^^^^^
-	| Lastly, we will want to install ROS Kinetic. Jetson Hacks on Github has scripts to install ROS Kinetic.
-	| `Here <https://github.com/jetsonhacks/installROSTX2​>`_ for TX2
-	| `Here <https://github.com/jetsonhacks/installROSTX1​>`_ for TX1
+		<iframe width="700" height="500" src="https://drive.google.com/file/d/1N1FiPtAqpbeAYlKoFA4Tsxl0XC_Y8niT/preview" width="640" height="480"></iframe>
