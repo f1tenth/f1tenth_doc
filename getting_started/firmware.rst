@@ -227,51 +227,56 @@ You may want to fine tune your VESC parameters to match them to your car. Why? Y
 
 If you want to modify the maximum speed, under ``vesc_driver`` you can change the ``speed_min`` and ``speed_max``. These numbers represent the erpm of the car. By default they are set to +/- 23250 but you can set them higher. There is also a hard cap in the VESC firmware settings, you can open up VESC Tool and find the max settings for RPM. Your speed request you go through the setting in ``vesc.yaml`` first and capped by that setting, and then go through the setting in VESC firmware and capped again.
 
-If your car’s motor is using a smaller or larger gear ratio, you will want to compensate for this by adjusting the ``speed_to_erpm_gain``. But generally, you would still want to adjust this value until your odometry is accurate. 
+If your car’s motor is using a smaller or larger gear ratio, you will want to compensate for this by adjusting the ``speed_to_erpm_gain``. But generally, you would still want to adjust this value until your odometry is accurate. The ``speed_to_erpm_gain`` is used to convert requested m/s speed to requested motor RPM for the VESC. 
 
-For instance, I had to raise my ``speed_to_erpm_gain`` from the default setting of 4614 to 7442. The reason is that my motor has a smaller gear attached to it (they are swappable), so it needs more rotations in order to achieve the same speed. If I hadn’t increased the ``speed_to_erpm_gain``, even though I was telling the car to go 2 m/s, in reality it was only going 1.2 m/s. And this was problematic because my ``/vesc/odom`` topic was publishing incorrect measurements - it was overestimating how far the car had traveled.
+To tune the VESC odometry, first set up your car with a measuring tape as shown in **TODO PIC**. Start the racecar teleop to enable manual control. Note that you need to place the rear axle of the car at 0 before you start teleop since the odometry sets the location you start the car as zero. In a new terminal window, echo the ros topic ``/vesc/odom``. Drive staright along the tape measure for around 3 ~ 5 meters, and take a reading at the car's rear axle. Compare the reading from ROS echo for x-axis displacement and the measurement in real life. If the real life measurement is lower than the ROS echo reading, that means the ``speed_to_erpm_gain`` is too low, and vice versa. You should adjust this param until the two measurements are as close as possible. The tuning of this parameter is essential to having an accurate odometry.
 
-If you notice that your car is not going straight, then you will want to modify your ``steering_angle_to_servo_offset``. By default the value is around 0.53, and you’ll want to increase or decrease this slightly until the car is going straight.
+If you notice that your car is not going straight, then you will want to modify your ``steering_angle_to_servo_offset``. By default the value is around 0.53, and you’ll want to increase or decrease this slightly until the car is going straight. You can drive the car with teleop straight ahead slowly without any steering input to see if there's any steering offset.
 
-Other than these three parameters above, I didn’t change anything else but you are welcome to play around with these as you see fit. It’s a great learning experience!
-
-Testing the Lidar (USB Only)
+Testing the Lidar
 ---------------------------------
-Once you’ve set up the LIDAR, you can test it using ​urg_node​, ​rviz​, and ​rostopic​.
+Once you’ve set up the LIDAR, you can test it using ​urg_node​/hokuyo_node, ​rviz​, and ​rostopic​.
 
-#. Connect the LiDAR to the power board (see section ​Connecting the LIDAR​), and plug the USB cable into a free port on your hub.
-#. Start ``roscore​`` in a terminal window. 
-#. In another (new) terminal window, run ``rosrun urg_node urg_node​`` . This tells ROS to start reading from the LIDAR and publishing on the ​/scan​ topic. If you get an error saying that there is an “error connecting to Hokuyo,” double check that the Hokuyo is physically plugged into a USB port. You can use the terminal command ``lsusb​to`` check whether Linux successfully detected your LiDAR. If the node started and is publishing correctly, you should be able to use ``rostopic echo /scan​`` to see live LIDAR data.
-#. Open another terminal and run ``rosrun rviz rviz​`` to visually see the data. When ``rviz​`` opens, click the “Add” button at the lower left corner. A dialog will pop up; from here, click the “By topic” tab, highlight the “LaserScan” topic, and click OK.
-#. ``rviz`` will now show a collection of points (a point cloud) of the LIDAR data in the gray grid in the center of the screen. The points appear in colors ranging from green to red, with green points being closest to the LIDAR and red points being farthest away.
+#. Connect the LIDAR to the power board (see section ​Connecting the LIDAR​), and plug the USB cable into a free port on your hub if you're using a 30LX, or plug the ethernet cable into the TX2 if you're using a 10LX.
+#. If you're using the 10LX:
+
+	* Start ``roscore​`` in a terminal window. 
+	* In another (new) terminal window, run ``rosrun urg_node urg_node​``. Make sure to supply the urg node with the correct port number for the 10LX.
+	.. This tells ROS to start reading from the LIDAR and publishing on the ​/scan​ topic. If you get an error saying that there is an “error connecting to Hokuyo,” double check that the Hokuyo is physically plugged into a USB port. You can use the terminal command ``lsusb​to`` check whether Linux successfully detected your LiDAR. If the node started and is publishing correctly, you should be able to use ``rostopic echo /scan​`` to see live LIDAR data.
+
+#. If you're using the 30LX:
+	
+	* Run ``roslaunch racecar teleop.launch`` in a sourced terminal window, by default, the launch file brings up the hokuyo node.
+
+#. Once your LIDAR driver node is running, open another terminal and run ``rosrun rviz rviz​`` or simply ``rviz`` to visually see the data. When ``rviz​`` opens, click the “Add” button at the lower left corner. A dialog will pop up; from here, click the “By topic” tab, highlight the “LaserScan” topic, and click OK. You might have to switch from viewing in the ``\map`` frame to the ``laser`` frame. If the laser frame is not there, you can type in ``laser`` in the frame text field.
+#. ``rviz`` will now show a collection of points of the LIDAR data in the gray grid in the center of the screen. You might have to change the size and color of the points in the LaserScan setting to see the points clearer.
 	
 	* Try moving a flat object, such as a book, in front of the LIDAR and to its sides. You should see a corresponding flat line of points on the ​rviz​ grid.
 	* Try picking the car up and moving it around, and note how the LIDAR scan data changes,
-#. You can also see the LIDAR data in text form by using ​rostopic ``echo /scan`` ​. The type of message published to it is sensor_msgs/Scan​, which you can also see by running ``rostopic info /scan​`` . There are many fields in this message type, but for our course, the most important one is ​ranges​, which is a list of distances the sensor records in order as it sweeps from its rightmost position to its leftmost position.
+#. You can also see the LIDAR data in text form by using ​``rostopic echo /scan`` ​. The type of message published to it is sensor_msgs/LaserScan​, which you can also see by running ``rostopic info /scan​`` . There are many fields in this message type, but for our course, the most important one is ​ranges​, which is a list of distances the sensor records in order as it sweeps from its rightmost position to its leftmost position.
 
 Recording Bag Data on the Car
 --------------------------------
-ROSbags​ are useful for recording data from the car (e.g. LIDAR, wheel rotation) and playing it back later. This feature is useful because it allows you to capture data from when the car is running and later study the data or perform analysis on it to help you develop and implement better racing algorithms.
+ROSbags​ are useful for recording data from the car (e.g. LIDAR, odometry) and playing it back later. This feature is useful because it allows you to capture data from when the car is running and later study the data or perform analysis on it to help you develop and implement better racing algorithms.
 
 One great thing about ROSbags compared to just recording the data into something simpler (like a CSV file) is that data is recorded along with the topics it was originally sent on. What this means is that when you later ​play​ the bag, the data will be transmitted on the same topics that it was originally sent on, ​and *any code that was listening to these topics can run, as if the data was being generated live​*.
 
-For example, suppose I record LIDAR data being broadcasted on the ​/scan​ topic. When I later play the data back, the ​``rostopic list​`` and ​``rostopic echo​`` commands will show the LIDAR data being transmitted on the ​/scan​ topic as if the car was actually running!
+For example, suppose I record LIDAR data being broadcasted on the ​/scan​ topic. When I later play the data back, the ``rostopic list`` and ``rostopic echo`` commands will show the LIDAR data being transmitted on the ​/scan​ topic as if the car was actually running.
 
 Here’s a concrete example of how to use ROSbags to acquire motor telemetry data and play it back.
 
-#. Make sure both your computer and car are connected to the ​f110​ access point. Also, make sure your car is connected with a known static IP address. Open a terminal and SSH into the car. Once you’re in, run ​tmux​ so that you can spawn new terminal sessions over the same SSH connection.
-#. Follow the directions to clone the racecar repositories (more instructions coming soon). Clone these into your ROS working directory.
-#. In your tmux session, spawn a new window (using ``​Ctrl-A “​``) and run ​``roscore​`` to start ROS.
+#. Make sure both your computer and car are connected to the ​same network. On your laptop, open a terminal and SSH into the car. Once you’re in, run ​tmux​ so that you can spawn new terminal sessions over the same SSH connection.
+#. In your tmux session, spawn a new window and run ​``roscore​`` to start ROS.
 #. In the other free terminal, navigate to your working directory, run ​catkin make​, and source the directory using ​source devel/setup.bash​.
 #. Run ``roslaunch racecar teleop.launch​`` to launch the car. Place the car on the ground or on a stand and press the center button on your joystick so you can control the car.
-#. In your tmux session, spawn a new window and examine the list of active ROS topics using ​rostopic list​. Make sure that you can see the ``/vesc/sensors/core​ topic`` , which contains drive motor parameters.
+#. In your tmux session, spawn a new window and examine the list of active ROS topics using ​rostopic list​. Make sure that you can see the ``/vesc/sensors/core​`` topic , which contains drive motor parameters.
 #. Here’s where ROSbags come into play. Run ``rosbag record /vesc/sensors/core​`` to start recording the data. The data will start recording to a file in the current directory with naming format ``YYYY-MM-DD-HH-MM-SS.bag​`` . Recording will continue until you press Control-C to kill the rosbag process.
 
-	* If you get an error about low disk space, you can specify the directory to record to (e.g. on a USB flash drive or hard drive) after the topic name). For example, on my system, I would type ``rosbag record /vesc/sensors/core -o /media/ubuntu/Seagate\ Backup\ Plus\ Drive/​`` to record into the root of my external hard drive.
+	* If you get an error about low disk space, you can specify the directory to record to (e.g. on a USB flash drive or hard drive) after the topic name). For example, ``rosbag record /vesc/sensors/core -o /path/to/external/drive`` to record into an external hard drive.
 	* Note that ​rosbag​ also supports recording multiple topics at the same time. For example, I could record both laser scan and motor data using rosbag record ``/vesc/sensors/core /scan`` 
 
-#. Let the recording run for about 30 seconds. Drive the car around during this time using the controller and then hit to stop recording. (Important​: Quit the running ``teleop.launch`` well.)
-#. Play the rosbag file using ``rosbag play <your rosbag file>​``. While the bag is playing, examine the topics list, and you will see a list of all topics that were recorded into the bag. Note that in addition to the topics you specified, ROS will also record the ``rosout​``, ``rosout_agg``, and ​``clock​`` topics, which can be useful for debugging.
+#. Let the recording run for about 30 seconds. Drive the car around during this time using the controller and then hit ``Ctrl-C`` to stop recording.
+#. Play the rosbag file using ``rosbag play <your rosbag file>​``. While the bag is playing, examine the topics list, and you will see a list of all topics that were recorded into the bag. Note that in addition to the topics you specified, ROS will also record the ``rosout​``, ``rosout_agg``, and ``clock`` topics, which can be useful for debugging.
 #. View that recorded motor data by echoing the ``/vesc/sensors/core​`` topic. Pay attention to how the motor RPM changed as you drove the car around. When the bag is out of data, it will stop publishing.
 
 
