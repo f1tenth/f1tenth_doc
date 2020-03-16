@@ -14,3 +14,6 @@ Here is where you will all the information needed to get started and join the F1
 
 .. note:: 
   If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
+
+.. image:: img/intro01.gif
+	:align: center
