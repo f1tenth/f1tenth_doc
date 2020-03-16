@@ -1,17 +1,23 @@
-.. _doc_software_vesc:
+.. _doc_firmware_vesc:
 
 Configuring the VESC
 ==========================
-
-.. warning:: 
-    **Important Safety Tips**
+.. warning:: **Important Safety Tips**
 
     * Put your car on an elevated stand so that its wheels can turn without it going anywhere. If you don’t have an RC car stand, you can use the box that came with your Jetson.
     * Make sure you hold on to the car while testing the motor to prevent it from flying off the stand.
     * Make sure there are no objects (or people) in the vicinity of the wheels while testing.
     * Use a fully-charged LiPO battery instead of a power supply to ensure the motor has enough current to spin up.
     
+**Equipment Required:**
+	* Fully built F1TENTH  vehicle
+	* Box or `Car stand <https://www.amazon.com/Duratrax-Tech-Deluxe-Truck-Stand/dp/B0014T74MS/ref=sr_1_6?keywords=rc+car+jack&link_code=qs&qid=1584393402&sr=8-6>`_  to put vehicle on
+	* Laptop/computer (does not need to running Linux)
 
+**Approximate Time Investment:** 30-45 minutes
+
+Installing the VESC Tool
+-------------------------
 We need to configure the VESC so that it works with the ROS driver package. Before you start, you'll need to install the latest `VESC Tool <https://vesc-project.com/vesc_tool>`_ on a laptop or a PC.
 
 A pre-built VESC Tool for MacOS can be found `here <https://github.com/rpasichnyk/vesc_tool/releases>`_ .
@@ -22,7 +28,7 @@ First we need to power the VESC. Plug the battery in.
 
 .. image:: img/vesc/vesc01.JPG
 
-Note that you don't need to turn on the power board for configuring the VESC. 
+Note that you don't need to turn on the Powerboard for configuring the VESC. 
 
 Next, unplug the USB cable of the VESC from the TX2 and plug the USB into your laptop. You may want to use a longer cable.
 
@@ -75,3 +81,8 @@ To create a step response for the motor, you can set a target RPM at the bottom 
 You want to look for a clean step response that has a quick rise time and zero to very little steady state error. Adjust the gains accordingly by navigating to the **PID Controllers** tab under **Motor Settings** on the left, and change the Speed Controller gains. General rules of tuning PID gains apply. If you're seeing a lot of oscillations, try changing the Speed PID Kd Filter.
 
 .. image:: img/vesc/pid_gains.png
+
+Hopefully you've tuned it well enough that your car will run better than this:
+
+.. image:: img/vesc/vesc03.gif
+	:align: center

@@ -48,4 +48,4 @@ This section has four subsections:
 #. :ref:`Combine setup <doc_software_combine>` goes over how to set up a wireless communication system between the **Pit/Host** laptop and the **TX2** once you have already completed the above two sections.
 #. :ref:`Advanced Setup <doc_software_advance>` concerns hotspot setup and VNC setup on the TX2. This section is optional and for the advanced user.
 
-Many thanks to `Professor Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University for compiling the majority of information in this section.
+Many thanks to `Dr. Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University for compiling the majority of information in this section.
