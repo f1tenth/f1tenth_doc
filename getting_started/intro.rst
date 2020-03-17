@@ -3,7 +3,7 @@
 
 Introduction
 ==================
-Here is where you will all the information needed to get started and join the F1TENTH! This build documentation is divided into four sequential sections, each one building on the other:
+Here is where you will all the information needed to get started and join the F1TENTH community! This build documentation is divided into four sequential sections, each one building on the other:
 
 #. :ref:`Building the Car <doc_build_car>` - Start here if you are building the car from scratch. This part details everything from the materials needed to how to put all the hardware together.
 #. :ref:`System Configuration <doc_software_setup>`- Start here if you already have a completely built car and now need to set up the software on the host laptop and the vehicle. This part goes through the how to install the required software on a host laptop and the Jetson.

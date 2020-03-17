@@ -7,7 +7,7 @@ This is the most up to date documentation. If you are looking for the old page, 
 
 .. image:: img/f10cover.png
 
-If you want to learn how to make the vehicle, :ref:`Getting Started <doc_build_intro>` walks through how to build the car from ground up and get things running.
+If you are new to F1TENTH, :ref:`Getting Started <doc_build_intro>` is a good place to start.
 
 .. If you already have a working car and the work environment set up, then check out :ref:`Going Forward <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
 
