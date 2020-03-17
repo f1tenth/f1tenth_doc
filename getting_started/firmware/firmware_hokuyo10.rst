@@ -7,6 +7,10 @@ Hokuyo 10LX Ethernet Connection Setup
 
 **Equipment Required:**
 	* Fully built F1TENTH vehicle with a Hokuyo 10LX lidar
+	* Pit/Host Laptop OR
+	* External monitor/display, HDMI cable, keyboard, mouse
+
+**Difficulty Level:** Easy
 
 **Approximate Time Investment:** 15 minutes
 

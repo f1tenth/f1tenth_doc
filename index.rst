@@ -27,8 +27,6 @@ Talk with other F1TENTH teams on Slack!
 
           Submit an issue `GitHub repository <https://github.com/f1tenth/f1tenth_doc>`_.
 
-Many thanks to the `F1TENTH <http://f1tenth.org/>`_ community at the University of Pennsylvania for compiling this documenetation and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
-
 The table of contents below and in the sidebar should let you easily access the
 documentation for your topic of interest. You can also use the search function
 in the top left corner.
@@ -63,7 +61,8 @@ The main documentation for the site is organized into the following sections:
    :caption: Support
    :name: sec-support-contact
 
-   contact
+   support/contact
+   support/acknowledgment
 
 
 .. Indices and tables
