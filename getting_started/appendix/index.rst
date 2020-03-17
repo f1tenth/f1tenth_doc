@@ -6,4 +6,3 @@ Appendices
    :name: toc-learn-appendix
 
    appendix_a
-   appendix_b
