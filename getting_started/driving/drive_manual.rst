@@ -15,8 +15,8 @@ Before we can get the car to drive itself, it’s a good idea to test the car to
 
 **You MUST connect to the TX2 via SSH for this section.**
 
-Vehicle Inspection
---------------------
+1. Vehicle Inspection
+-----------------------
 We want to minimize the number of accidents so before we begin, let's first inspect our vehicle.
 
 #. Make sure you have the car running off its LIPO battery.
@@ -26,7 +26,7 @@ We want to minimize the number of accidents so before we begin, let's first insp
 #. Make sure you’ve cloned the ``f110_system`` repository and set up your working directory as explained in the :ref:`previous section <doc_drive_workspace>`.
 #. This section uses the program ``tmux`` (available via apt-get) to let you run multiple terminals over one SSH connection. You can also use VNC​ if you prefer a GUI.
 
-Driving the Car
+2. Driving the Car
 ----------------------
 #. Open a terminal on the **Pit** laptop and SSH into the car from your computer.
 #. Once you’re in, open a terminal window and run ​``$tmux`` so that you can spawn new terminal sessions over the same SSH connection.

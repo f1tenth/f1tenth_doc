@@ -13,7 +13,7 @@ Driving the Car
 	* Pit/Host computer
 	* Logitech F710 joypad
 
-**Difficulty Level:** Medium-Difficult
+**Difficulty Level:** Advanced
 
 **Approximate Time Investment:** 2 hours
 

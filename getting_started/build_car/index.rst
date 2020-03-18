@@ -45,7 +45,7 @@ There are three main sections to the car.
 	- the three hex keys (M3, M2.5, M2) included in the TRAXXAS kit 
 	- `T3 Torx Screwdriver <https://www.ifixit.com/Store/Tools/T3-Torx-Screwdriver/IF145-041?o=2>`_
 
-**Difficulty Level:** Intermediate
+**Difficulty Level:** Advanced
 
 **Approximate Time Investment:** 2 hours
 
