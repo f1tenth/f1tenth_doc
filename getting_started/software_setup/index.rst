@@ -14,9 +14,9 @@ At the end of this section, you will have the TX2 and host laptop set up.
 	* Wireless router (or your phone as a wireless hotspot)
 	* Ethernet cable (needed if Pit/Host laptop does not have WiFi capability)
 
-**Difficulty Level:** Medium
+**Difficulty Level:** Intermediate
 
-**Approximate Time Investment:** 2 hours
+**Approximate Time Investment:** 2-3 hours
 
 Now that you have a working physical F1TENTH car, you'll want to program it to do something useful, otherwise it's just a glorified and expensive car model at this point.
 

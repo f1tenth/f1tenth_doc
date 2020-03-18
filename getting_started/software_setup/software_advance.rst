@@ -11,7 +11,16 @@ The following two sections are optional.
 
 Wireless Hot Spot on the TX2
 ---------------------------------
+**Equipment Used:**
+	* Fully built F1TENTH vehicle
+	* Pit/Host Laptop OR
+	* External monitor/display, HDMI cable, keyboard, mouse
+
+**Approximate Time Investment:** 30 minutes
+
 As you begin to test on larger tracks, you may find a need to have a direct connection to your car, so as to not have to rely on the car being within a certain distance of your router. The solution here is to set up wireless hot spot on the TX2.
+
+Connect to the **TX2** via SSH on the **Pit** laptop or via a monitor, keyboard, and mouse.
 
 On the TX2, go to System Settings > Network.
 
@@ -31,6 +40,13 @@ On your phone, tablet, or laptop you can now connect directly to this Hotspot, a
 
 VNC Server on the TX2
 -------------------------
+**Equipment Used:**
+	* Fully built F1TENTH vehicle
+	* Pit/Host Laptop OR
+	* External monitor/display, HDMI cable, keyboard, mouse
+
+**Approximate Time Investment:** 1 hour
+
 When you start running mapping and localization algorithms, you'll need to see RViz and use its tools for some applications, meaning that you'll need a GUI interface for the remote desktop.
 
 Setting up a VNC server on the Jetson allows you to control the Jetson remotely. Why is this beneficial? When the car is running in the real world we won’t be able to connect the Jetson to an HDMI display. The traditional solution has been to ssh into the Jetson to see the directories, but what if we want to see graphical programs such as Rviz? (in order to see laser scans in live time and camera feeds). Or what if we want to be able to see multiple terminal windows open on the Jetson? A VNC server does this trick.

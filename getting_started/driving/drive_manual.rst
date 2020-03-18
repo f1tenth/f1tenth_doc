@@ -7,9 +7,13 @@ Manual Control
 	* Pit/Host computer
 	* Logitech F710 joypad
 
-**Approximate Time Investment:** ∞ There is no time limit on fun!
+**Approximate Time Investment:** 30 minutes - ∞ There is no time limit on fun!
 
+Overview
+------------
 Before we can get the car to drive itself, it’s a good idea to test the car to make sure it can successfully drive on the ground under human control. Controlling the car manually is also a good idea if you’ve recently re-tuned the VESC or swapped out a drivetrain component, such as the motor or gears. Doing this step early can spare you a headache debugging your code later since you will be able to rule out lower-level hardware issues if your code doesn’t work.
+
+**You MUST connect to the TX2 via SSH for this section.**
 
 Vehicle Inspection
 --------------------
@@ -24,7 +28,8 @@ We want to minimize the number of accidents so before we begin, let's first insp
 
 Driving the Car
 ----------------------
-#. Open a terminal and SSH into the car from your computer. Once you’re in, run ​``$tmux`` so that you can spawn new terminal sessions over the same SSH connection.
+#. Open a terminal on the **Pit** laptop and SSH into the car from your computer.
+#. Once you’re in, open a terminal window and run ​``$tmux`` so that you can spawn new terminal sessions over the same SSH connection.
 #. In your tmux session, spawn a new window (using ``Ctrl-B`` and then ``C``) and run ​``$roscore``​ to start ROS.
 #. Navigate to other free terminal using ``Ctrl-B`` and then ``P`` or ``N`` by switch to previous or next session, or using ``Ctrl-B`` and then the number of the session, navigate to your workspace that we set up before, run ``$ catkin make`` and source the directory using ``$ source devel/setup.bash``.
 #. Run ``$ roslaunch racecar teleop.launch​`` to launch the car. 
