@@ -1,6 +1,6 @@
 .. _doc_software_jetson:
 
-Configuring the TX2
+2. Configuring the TX2
 ==========================
 **Equipment Used:**
 	* Pit/Host laptop/computer running Ubuntu 16.04 or 18.04
@@ -32,18 +32,22 @@ JetPack versions:
 
 We will refer to the **TX2** as **TX2** or **Jetson** interchangeably.
 
-Install NVIDIA SDK Manager on Pit/Host Computer
-------------------------------------------------
+1. Install NVIDIA SDK Manager on Pit/Host Computer
+-----------------------------------------------------
 We first need to install NVIDIA SDK Manager. It provides an end-to-end development environment setup solution for NVIDIA’s DRIVE and Jetson SDKs for both host machine and target devices.
 
 #. Go to nvidia.com and create a user account for yourself
 #. Download `NVIDIA SDK Manager <https://developer.nvidia.com/nvidia-sdk-manager>`_ for *“All Jetson Developer Kits”* and run SDKM. Installation help can be found `here <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html#install-with-sdkm-jetson>`_.
 #. On host computer, extract and launch `SDK Manager <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html>`_.
 
-	.. image:: img/jetson/jetson02.png
+	.. figure:: img/jetson/jetson02.png
+	  	:align: center
 
-Installing JetPack on Pit/Host Computer
------------------------------------------
+		NVIDIA SDK Manager.
+
+
+2. Installing JetPack on Pit/Host Computer
+--------------------------------------------
 Install JetPack 4.3 (L4T 32.3.1) on **Pit/Host** computer with `NVIDIA SDK Manager <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html>`_.
 	#. In Hardware Configuration: choose Host Machine, deselect Target Hardware
 	#. If your window does not display all information, press Tab to scroll down, or use a bigger monitor.
@@ -51,13 +55,17 @@ Install JetPack 4.3 (L4T 32.3.1) on **Pit/Host** computer with `NVIDIA SDK Manag
 	
 * If running into errors, close and relaunch SDKM, then choose repair/uninstall under the STEP 4 button.
 
-Installing Orbitty BSP on Pit/Host Computer
-----------------------------------------------
+3. Installing Orbitty BSP on Pit/Host Computer
+------------------------------------------------
 Download and install `BST for Orbitty Carrier board <http://connecttech.com/support/resource-center/nvidia-jetson-tx2-tx1-product-support/>`_ on **Pit/Host** computer.
 
 On *Board Support Packages* tab, under *Looking for board support packages for your TX2 4GB solution?*, select the **Jetpack 4.3** to download. The file name is ``CTI-L4T-TX2.32.3.2-V001.tgz``.
 
-	.. image:: img/jetson/jetson03.png
+	.. figure:: img/jetson/jetson03.png
+	  	:align: center
+
+		Choose *L4T r32.3.1 - Jetpack 4.3*.
+
 
 Extract the .tgz file and find ``readme.txt`` in the folder; read the instructions and go through steps 1-4.
 
@@ -72,7 +80,7 @@ Extract the .tgz file and find ``readme.txt`` in the folder; read the instructio
 
 	#. In the Terminal, under ``$home/nvidia/nvidia_sdk/JetPack.3_Linux_GA_P3310/``, run ``sudo ./install.sh``
 
-Connecting the TX2
+4. Connecting the TX2
 -------------------------
 4 things need to be connected to the Orbitty Carrier Board.
 
@@ -81,7 +89,10 @@ Connecting the TX2
 #. The Pit laptop via a micro USB (P8)
 #. Power (green 12V terminal block)
 
-.. image:: img/jetson/jetson04.png
+.. figure:: img/jetson/jetson04.png
+	:align: center
+
+	Layout of Orbitty Carrier Board.
 
 #. Turn the *SYS PWR switch S1* to the left. 
 #. Plug in the battery in.
@@ -91,8 +102,8 @@ The monitor shall display some text in a terminal window.
 
 Note that the display and keyboard are separate from the **Pit/Host** computer. You essentially have two separate computers set up side by side at this point: the **TX2** and the **Pit/Host** computer.
 
-Flashing the TX2 with the Orbitty Carrier
--------------------------------------------
+5. Flashing the TX2 with the Orbitty Carrier
+----------------------------------------------
 Watch the first two minutes of `this <http://connecttech.com/flashing-nvidia-jetson-tx2-tx1-module/>`_.
 
 #. Put the Orbitty board and Jetson in to RECOVERY mode.
@@ -119,8 +130,8 @@ Watch the first two minutes of `this <http://connecttech.com/flashing-nvidia-jet
 3. Turn the *SYS PWR switch (S1)* to the right. Press the *PWR button* on Orbitty. The monitor on Orbitty shall
 display CTI-L4T welcome screen.
 
-Working on the TX2
--------------------
+6. Working on the TX2
+-----------------------
 This is where you will need to use the keyboard and mouse connected to the USB hub on the vehicle.
 
 Follow instructions on screen to finish setting up CTI-L4T on Jetson.
@@ -131,7 +142,7 @@ Install ROS like you did in the previous section, :ref:`Pit/Host Setup <doc_soft
 
 Now you should have the TX2 up and running and ready to use!
 
-.. image:: img/jetson/jetson05.gif
+.. figure:: img/jetson/jetson05.gif
 	:align: center
 
 .. `Professor Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University has compiled a fantastic on how to set up the software.

@@ -1,7 +1,7 @@
 .. _doc_software_combine:
 
-Connecting the Pit/Host and the TX2
-======================================
+3. Connecting the Pit/Host and the TX2
+=======================================
 **Equipment Used:**
 	* Pit/Host laptop/computer running Ubuntu 16.04 or 18.04
 	* Fully built F1TENTH vehicle with its TX2 connected to a keyboard, mouse, and an external monitor/display via HDMI cable
@@ -26,13 +26,13 @@ If the **Pit/Host** computer DOES NOT have Wifi capability:
 
 To make this section easy to follow, the WiFi network SSID will be called and referred to ``F1TENTH_WIFI``. In your scenario, it may be "AirPennNet", "eduroam", "Billys_iPhone" or whatever network you've chosen to communicate over.
 
-Vehicle Hardware Setup
+1. Vehicle Hardware Setup
 ----------------------------------------------
 If you have a TX2, it comes with a network card onboard. Make sure the antennas are connected. The battery should be plugged into the vehicle and the Powerboard should be on.
 
 If you have a Nano/Xavier NX, or a Xavier, you'll need to install a M.2 network card from Intel to enable wireless networking.
 
-Connecting the TX2 to WiFi
+2. Connecting the TX2 to WiFi
 -------------------------------------------------
 Connect the TX2 to ``F1TENTH_WIFI`` by clicking on wireless icon on top-right corner of Ubuntu Desktop and selecting ``F1TENTH_WIFI``. This is done on the TX2 with the monitor, keyboard, and mouse connected to it and not the Pit/Host laptop. It might take a while for the TX2 to discover the wireless network.
 
@@ -88,15 +88,14 @@ You should see something similar to this:
 
 You should be able to find your car's assigned IP address under :code:`wlan0`, then after ``inet``. In this example, the IP address is ``195.0.0.5``.
 
-Connecting the Pit/Host Computer to WiFi
+3. Connecting the Pit/Host Computer to WiFi
 -------------------------------------------------
 Now, on the Pit/Host laptop, connect to the same wireless network, ``F1TENTH_WIFI`` and find its IP Address. If your laptop running Linux or macOS, you could use the same :code:`ifconfig` command in the terminal. On macOS, it may be under ``en0`` or ``en1``. In this example, the IP address of the Pit is ``192.168.1.151``.
 
 If you’re running Linux on the Pit laptop in a virtual machine (VM), connect the Pit  computer to the router. Depending on which VM software you have and the default VM configuration, you may also need to set its network adapter configuration to NAT mode. This ensures your VM will share the wireless connection with your host OS instead of controlling the adapter itself.
 
-
-Connecting to the Pit/Host to the TX2
----------------------------------------
+4. Connecting to the Pit/Host to the TX2
+-------------------------------------------
 Now that the car and the laptop are on the same network, you should check that you can ping the laptop from the car and you can ping the car from the laptop.
 
 | On the TX2, open a terminal and type: :code:`ping 192.168.1.151` (This is the IP address of the Pit computer.).

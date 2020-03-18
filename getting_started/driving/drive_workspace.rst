@@ -72,19 +72,20 @@ On the **TX2**, setup your ROS workspace (for the driver nodes onboard the vehic
 
 Congratulations! Your onboard driver workspace is all set up.
 
-Workspace Content Breakdown
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Examine the contents of your workspace and you will see 3 folders. In the ROS world we call these **meta-packages** since they contain package.
+..
+	Workspace Content Breakdown
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	Examine the contents of your workspace and you will see 3 folders. In the ROS world we call these **meta-packages** since they contain package.
 
-	* algorithms
-	* simulator
-	* system
+		* algorithms
+		* simulator
+		* system
 
-#. Algorithms contains the brains of the car which run high level algorithms, such as wall following, pure pursuit, localization. 
-#. Simulator contains racecar-simulator which is based off of MIT Racecar’s repository and includes some new worlds such as Levine 2nd floor loop. Simulator also contains f1_10_sim which contains some message types useful for passing drive parameters data from the algorithm nodes to the VESC nodes that drive the car.
-#. System contains code from MIT Racecar that the car would not be able to work without. For instance, System contains ackermann_msgs (for Ackermann steering), racecar (which contains parameters for max speed, sensor IP addresses, and teleoperation), serial (for USB serial communication with VESC), and vesc (written by MIT for VESC to work with the racecar).
+	#. Algorithms contains the brains of the car which run high level algorithms, such as wall following, pure pursuit, localization. 
+	#. Simulator contains racecar-simulator which is based off of MIT Racecar’s repository and includes some new worlds such as Levine 2nd floor loop. Simulator also contains f1_10_sim which contains some message types useful for passing drive parameters data from the algorithm nodes to the VESC nodes that drive the car.
+	#. System contains code from MIT Racecar that the car would not be able to work without. For instance, System contains ackermann_msgs (for Ackermann steering), racecar (which contains parameters for max speed, sensor IP addresses, and teleoperation), serial (for USB serial communication with VESC), and vesc (written by MIT for VESC to work with the racecar).
 
-We will be focusing on the **System** folder in this section. :ref:`Going Forward <doc_going_forward_intro>` will utilize the firsit two folders - **Algorithms** and **Simulator**.
+	We will be focusing on the **System** folder in this section. :ref:`Going Forward <doc_going_forward_intro>` will utilize the firsit two folders - **Algorithms** and **Simulator**.
 
 .. _udev_rules:
 
