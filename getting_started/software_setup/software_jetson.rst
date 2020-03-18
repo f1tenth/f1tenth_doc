@@ -30,6 +30,8 @@ JetPack versions:
 	* JetPack 3.2 - OS L4T 28.3.1 (Works w/ Ubuntu Xenial 16.04) 
 	* JetPack 2.4 - OS L4T 24.2.3 (old version OK for TX1)
 
+We will refer to the **TX2** as **TX2** or **Jetson** interchangeably.
+
 Install NVIDIA SDK Manager on Pit/Host Computer
 ------------------------------------------------
 We first need to install NVIDIA SDK Manager. It provides an end-to-end development environment setup solution for NVIDIA’s DRIVE and Jetson SDKs for both host machine and target devices.
@@ -97,6 +99,7 @@ Watch the first two minutes of `this <http://connecttech.com/flashing-nvidia-jet
 	
 	#. Press and hold the RECOVERY key, then press the RESET button, the SYS LED shall be off;
 	#. Release the RESET button, wait 2 seconds and release the RECOVERY button. The monitor shall display nothing now. The Jetson and Orbitty are in RECOVERY mode.
+	#. Check if the TX2 shows up in USB devices on the **Pit** computer by opening a terminal and typing ``lsusb``. 
 
 #. On the **Pit/Host** computer manually flash the boards by typing the following into the terminal
 	
