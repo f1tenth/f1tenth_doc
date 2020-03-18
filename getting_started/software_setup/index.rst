@@ -1,7 +1,9 @@
 .. _doc_software_setup:
 
 System Configuration
-=====================
+========================
+.. note:: This section assumes that you have already completed :ref:`Building the Car <doc_build_car>`.
+
 At the end of this section, you will have the TX2 and host laptop set up.
 
 **Required Equipment:**
@@ -24,12 +26,12 @@ This **System Configuration** section will walk you through how to configure the
 
 The image below represents the flow of information on the F1TENTH Autonomous Vehicle System.
 
-.. image:: img/f1tenth_sys_flow.png
+.. figure:: img/f1tenth_sys_flow.png
+  	:align: center
+
+	Flow of information on the F1TENTH Autonomous Vehicle System.
 
 The **TX2** is the main brain of the entire system. It gives commands to the **VESC** which controls the **Servo** and the **Brushless Motor**. The **TX2** also receives information from the **Lidar**. The **Pit** laptop is where we can connect remotely to the **TX2**. 
-
-.. note:: 
-  If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
 
 This section has four subsections:
 
@@ -47,5 +49,8 @@ This section has four subsections:
 #. :ref:`Configuring the TX2 <doc_software_jetson>` goes over how to set up the **TX2**.
 #. :ref:`Combine setup <doc_software_combine>` goes over how to set up a wireless communication system between the **Pit/Host** laptop and the **TX2** once you have already completed the above two sections.
 #. :ref:`Advanced Setup <doc_software_advance>` concerns hotspot setup and VNC setup on the TX2. This section is optional and for the advanced user.
+
+.. tip:: 
+  If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
 
 Many thanks to `Dr. Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University for compiling the majority of information in this section.
