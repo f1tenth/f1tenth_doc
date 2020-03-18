@@ -14,7 +14,7 @@ Configuring the VESC
 	* Box or `Car stand <https://www.amazon.com/Duratrax-Tech-Deluxe-Truck-Stand/dp/B0014T74MS/ref=sr_1_6?keywords=rc+car+jack&link_code=qs&qid=1584393402&sr=8-6>`_  to put vehicle on
 	* Laptop/computer (does not need to running Linux)
 
-**Approximate Time Investment:** 30-45 minutes
+**Approximate Time Investment:** 1 hour
 
 Installing the VESC Tool
 -------------------------

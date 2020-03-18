@@ -8,6 +8,8 @@ Connecting the Pit/Host and the TX2
 	* Wireless router (or wireless hotspot on your phone)
 	* Ethernet cable (needed if Pit/Host laptop does not have WiFi capability)
 
+**Approximate Time Investment:** 1 hour
+
 Overview
 ----------
 We could log into the Jetson using a monitor, keyboard, and mouse, but what about when we’re driving the car? Fortunately, the Jetson has WiFi capability and can be accessed remotely via an SSH session. Throughout this tutorial, you will be asked to configure the Jetson’s and your laptop’s network settings. Make sure to get these right! Using the wrong IP address may lead to conflicts with another classmate, meaning neither of you will be able to connect.
@@ -102,13 +104,13 @@ Now that the car and the laptop are on the same network, you should check that y
 
 Remember to replace the IP addresses in the two lines above with your specific addresses.
 
-You can now ssh into your car from your laptop. Use :code:`ssh` in the terminal if you're on `macOS or Linux <https://support.rackspace.com/how-to/connecting-to-a-server-using-ssh-on-linux-or-mac-os/>`_, use `PuTTY <https://www.123-reg.co.uk/support/servers/how-do-i-connect-using-ssh-putty/>`_ if you're on Windows. 
+You can now SSH into your car from your laptop. Use :code:`ssh` in the terminal if you're on `macOS or Linux <https://support.rackspace.com/how-to/connecting-to-a-server-using-ssh-on-linux-or-mac-os/>`_, use `PuTTY <https://www.123-reg.co.uk/support/servers/how-do-i-connect-using-ssh-putty/>`_ if you're on Windows. 
 
 We recommend using :code:`tmux` while you're ssh-ed into the car. You can install :code:`tmux` via apt-get.
 
 You can now disconnect the HDMI cable, monitor, keyboard, and mouse from the TX2 and still be able to control the TX2 remotely from the Pit computer!
 
-Congratulations on making it through the **System Configuration** section! The :ref:`Advanced Setups <doc_software_advance>` is optional and not needed to finish setting up the vehicle.
+Congratulations on making it through the **System Configuration** section! The :ref:`Advanced Setups <doc_software_advance>` is optional and is not needed to finish setting up the vehicle.
 
 .. image:: img/combine/wireless3.gif
 	:align: center

@@ -36,7 +36,7 @@ The main documentation for the site is organized into the following sections:
 .. toctree::
    :maxdepth: 1
    :caption: Getting started
-   :name: sec-build
+   :name: sec-getting-started
 
    getting_started/intro 
    getting_started/build_car/index

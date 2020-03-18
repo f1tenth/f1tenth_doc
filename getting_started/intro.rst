@@ -10,10 +10,11 @@ Here is where you will all the information needed to get started and join the F1
 #. :ref:`Installing Firmware <doc_build_car_firmware>` - Start here if you've already done 1 and 2 above. In this section, you will tune the VESC and set up the ethernet connection for the lidar if you are using the Hokuyo 10LX.
 #. :ref:`Driving the Car <doc_drive>` - Start here if you have everything set up from the previous three sections and are ready to learn how to set up a workspace on the vehicle and start driving!
 
-**Difficulty Level:** Medium-Difficult
+**Difficulty Level:** Intermediate-Advance
 
-**Approximate Time Investment:** 5-7 hours
+**Approximate Time Investment:** 10-15 hours
 
+You might want to plan on saving an entire day to work on this project if you going through this Getting Started section from beginning to end.
 
 .. note:: 
   | If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.

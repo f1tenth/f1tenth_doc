@@ -10,6 +10,8 @@ Configuring the TX2
 	* Keyboard
 	* Mouse
 
+**Approximate Time Investment:** 1-2 hours
+
 Overview
 ---------
 The **TX2** is essentially a supercomputer on a module. We attach it to the Orbitty Carrier board so that we can access the TX2's peripheral. In order to configure the Jetson TX2, we need to install a few software on the **Pit/Host** laptop first and then use them to flash the **TX2**.
@@ -27,10 +29,6 @@ JetPack versions:
 	* **JetPack 4.3 - OS L4T (Linux4Tegra) 32.3.1 (works w/ Ubuntu Melodic 18.04) (what we use)**
 	* JetPack 3.2 - OS L4T 28.3.1 (Works w/ Ubuntu Xenial 16.04) 
 	* JetPack 2.4 - OS L4T 24.2.3 (old version OK for TX1)
-
-Hardware Setup
----------------
-The battery on the vehicle should be plugged in and the Powerboard should be turned on.
 
 Install NVIDIA SDK Manager on Pit/Host Computer
 ------------------------------------------------
@@ -75,6 +73,7 @@ Extract the .tgz file and find ``readme.txt`` in the folder; read the instructio
 Connecting the TX2
 -------------------------
 4 things need to be connected to the Orbitty Carrier Board.
+
 #. A display via the HDMI port (P2)
 #. A keyboard and mouse connected to the USB ports on the USB hub (P7) connected to the Orbitty
 #. The Pit laptop via a micro USB (P8)
@@ -82,7 +81,11 @@ Connecting the TX2
 
 .. image:: img/jetson/jetson04.png
 
-Turn the *SYS PWR switch S1* to the left. Turn the powerboard on. The monitor shall display some text in a terminal window.
+#. Turn the *SYS PWR switch S1* to the left. 
+#. Plug in the battery in.
+#. Turn the powerboard on. 
+
+The monitor shall display some text in a terminal window.
 
 Note that the display and keyboard are separate from the **Pit/Host** computer. You essentially have two separate computers set up side by side at this point: the **TX2** and the **Pit/Host** computer.
 
