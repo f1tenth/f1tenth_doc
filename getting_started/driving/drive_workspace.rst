@@ -15,8 +15,8 @@ We use ROS to connect everything together and ultimately run the car. We'll need
 
 .. _ros_workspace:
 
-Setting Up the ROS Workspace
-------------------------------
+1. Setting Up the ROS Workspace
+---------------------------------
 Connect to the **TX2** either via SSH on the **Pit** laptop or a wired connection (monitor, keyboard, mouse).
 
 On the **TX2**, setup your ROS workspace (for the driver nodes onboard the vehicle) by opening a terminal window and following these steps. 
@@ -89,8 +89,8 @@ Congratulations! Your onboard driver workspace is all set up.
 
 .. _udev_rules:
 
-Udev Rules Setup
--------------------
+2. Udev Rules Setup
+----------------------
 When you connect the VESC and a USB lidar to the Jetson, the operating system will assign them device names of the form ``/dev/ttyACMx``, where ``x`` is a number that depends on the order in which they were plugged in. For example, if you plug in the lidar before you plug in the VESC, the lidar will be assigned the name ``/dev/ttyACM0​``, and the VESC will be assigned ``/dev/ttyACM1​``. This is a problem, as the car’s ROS configuration scripts need to know which device names the lidar and VESC are assigned, and these can vary every time we reboot the Jetson, depending on the order in which the devices are initialized.
 
 Fortunately, Linux has a utility named ​udev​ that allows us to assign each device a “virtual” name based on its vendor and product IDs. For example, if we plug a USB device in and its vendor ID matches the ID for Hokuyo laser scanners (15d1), ​udev​ could assign the device the name ``/dev/sensors/hokuyo`` instead of the more generic ``/dev/ttyACMx​``. This allows our configuration scripts to refer to things like ``/dev/sensors/hokuyo`` and ``/dev/sensors/vesc​``, which do not depend on the order in which the devices were initialized. We will use udev to assign persistent device names to the lidar, VESC, and joypad by creating three configuration files (“rules”) in the directory ``/etc/udev/rules.d``.
@@ -144,8 +144,8 @@ making sure to replace ``<your_device_name>`` with the name of your device (e.g.
 
 .. _lidar_setup:
 
-Testing the lidar
--------------------
+3. Testing the Lidar
+----------------------
 This section assumes that the lidar has already been plugged in (either to the USB hub or to the Orbitty's ethernet port). If you are using the Hokuyo 10LX or a lidar that is connected via the ethernet port of the Orbitty, make sure that you have completed the :ref:`Hokuyo 10LX Ethernet Connection <doc_firmware_hokuyo10>` section before preceding.
 
 Once you’ve set up the lidar, you can test it using ​urg_node​/hokuyo_node, ​rviz​, and ​rostopic​.
@@ -154,9 +154,10 @@ A. If you're using the 10LX:
 
 	* Start ``roscore​`` in a terminal window. 
 	* In another (new) terminal window, run ``rosrun urg_node urg_node​``. Make sure to supply the urg node with the correct port number for the 10LX.
-	.. This tells ROS to start reading from the lidar and publishing on the ​/scan​ topic. If you get an error saying that there is an “error connecting to Hokuyo,” double check that the Hokuyo is physically plugged into a USB port. You can use the terminal command ``lsusb​to`` check whether Linux successfully detected your lidar. If the node started and is publishing correctly, you should be able to use ``rostopic echo /scan​`` to see live lidar data.
+	* This tells ROS to start reading from the lidar and publishing on the ​/scan​ topic. If you get an error saying that there is an “error connecting to Hokuyo,” double check that the Hokuyo is physically plugged into a USB port. You can use the terminal command ``lsusb​to`` check whether Linux successfully detected your lidar. If the node started and is publishing correctly, you should be able to use ``rostopic echo /scan​`` to see live lidar data.
 	
-.. *In the racecar config folder under ``lidar_node`` set the following parameter: ``ip_address: 192.168.0.10``. In addition in the ``sensors.launch.xml`` change the argument for the lidar launch from ``hokuyo_node`` to ``urg_node`` do the same thing for the ``node_type`` parameter.
+.. 
+	*In the racecar config folder under ``lidar_node`` set the following parameter: ``ip_address: 192.168.0.10``. In addition in the ``sensors.launch.xml`` change the argument for the lidar launch from ``hokuyo_node`` to ``urg_node`` do the same thing for the ``node_type`` parameter.
 
 B. If you're using the 30LX:
 	

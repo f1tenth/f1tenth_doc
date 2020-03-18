@@ -10,7 +10,7 @@ At the end of this section, you will have the VESC tuned and the lidar connectio
 	* Fully built F1TENTH vehicle 
 	* (see each section for more required equipment)
 
-**Difficulty Level:** Medium
+**Difficulty Level:** Advanced
 
 **Approximate Time Investment:** 1.5 hour
 

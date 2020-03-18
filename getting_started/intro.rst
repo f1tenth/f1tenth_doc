@@ -10,7 +10,7 @@ Here is where you will find all the information needed to get started and join t
 #. :ref:`Installing Firmware <doc_build_car_firmware>` - Start here if you've already done 1 and 2 above. 
 #. :ref:`Driving the Car <doc_drive>` - Start here if you have everything set up from the previous three sections and are ready to learn how to set up a workspace on the vehicle and start driving!
 
-**Difficulty Level:** Intermediate-Advance
+**Difficulty Level:** Advanced
 
 **Approximate Time Investment:** 10-15 hours
 
