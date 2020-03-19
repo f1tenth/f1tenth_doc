@@ -16,7 +16,7 @@ At the end of this section, you will have the TX2 and host laptop set up.
 	* Wireless router (or your phone as a wireless hotspot)
 	* Ethernet cable (needed if Pit/Host laptop does not have WiFi capability)
 
-**Difficulty Level:** Intermediate
+**Difficulty Level:** Intermediate-Advanced
 
 **Approximate Time Investment:** 2-3 hours
 
