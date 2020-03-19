@@ -13,11 +13,11 @@ Driving the Car
 	* Pit/Host computer
 	* Logitech F710 joypad
 
-**Difficulty Level:** Advanced
+**Difficulty Level:** Intermediate
 
 **Approximate Time Investment:** 2 hours
 
-First, we need to set up the :ref:`workspace <<doc_drive_workspace>` on the car and then we'll learn how to :ref:`control the car <drive_manualcontrol>` with a joystick.
+First, we need to set up the :ref:`workspace <doc_drive_workspace>` on the car and then we'll learn how to :ref:`control the car <drive_manualcontrol>` with a joystick.
 
 .. toctree::
    :maxdepth: 1
