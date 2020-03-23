@@ -1,7 +1,10 @@
 .. _doc_drive_rosbag:
 
-Recording Bag Data on the Car
+Recording Data on the Car
 ================================
+
+.. note:: This section requires a fully built F1TENTH vehicle.
+
 ROSbags​ are useful for recording data from the car (e.g. LIDAR, odometry) and playing it back later. This feature is useful because it allows you to capture data from when the car is running and later study the data or perform analysis on it to help you develop and implement better racing algorithms.
 
 One great thing about ROSbags compared to just recording the data into something simpler (like a CSV file) is that data is recorded along with the topics it was originally sent on. What this means is that when you later ​play​ the bag, the data will be transmitted on the same topics that it was originally sent on, ​and *any code that was listening to these topics can run, as if the data was being generated live​*.

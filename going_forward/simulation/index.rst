@@ -6,6 +6,8 @@ Why would we want to use a simulator? We want to test the car’s algorithms in 
 
 We will use the ROS ​Gazebo​ simulator software. From a high level, Gazebo loads a world as a .DAE file and loads the car. It has a physics engine that can determine when the car crashes into a wall.
 
+Installing the Simulator
+---------------------------------
 First, ensure that you have setup your working directory as shown in the instructions ​here​. Next, in the workspace folder, run:
 
 .. code-block:: bash
@@ -67,6 +69,8 @@ We had to experiment with different export settings for Sketchup. These are the 
 Once you’ve exported the .dae file, you will need to go into 3 folders in order to add the world.
 
 Navigate to ``f110_ws/src/simulator/racecar-simulator"`` folders. You should then see folders “racecar_description” and “racecar_gazebo.” Inside racecar_gazebo/worlds create a new [track_name].world file. You can copy and paste another world to use as a template. Update all references to the new track name.
+
 Furthermore, inside of the racecar_description folder, you will need to update files within /meshes and /models. Inside racecar_description/models you will want to make a new folder with your track name (e.g. “levine_track”) with a model.config file and model.sdf file. If you copy and paste a template from an existing track, the steps will be pretty self explanatory in terms of updating the track names to your new track name.
+
 Inside racecar_description/meshes you will copy in your .dae file.
 Now that you’ve created your .dae file with Sketchup and added it into the code, lastly you will want to update your launch file in order to use your new world. Follow instructions from the Gazebo Simulator section to update the launch file with your world name. Launch the world and you should see your world come up.
