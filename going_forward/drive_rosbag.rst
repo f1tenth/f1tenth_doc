@@ -14,7 +14,7 @@ For example, suppose I record LIDAR data being broadcasted on the ​/scan​ to
 Here’s a concrete example of how to use ROSbags to acquire motor telemetry data and play it back.
 
 #. Make sure both your computer and car are connected to the ​same network. On your laptop, open a terminal and SSH into the car. Once you’re in, run ​tmux​ so that you can spawn new terminal sessions over the same SSH connection.
-#. In your tmux session, spawn a new window and run ​``roscore​`` to start ROS.
+#. In your tmux session, spawn a new window and run ``roscore​`` to start ROS.
 #. In the other free terminal, navigate to your working directory, run ​catkin make​, and source the directory using ​source devel/setup.bash​.
 #. Run ``roslaunch racecar teleop.launch​`` to launch the car. Place the car on the ground or on a stand and press the center button on your joystick so you can control the car.
 #. In your tmux session, spawn a new window and examine the list of active ROS topics using ​rostopic list​. Make sure that you can see the ``/vesc/sensors/core​`` topic , which contains drive motor parameters.

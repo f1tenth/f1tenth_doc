@@ -4,24 +4,49 @@ Simulation
 ===============
 Why would we want to use a simulator? We want to test the car’s algorithms in a controlled environment before we bring it into the real world so that we minimize risk of crashing. If you’ve ever had to fix a Traxxas RC car before, you might know that they can be a pain to fix. For instance, if a front steering servo plastic piece were to break, we would have to disassemble about 20 parts in order to replace it. The simulator will be our best friend for quite a while during development.
 
-We will use the ROS ​Gazebo​ simulator software. From a high level, Gazebo loads a world as a .DAE file and loads the car. It has a physics engine that can determine when the car crashes into a wall.
+We will use a simulator built for F1TENTH that has a C++ backend and uses RViz to visualize. The underlying physics model of the car is a 2D single track model descriped `here in section 5 <https://commonroad.in.tum.de/static/docs/vehicleModels_commonRoad.pdf>`_.
 
-Installing the Simulator
----------------------------------
-First, ensure that you have setup your working directory as shown in the instructions ​here​. Next, in the workspace folder, run:
+Installing the Simulator and Setting up Packages for Skeleton Code
+---------------------------------------------------------------------
+First, ensure that you have setup your working directory as shown in the instructions `here <../../getting_started/driving/drive_workspace.html#workspace-setup>`_. Next, in the workspace, clone the repository with the simulator and skeleton code and installing by runnning:
 
 .. code-block:: bash
 
-	$​ ​source​ devel/setup.bash
-	$​ roslaunch wall_following wall_following.launch
+	$​ ​cd f110_ws/src
+	$ git clone https://github.com/f1tenth/f110_ros.git
+	$ cd ..
+	$ catkin_make
+	$ source devel/setup.bash
 
-(What is this roslaunch command? See ​here​. Syntax highlighting (section 5 of that page) also helps. Note that roslaunch will also start the ROS master node so you don’t need to run roscore separately)
+Then you can launch the simulator by running:
 
-You should see a rectangular-shaped track, this is the Levine Building 2nd floor hallways outside of the mLab. The robot spawns at the origin and is doing a simple left wall follow. If you have a Logitech F710 joystick on hand and want to try controlling the robot with the joystick, you can do that by pressing the LB button on the top left while moving the joypads.
+.. code-block:: bash
 
-Want a Different Navigation Algorithm?
---------------------------------------------
-As the launch file name suggests, by default, the car runs Wall Following algorithm in the simulator. To change that, you need to edit the launch file. See the online ​references​ to understand ROS launch files.
+	$​ roslaunch f110_simulator simulator.launch
+
+You should see a rectangular-shaped track, this is the Levine Building 2nd floor hallways outside of the mLab. The robot spawns at the origin.
+
+.. image:: img/simulator_rviz.png
+
+Functionality of the Simulator
+----------------------------------
+You can use the *2D Pose Estimate* tool in RViz to set a current pose for the vehicle, and you can use *Publish Point* tool to add a small square obstacle in the map.
+
+.. image:: img/simulator_direction.jpg
+
+You can also use the Green button in the RViz window to clear all obstacles in the map.
+
+.. image:: img/simulator_obs.png
+
+.. image:: img/simulator_cleared.png
+
+ROS API of the simulator
+----------------------------
+.. image:: img/sim_graph_public.png
+
+.. Want a Different Navigation Algorithm?
+.. --------------------------------------------
+.. As the launch file name suggests, by default, the car runs Wall Following algorithm in the simulator. To change that, you need to edit the launch file. See the online ​references​ to understand ROS launch files.
 
 Want a Different Track?
 --------------------------------------------
@@ -39,14 +64,14 @@ Change the value to the name of one of the track files, e.g.
 
 	<arg name=”world_name” value=”track_porto”>
 
-Don’t Want the GUI?
---------------------------------------------
-If you are using the simulator to test some algorithms but don’t want to see the Gazebo GUI (because it’s heavy, or slow, or useless for now), you can disable it by editing the wall_following.launch file: in the <include .... racecar.launch> command, add this argument:
+.. Don’t Want the GUI?
+.. --------------------------------------------
+.. If you are using the simulator to test some algorithms but don’t want to see the Gazebo GUI (because it’s heavy, or slow, or useless for now), you can disable it by editing the wall_following.launch file: in the <include .... racecar.launch> command, add this argument:
 
 
-.. code-block:: bash
+.. .. code-block:: bash
 
-	<arg name=”gui” value=”false”>
+.. 	<arg name=”gui” value=”false”>
 
 Moving the Car Manually in Simulation
 --------------------------------------------
