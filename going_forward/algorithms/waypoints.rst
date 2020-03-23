@@ -3,6 +3,8 @@
 Working with Waypoints
 ============================
 
+..note:: This section requies a computer/laptop running Ubuntu Xenial 16.04/ROS Kinetic or Bionic 18.04/ROS Melodic.
+
 Generating Waypoints
 --------------------------
 Now that we have localization down, the next step is to be able to follow a set of waypoints. The waypoints are (x, y) coordinates with respect to the map frame. We can expect around 2,000 - 4,000 waypoints for a loop of length around 66 meters.
@@ -27,7 +29,7 @@ Do the following to save waypoints.
 
 At this point, in your current working directory you will see a csv file called ``waypoints.csv``. Let’s go into further detail on what is going behind the scenes. ``Particle_filter.launch`` plays the rosbag that you recorded (of course, you have to update the particle_filter.launch with the path to your bag file you recorded). The particle filter subscribes to the ``vesc/odom`` and scan topics, and it outputs a stream of messages over the topic ``pf/viz/inferred_pose``. ``Waypoint_logger.py`` subscribes to ``pf/viz/inferred_pose`` and saves the x, y coordinates in each callback to a CSV file.
 
-Now that you have your ``waypoints.csv ``file, the next step will be to use this list of waypoints and have the car follow them using pure pursuit.
+Now that you have your ``waypoints.csv`` file, the next step will be to use this list of waypoints and have the car follow them using pure pursuit.
 
 Following Waypoints with Pure Pursuit
 -------------------------------------------
