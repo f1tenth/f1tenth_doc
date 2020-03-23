@@ -33,11 +33,13 @@ There are three main sections to the car.
 | **Bill of Materials**:
 | (scroll to the right to see links)
 
+ `Master BOM <https://docs.google.com/spreadsheets/d/1ykUyrZq-vLlMTf0TIcdMrRbGKcRWglW6ol76QyGst2I/edit#gid=2038095912>`_
+ 
 .. raw:: html
 
     <iframe width="650" height="950" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQpeGA74hmfi7aZCqyUDgmA6UDSbyWWVRLzpCmqXuTEX1TZNTnYAlQf3Kv69imXkLvwF-V_q2LC5tEd/pubhtml?widget=true&amp;headers=false"></iframe>
 
-.. `Master BOM <https://docs.google.com/spreadsheets/d/1ykUyrZq-vLlMTf0TIcdMrRbGKcRWglW6ol76QyGst2I/edit#gid=2038095912>`_
+
 
 
 **Tools Needed:**
