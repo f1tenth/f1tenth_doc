@@ -83,96 +83,98 @@ If you are using the Hokuyo 10LX please confirm that you properly configured the
 
 Installing pyTorch
 ^^^^^^^^^^^^^^^^^^^
-#. Make sure that you system path includes CUDNN
+The installation for pyTorch has been streamlined with the help with pre-built binaries. You can find instructions `here <https://forums.developer.nvidia.com/t/pytorch-for-jetson-nano-version-1-4-0-now-available/72048>`_.
 
-.. code-block:: bash
+.. #. Make sure that you system path includes CUDNN
 
-   $ sudo python -c 'import os; print(os.getenv("CUDNN_LIB_DIR"))'
+.. .. code-block:: bash
 
-#. Trun sample bash script to install pyTorch. You have to build from source because pyTorch does not have any arm64 binaries (due to its use of anaconda).
+..    $ sudo python -c 'import os; print(os.getenv("CUDNN_LIB_DIR"))'
 
-.. code-block:: bash
+.. #. Trun sample bash script to install pyTorch. You have to build from source because pyTorch does not have any arm64 binaries (due to its use of anaconda).
 
-   #!/usr/bin/env bash
-   # install jetson-utils prerequisites
-   sudo apt-get update
-   sudo apt-get install libglew-dev glew-utils libgstreamer1.0-dev
-   libgstreamer-plugins-base1.0-dev libglib2.0-dev
-   sudo apt-get install python-pip
-   sudo apt-get install python-tk python-gi-cairo
-   sudo apt-get install libfreetype6-dev
+.. .. code-block:: bash
 
-   # upgrade pip
-   pip --version
-   pip install --upgrade pip==9.0.1
-   pip --version
+..    #!/usr/bin/env bash
+..    # install jetson-utils prerequisites
+..    sudo apt-get update
+..    sudo apt-get install libglew-dev glew-utils libgstreamer1.0-dev
+..    libgstreamer-plugins-base1.0-dev libglib2.0-dev
+..    sudo apt-get install python-pip
+..    sudo apt-get install python-tk python-gi-cairo
+..    sudo apt-get install libfreetype6-dev
 
-   sudo pip install matplotlib
-   sudo pip install pyglet==1.3.1      # lock pyglet for patch
+..    # upgrade pip
+..    pip --version
+..    pip install --upgrade pip==9.0.1
+..    pip --version
 
-   sudo sed -i 's/_have_getprocaddress = True/_have_getprocaddress =
-   False/' /usr/local/lib/python2.7/dist-packages/pyglet/gl/lib_glx.py
+..    sudo pip install matplotlib
+..    sudo pip install pyglet==1.3.1      # lock pyglet for patch
 
-   # setproctitle extension used by A3G
-   sudo pip install setproctitle
+..    sudo sed -i 's/_have_getprocaddress = True/_have_getprocaddress =
+..    False/' /usr/local/lib/python2.7/dist-packages/pyglet/gl/lib_glx.py
 
-   # install numpy
-   sudo pip install numpy
+..    # setproctitle extension used by A3G
+..    sudo pip install setproctitle
 
-   # clone pyTorch repo
-   git clone https://github.com/pytorch/pytorch
-   cd pytorch
-   git tag
-   git checkout v0.3.0
-   git branch
-   git submodule update --init
+..    # install numpy
+..    sudo pip install numpy
 
-   # install prereqs
-   sudo pip install -U setuptools
-   sudo pip install -r requirements.txt
+..    # clone pyTorch repo
+..    git clone https://github.com/pytorch/pytorch
+..    cd pytorch
+..    git tag
+..    git checkout v0.3.0
+..    git branch
+..    git submodule update --init
 
-   # Develop Mode:
-   python setup.py build_deps
-   sudo python setup.py develop
+..    # install prereqs
+..    sudo pip install -U setuptools
+..    sudo pip install -r requirements.txt
 
-   cd torch
-   ln -s _C.so lib_C.so
-   cd lib
-   ln -s libATen.so.1 libATen.so
-   cd ../ ../
+..    # Develop Mode:
+..    python setup.py build_deps
+..    sudo python setup.py develop
 
-   git clone https://github.com/pytorch/vision
-   cd vision
-   sudo python setup.py install
+..    cd torch
+..    ln -s _C.so lib_C.so
+..    cd lib
+..    ln -s libATen.so.1 libATen.so
+..    cd ../ ../
 
-#. Run these commands to test
+..    git clone https://github.com/pytorch/vision
+..    cd vision
+..    sudo python setup.py install
 
-.. code-block::  bash
+.. #. Run these commands to test
 
-   python # Open a REPL
-   import torch
-   torch.backends.cudnn.is_acceptable(torch.cuda.FloatTensor(1))
-   # if this returns true you are ready to go!
+.. .. code-block::  bash
 
-Additional Resources
-""""""""""""""""""""""""
-See the following pages:
+..    python # Open a REPL
+..    import torch
+..    torch.backends.cudnn.is_acceptable(torch.cuda.FloatTensor(1))
+..    # if this returns true you are ready to go!
 
-* `https://github.com/dusty-nv/jetson-reinforcement <https://github.com/dusty-nv/jetson-reinforcement>`_
-* `https://github.com/andrewadare/jetson-tx2-pytorch <https://github.com/andrewadare/jetson-tx2-pytorch>`_
+.. Additional Resources
+.. """"""""""""""""""""""""
+.. See the following pages:
+
+.. * `https://github.com/dusty-nv/jetson-reinforcement <https://github.com/dusty-nv/jetson-reinforcement>`_
+.. * `https://github.com/andrewadare/jetson-tx2-pytorch <https://github.com/andrewadare/jetson-tx2-pytorch>`_
 
 Installing Tensorflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 First double check which Jetpack version and which CUDA version you have installed on your TX2. You should be able to determine the Jetpack version from the GUI that you used when flashing your board. If you are unsure of the CUDA version open a terminal and inspect the results of nvcc --version.
 
-Follow the instructions posted `here <https://github.com/jetsonhacks/installTensorFlowJetsonTX>`_, note that the wheels provided are quite old and may not work with your Jetpack/CUDA version...
+Follow the instructions posted `here <https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html>`_.
 
-Updated wheel files available here:
+.. Updated wheel files available here:
 
-   A quick google search will likely yield your desired variant. Here are some alternate options for convenience. Add the wheel files to the appropriate installTensoFlowJetsonTX directory and proceed.
+..    A quick google search will likely yield your desired variant. Here are some alternate options for convenience. Add the wheel files to the appropriate installTensoFlowJetsonTX directory and proceed.
 
-   * `Tensorflow Version 1.1 with JetPack 3.3 <https://forums.developer.nvidia.com/t/tensorflow-1-11-0-wheel-with-jetpack-3-3/59376>`_ 
-   * `Tensorflow Version 1.6 with JetPack 3.1 or 3.2 <https://github.com/openzeka/Tensorflow-for-Jetson-TX2>`_
+..    * `Tensorflow Version 1.1 with JetPack 3.3 <https://forums.developer.nvidia.com/t/tensorflow-1-11-0-wheel-with-jetpack-3-3/59376>`_ 
+..    * `Tensorflow Version 1.6 with JetPack 3.1 or 3.2 <https://github.com/openzeka/Tensorflow-for-Jetson-TX2>`_
 
 Using gstreamer and image processing pipeline
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -180,12 +182,12 @@ Recording video from sensors like the Zed camera on the Jetson TX2 can be slow. 
 
 Kernel
 ----------------
-USB doesn’t work...
+USB doesn’t work
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you are using the Jetson TX2 you need to build the board support package for the Orbitty carrier. See :ref:`here <doc_software_jetson>`.
 
-USB works, but LIDAR and VESC do not work...
+USB works, but LIDAR and VESC do not work
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 First check that you are opening the correct device. It is highly recommended that you :ref:`setup udev rules <udev_rules>`.
 
-If this fails to work then there is a strong chance that you need to install the ttyACM module. For a convenient installer visit ​`here <https://github.com/jetsonhacks/installACMModule>`_.
+If this fails to work then there is a strong chance that you need to install the ttyACM module. For a convenient installer visit `here <https://github.com/jetsonhacks/installACMModule>`_.
