@@ -51,10 +51,11 @@ The main documentation for the site is organized into the following sections:
    :caption: Going Forward
    :name: sec-forward
 
-..
+
    going_forward/intro
-   going_forward/simulation
-   going_forward/algorithms
+   going_forward/drive_rosbag
+   going_forward/simulation/index
+   going_forward/algorithms/index
 
 .. toctree::
    :maxdepth: 1
