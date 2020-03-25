@@ -1,11 +1,12 @@
-F1TENTH - Build Documentation
+F1TENTH - Build Documentation - *master branch*
 ================================================
 
 Welcome to the official build documentation of `F1TENTH <http://f1tenth.org/>`_. 
 
 .. attention:: This is the documentation for the development (master) branch. Looking for the documentation of the current stable branch? `Have a look here <https://f1tenth.readthedocs.io/en/stable/>`_.
 
-.. image:: img/buildCar.gif
+.. image:: img/f110cover.png
+  :align: center
 
 .. important:: 
   #. If you are new to F1TENTH, :ref:`Getting Started <doc_build_intro>` is a good place to start.

@@ -10,7 +10,7 @@ This will be updated as we get new questions. Please post questions in the forum
 General
 ----------------
 Where can I find additional working examples of autonomous control code?
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Please see this `repository <https://github.com/f1tenth/F110CPSWeek2018>`_ of past competitors submissions.
 
 Mechanical
@@ -59,9 +59,7 @@ One common source of network latency is the physical connection between the ante
 
 Increasing range of the gamepad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Adding an antenna
-
-Use the antenna (extra usb cable) provided with the Logitech controller.
+Add an antenna and use the antenna (extra usb cable) provided with the Logitech controller.
 
 Erwin Coumans of Google Brain provides `this library <https://github.com/erwincoumans/RC-Receiver-Interface>`_ for more typical RF based RC controllers. Uses the Quanum RC control with Teensy 3.2 as better joystick. A switch on the remote switches between human control, OFF and self-driving. (so you don't need to hold the buttons). We can also easily program it to keep a a number of constant speeds, nice for data collection.
 
