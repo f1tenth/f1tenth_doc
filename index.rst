@@ -1,4 +1,4 @@
-F1TENTH - Build Documentation - *master branch*
+F1TENTH - Build Documentation - *stable branch*
 ================================================
 
 Welcome to the official build documentation of `F1TENTH <http://f1tenth.org/>`_. 
