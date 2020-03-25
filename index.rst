@@ -5,7 +5,7 @@ Welcome to the official build documentation of `F1TENTH <http://f1tenth.org/>`_.
 
 This is the most up to date documentation. If you are looking for the old page, you can find it `here <https://f1tenth.github.io/build-old.html>`_. Please note that we no longer provide support for the old build page. If you have questions, please post to the `forum <http://f1tenth.org/forum.html>`_.
 
-.. image:: img/f10cover.png
+.. image:: img/buildcar.gif
 
 If you are new to F1TENTH, :ref:`Getting Started <doc_build_intro>` is a good place to start.
 
