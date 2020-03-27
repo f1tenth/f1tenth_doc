@@ -11,8 +11,9 @@ Welcome to the official build documentation of `F1TENTH <http://f1tenth.org/>`_.
 .. important:: 
   #. If you are new to F1TENTH, :ref:`Getting Started <doc_build_intro>` is a good place to start.
 
-..  #. If you already have a working car and the work environment set up, then check out :ref:`Going Forward <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
+  #. If you already have a working car and the work environment set up, then check out :ref:`Going Forward <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
 
+..
   #. If you don't want to build a physical car and just want to play around in the simulator, head straight to :ref:`Simulation <doc_going_forward_simulation>`.
 
 If you are looking for the old page, you can find it `here <https://f1tenth.github.io/build-old.html>`_. Please note that we no longer provide support for the old build page. If you have questions, please post to the `forum <http://f1tenth.org/forum.html>`_.
@@ -53,17 +54,18 @@ The main documentation for the site is organized into the following sections:
    getting_started/appendix/index
    getting_started/faq
 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Going Forward
+   :name: sec-forward
+
+
+   going_forward/intro
 ..
-  .. toctree::
-     :maxdepth: 1
-     :caption: Going Forward
-     :name: sec-forward
-
-
-     going_forward/intro
-     going_forward/drive_rosbag
-     going_forward/simulation/index
-     going_forward/algorithms/index
+   going_forward/drive_rosbag
+   going_forward/simulation/index
+   going_forward/algorithms/index
 
 .. toctree::
    :maxdepth: 1
