@@ -71,10 +71,6 @@ In these cases, it is possible and recommended to use a bluetooth gamepad like t
 
 Software
 ----------------
-VESC serial failures, VESC hardware and software revisions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If you are using the VESC-x or the VESC-6 the data serialization specification has changed, you need to recompile the vesc_driver with alternate headers. Branches can be found here ___ for the VESC-x and here __ for the VESC-6
-
 LIDAR variants
 ^^^^^^^^^^^^^^^^
 If you are using the Hokuyo 10LX please confirm that you properly configured the wired network connection as described :ref:`here <doc_firmware_hokuyo10>`.
