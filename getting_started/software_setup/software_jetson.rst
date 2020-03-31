@@ -40,27 +40,27 @@ We first need to install NVIDIA SDK Manager. It provides an end-to-end developme
 #. Download `NVIDIA SDK Manager <https://developer.nvidia.com/nvidia-sdk-manager>`_ for *“All Jetson Developer Kits”* and run SDKM. Installation help can be found `here <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html#install-with-sdkm-jetson>`_.
 #. On host computer, extract and launch `SDK Manager <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html>`_.
 
+2. Installing JetPack on Pit/Host Computer
+--------------------------------------------
+Install JetPack 4.3 (L4T 32.3.1) on **Pit/Host** computer with `NVIDIA SDK Manager <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html>`_.
+	#. In Hardware Configuration: select Host Machine and in for Target Hardware, select Jetson TX2.
+	#. If your window does not display all information, press Tab to scroll down, or use a bigger monitor.
+	#. Follow instructions in SDKM,
+
 	.. figure:: img/jetson/jetson02.png
 	  	:align: center
 
 		NVIDIA SDK Manager.
-
-
-2. Installing JetPack on Pit/Host Computer
---------------------------------------------
-Install JetPack 4.3 (L4T 32.3.1) on **Pit/Host** computer with `NVIDIA SDK Manager <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html>`_.
-	#. In Hardware Configuration: choose Host Machine, deselect Target Hardware
-	#. If your window does not display all information, press Tab to scroll down, or use a bigger monitor.
-	#. Follow instructions in SDKM;
 	
 * If running into errors, close and relaunch SDKM, then choose repair/uninstall under the STEP 4 button.
 
 3. Installing Orbitty BSP on Pit/Host Computer
 ------------------------------------------------
-Download and install `BST for Orbitty Carrier board <http://connecttech.com/support/resource-center/nvidia-jetson-tx2-tx1-product-support/>`_ on **Pit/Host** computer.
+Download and install `BSP for Orbitty Carrier board <http://connecttech.com/support/resource-center/nvidia-jetson-tx2-tx1-product-support/>`_ on **Pit/Host** computer. Choose the **Jetson TX2/TX2 4GB/TX2i** module.
 
-On *Board Support Packages* tab, under *Looking for board support packages for your TX2 4GB solution?*, select the **Jetpack 4.3** to download. The file name is ``CTI-L4T-TX2.32.3.2-V001.tgz``.
+On *Board Support Packages* tab, select **TX2 L4T r32.3.1 – Jetpack 4.3**. This should be the first *Board Support Packages*.
 
+..
 	.. figure:: img/jetson/jetson03.png
 	  	:align: center
 
