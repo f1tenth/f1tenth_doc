@@ -13,7 +13,7 @@ First, ensure that you have setup your working directory as shown in the instruc
 .. code-block:: bash
 
 	$​ ​cd f110_ws/src
-	$ git clone https://github.com/f1tenth/f110_ros.git
+	$ git clone https://github.com/f1tenth/f1tenth_labs.git
 	$ cd ..
 	$ catkin_make
 	$ source devel/setup.bash

@@ -31,7 +31,7 @@ We want to minimize the number of accidents so before we begin, let's first insp
 #. Open a terminal on the **Pit** laptop and SSH into the car from your computer.
 #. Once you’re in, open a terminal window and run ​``$tmux`` so that you can spawn new terminal sessions over the same SSH connection.
 #. In your tmux session, spawn a new window (using ``Ctrl-B`` and then ``C``) and run ​``$roscore``​ to start ROS.
-#. Navigate to other free terminal using ``Ctrl-B`` and then ``P`` or ``N`` by switch to previous or next session, or using ``Ctrl-B`` and then the number of the session, navigate to your workspace that we set up before, run ``$ catkin make`` and source the directory using ``$ source devel/setup.bash``.
+#. Navigate to other free terminal using ``Ctrl-B`` and then ``P`` or ``N`` by switch to previous or next session, or using ``Ctrl-B`` and then the number of the session, navigate to your workspace that we set up before, run ``$ catkin_make`` and source the directory using ``$ source devel/setup.bash``.
 #. Run ``$ roslaunch racecar teleop.launch​`` to launch the car. 
 	* If you see an error like this: ``[ERROR] [1541708274.096842680]: Couldn't open joystick force feedback!`` It means that the joystick is connected. 
 	* If this gives you a segmentation error and it’s caused by compiling the joy package (which you can check by running the joy node on its own), this could be because you are using the joy package from the ROS distribution (i.e., installed with apt-get). Remove that by ``sudo apt-get remove joy`` and ``catkin_make`` in your workspace, and sourcing the setup bash again. This should compile and use the joy package that’s in the repo.
