@@ -3,8 +3,6 @@ F1TENTH - Build Documentation - *stable branch*
 
 Welcome to the official build documentation of `F1TENTH <http://f1tenth.org/>`_. 
 
-.. tip:: This is the documentation for the stable branch. Looking for the documentation of the current development branch? `Have a look here <https://f1tenth.readthedocs.io/en/latest/>`_.
-
 .. image:: img/f110cover.png
   :align: center
 
