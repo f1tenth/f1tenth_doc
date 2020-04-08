@@ -3,13 +3,14 @@ F1TENTH - Build Documentation
 
 Welcome to the official build documentation of `F1TENTH <http://f1tenth.org/>`_. 
 
-.. image:: img/f110cover.png
-  :align: center
-
-.. important:: 
+.. attention:: 
   #. If you are new to F1TENTH, :ref:`Getting Started <doc_build_intro>` is a good place to start.
 
   #. If you already have a working car and the work environment set up, then check out :ref:`Going Forward <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
+
+
+.. image:: img/f110cover.png
+  :align: center
 
 ..
   #. If you don't want to build a physical car and just want to play around in the simulator, head straight to :ref:`Simulation <doc_going_forward_simulation>`.
@@ -33,16 +34,16 @@ If you are looking for the old page, you can find it `here <https://f1tenth.gith
 
           Submit an issue `GitHub repository <https://github.com/f1tenth/f1tenth_doc>`_.
 
-The table of contents below and in the sidebar should let you easily access the
+The table of contents in the sidebar should let you easily access the
 documentation for your topic of interest. You can also use the search function
 in the top left corner.
 
-The main documentation for the site is organized into the following sections:
 
 .. toctree::
    :maxdepth: 1
    :caption: Getting started
    :name: sec-getting-started
+   :hidden:
 
    getting_started/intro 
    getting_started/build_car/index
@@ -57,6 +58,7 @@ The main documentation for the site is organized into the following sections:
    :maxdepth: 1
    :caption: Going Forward
    :name: sec-forward
+   :hidden:
 
 
    going_forward/intro
@@ -69,6 +71,7 @@ The main documentation for the site is organized into the following sections:
    :maxdepth: 1
    :caption: Support
    :name: sec-support-contact
+   :hidden:
 
    support/contact
    support/acknowledgment
