@@ -155,7 +155,7 @@ A. If you're using the 10LX:
 	* Start ``roscore​`` in a terminal window. 
 	* In another (new) terminal window, run ``rosrun urg_node urg_node _ip_address:="192.168.0.10"​``. Make sure to supply the urg node with the correct port number for the 10LX.
 	* This tells ROS to start reading from the lidar and publishing on the ​/scan​ topic. If you get an error saying that there is an “error connecting to Hokuyo,” double check that the Hokuyo is physically plugged into a USB port. You can use the terminal command ``lsusb​to`` check whether Linux successfully detected your lidar. If the node started and is publishing correctly, you should be able to use ``rostopic echo /scan​`` to see live lidar data.
-	*In the racecar config folder under ``lidar_node`` set the following parameter in sensors.yaml: ``ip_address: 192.168.0.10``. In addition in the ``sensors.launch.xml`` change the argument for the lidar launch from ``hokuyo_node`` to ``urg_node`` do the same thing for the ``node_type`` parameter.
+	* In the racecar config folder under ``lidar_node`` set the following parameter in sensors.yaml: ``ip_address: 192.168.0.10``. In addition in the ``sensors.launch.xml`` change the argument for the lidar launch from ``hokuyo_node`` to ``urg_node`` do the same thing for the ``node_type`` parameter.
 
 B. If you're using the 30LX:
 	
