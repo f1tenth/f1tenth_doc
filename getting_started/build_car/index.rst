@@ -34,15 +34,25 @@ There are three main sections to the car.
 
 **Approximate Time Investment:** 2 hours
 
-| **Bill of Materials**:
-| (scroll to the right to see links)
-
- `Master BOM <https://docs.google.com/spreadsheets/d/1ykUyrZq-vLlMTf0TIcdMrRbGKcRWglW6ol76QyGst2I/edit#gid=2038095912>`_
+**Bill of Materials**: 
+`Master BOM <https://docs.google.com/spreadsheets/d/1ykUyrZq-vLlMTf0TIcdMrRbGKcRWglW6ol76QyGst2I/edit#gid=2038095912>`_
  
+.. note:: 
+	The Rally model has been discontinued by TRAXXAS. The `Slash 4x4 Premium <https://traxxas.com/products/models/electric/6804Rslash4x4platinum>`_ is the alternative that we are using now. The chassis is the same as the Rally and will fit the Platform Deck. If you purchase the Slash, there is no need to purchase a Brushless motor.
+
+.. tip:: 
+	The `Platform Deck <https://www.google.com/url?q=https://drive.google.com/drive/u/1/folders/1o3jRww0UwfmjTBDACD8qu7SDabRzpr5g&sa=D&ust=1585843187302000&usg=AFQjCNGVoQ58ADRmM1Fl6CvUEe602J_JBA>`_ needs to be laser cut. If you laser cutting machines are unavailable at your institution, `Ponoko <https://www.ponoko.com/>`_ is a good place to upload the .dxf file and they will cut and ship it to you.
+
+
+.. (scroll to the right to see links)
+
 .. raw:: html
 
     <iframe width="650" height="950" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQpeGA74hmfi7aZCqyUDgmA6UDSbyWWVRLzpCmqXuTEX1TZNTnYAlQf3Kv69imXkLvwF-V_q2LC5tEd/pubhtml?widget=true&amp;headers=false"></iframe>
 
+.. raw:: html
+
+	<br><br><br>
 
 **Tools Needed:**
 	- M5 hex key
