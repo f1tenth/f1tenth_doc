@@ -103,3 +103,4 @@ Now we're ready to start driving!
 
 .. figure:: img/together/together05.gif
    :align: center
+   :width: 300px

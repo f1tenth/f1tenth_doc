@@ -78,3 +78,4 @@ Good work on making it through the advanced section!
 
 .. image:: img/combine/wireless4.gif
 	:align: center
+	:width: 300px

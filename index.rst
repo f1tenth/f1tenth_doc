@@ -6,7 +6,10 @@ Welcome to the official build documentation of `F1TENTH <http://f1tenth.org/>`_.
 .. attention:: 
   #. If you are new to F1TENTH, :ref:`Getting Started <doc_build_intro>` is a good place to start.
 
-  #. If you already have a working car and the work environment set up, then check out :ref:`Going Forward <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
+  #. If you already have a working car and the work environment set up: 
+
+ 	- Head over to `Learn <https://f1tenth.org/learn.html>`_ and try out some of the **Labs**.
+  	- Check out :ref:`Going Forward <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
 
 
 .. image:: img/f110cover.png

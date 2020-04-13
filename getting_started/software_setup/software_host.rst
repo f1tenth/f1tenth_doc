@@ -35,4 +35,5 @@ With a Linux operating system on the **Pit/Host** computer, you're ready to move
 
 .. image:: img/host/host01.gif
 	:align: center
+	:width: 300px
 
