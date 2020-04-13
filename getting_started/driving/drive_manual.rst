@@ -53,9 +53,9 @@ Here are some common errors:
 * **urg_node related errors**: Check the ports (e.g. an ip address in sensors.yaml can only be used by 10LX, not 30LX, and vice-versa for the /dev/ttyACM​n​).
 * **razor_imu errors**: Delete the IMU entry from the launch file - we’re not using an IMU in this build.
 
-Congratulations on building the car, configuring the system, installing the firmware, and driving the car! You've come a long way. Pat yourself on the back and high five your other hand.
+Congratulations on building the car, configuring the system, installing the firmware, and driving the car! You've come a long way. Pat yourself on the back and high five your other hand. You can head over to `Learn <https://f1tenth.org/learn.html>`_ and try out some of the labs there.
 
 .. image:: img/drive02.gif
 	:align: center
-	:width: 400pt
+	:width: 300px
 

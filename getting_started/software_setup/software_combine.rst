@@ -113,4 +113,5 @@ Congratulations on making it through the **System Configuration** section! The :
 
 .. image:: img/combine/wireless3.gif
 	:align: center
+	:width: 300px
 

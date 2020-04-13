@@ -144,6 +144,7 @@ Now you should have the TX2 up and running and ready to use!
 
 .. figure:: img/jetson/jetson05.gif
 	:align: center
+	:width: 300px
 
 .. `Professor Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University has compiled a fantastic on how to set up the software.
 

@@ -121,3 +121,4 @@ Hopefully you've tuned it well enough that your car will run better than this:
 
 .. figure:: img/vesc/vesc03.gif
 	:align: center
+	:width: 300px
