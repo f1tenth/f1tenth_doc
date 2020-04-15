@@ -6,7 +6,7 @@
 
 Now we’re going to assemble the upper level chassis.
 
-Place the **Platform Deck** so it’s facing you like this. The **Platform Deck** is the `laser cut piece <https://drive.google.com/drive/u/1/folders/1emwVnfmk-XC0Gmi_FlR5dDSzg32j1fCX>`_.
+Place the **Platform Deck** so it’s facing you like this. The **Platform Deck** is the `laser cut piece <https://drive.google.com/drive/u/1/folders/1o3jRww0UwfmjTBDACD8qu7SDabRzpr5g>`_.
 
 .. figure:: img/ulchassis/ulchassis01.JPG
 	:align: center
