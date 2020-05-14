@@ -51,9 +51,12 @@ Launch the VESC Tool. On the Welcome page, press the **AutoConnect** button on b
 
 4. Updating the Firmware on the VESC
 -----------------------------------------
-The first thing you'll need to do is to update the firmware onboard the VESC. On the left side of the screen, click on the **Firmware** tab. On bottom left of the page, check the **Show non-default firmwares** check box. On the right, you should see extra firmware options show up. Select the **VESC_servoout.bin** option. Afterwards, on the bottom right of the page, press the button with the down arrow to update the firmware on the connected VESC. A status bar at the bottom of the page will show firmware update status. After it's finished, follow the prompt on screen.
+We are currently using an older firmware version of the VESC. Download it `here <https://drive.google.com/file/d/19veWRe745p3efOyn-Ff3RRYlADhp_c5V/view?usp=sharing>`_. Switch to the "Custom File" tab and upload the file that you downloaded. There will be a warning. Continue to upload.
 
-.. figure:: img/vesc/firmware.png
+.. 
+	The first thing you'll need to do is to update the firmware onboard the VESC. On the left side of the screen, click on the **Firmware** tab. On bottom left of the page, check the **Show non-default firmwares** check box. On the right, you should see extra firmware options show up. Select the **VESC_servoout.bin** option. Afterwards, on the bottom right of the page, press the button with the down arrow to update the firmware on the connected VESC. A status bar at the bottom of the page will show firmware update status. After it's finished, follow the prompt on screen.
+
+.. figure:: img/vesc/firmware2.png
 	:align: center
 
 	Update the firmware.
