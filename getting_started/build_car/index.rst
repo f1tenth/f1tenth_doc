@@ -35,6 +35,7 @@ There are three main sections to the car.
 **Approximate Time Investment:** 2 hours
 
 **Bill of Materials**: 
+========================
 `Master BOM <https://docs.google.com/spreadsheets/d/1ykUyrZq-vLlMTf0TIcdMrRbGKcRWglW6ol76QyGst2I/edit#gid=2038095912>`_
  
 .. note:: 
