@@ -64,7 +64,7 @@ in the top left corner.
    :hidden:
 
 
-   going_forward/intro
+   going_forward/simulator/index
 ..
    going_forward/drive_rosbag
    going_forward/simulation/index
