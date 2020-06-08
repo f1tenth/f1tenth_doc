@@ -34,12 +34,12 @@ It may be useful to use a zip tie to secure the USB cable from the lidar to the 
 
 2. Connecting the Brushless Motor to the VESC
 ----------------------------------------------
-Take three 3mm to 3.5mm bullet adapters.
+Take three 4mm to 3.5mm bullet adapters.
 
 .. figure:: img/together/together07.png
 	:align: center
 
-	3mm to 3.5mm bullet adapters.
+	4mm to 3.5mm bullet adapters.
 
 Attach the adapters to the blue, yellow, and white wires of the Brushless Motor.
 
