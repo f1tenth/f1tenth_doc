@@ -2,4 +2,8 @@
 
 {% block breadcrumbs_aside %}
 
+{% if not meta or meta.get('github_url') != 'hide' %}
+{{ super() }}
+{% endif %}
+
 {% endblock %}
