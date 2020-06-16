@@ -26,14 +26,14 @@ On the **TX2**, setup your ROS workspace (for the driver nodes onboard the vehic
 	.. code-block:: bash
 
 		$​ ​cd​ ~/sandbox (or whatever folder you want to work ​in​)
-		$​ git ​clone​ https://github.com/f1tenth/f110_system
+		$​ git ​clone​ https://github.com/f1tenth/f1tenth_system
 
-#. Create a workspace folder if you haven’t already, here called ``f110_ws``, and copy the ``f110_system`` folder into it.
+#. Create a workspace folder if you haven’t already, here called ``f1tenth_ws``, and copy the ``f1tenth_system`` folder into it.
 
 	.. code-block:: bash
 
-		$​ mkdir -p f110_ws/src
-		$​ cp -r f110_system f110_ws/src/
+		$​ mkdir -p f1tenth_ws/src
+		$​ cp -r f1tenth_system f1tenth_ws/src/
 
 #. You might need to install some additional ROS packages.
 
@@ -55,7 +55,7 @@ On the **TX2**, setup your ROS workspace (for the driver nodes onboard the vehic
 
 	.. code-block:: bash
 
-		$​ ​cd​ f110_ws
+		$​ ​cd​ f1tenth_ws
 		$​ find . -name “*.py” -exec chmod +x {} \;
 
 #. Move to your workspace folder and compile the code (catkin_make does more than code compilation - see online reference).
