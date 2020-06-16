@@ -53,6 +53,7 @@ in the top left corner.
    getting_started/software_setup/index
    getting_started/firmware/index
    getting_started/driving/index
+   getting_started/odom_calib/index
    getting_started/appendix/index
    getting_started/faq
 
