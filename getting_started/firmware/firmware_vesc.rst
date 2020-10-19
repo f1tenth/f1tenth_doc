@@ -16,6 +16,10 @@
 
 **Approximate Time Investment:** 1 hour
 
+.. note::
+
+	If using the VESC mkIV, see `here <https://github.com/RacecarJ/vesc-firmware>`_.
+
 1. Installing the VESC Tool
 -----------------------------
 We need to configure the VESC so that it works with the ROS driver package. Before you start, you'll need to install the `VESC Tool v2.03 <https://github.com/rpasichnyk/vesc_tool/releases/tag/v2.03>`_. The latest version, v2.05 does not contain the firmware that we use. The Linux VESC tool v2.03 can be found `here <https://drive.google.com/file/d/1tGrboseLUIlSdDjkhxDVxyopWc0h4_LC/view?usp=sharing>`_. 
