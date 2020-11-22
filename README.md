@@ -1,6 +1,6 @@
 # F1tenth 한국어 번역작업
 
-작성자: 최윤도 ([@zygn](https://github.com/zygn)), 류승재
+작성자: 최윤도 ([@zygn](https://github.com/zygn)), 류승재, 김강진 ([@syndicater123](https://github.com/syndicater123/))
 
 # F1tenth documentation
 
