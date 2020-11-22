@@ -1,3 +1,7 @@
+# F1tenth 한국어 번역작업
+
+작성자: 최윤도 ([@zygn](https://github.com/zygn)), 류승재
+
 # F1tenth documentation
 
 This repository contains the source files of [F1tenth](http://f1tenth.org)'s documentation, in reStructuredText markup language (reST).
