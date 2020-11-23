@@ -1,26 +1,25 @@
 .. _doc_appendix_A:
 
-Appendix A: Shared Folders between Host and VM
+부록 A: 호스트 컴퓨터와 가상머신 간의 공유 폴더
 =================================================
-If you don’t have a host computer running Ubuntu, you may do most of the above using a Virtual Machine (VM). If so, it is useful to setup a shared folder between the ​host​ (your default OS on your laptop) and the ​guest ​ (Ubuntu running in the VM).
+Ubuntu를 실행하는 호스트 컴퓨터가 없는 경우 가상 머신(VM)을 사용하여 위의 대부분을 수행 할 수 있습니다. 그렇게 한다면, 호스트 (노트북의 기본 OS)와 게스트 (VM에서 실행되는 Ubuntu) 사이에 공유 폴더를 설정하는 것이 더 유용합니다.
 
-The following are for an Ubuntu 16.04 guest on Virtualbox, with the host a Mac OS X El Capitan (other Mac OSes should work too).
+다음은 호스트가 Mac OS El Capitan 인 VirtualBox 의 Ubuntu 16.04 게스트 환경을 위한 것입니다. (다른 Mac OS 에서도 작동함)
 
-We assume you have already installed Virtualbox on your host, and installed Ubuntu 16.04 on it. More detailed instructions exist online, this is one way of doing it.
+호스트에 VirtualBox를 이미 설치하고 Ubuntu 16.04를 설치하였다고 가정 하였을때, 다음 방법으로 수행 할 수 있습니다. (물론, 더 자세한 지침이 온라인에 존재합니다.)
 
-#. On your host, create the folder you wish to share. We’ll call it sfVM and assume it lives at0 ``~/sfVM``.
-#. Start VirtualBox. Make sure the VM is not on (shut it down if it is).
-#. Select the Ubuntu VM.
-#. Click *Settings* -> *Shared Folders* -> Click the ‘+’ sign -> browse to sfVM which you created above, and check **Auto-mount** and **Make permanent**.
-#. Start the VM.
-#. Install the Guest Additions: in the VBox menu, click *Devices* -> *Install Guest Additions* -> ... ->
-#. Run Software
-#. Mount the shared folder manually by running:
+#. 호스트에서 공유할 폴더를 만듭니다. sfVM 이라고 부르고 ``~/sfVM`` 경로에 있다고 가정합니다.
+#. VirtualBox를 실행합니다. 다른 VM이 켜져있지 않은지 확인합니다. (켜져있다면 종료)
+#. 설치된 Ubuntu VM 을 선택합니다.
+#. 설정 -> 공유 폴더 -> ‘+’ 기호 클릭 -> 위에서 생성한 sfVM 을 찾아 **Auto-Mount** -> **Make permanent**을 선택합니다.
+#. VM 을 실행합니다.
+#. 게스트 추가 설치: VirtualBox 메뉴에서, click *장치* -> *게스트 추가설치* -> ... -> 를 클릭하여 실행합니다.
+#. 다음 명령어를 실행하여 공유 폴더를 수동으로 마운트 합니다:
 	.. code:: bash
 
-		$​ mkdir ~/guest_sfVM (or whatever you want to call it)
+		$​ mkdir ~/guest_sfVM (이나 원하는 폴더명)
 		$​ id
 		uid=1000(houssam) gid=1000(houssam)
 		$​ sudo mount -t vboxsf -o uid=1000,gid=1000 sfVM ~/guest_sfVM
 
-#. To check that this was successful, on your host, put some file in the shared folder ``~/sfVM``. Then in your guest, you should see that file appear in ``~/guest_sfVM``
+#. 잘 되었는지 확인하기 위해서 ``~/sfVM`` 폴더에 아무 파일을 넣어봅니다. 그렇다면 호스트에서 넣은 파일이 게스트 환경의 ``~/guest_sfVM`` 폴더에 나타 나면 성공입니다.
