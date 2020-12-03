@@ -1,4 +1,4 @@
-.. _doc_optional_compute_nx
+.. _doc_optional_compute_nx:
 
 
 Optional Compute: Jetson Xavier NX
