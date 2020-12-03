@@ -49,3 +49,4 @@ There are three main sections to the car.
    autonomy_elements
    upper_level_chassis
    all_together
+   optional_compute_nx
