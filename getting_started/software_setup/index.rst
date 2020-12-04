@@ -43,6 +43,7 @@ This section has four subsections:
    software_jetson
    software_combine
    software_advance
+   optional_software_nx
  
 
 #. :ref:`Pit/Host setup <doc_software_host>` details how to install ROS and the simulators on the **Pit/Host** computer/laptop. 
