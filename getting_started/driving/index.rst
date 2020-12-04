@@ -2,6 +2,7 @@
 
 Driving the Car
 ====================
+
 .. note:: This section assumes that you have already completed :ref:`Building the Car <doc_build_car>`, :ref:`System Configuration <doc_software_setup>`, and :ref:`Installing Firmware <doc_build_car_firmware>`.
 
 | Vehicle built? ✓ System configured? ✓ Firmware installed? ✓ 
