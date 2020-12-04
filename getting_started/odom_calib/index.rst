@@ -1,4 +1,4 @@
-.. _doc_drive:
+.. _doc_calib_odom:
 
 Calibrating the Odometry
 =========================
