@@ -328,9 +328,12 @@ Creating a Swapfile
 Installing ROS
 --------------
 
-We use ROS to connect everything together and ultimately run the car. We'll need to set up the :ref:`ROS workspace <ros_workspace>`, set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`. Everything in this section is done on the **Jetson Xavier NX** so you will need to connect to it via SSH from the **Pit/Host** laptop/computer or plug in a monitor, keyboard, and mouse.
+We use ROS to connect everything together and ultimately run the car.
+However, before continuing with  the F1TENTH software, you'll need to do a few steps that are specific to the Jetson Xavier NX.
+Everything in this section is done on the **Jetson Xavier NX** so you will need to connect to it via SSH from the **Pit/Host** laptop/computer or plug in a monitor, keyboard, and mouse.
 
-These instructions are specific to setting up the software on the Jetson Xavier NX as the setup is a bit different than the TX2. Many thanks to `Jim from JetsonHacks <https://www.jetsonhacks.com/>`_ and `Josh Whitley from The Autoware Foundation <https://autoware.org/>`_ for figuring this out.
+These instructions are specific to setting up the software on the Jetson Xavier NX as the setup is a bit different than the TX2.
+Many thanks to `Jim from JetsonHacks <https://www.jetsonhacks.com/>`_ and `Josh Whitley from The Autoware Foundation <https://autoware.org/>`_ for figuring this out.
 
 1. Install the Logitech F710 driver on the Jetson.
 
@@ -348,18 +351,14 @@ These instructions are specific to setting up the software on the Jetson Xavier 
     $ git clone https://github.com/jetsonhacks/installROS
     $ cd installROS
     $ ./installROS -p ros-melodic-ros-base
-    $ ./setupCatkinWorkspace.sh f1tenth_ws
 
-  (This will setup a catkin workspace in the home directory named ``f1tenth_ws``)
-
-3. We are now ready to install the F1/Tenth ROS packages
+3. Create a ROS Workspace
 
   .. code:: bash
 
-    cd ~/f1tenth_ws/src
-    git clone https://github.com/f1tenth/f1tenth_system
-    find . -name '*.py' -exec chmod +x {} \;
-    cd ..
-    source devel/setup.bash
-    rosdep install -a -y -i
-    catkin_make
+    $ ./setupCatkinWorkspace.sh f1tenth_ws
+    $ cd ~/f1tenth_ws/src
+
+  (This step will setup a catkin workspace in the home directory named ``f1tenth_ws``)
+
+After this, you can follow the existing instructions to set up the :ref:`ROS workspace <ros_workspace>` (skipping step 1), set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`.
