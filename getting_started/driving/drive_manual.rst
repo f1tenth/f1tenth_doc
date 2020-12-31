@@ -48,15 +48,15 @@ Troubleshooting
 Here are some common errors:
 
 * **VESC out of sync errors**: Check that the VESC is connected.
-If the error persists, make sure you're using the right VESC driver node.
-Currently, the ``vesc`` package in the ROS repositories only supports VESC 6+.
-If you have an older implementation of VESC (for example the FOCBox), clone the repo `here <https://github.com/mit-racecar/vesc>`_ into your workspace and build it again to use this version.
+  If the error persists, make sure you're using the right VESC driver node.
+  Currently, the ``vesc`` package in the ROS repositories only supports VESC 6+.
+  If you have an older implementation of VESC (for example the FOCBox), clone the repo `here <https://github.com/mit-racecar/vesc>`_ into your workspace and build it again to use this version.
 * **Serial port busy errors**: Your VESC might have just booted up, give it a few seconds and try again.
 * **SerialException errors** when using the Hokuyo UTM-30LX and not using ``udev`` rules: These errors might be due to a port conflict: e.g., suppose that the lidar was assigned the (virtual serial bi-directional) port ``ttyACM0`` by the operating system and suppose that the ``vesc_node`` is told the VESC is connected to port ``ttyACM0`` (as per ``vesc.yaml``).
-When the ``vesc_node`` receives joystick commands from ``joy_node`` via ROS, it pushes them to ``ACM0`` - so these messages actually go to the lidar, and the VESC gets garbage back.
-To resolve this, change the ``vesc.yaml`` port entry to ``ttyACM1``.
-Note that every time you power-down and -up, the OS will assign ports from scratch, which might again break your config files.
-This is why using ``udev`` rules as explained in `this <firmware.html#udev-rules-setup>`_ section is recommended.
+  When the ``vesc_node`` receives joystick commands from ``joy_node`` via ROS, it pushes them to ``ACM0`` - so these messages actually go to the lidar, and the VESC gets garbage back.
+  To resolve this, change the ``vesc.yaml`` port entry to ``ttyACM1``.
+  Note that every time you power-down and -up, the OS will assign ports from scratch, which might again break your config files.
+  This is why using ``udev`` rules as explained in `this <firmware.html#udev-rules-setup>`_ section is recommended.
 * **urg_node-related errors**: Check the ports (e.g. an ip address in ``sensors.yaml`` can only be used by 10LX, not 30LX, and vice-versa for the serial port).
 
 Congratulations on building the car, configuring the system, installing the firmware, and driving the car!

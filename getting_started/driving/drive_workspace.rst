@@ -139,23 +139,23 @@ Once you’ve set up the lidar, you can test it using ``urg_node``, ``rviz``, an
 
   * Start ``roscore`` in a terminal window. 
   * In another terminal window run either:
-            * For the Hokuyo 10LX: ``rosrun urg_node urg_node _ip_address:="<sensor_ip>"`` replacing ``<sensor_ip>`` with the IP address of your sensor; or
-            * For the Hokuyo 30LX: ``rosrun urg_node urg_node _serial_port:="/dev/sensors/lidar"``
+      * For the Hokuyo 10LX: ``rosrun urg_node urg_node _ip_address:="<sensor_ip>"`` replacing ``<sensor_ip>`` with the IP address of your sensor; or
+      * For the Hokuyo 30LX: ``rosrun urg_node urg_node _serial_port:="/dev/sensors/lidar"``
   * This tells ROS to start reading from the lidar and publishing on the ``/scan`` topic by default.
-            * If you get an error saying that there is an “error connecting to Hokuyo,” double check that the Hokuyo is physically plugged into a USB port or the Orbitty's ethernet port.
-            * If you are using a 30LX, You can use the terminal command ``lsusb`` to check whether Linux successfully detected your lidar.
-            * If the node started and is publishing correctly, you should be able to use ``rostopic echo /scan`` to see live lidar data.
-        * In another terminal window run ``rosrun rviz rviz`` or simply ``rviz`` to visually see the data.
-            * When ``rviz`` opens, click the “Add” button at the lower left corner.
-            * In the dialog window that pops up, click the *By topic* tab, highlight the *LaserScan* topic, and click *OK*.
-            * In order to view the lidar data, you may need to switch the Global Frame from ``map`` to ``laser``. This is done in the left pane under Global Options > Fixed Frame.
-                  * If ``laser`` is not in the drop-down menu, you can type ``laser`` in the frame text field.
-        * ``rviz`` will now show a collection of points of the lidar data in the gray grid in the center of the screen.
-            * You might have to change the size and color of the points in the LaserScan topic settings to see the points more clearly.
+      * If you get an error saying that there is an “error connecting to Hokuyo,” double check that the Hokuyo is physically plugged into a USB port or the Orbitty's ethernet port.
+      * If you are using a 30LX, You can use the terminal command ``lsusb`` to check whether Linux successfully detected your lidar.
+      * If the node started and is publishing correctly, you should be able to use ``rostopic echo /scan`` to see live lidar data.
+  * In another terminal window run ``rosrun rviz rviz`` or simply ``rviz`` to visually see the data.
+      * When ``rviz`` opens, click the “Add” button at the lower left corner.
+      * In the dialog window that pops up, click the *By topic* tab, highlight the *LaserScan* topic, and click *OK*.
+      * In order to view the lidar data, you may need to switch the Global Frame from ``map`` to ``laser``. This is done in the left pane under Global Options > Fixed Frame.
+          * If ``laser`` is not in the drop-down menu, you can type ``laser`` in the frame text field.
+  * ``rviz`` will now show a collection of points of the lidar data in the gray grid in the center of the screen.
+      * You might have to change the size and color of the points in the LaserScan topic settings to see the points more clearly.
   * Try moving a flat object such as a book in front of the lidar and to its sides. You should see a corresponding flat line of points on the ``rviz`` grid.
   * Try picking the car up and moving it around, and note how the lidar scan data changes.
-        * You can also see the lidar data in text form by using ``rostopic echo /scan``.
-            * The type of message published to that topic is ``sensor_msgs/LaserScan``, which you can also find by running ``rostopic info /scan``.
+      * You can also see the lidar data in text form by using ``rostopic echo /scan``.
+          * The type of message published to that topic is ``sensor_msgs/LaserScan``, which you can also find by running ``rostopic info /scan``.
 
 4. Configuring the F1TENTH Software for Your Lidar
 --------------------------------------------------
