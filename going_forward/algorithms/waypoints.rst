@@ -13,19 +13,19 @@ Do the following to save waypoints.
 
 .. code-block:: bash
 
-	# ​ Allow the car to be controlled with joystick
-	$​ roslaunch racecar teleop.launch
+	# Allow the car to be controlled with joystick
+	$ roslaunch f1tenth_racecar teleop.launch
 
-	#​ Record a rosbag with just the scan and vesc/odom topics. Will be saved
+	# Record a rosbag with just the scan and vesc/odom topics. Will be saved
 	into your Home directory. (In a new terminal window)
-	$​ rosbag record scan vesc/odom
+	$ rosbag record scan vesc/odom
 
 	# You will need to modify particle_filter.launch with path to rosbag you
 	just recorded
 	$ roslaunch localization particle_filter.launch
 
 	# Records waypoints and saves as waypoints.csv in current working directory
-	$​ rosrun waypoint_logger waypoint_logger.py
+	$ rosrun waypoint_logger waypoint_logger.py
 
 At this point, in your current working directory you will see a csv file called ``waypoints.csv``. Let’s go into further detail on what is going behind the scenes. ``Particle_filter.launch`` plays the rosbag that you recorded (of course, you have to update the particle_filter.launch with the path to your bag file you recorded). The particle filter subscribes to the ``vesc/odom`` and scan topics, and it outputs a stream of messages over the topic ``pf/viz/inferred_pose``. ``Waypoint_logger.py`` subscribes to ``pf/viz/inferred_pose`` and saves the x, y coordinates in each callback to a CSV file.
 
@@ -45,7 +45,7 @@ To run in the simulator (recommended to do this first):
 
 .. code-block:: bash
 
-	$​ roslaunch pure_pursuit pure_pursuit_sim.launch
+	$ roslaunch pure_pursuit pure_pursuit_sim.launch
 
 Note that the Gazebo simulator works well with pure pursuit algorithm only at slower speeds, around 1 m/s on turns and less than 4 m/s on straightaways. The reason is that on turns with higher speeds than 1 m/s, Gazebo models the car as sliding out more with a much larger turn radius. We’ve tried a dozen ways to try to fix this overestimation of turning drift, but with no success. Hence we use Gazebo mainly to test that algorithms work at slower speeds, then take the car into real world to slowly ramp up the speed.
 
@@ -55,7 +55,7 @@ To run in the real world:
 
 .. code-block:: bash
 
-	$​ roslaunch pure_pursuit pure_pursuit.launch
+	$ roslaunch pure_pursuit pure_pursuit.launch
 
 All of the core logic for ``pure_pursuit`` is contained in the ``pure_pursuit.py`` file which can be found under ``algorithms/pure_pursuit/scripts``. From a high level, the pseudocode for pure pursuit is like `this <https://www.ri.cmu.edu/pub_files/pub3/coulter_r_craig_1992_1/coulter_r_craig_1992_1.pdf>`_.
 
@@ -86,7 +86,7 @@ To run the pure pursuit with speed control:
 
 .. code-block:: bash
 
-	$​ roslaunch pure_pursuit pure_pursuit_with_speed_control.launch
+	$ roslaunch pure_pursuit pure_pursuit_with_speed_control.launch
 
 The car examines the points ahead of it within the search window defined by the constants ``WP_TURN_WINDOW_MIN`` and ``WP_TURN_WINDOW_MAX`` and takes the average x-coordinate of those points. (You can think of ``WP_TURN_WINDOW_MIN`` as being the radius of the inner circle of the region to check and ``WP_TURN_WINDOW_MAX`` as being the radius of the outer circle. See the diagram below.) The amount that the car slows down depends on how steep the turn is: if the turn is steeper (that is, the average x-coordinate is far from the car’s centerline), the car will slow down more; if the turn is shallow, it will slow down less. For smooth speed adjustment, the speed is interpolated between the maximum straightaway speed (``VELOCITY_STRAIGHT``) and the minimum turn speed (``VELOCITY_TURN``).
 
@@ -118,19 +118,19 @@ At this point we have been able to run pure pursuit relatively fast (up to 6 m/s
 
 Path Planning with ROS move_base
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-We use ROS ​``move_base`` to incorporate a global planner and a local planner. Almost everything in this section is taken from the official ROS tutorial on setting up move_base. It’s a very important document. We’ve literally read it at least 10 times.
+We use ROS ``move_base`` to incorporate a global planner and a local planner. Almost everything in this section is taken from the official ROS tutorial on setting up move_base. It’s a very important document. We’ve literally read it at least 10 times.
 
 Install move_base by running:
 
 .. code-block:: bash
 
-	$​ sudo apt-get install ros-kinetic-move-base
+	$ sudo apt-get install ros-kinetic-move-base
 
 To see ``move_base`` running in the simulator, type this in your terminal:
 
 .. code-block:: bash
 
-	$​ roslaunch path_planning move_base_sim.launch
+	$ roslaunch path_planning move_base_sim.launch
 
 When you launch this file, you will see both Gazebo and Rviz open up. You may also see a list of yellow warning messages that an “Invalid argument passed to canTransform argument source_frame in tf2 frame_ids cannot be empty”. We haven’t yet figured out how to fix this, but the car seems to run fine in the simulator even with the warning message.
 
@@ -145,7 +145,7 @@ To see move_base running in the real world, run the following:
 
 .. code-block:: bash
 
-	$​ roslaunch path_planning pure_pursuit_local_plan.launch
+	$ roslaunch path_planning pure_pursuit_local_plan.launch
 
 You should see Rviz open with a map of Levine Hall 2nd floor. Note that this launch file is meant for running the car live, as in in the real world. If you are running this on your car, in order to get the car to move, we have added a dead man’s switch onto the joystick. The car doesn’t move unless we hold down the “RB” button on the top right of the joystick. The strategy for the car to follow the local plan here is different from the strategy used in the simulator above. Earlier in the simulator we subscribed to the ``/cmd_vel`` topic which literally gave us the velocity and steering angle to follow. Here our strategy is to take the global plan which is a list of Pose data type, and use our pure pursuit code from an earlier section. The biggest challenge with pure pursuit for us is that with too great of a lookahead distance (in this case greater than 1 meter), the car will run into corners on turns because it sees waypoints too far in front. This is a problem because if we turn the lookahead distance to something smaller, then the car oscillates a lot going down straightaways. Hence this code isn’t ideal for any type of racing, but is merely to demonstrate the differences in the two strategies for following the generated paths. The first strategy is blindly following the ``/cmd_vel`` output by move_base. The second strategy is to take the list of waypoints (poses) and use pure pursuit to follow them.
 
@@ -183,7 +183,7 @@ Install TEB:
 
 .. code-block:: bash
 
-	$​ sudo apt-get install ros-kinetic-teb-local-planner
+	$ sudo apt-get install ros-kinetic-teb-local-planner
 
 TEB is a very thorough, well documented library with LOTS of parameters. Like over 40 parameters. We configured parameters in ``algorithms/path_planning/params/teb_local_planner_params.yaml``. There are params for ``min_turning_radius``, wheelbase of the car, ``max_vel_x``, and much more. In our ``follow_teb_local_plan.launch`` file, under the ``move_base`` node we add a rosparam that loads the ``teb_local_planner_params.yaml`` and have removed the default local planner params file. The underlying python file, ``follow_teb_local_plan.py``, is very similar to the ``follow_move_base_cmd_vel.py`` used for the default local planner. The main difference is that because Teb literally outputs the velocity and steering angle as is, we don’t need to do conversion.
 
