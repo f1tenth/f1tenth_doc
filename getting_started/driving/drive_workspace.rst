@@ -3,9 +3,9 @@
 Workspace Setup
 =====================
 **Equipment Required:**
-	* Fully built F1TENTH  vehicle
-	* Pit/Host computer OR
-	* External monitor/display, HDMI cable, keyboard, mouse
+  * Fully built F1TENTH  vehicle
+  * Pit/Host computer OR
+  * External monitor/display, HDMI cable, keyboard, mouse
 
 **Approximate Time Investment:** 1.5 hour
 
@@ -21,46 +21,47 @@ Connect to the **TX2** either via SSH on the **Pit** laptop or a wired connectio
 
 On the **TX2**, setup your ROS workspace (for the driver nodes onboard the vehicle) by opening a terminal window and following these steps. 
 
-#. Create a ROS workspace folder, here called ``f1tenth_ws``, and cd into the ``src`` folder of the workspace:
+#. Create a ROS workspace folder, here called ``f1tenth_ws``, and cd into the ``src`` folder of the workspace to initialize it:
 
-	.. code-block:: bash
+  .. code-block:: bash
 
-		$ mkdir -p f1tenth_ws/src
-		$ cd f1tenth_ws/src
+            $ mkdir -p f1tenth_ws/src
+            $ cd f1tenth_ws/src
+            $ catkin_init_workspace
 
 #. Clone the ``f1tenth_system`` repository into the workspace:
 
-	.. code-block:: bash
+  .. code-block:: bash
 
-		$ git clone https://github.com/f1tenth/f1tenth_system
+            $ git clone https://github.com/f1tenth/f1tenth_system
 
 #. Use ``rosdep`` to install all of the dependencies:
 
         .. code-block:: bash
 
-                $ sudo apt-get update
-                $ sudo rosdep init
-                $ rosdep update
-                $ rosdep install --from-paths . -i -y
+            $ sudo apt-get update
+            $ sudo rosdep init
+            $ rosdep update
+            $ rosdep install --from-paths . -i -y
 
 #. Make all the Python scripts executable.
 
-	.. code-block:: bash
+  .. code-block:: bash
 
-		$ find . -name “*.py” -exec chmod +x {} \;
+            $ find . -name “*.py” -exec chmod +x {} \;
 
 #. Move to your workspace folder and compile the code (``catkin_make`` does more than code compilation - see online reference).
 
-	.. code-block:: bash
+  .. code-block:: bash
 
-                $ cd ..
-		$ catkin_make
+            $ cd ..
+            $ catkin_make
 
 #. Finally, source your working directory into your shell using
 
-	.. code-block:: bash
+  .. code-block:: bash
 
-		$ source devel/setup.bash
+            $ source devel/setup.bash
 
 Congratulations! Your onboard driver workspace is all set up.
 
@@ -82,46 +83,46 @@ Copy the following rule exactly as it appears below and save it:
 
 .. code-block:: bash
 
-	KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="15d1", MODE="0666", GROUP="dialout", SYMLINK+="sensors/hokuyo"
+  KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="15d1", MODE="0666", GROUP="dialout", SYMLINK+="sensors/hokuyo"
 
 Next, open ``/etc/udev/rules.d/99-vesc.rules`` and copy in the following rule for the VESC:
 
 .. code-block:: bash
-	
-	KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0666", GROUP="dialout", SYMLINK+="sensors/vesc"
+  
+  KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0666", GROUP="dialout", SYMLINK+="sensors/vesc"
 
 Then open ``/etc/udev/rules.d/99-joypad-f710.rules`` and add this rule for the joypad:
 
 .. code-block:: bash
 
-	KERNEL=="js[0-9]*", ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c219", SYMLINK+="input/joypad-f710"
+  KERNEL=="js[0-9]*", ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c219", SYMLINK+="input/joypad-f710"
 
 Finally, trigger (activate) the rules by running
 
 .. code-block:: bash
 
-	$ sudo udevadm control --reload-rules
-	$ sudo udevadm trigger
+  $ sudo udevadm control --reload-rules
+  $ sudo udevadm trigger
 
 Reboot your system, and you should find three new devices by running
 
 .. code-block:: bash
 
-	$ ls /dev/sensors
-	$ hokuyo    vesc
+  $ ls /dev/sensors
+  $ hokuyo    vesc
 
 and:
 
 .. code-block:: bash
 
-	$ ls /dev/input
-	$ joypad-f710
+  $ ls /dev/input
+  $ joypad-f710
 
 If you want to add additional devices and don’t know their vendor or product IDs, you can use the command
 
 .. code-block:: bash
 
-	$ sudo udevadm info --name=<your_device_name> --attribute-walk
+  $ sudo udevadm info --name=<your_device_name> --attribute-walk
 
 making sure to replace ``<your_device_name>`` with the name of your device (e.g. ttyACM0 if that’s what the OS assigned it).
 The Unix utility ``dmesg`` can help you find that.
@@ -136,11 +137,11 @@ If you are using the Hokuyo 10LX or a lidar that is connected via the ethernet p
 
 Once you’ve set up the lidar, you can test it using ``urg_node``, ``rviz``, and ``rostopic``:
 
-	* Start ``roscore`` in a terminal window. 
-	* In another terminal window run either:
+  * Start ``roscore`` in a terminal window. 
+  * In another terminal window run either:
             * For the Hokuyo 10LX: ``rosrun urg_node urg_node _ip_address:="<sensor_ip>"`` replacing ``<sensor_ip>`` with the IP address of your sensor; or
             * For the Hokuyo 30LX: ``rosrun urg_node urg_node _serial_port:="/dev/sensors/lidar"``
-	* This tells ROS to start reading from the lidar and publishing on the ``/scan`` topic by default.
+  * This tells ROS to start reading from the lidar and publishing on the ``/scan`` topic by default.
             * If you get an error saying that there is an “error connecting to Hokuyo,” double check that the Hokuyo is physically plugged into a USB port or the Orbitty's ethernet port.
             * If you are using a 30LX, You can use the terminal command ``lsusb`` to check whether Linux successfully detected your lidar.
             * If the node started and is publishing correctly, you should be able to use ``rostopic echo /scan`` to see live lidar data.
@@ -151,8 +152,8 @@ Once you’ve set up the lidar, you can test it using ``urg_node``, ``rviz``, an
                   * If ``laser`` is not in the drop-down menu, you can type ``laser`` in the frame text field.
         * ``rviz`` will now show a collection of points of the lidar data in the gray grid in the center of the screen.
             * You might have to change the size and color of the points in the LaserScan topic settings to see the points more clearly.
-	* Try moving a flat object such as a book in front of the lidar and to its sides. You should see a corresponding flat line of points on the ``rviz`` grid.
-	* Try picking the car up and moving it around, and note how the lidar scan data changes.
+  * Try moving a flat object such as a book in front of the lidar and to its sides. You should see a corresponding flat line of points on the ``rviz`` grid.
+  * Try picking the car up and moving it around, and note how the lidar scan data changes.
         * You can also see the lidar data in text form by using ``rostopic echo /scan``.
             * The type of message published to that topic is ``sensor_msgs/LaserScan``, which you can also find by running ``rostopic info /scan``.
 
@@ -172,5 +173,5 @@ If you are using a Hokuyo UTM-30LX:
 With all of the parts connected now, we can move on to driving with a joystick!
 
 .. image:: img/drive01.gif
-	:align: center
-	:width: 200pt
+  :align: center
+  :width: 200pt
