@@ -17,8 +17,12 @@ Here is where you will find all the information needed to get started and join t
 
 You might want to plan on saving an entire day to work on this project if you going through this Getting Started section from beginning to end.
 
+
+
 The building of the car hardware itself was recorded and be watched here:
+.. raw:: html
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iyOtTtlHcvw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	:align: center
 
 .. image:: img/carbuild.gif
 	:align: center
