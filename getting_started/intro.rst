@@ -20,11 +20,9 @@ You might want to plan on saving an entire day to work on this project if you go
 
 
 The building of the car hardware itself was recorded and be watched here:
-.. raw:: html <iframe width="560" height="315" src="https://www.youtube.com/embed/iyOtTtlHcvw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 .. raw:: html
 
-	<iframe width="700" height="500" src="https://docs.google.com/presentation/d/e/2PACX-1vSPlh5ZKgdB8EaODv3uaFB4uq7HjoJqKNbn01EuN_pzcE3ilpU6LaLA1U6hL-G8Vr3YF5v89NUVLdwP/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/iyOtTtlHcvw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 .. image:: img/carbuild.gif
