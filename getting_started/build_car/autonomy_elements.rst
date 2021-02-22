@@ -9,8 +9,18 @@ In the second part of the hardware setup we start preparing the autonomy element
 
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/L-V-0zzkl10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+1. Preparing the NVIDIA Jetson NX
+---------------------------------
+When you purchase a NVIDIA Jetson NX, it is attached to small plastic development board. In order to use it on the car, you will need to unscrew the Jetson NX and its Wi-Fi antenna from the development board.
 
-1. Removing the TX2 and Antenna
+2. Preparing the WiFI Antenna
+---------------------------------
+
+DEPRECATED: Preparing the NVIDIA Jetson TX2
+======================
+In this section we are describing how to use the NVIDIA Jetson TX2 as a main ECU for the F1TENTH vehicle. This setup is deprecated and no longer recommended.
+
+1. Removing the NVIDIA Jetson TX2 Developer Board
 ---------------------------------
 When you purchase a Jetson TX2, it is attached to a development board. In order to use it on the car, you will need to unscrew the Jetson TX2 and its Wi-Fi antenna from the development board.
 
