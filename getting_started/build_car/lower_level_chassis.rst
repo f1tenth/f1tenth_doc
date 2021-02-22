@@ -4,7 +4,11 @@
 1. Lower Level Chassis
 ========================
 
-We begin with setting up the Lower Level chassis. We will be removing the internal parts of the Traxxas and repopulate it with our own parts. 
+We begin with setting up the Lower Level chassis. We will be removing the internal parts of the Traxxas and repopulate it with our own parts. The complete process for the first hardware part can be watched in this video tutorial too.
+
+.. raw:: html
+
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/IoWHUGFfrRE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. Removing Traxxas Stock Components
 --------------------------------------
@@ -15,7 +19,7 @@ Take the Traxxas from its box. Remove the four `Body Clips <https://www.amainhob
 
 	Traxxas chassis with Body removed.
 
-We are going to remove several electrical assemblies including the Brushed Motor. The only component which we will not be removing is the Servo, which is the little blue box in the upper left. There are three hex keys that come with the Traxxas. You will use this to remove and/or install almost all of the screws on the chassis. You may want to have a bowl or container of sorts nearby to hold all the screws that you’ll be removing as these screws will be needed later. 
+We are going to remove several electrical assemblies including the Brushed Motor. The only component which we will not be removing is the Servo, which is the little blue box in the upper left. There are three hex keys that come with the Traxxas. You will use this to remove and/or install almost all of the screws on the chassis. You may want to have a bowl or container of sorts nearby to hold all the screws that you’ll be removing as these screws will be needed later.
 
 First, remove the Traxxas ESC, the blue box labelled "XL5 ESC", by unscrewing the two screws that attach the ESC to the chassis. Disconnect the wires labelled "Titan" that go from the ESC to the Brushed Motor. The wires are connected by what are called bullet connectors. You can safely pull the wires apart by grabbing each side of the connector and pulling.
 
@@ -26,7 +30,7 @@ A 3 conductor wire runs from the ESC to the black Receiver Box. Remove the black
 
 	Unscrewing the top of the black Receiver Box. The XL5 ESC has been unscrewed.
 
-Once the top is open, you will see the Receiver labelled "TQ Top Qualifier". Disconnect the ESC control wire from the Receiver and the control wire that goes to the Servo. Move the wires out of the way. The Receiver is attached to bottom of the Receiver Box with double sided tape. Carefully, but firmly, pry the Receiver from the Receiver Box and remove. 
+Once the top is open, you will see the Receiver labelled "TQ Top Qualifier". Disconnect the ESC control wire from the Receiver and the control wire that goes to the Servo. Move the wires out of the way. The Receiver is attached to bottom of the Receiver Box with double sided tape. Carefully, but firmly, pry the Receiver from the Receiver Box and remove.
 
 .. figure:: img/llchassis/llchassis03.JPG
 	:align: center
@@ -115,9 +119,9 @@ Use M3 screws from underneath the chassis to secure the standoffs. Arrange the s
 
 4. Setting Up the Battery
 --------------------------
-.. DANGER:: 
+.. DANGER::
 	**LIPO (LITHIUM POLYMER) BATTERY SAFETY WARNING**
-	
+
 	LiPO batteries allow your car to run for a long time, but they are not something to play with or joke about. They store a large amount of energy in a small space and can damage your car and cause a fire if used improperly. With this in mind, here are some safety tips for using them with the car.
 
 	* When charging batteries, always monitor them and place them in a fireproof bag on a non-flammable surface clear of any other objects.
@@ -186,8 +190,8 @@ Plug it into the servo wires.
 
 Connect the ppm cable with the servo wire.
 
-.. danger:: 
-	**BROWN is GROUND. It should be connected to the BLACK wire of the Servo Cable.** Make sure the polarity of the PPM cable to servo is correct. 
+.. danger::
+	**BROWN is GROUND. It should be connected to the BLACK wire of the Servo Cable.** Make sure the polarity of the PPM cable to servo is correct.
 
 .. figure:: img/llchassis/llchassis20.JPG
 	:align: center
@@ -197,4 +201,4 @@ Connect the ppm cable with the servo wire.
 The Lower Level chassis is now set up and we can move on to the autonomy elements. First accomplishment completed!
 
 .. figure:: img/llchassis/llchassis22.gif
-   :align: center 
+   :align: center

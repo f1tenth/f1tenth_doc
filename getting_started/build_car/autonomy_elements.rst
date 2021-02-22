@@ -3,6 +3,12 @@
 
 2. Autonomy Elements
 ======================
+In the second part of the hardware setup we start preparing the autonomy elements for our F1TENTH car. The complete process for the second hardware part can be watched in this video tutorial too.
+
+.. raw:: html
+
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/L-V-0zzkl10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 1. Removing the TX2 and Antenna
 ---------------------------------
@@ -82,5 +88,3 @@ We can now move on to mounting all of the autonomy elements onto the Upper Level
 
 .. figure:: img/autonomy/autonomy10.gif
    :align: center
-
-
