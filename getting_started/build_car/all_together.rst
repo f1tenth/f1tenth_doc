@@ -74,6 +74,75 @@ Now, we are going to connect these to the VESC. This part is a tad tricky.
 .. important::
 	After you flash the firmware on the VESC, if the vehicle runs backwards to the expected motion, simply swap the WHITE wire to "C" and BLUE wire to "A".
 
+
+2. Connecting the Battery
+----------------------------
+
+Plug the `charge adapter <https://www.amazon.com/gp/product/B078P9V99B/ref=crt_ewc_title_huc_1?ie=UTF8&psc=1&smid=A87AJ0MK8WLZZ>`_ into the battery plug,
+
+.. danger:: **MAKE SURE THAT RED/POWER AND BLACK/GROUND ARE CONNECTED CORRECTLY TO THE RED/POWER AND BLACK/GROUND OF THE CHARGE ADAPTER** Fire will happen if this is plugged backwards.
+
+.. figure:: img/llchassis/llchassis15.JPG
+	:align: center
+
+	Charge adapter cable plugged into the Lipo battery.
+
+Then, connect the other side of the charge adapter to a TRX to XT90 adapter.
+
+.. figure:: img/llchassis/llchassis16.JPG
+	:align: center
+
+	Plugging in the TRX to XT90 adapter.
+
+It should look like this:
+
+.. figure:: img/llchassis/llchassis17.JPG
+	:align: center
+
+	TRX to XT90 adapter installed.
+
+
+3. Attaching the PPM Cable
+----------------------------
+Now we are going to connect the PPM (Pulse-Position Modulation) cable to the Servo. The PPM cable connects the Servo to the VESC, which we will install on the Upper Level Chassis later.
+
+.. figure:: img/llchassis/llchassis21.JPG
+	:align: center
+
+	PPM cable. Note that it has a white end and a black end.
+
+
+Take 3 header pins,
+
+.. figure:: img/llchassis/llchassis18.JPG
+	:align: center
+
+	Header pins.
+
+
+Plug it into the servo wires.
+
+.. figure:: img/llchassis/llchassis19.JPG
+	:align: center
+
+	Header pin connected to Servo cable of the Servo on the Traxxas chassis.
+
+
+Connect the ppm cable with the servo wire.
+
+.. danger::
+	**BROWN is GROUND. It should be connected to the BLACK wire of the Servo Cable.** Make sure the polarity of the PPM cable to servo is correct.
+
+.. figure:: img/llchassis/llchassis20.JPG
+	:align: center
+
+	PPM cable connected to Servo cable.
+
+The Lower Level chassis is now set up and we can move on to the autonomy elements. First accomplishment completed!
+
+.. figure:: img/llchassis/llchassis22.gif
+   :align: center
+
 3. Final Touches
 ------------------------------
 Almost there!

@@ -32,7 +32,7 @@ There are three main sections to the car.
 
 **Difficulty Level:** Intermediate
 
-**Approximate Time Investment:** 2 hours
+**Approximate Time Investment:** 1.5 hours
 
 
 .. note::

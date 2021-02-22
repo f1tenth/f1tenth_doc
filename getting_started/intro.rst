@@ -20,14 +20,15 @@ You might want to plan on saving an entire day to work on this project if you go
 
 
 The building of the car hardware itself was recorded and be watched here:
+
 .. raw:: html
 
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/iyOtTtlHcvw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-.. image:: img/carbuild.gif
-	:align: center
+	
 
 .. important::
   | If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
   | If you have questions/suggestions for this documentation, `submit an issue <https://github.com/f1tenth/f1tenth_doc/issues>`_ on github.
+
+.. image:: img/carbuild.gif
+	:align: center

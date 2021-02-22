@@ -8,8 +8,9 @@ In the third part we’re going to assemble the upper level chassis and mount th
 
 .. raw:: html
 
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/L-V-0zzkl10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/L-V-0zzkl10?start=530" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+	
 Place the **Platform Deck** so it’s facing you like this. The **Platform Deck** is the `laser cut piece <https://drive.google.com/drive/u/1/folders/1o3jRww0UwfmjTBDACD8qu7SDabRzpr5g>`_.
 
 .. figure:: img/ulchassis/ulchassis01.JPG
