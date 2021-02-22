@@ -13,7 +13,7 @@ In the second part of the hardware setup we start preparing the autonomy element
 ---------------------------------
 When you purchase a NVIDIA Jetson NX, it is attached to small plastic development board. In order to use it on the car, you will need to unscrew the Jetson NX and its Wi-Fi antenna from the development board.
 
-2. Preparing the WiFI Antenna
+2. Preparing the WiFi Antenna
 ---------------------------------
 
 DEPRECATED: Preparing the NVIDIA Jetson TX2

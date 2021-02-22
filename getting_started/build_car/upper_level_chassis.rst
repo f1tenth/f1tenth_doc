@@ -10,7 +10,7 @@ In the third part we’re going to assemble the upper level chassis and mount th
 
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/L-V-0zzkl10?start=530" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-	
+
 Place the **Platform Deck** so it’s facing you like this. The **Platform Deck** is the `laser cut piece <https://drive.google.com/drive/u/1/folders/1o3jRww0UwfmjTBDACD8qu7SDabRzpr5g>`_.
 
 .. figure:: img/ulchassis/ulchassis01.JPG
@@ -65,7 +65,45 @@ There should be a gap between the Powerboard and the VESC.
 
 	Notice there is space between the VESC and the Powerboard.
 
-2. Mounting the TX2 and Antenna
+2. Mounting the Antenna
+-----------------------------------------
+
+3. Mounting the NVIDIA Jetson NX
+-----------------------------------------
+
+4. Mounting the Powerboard
+-----------------------------------------
+
+3. Mounting and Connecting the Lidar and USB Hub
+---------------------------------------------------
+The last component to mount is the lidar. Here, we use the Hokuyo UTM-30LX. The mounting holes for the Hokuyo UST-10LX are slightly different.
+
+.. figure:: img/ulchassis/ulchassis20.JPG
+	:align: center
+
+	Lidar mounting holes.
+
+Use the appropriate mounting holes for your lidar.
+
+Use four M3 screws to mount from underneath.
+
+.. figure:: img/ulchassis/ulchassis10.JPG
+	:align: center
+
+	Lidar mounted on Platform Deck.
+	
+
+The upper level chassis is complete and we're ready to assemble everything!
+
+.. figure:: img/ulchassis/ulchassis21.gif
+   :align: center
+   :width: 300px
+
+DEPRECATED: Mounting the NVIDIA Jetson TX2
+======================
+In this section we are describing how to mount the NVIDIA Jetson TX2 as a main ECU for the F1TENTH vehicle. This setup is deprecated and no longer recommended.
+
+1. Mounting the TX2 and Antenna
 ------------------------------------------------
 Using four of the M3 screws that held the Nerf Bars to the chassis, attach the TX2 assembly to the Platform Deck. The screws attach from the bottom side of the Platform Deck. The I/O connectors on the TX2 assembly should face towards the rear of the vehicle and the fan should be immediately above the middle opening of the Platform Deck.
 
@@ -91,23 +129,8 @@ Mount the antenna to the rear of the VESC.
 
 	Top view of the Platform Deck with the Antenna, VESC, Powerboard, and TX2/Orbitty mounted.
 
-3. Mounting and Connecting the Lidar and USB Hub
----------------------------------------------------
-The last component to mount is the lidar. Here, we use the Hokuyo UTM-30LX. The mounting holes for the Hokuyo UST-10LX are slightly different.
-
-.. figure:: img/ulchassis/ulchassis20.JPG
-	:align: center
-
-	Lidar mounting holes.
-
-Use the appropriate mounting holes for your lidar.
-
-Use four M3 screws to mount from underneath.
-
-.. figure:: img/ulchassis/ulchassis10.JPG
-	:align: center
-
-	Lidar mounted on Platform Deck.
+2. Mounting the USB Hub
+------------------------------------------------
 
 To mount the USB hub, place a piece of double sided tape on the back of the USB hub like so:
 
@@ -129,44 +152,3 @@ Plug the USB hub into the USB port on the Orbitty Carrier Board. So far, the top
 	:align: center
 
 	Top view with USB HUB attached and plugged in.
-
-A. Cable Management
-^^^^^^^^^^^^^^^^^^^
-The lidar comes with two very long cables. We are going to try out best to manage them. Split the two cables of the lidar and loop them under the slots on the Platform Deck.
-
-.. figure:: img/ulchassis/ulchassis15.JPG
-	:align: center
-
-	Looping the lidar cables through the slots.
-
-Using a twist tie, rubber band, or zip tie, gather the majority of the cables on each side.
-
-For the stripped cable side, insert the **BROWN (POWER)** and **BLUE (GROUND)** wires into one of the 12V terminal blocks on the Powerboard.
-
-.. DANGER::
-	***BROWN is POWER and BLUE is GROUND.*  DO NOT MIX THESE UP OTHERWISE YOU WILL FRY YOUR VERY EXPENSIVE LIDAR.** And then life will be very very sad. When in doubt, check the side of the Hokuyo. It will list out the correspondence of each wire.
-
-.. figure:: img/ulchassis/ulchassis16.JPG
-	:align: center
-
-	Side view with wires coiled.
-
-.. figure:: img/ulchassis/ulchassis17.JPG
-	:align: center
-
-	Lidar power is plugged into the terminal block with Brown to Power and Blue to Ground.
-
-If using the UTM-30LX, plug the USB into one of the ports on the USB hub.
-
-.. figure:: img/ulchassis/ulchassis18.JPG
-	:align: center
-
-	USB side of lidar plugged into USB hub. If you are using a 10LX, plug it into the ethernet port on the Orbitty.
-
-If using the UST-10LX, plug the ethernet cable into the ethernet port on the Orbitty board.
-
-The upper level chassis is complete and we're ready to assemble everything!
-
-.. figure:: img/ulchassis/ulchassis21.gif
-   :align: center
-   :width: 300px

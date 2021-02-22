@@ -133,6 +133,7 @@ Connect the ppm cable with the servo wire.
 .. danger::
 	**BROWN is GROUND. It should be connected to the BLACK wire of the Servo Cable.** Make sure the polarity of the PPM cable to servo is correct.
 
+
 .. figure:: img/llchassis/llchassis20.JPG
 	:align: center
 
@@ -143,7 +144,45 @@ The Lower Level chassis is now set up and we can move on to the autonomy element
 .. figure:: img/llchassis/llchassis22.gif
    :align: center
 
-3. Final Touches
+
+3. Lidar Connection
+------------------------------
+
+	 The lidar comes with two very long cables. We are going to try out best to manage them. Split the two cables of the lidar and loop them under the slots on the Platform Deck.
+
+	 .. figure:: img/ulchassis/ulchassis15.JPG
+	 	:align: center
+
+	 	Looping the lidar cables through the slots.
+
+	 Using a twist tie, rubber band, or zip tie, gather the majority of the cables on each side.
+
+	 For the stripped cable side, insert the **BROWN (POWER)** and **BLUE (GROUND)** wires into one of the 12V terminal blocks on the Powerboard.
+
+	 .. DANGER::
+	 	***BROWN is POWER and BLUE is GROUND.*  DO NOT MIX THESE UP OTHERWISE YOU WILL FRY YOUR VERY EXPENSIVE LIDAR.** And then life will be very very sad. When in doubt, check the side of the Hokuyo. It will list out the correspondence of each wire.
+
+	 .. figure:: img/ulchassis/ulchassis16.JPG
+	 	:align: center
+
+	 	Side view with wires coiled.
+
+	 .. figure:: img/ulchassis/ulchassis17.JPG
+	 	:align: center
+
+	 	Lidar power is plugged into the terminal block with Brown to Power and Blue to Ground.
+
+	 If using the UTM-30LX, plug the USB into one of the ports on the USB hub.
+
+	 .. figure:: img/ulchassis/ulchassis18.JPG
+	 	:align: center
+
+	 	USB side of lidar plugged into USB hub. If you are using a 10LX, plug it into the ethernet port on the Orbitty.
+
+	 If using the UST-10LX, plug the ethernet cable into the ethernet port on the Orbitty board.
+
+
+4. Final Touches
 ------------------------------
 Almost there!
 
@@ -163,7 +202,7 @@ Connect a micro USB from the VESC to the USB hub.
 
 Finally, screw on the antennas included with the Jetson TX2 Kit to the Antenna Terminals.
 
-4. Voila!
+5. Voila!
 ----------
 Your final vehicle should look like the following:
 
