@@ -85,8 +85,8 @@ DEPRECATED: Preparing the NVIDIA Jetson TX2
 ---------------------------------
 In this section we are describing how to use the NVIDIA Jetson TX2 as a main ECU for the F1TENTH vehicle. This setup is deprecated and no longer recommended.
 
-1. Removing the NVIDIA Jetson TX2 Developer Board
----------------------------------
+**1. Removing the NVIDIA Jetson TX2 Developer Board**
+
 When you purchase a Jetson TX2, it is attached to a development board. In order to use it on the car, you will need to unscrew the Jetson TX2 and its Wi-Fi antenna from the development board.
 
 Before you remove the antenna, you will need to remove the bottom plate from the development board. Remove the four screws marked below and lift the development board away from the plate.
@@ -129,8 +129,8 @@ Unplug the Jetson TX2’s fan and remove the Jetson TX2 from the development boa
 	Unplugging and removing the Jetson TX2's fan.
 
 
-2. Attaching the Orbitty to the TX2
--------------------------------------
+**2. Attaching the Orbitty to the TX2**
+
 Seat the TX2 Module connector to the Orbitty board connector like so:
 
 .. figure:: img/autonomy/autonomy01.JPG
