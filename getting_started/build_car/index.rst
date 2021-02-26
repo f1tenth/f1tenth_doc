@@ -7,7 +7,7 @@ In this build guidelines we are focusing on the hardware setup of our F1TENTH ve
 
 There are three main sections to the car.
 
-.. image:: img/build_outline.JPG
+.. image:: img/build_outline_NX.JPG
 
 | [1] will be referred to as the **Lower Level Chassis**
 | [2] will be referred to as the **Autonomy Elements**
