@@ -97,45 +97,59 @@ It should look like this:
 
 	TRX to XT90 adapter installed.
 
+After connecting the batter the car should look like this.
+
+.. figure:: img/together/together_NX_01.JPG
+	:align: center
+
+	Battery connected to the VESC.
+
 
 4. Connecting the NVIDIA Jetson NX with the VESC
 ----------------------------
 
+The NVIDIA Jetson NX needs to be connected to the powerboard. Use the barrel jack to pig tail connector. The board uses a 2.5x5.5mm power jack (MFN: PJ-036BH-SMT-TR). It is an unfortunate fact of life that the connections for barrel jacks are not standarized. For the specific barrel jack on this board, the center pin is POWER. Do not plug in a power supply whose center pin is ground. Connect one of the ends of the cable with GND on the powerboard, the other one with the 12V connector. Afterwards you can plug in the barrel jack in the NVIDIA Jetson NX.
+
+.. figure:: img/together/together_NX_03.JPG
+	:align: center
+
+	NVIDIA Jetson power supply connected with the powerboard.
+
 5. Lidar Connection
 ------------------------------
 
-	 The lidar comes with two very long cables. We are going to try out best to manage them. Split the two cables of the lidar and loop them under the slots on the Platform Deck.
+The lidar comes with two very long cables. We are going to try out best to manage them. Split the two cables of the lidar and loop them under the slots on the Platform Deck.
 
-	 .. figure:: img/ulchassis/ulchassis15.JPG
-	 	:align: center
+.. figure:: img/together/together_NX_06.JPG
+	:align: center
 
-	 	Looping the lidar cables through the slots.
+	Storing the USB Lidar Cable in front of the Lidar
 
-	 Using a twist tie, rubber band, or zip tie, gather the majority of the cables on each side.
+Using a twist tie, rubber band, or zip tie, gather the majority of the cables on each side.
 
-	 For the stripped cable side, insert the **BROWN (POWER)** and **BLUE (GROUND)** wires into one of the 12V terminal blocks on the Powerboard.
+For the stripped cable side, insert the **BROWN (POWER)** and **BLUE (GROUND)** wires into one of the 12V terminal blocks on the Powerboard.
 
-	 .. DANGER::
-	 	***BROWN is POWER and BLUE is GROUND.*  DO NOT MIX THESE UP OTHERWISE YOU WILL FRY YOUR VERY EXPENSIVE LIDAR.** And then life will be very very sad. When in doubt, check the side of the Hokuyo. It will list out the correspondence of each wire.
+.. DANGER::
+	***BROWN is POWER and BLUE is GROUND.*  DO NOT MIX THESE UP OTHERWISE YOU WILL FRY YOUR VERY EXPENSIVE LIDAR.** And then life will be very very sad. When in doubt, check the side of the Hokuyo. It will list out the correspondence of each wire.
 
-	 .. figure:: img/ulchassis/ulchassis16.JPG
-	 	:align: center
+.. figure:: img/ulchassis/ulchassis16.JPG
+	:align: center
 
-	 	Side view with wires coiled.
+Side view with wires coiled.
 
-	 .. figure:: img/ulchassis/ulchassis17.JPG
-	 	:align: center
+.. figure:: img/ulchassis/ulchassis17.JPG
+	:align: center
 
-	 	Lidar power is plugged into the terminal block with Brown to Power and Blue to Ground.
+Lidar power is plugged into the terminal block with Brown to Power and Blue to Ground.
 
-	 If using the UTM-30LX, plug the USB into one of the ports on the USB hub.
+If using the UTM-30LX, plug the USB into one of the ports on the USB hub.
 
-	 .. figure:: img/ulchassis/ulchassis18.JPG
-	 	:align: center
+.. figure:: img/ulchassis/ulchassis18.JPG
+	:align: center
 
-	 	USB side of lidar plugged into USB hub. If you are using a 10LX, plug it into the ethernet port on the Orbitty.
+USB side of lidar plugged into USB hub. If you are using a 10LX, plug it into the ethernet port on the Orbitty.
 
-	 If using the UST-10LX, plug the ethernet cable into the ethernet port on the Orbitty board.
+If using the UST-10LX, plug the ethernet cable into the ethernet port on the Orbitty board.
 
 
 6. Attaching the PPM Cable
@@ -177,8 +191,8 @@ Connect the ppm cable with the servo wire.
 
 In additon you can plug it into the ppm slot on the VESC.
 
-.. figure:: img/together/together03.JPG
-	 :align: center
+.. figure:: img/llchassis/together03.JPG
+  :align: center
 
 	PPM cable plugged into VESC.
 
@@ -192,16 +206,9 @@ The Lower Level chassis is now set up and we can move on to the autonomy element
 ------------------------------
 Almost there!
 
-Attach the two wires for the Jetson Wi-Fi antenna to the two gold-colored connectors near the fan connector on the heat sink (the order of the wires doesn’t matter). This can be a little tricky, so you might want to use a flathead screwdriver to ensure the connections are tight. ​ Don’t press too hard​ , however as you can easily damage the connectors if you use excessive force!
+Connect a micro USB (here: the white cable) from the VESC to the USB hub.
 
-.. figure:: img/together/together05.JPG
-  	:align: center
-
-	Attached antenna wires.
-
-Connect a micro USB from the VESC to the USB hub.
-
-.. figure:: img/together/together06.JPG
+.. figure:: img/together/together_NX_08.JPG
   	:align: center
 
 	Micro USB plugged into the VESC. Plug the USB side into the USB hub.
@@ -212,7 +219,7 @@ Finally, screw on the antennas included with the Jetson TX2 Kit to the Antenna T
 ----------
 Your final vehicle should look like the following:
 
- .. figure:: img/together/together04.JPG
+ .. figure:: img/together/final.JPG
    	:align: center
 
 	Final product! It looks a bit messy but cable management is an art!
@@ -223,3 +230,13 @@ Now we're ready to start driving!
 .. figure:: img/together/together05.gif
    :align: center
    :width: 300px
+
+DEPRECATED: NVIDIA TX2 Setup
+----------
+
+Attach the two wires for the Jetson Wi-Fi antenna to the two gold-colored connectors near the fan connector on the heat sink (the order of the wires doesn’t matter). This can be a little tricky, so you might want to use a flathead screwdriver to ensure the connections are tight. ​ Don’t press too hard​ , however as you can easily damage the connectors if you use excessive force!
+
+.. figure:: img/together/together05.JPG
+  	:align: center
+
+	Attached antenna wires.
