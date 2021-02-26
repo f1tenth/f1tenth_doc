@@ -142,7 +142,7 @@ The upper level chassis is complete and we're ready to assemble everything!
    :width: 300px
 
 DEPRECATED: Mounting the NVIDIA Jetson TX2
-======================
+-----------------------------------------
 In this section we are describing how to mount the NVIDIA Jetson TX2 as a main ECU for the F1TENTH vehicle. This setup is deprecated and no longer recommended.
 
 1. Mounting the TX2 and Antenna

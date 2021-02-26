@@ -7,7 +7,7 @@ System Configuration
 At the end of this section, you will have the TX2 and host laptop set up.
 
 **Required Equipment:**
-	* Fully built F1TENTH vehicle 
+	* Fully built F1TENTH vehicle
 	* Laptop/computer
 	* External monitor/display
 	* HDMI cable
@@ -31,7 +31,7 @@ The image below represents the flow of information on the F1TENTH Autonomous Veh
 
 	Flow of information on the F1TENTH Autonomous Vehicle System.
 
-The **TX2** is the main brain of the entire system. It gives commands to the **VESC** which controls the **Servo** and the **Brushless Motor**. The **TX2** also receives information from the **Lidar**. The **Pit** laptop is where we can connect remotely to the **TX2**. 
+The **TX2** is the main brain of the entire system. It gives commands to the **VESC** which controls the **Servo** and the **Brushless Motor**. The **TX2** also receives information from the **Lidar**. The **Pit** laptop is where we can connect remotely to the **TX2**.
 
 This section has five subsections:
 
@@ -40,19 +40,20 @@ This section has five subsections:
    :name: Software Setup
 
    software_host
-   software_jetson
+	 optional_software_nx
    software_combine
    software_advance
-   optional_software_nx
- 
+	 software_jetson
 
-#. :ref:`Pit/Host setup <doc_software_host>` details how to install ROS and the simulators on the **Pit/Host** computer/laptop. 
+
+
+#. :ref:`Pit/Host setup <doc_software_host>` details how to install ROS and the simulators on the **Pit/Host** computer/laptop.
 #. :ref:`Configuring the TX2 <doc_software_jetson>` goes over how to set up the **TX2**.
 #. :ref:`Combine setup <doc_software_combine>` goes over how to set up a wireless communication system between the **Pit/Host** laptop and the **TX2** once you have already completed the above two sections.
 #. :ref:`Advanced Setup <doc_software_advance>` concerns hotspot setup and VNC setup on the TX2. This section is optional and for the advanced user.
 #. :ref:`Optional Compute: NVIDIA Jetson Xavier NX <doc_optional_software_nx>` contains all necessary steps to configure the **NVIDIA Jetson Xavier NX** if you are using this module instead of the **TX2**.
 
-.. tip:: 
+.. tip::
   If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
 
 Many thanks to `Dr. Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh University for compiling the majority of information in this section.
