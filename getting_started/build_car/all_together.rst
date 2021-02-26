@@ -125,31 +125,17 @@ The lidar comes with two very long cables. We are going to try out best to manag
 
 	Storing the USB Lidar Cable in front of the Lidar
 
-Using a twist tie, rubber band, or zip tie, gather the majority of the cables on each side.
+Using a twist tie, rubber band, or zip tie, gather the majority of the cables on each side. Then connect the Lidar to the NVIDIA Jetson. If using the UTM-30LX, plug the USB into one of the ports of the NVIDIA Jetson USB hub. If you are using a 10LX, plug it into the ethernet port of the Jetson NX.
 
-For the stripped cable side, insert the **BROWN (POWER)** and **BLUE (GROUND)** wires into one of the 12V terminal blocks on the Powerboard.
+Then its time to provide the energy connection for the Lidar. For the stripped cable side, insert the **BROWN (POWER)** and **BLUE (GROUND)** wires into one of the 12V terminal blocks on the Powerboard.
 
 .. DANGER::
 	***BROWN is POWER and BLUE is GROUND.*  DO NOT MIX THESE UP OTHERWISE YOU WILL FRY YOUR VERY EXPENSIVE LIDAR.** And then life will be very very sad. When in doubt, check the side of the Hokuyo. It will list out the correspondence of each wire.
-
-.. figure:: img/ulchassis/ulchassis16.JPG
-	:align: center
-
-Side view with wires coiled.
 
 .. figure:: img/ulchassis/ulchassis17.JPG
 	:align: center
 
 Lidar power is plugged into the terminal block with Brown to Power and Blue to Ground.
-
-If using the UTM-30LX, plug the USB into one of the ports on the USB hub.
-
-.. figure:: img/ulchassis/ulchassis18.JPG
-	:align: center
-
-USB side of lidar plugged into USB hub. If you are using a 10LX, plug it into the ethernet port on the Orbitty.
-
-If using the UST-10LX, plug the ethernet cable into the ethernet port on the Orbitty board.
 
 
 6. Attaching the PPM Cable
@@ -189,10 +175,10 @@ Connect the ppm cable with the servo wire.
 
 	PPM cable connected to Servo cable.
 
-In additon you can plug it into the ppm slot on the VESC.
+Now you can put everything together and plug it into the ppm slot on the VESC.
 
-.. figure:: img/llchassis/together03.JPG
-  :align: center
+.. figure:: img/together/together_NX_04.JPG
+	:align: center
 
 	PPM cable plugged into VESC.
 
@@ -219,8 +205,8 @@ Finally, screw on the antennas included with the Jetson TX2 Kit to the Antenna T
 ----------
 Your final vehicle should look like the following:
 
- .. figure:: img/together/final.JPG
-   	:align: center
+.. figure:: img/together/final.JPG
+   :align: center
 
 	Final product! It looks a bit messy but cable management is an art!
 
