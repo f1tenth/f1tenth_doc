@@ -111,7 +111,7 @@ There should be a gap between the Powerboard and the VESC.
 
 After installing the powerboard your upper level should look like this.
 
-.. figure:: img/ulchassis/ulchassis07.JPG
+.. figure:: img/ulchassis/ulchassisNX_07.JPG
 	:align: center
 
 	Platform deck with Jetson NX, VESC, Powerboard and antenna.
