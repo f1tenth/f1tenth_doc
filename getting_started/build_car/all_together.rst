@@ -13,17 +13,13 @@ Now that we have the autonomy elements attached to the upper level chassis, we a
 
 1. Mounting the Upper Level Chassis to the Lower Level Chassis
 ---------------------------------------------------------------
-Gently place the upper level chassis on top of the standoffs of the lower level chassis. The VESC should be towards the back of the car. Thread the PPM cable from the lower level chassis, through one of the Platform Deck slot, and plug it into the ppm slot on the VESC.
+Gently place the upper level chassis on top of the standoffs of the lower level chassis. The VESC should be towards the back of the car. Thread the PPM cable from the lower level chassis, through one of the Platform Deck slot.
 
-.. figure:: img/together/together01.JPG
+.. figure:: img/together/together_NX_00.JPG
 	:align: center
 
 	Upper Level Chassis gently placed on top of Lower Level Chassis.
 
-.. figure:: img/together/together03.JPG
-	:align: center
-
-	PPM cable plugged into VESC.
 
 .. figure:: img/together/together02.JPG
 	:align: center
@@ -75,7 +71,7 @@ Now, we are going to connect these to the VESC. This part is a tad tricky.
 	After you flash the firmware on the VESC, if the vehicle runs backwards to the expected motion, simply swap the WHITE wire to "C" and BLUE wire to "A".
 
 
-2. Connecting the Battery
+3. Connecting the Battery with the VESC
 ----------------------------
 
 Plug the `charge adapter <https://www.amazon.com/gp/product/B078P9V99B/ref=crt_ewc_title_huc_1?ie=UTF8&psc=1&smid=A87AJ0MK8WLZZ>`_ into the battery plug,
@@ -102,50 +98,10 @@ It should look like this:
 	TRX to XT90 adapter installed.
 
 
-3. Attaching the PPM Cable
+4. Connecting the NVIDIA Jetson NX with the VESC
 ----------------------------
-Now we are going to connect the PPM (Pulse-Position Modulation) cable to the Servo. The PPM cable connects the Servo to the VESC, which we will install on the Upper Level Chassis later.
 
-.. figure:: img/llchassis/llchassis21.JPG
-	:align: center
-
-	PPM cable. Note that it has a white end and a black end.
-
-
-Take 3 header pins,
-
-.. figure:: img/llchassis/llchassis18.JPG
-	:align: center
-
-	Header pins.
-
-
-Plug it into the servo wires.
-
-.. figure:: img/llchassis/llchassis19.JPG
-	:align: center
-
-	Header pin connected to Servo cable of the Servo on the Traxxas chassis.
-
-
-Connect the ppm cable with the servo wire.
-
-.. danger::
-	**BROWN is GROUND. It should be connected to the BLACK wire of the Servo Cable.** Make sure the polarity of the PPM cable to servo is correct.
-
-
-.. figure:: img/llchassis/llchassis20.JPG
-	:align: center
-
-	PPM cable connected to Servo cable.
-
-The Lower Level chassis is now set up and we can move on to the autonomy elements. First accomplishment completed!
-
-.. figure:: img/llchassis/llchassis22.gif
-   :align: center
-
-
-3. Lidar Connection
+5. Lidar Connection
 ------------------------------
 
 	 The lidar comes with two very long cables. We are going to try out best to manage them. Split the two cables of the lidar and loop them under the slots on the Platform Deck.
@@ -182,7 +138,57 @@ The Lower Level chassis is now set up and we can move on to the autonomy element
 	 If using the UST-10LX, plug the ethernet cable into the ethernet port on the Orbitty board.
 
 
-4. Final Touches
+6. Attaching the PPM Cable
+----------------------------
+Now we are going to connect the PPM (Pulse-Position Modulation) cable to the Servo. The PPM cable connects the Servo to the VESC, which we will install on the Upper Level Chassis later.
+
+.. figure:: img/llchassis/llchassis21.JPG
+	:align: center
+
+	PPM cable. Note that it has a white end and a black end.
+
+
+Take 3 header pins,
+
+.. figure:: img/llchassis/llchassis18.JPG
+	:align: center
+
+	Header pins.
+
+
+Plug it into the servo wires.
+
+.. figure:: img/llchassis/llchassis19.JPG
+	:align: center
+
+	Header pin connected to Servo cable of the Servo on the Traxxas chassis.
+
+
+Connect the ppm cable with the servo wire.
+
+.. danger::
+	**BROWN is GROUND. It should be connected to the BLACK wire of the Servo Cable.** Make sure the polarity of the PPM cable to servo is correct.
+
+
+.. figure:: img/llchassis/llchassis20.JPG
+	:align: center
+
+	PPM cable connected to Servo cable.
+
+In additon you can plug it into the ppm slot on the VESC.
+
+.. figure:: img/together/together03.JPG
+	 :align: center
+
+	PPM cable plugged into VESC.
+
+The Lower Level chassis is now set up and we can move on to the autonomy elements. First accomplishment completed!
+
+.. figure:: img/llchassis/llchassis22.gif
+  :align: center
+
+
+7. Final Touches
 ------------------------------
 Almost there!
 
@@ -202,7 +208,7 @@ Connect a micro USB from the VESC to the USB hub.
 
 Finally, screw on the antennas included with the Jetson TX2 Kit to the Antenna Terminals.
 
-5. Voila!
+8. Voila!
 ----------
 Your final vehicle should look like the following:
 

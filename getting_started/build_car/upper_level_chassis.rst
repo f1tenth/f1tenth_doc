@@ -73,14 +73,14 @@ Now its time to mount the NVIDIA Jetson NX. Before we mount the Jetson please co
 
 	Connect the antenna cables to the Jetson NX.
 
-Afterwards we need to install the M3 standoffs for the Jetson on the Platform deck. Screw the standoffs to the platform deck to the specific NVIDA Jetson NX mount holes.
+Afterwards we need to install the M3 standoffs for the Jetson on the Platform deck. Screw the standoffs to the platform deck to the specific NVIDA Jetson NX mount holes. Thread the M3 screw from underneath the Platform Deck up and secure with a 25mm standoff.
 
 .. figure:: img/ulchassis/ulchassisNX_05.JPG
 	:align: center
 
 	Install the standoffs for the Nvidia Jetson.
 
-Now you can place the Jetson NX on the mounted standoffs. Use the 4 main holes on top of the Jetson to mount the Jetson to the platform deck with M3 screws.
+Now you can place the Jetson NX on the mounted standoffs. Use the 4 main holes on top of the Jetson to mount the Jetson to the platform deck with M3 screws. Then, Secure the Powerboard to the 25mm standoff with a M3 x 8mm screw.
 
 	.. figure:: img/ulchassis/ulchassisNX_06.JPG
 		:align: center
