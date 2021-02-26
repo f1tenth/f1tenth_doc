@@ -13,7 +13,7 @@ In the second part of the hardware setup we start preparing the autonomy element
 ---------------------------------
 When you purchase a NVIDIA Jetson NX, it is attached to small plastic development board. In order to use it on the car, you will need to unscrew the Jetson NX and its Wi-Fi antenna from the development board. First of all unbox your NVIDIA Jetson NX.
 
-.. figure:: img/autonomy/autonomy12.PNG
+.. figure:: img/autonomy/autonomy12.JPG
 	:align: center
 
 	Unpackage the NVIDIA Jetson NX
@@ -21,7 +21,7 @@ When you purchase a NVIDIA Jetson NX, it is attached to small plastic developmen
 
 When you look on the Jetson NX from above you will see four screws (see red circles in the image). Please unscrew all of these 4 screws.
 
-.. figure:: img/autonomy/autonomy13.PNG
+.. figure:: img/autonomy/autonomy13.JPG
 	:align: center
 
 	Remove the screws that attach the plastic board to the NVIDIA NX
@@ -29,7 +29,7 @@ When you look on the Jetson NX from above you will see four screws (see red circ
 
 Afterwards you can turn the Jetson NX on the other side. You will see the plastic development board is still attached because of the two antenna cables.
 
-.. figure:: img/autonomy/autonomy14.PNG
+.. figure:: img/autonomy/autonomy14.JPG
 	:align: center
 
 	Plastic development board attached to the NVIDIA NX
@@ -37,7 +37,7 @@ Afterwards you can turn the Jetson NX on the other side. You will see the plasti
 
 The two antenna cables are clipped to the Jetson NX. You have to unclip both of them. You can either use your fingers are lift them with a flat screwdriver.
 
-.. figure:: img/autonomy/autonomy15.PNG
+.. figure:: img/autonomy/autonomy15.JPG
 	:align: center
 
 	Unclip the two antennas from the NVIDA Jetson NX
@@ -45,7 +45,7 @@ The two antenna cables are clipped to the Jetson NX. You have to unclip both of 
 
 Afterwards your NVIDA Jetson NX is seperated from the developer board. This is the version you can now screw to the platform deck.
 
-.. figure:: img/autonomy/autonomy16.PNG
+.. figure:: img/autonomy/autonomy16.JPG
 	:align: center
 
 	Nvidia Jetson NX demounted from the developer board
@@ -55,7 +55,7 @@ Afterwards your NVIDA Jetson NX is seperated from the developer board. This is t
 ---------------------------------
 In the next step we are providing both Wifi Antennas so we can mount them in the later steps quick and easy. First of all unpackage your antennas and demount the cables from the antennas. Remove the two brass-colored nuts holding the antennas to the L-shaped bracket, and then remove the two antennas from the bracket.
 
-.. figure:: img/autonomy/autonomy11.PNG
+.. figure:: img/autonomy/autonomy11.png
 	:align: center
 
 	Demounted Wifi antennas
@@ -74,6 +74,11 @@ It helps to use two pairs of pliers: one to hold the rear nuts in place and anot
 	:align: center
 
 	Thighten the nuts from the L-shaped bracked.
+
+We can now move on to mounting all of the autonomy elements onto the Upper Level Chassis in the next section. Second accomplishment completed.
+
+.. figure:: img/autonomy/autonomy10.gif
+	   :align: center
 
 
 DEPRECATED: Preparing the NVIDIA Jetson TX2
@@ -153,8 +158,3 @@ Plug the TX2 fan connector into the Orbitty board.
 	:align: center
 
 	Plugging the Jetson's fan to the Orbitty board.
-
-We can now move on to mounting all of the autonomy elements onto the Upper Level Chassis in the next section. Second accomplishment completed.
-
-.. figure:: img/autonomy/autonomy10.gif
-   :align: center
