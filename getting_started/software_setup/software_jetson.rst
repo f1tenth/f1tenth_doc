@@ -2,6 +2,8 @@
 
 DEPRECATED - Configuring the TX2
 ==========================
+This instructions displays how to setup the NVIDIA Jetson TX2. The usage of the NVIDIA Jetson TX2 is no longer supported therefore this setup is deprecated.
+
 **Equipment Used:**
 	* Pit/Host laptop/computer running Ubuntu 16.04 or 18.04
 	* Fully built F1TENTH vehicle
