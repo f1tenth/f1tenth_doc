@@ -1,9 +1,7 @@
 .. _doc_optional_software_nx:
 
-Optional Compute: NVIDIA Jetson Xavier NX
+2. Configuring the NVIDIA Jetson NX
 =========================================
-
-In place of the NVIDIA Jetson TX2 module, an NVIDIA Jetson Xavier NX Developer Kit can be used. However, the software setup for this module is significantly different than the setup for the TX2. Unlike the TX2, the Xavier NX does not require any special software on the Host/Pit computer.
 
 **Equipment Used:**
 
@@ -17,7 +15,7 @@ In place of the NVIDIA Jetson TX2 module, an NVIDIA Jetson Xavier NX Developer K
 
 **Approximate Time Investment:** 1-2 hours
 
-Initial Configuration Steps
+1. Initial Configuration Steps
 ---------------------------
 
 1. Go to the NVIDIA Develoeprs Download Center at https://developer.nvidia.com/downloads and click Jetson.
@@ -232,7 +230,7 @@ Initial Configuration Steps
                 Logged in!
 
 
-Configuring WiFi and SSH
+2. Configuring WiFi and SSH
 ------------------------
 
 1. We will use the Network Manager command-line tool nmcli to configure the WiFi on the NVIDIA Jetson Xavier NX. To find the interface name of your WiFi adapter, start by typing ``nmcli d`` and hitting ENTER. This will list your available interfaces. My wifi interface is named ``wlan0`` so I will use that in all future steps. If your WiFi interface is named something different, you will have to replace that in future commands.
@@ -304,7 +302,7 @@ Configuring WiFi and SSH
 13. To save the changes you've made, run the command ``sudo nmcli c up [CONNECTION_NAME]`` where ``[CONNECTION_NAME]`` is replaced with the name of your WiFi connection that you got from step 8.
 14. To verify that you can SSH into the NVIDIA Jetson Xavier NX Developer Kit, verify that the Pit/Host PC is connected to the same network as the Jetson Xavier NX Developer Kit and use an SSH client on the Host PC to connect to the new IP address of the Developer Kit. On Linux this would be done with the command ``ssh f1tenth@[IP_ADDRESS]`` where ``[IP_ADDRESS]`` is replaced with the static IP address that you assigned to the Developer Kit. After you have verified that SSH works correctly, you can close the connection to the Developer Kit in your terminal emulator and disconnect the micro USB cable.
 
-Updating Packages
+3. Updating Packages
 -----------------
 
 1. All further steps assume that your NVIDIA Jetson Xavier NX Developer Kit is connected to the internet and you are connected to the Developer Kit via SSH.
@@ -312,7 +310,7 @@ Updating Packages
 3. To install all available updates, run ``sudo apt full-upgrade``.
 4. Once all packages have been upgraded run ``sudo reboot`` to restart the Developer Kit and apply any changes.
 
-Creating a Swapfile
+4. Creating a Swapfile
 -------------------
 
 1. Run the following commands to create a swapfile which can help with memory-intensive tasks
@@ -325,7 +323,7 @@ Creating a Swapfile
     sudo swapon /var/swapfile
     sudo bash -c 'echo "/var/swapfile swap swap defaults 0 0" >> /etc/fstab'
 
-Installing ROS
+5. Installing ROS
 --------------
 
 We use ROS to connect everything together and ultimately run the car. We'll need to set up the :ref:`ROS workspace <ros_workspace>`, set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`. Everything in this section is done on the **Jetson Xavier NX** so you will need to connect to it via SSH from the **Pit/Host** laptop/computer or plug in a monitor, keyboard, and mouse.
