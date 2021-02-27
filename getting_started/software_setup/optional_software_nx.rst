@@ -1,9 +1,7 @@
 .. _doc_optional_software_nx:
 
-Optional Compute: NVIDIA Jetson Xavier NX
+2. Configuring the NVIDIA Jetson NX
 =========================================
-
-In place of the NVIDIA Jetson TX2 module, an NVIDIA Jetson Xavier NX Developer Kit can be used. However, the software setup for this module is significantly different than the setup for the TX2. Unlike the TX2, the Xavier NX does not require any special software on the Host/Pit computer.
 
 **Equipment Used:**
 
