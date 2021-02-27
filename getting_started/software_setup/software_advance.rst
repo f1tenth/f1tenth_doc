@@ -2,9 +2,9 @@
 
 Advanced Setups
 ===================
-The following two sections are optional.
+The following two sections are optional. 
 
-* :ref:`Wireless Hot Spot on the TX2 <jetson_wireless>` is relevant if you want to test on larger tracks and need to have a direct connection to your vehicle.
+* :ref:`Wireless Hot Spot on the TX2 <jetson_wireless>` is relevant if you want to test on larger tracks and need to have a direct connection to your vehicle. 
 * :ref:`VNC Server on the TX2 <jetson_wireless>` is useful if you're running mapping and localization algorithms, you’ll need to see RViz and use its tools for some applications.
 
  .. _jetson_wireless:
@@ -52,7 +52,7 @@ When you start running mapping and localization algorithms, you'll need to see R
 Setting up a VNC server on the Jetson allows you to control the Jetson remotely. Why is this beneficial? When the car is running in the real world we won’t be able to connect the Jetson to an HDMI display. The traditional solution has been to ssh into the Jetson to see the directories, but what if we want to see graphical programs such as Rviz? (in order to see laser scans in live time and camera feeds). Or what if we want to be able to see multiple terminal windows open on the Jetson? A VNC server does this trick.
 
 #. Install XIIVNC
-
+	
 	.. code-block:: bash
 
 		sudo apt install x11vnc
@@ -64,14 +64,14 @@ Setting up a VNC server on the Jetson allows you to control the Jetson remotely.
 
 	Change this to your own password. You might have to create the .vnc directory
 #. Press windows/command/super key and search for ‘startup applications’. Create a new startup command, give it a name, and the command is:
-
+	
 	.. code-block:: bash
 
 		/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -passwdfile /home/nvidia/.vnc/password -rfbport 5900 -shared
 #. Restart the Jetson, and the vnc server should be running after you restart.
 #. In your favorite VNC client (Ubuntu has Remmina installed by default, and VNC Viewer is available across most platforms), connect to your car's IP with port number 5900 to see the remote desktop. Note that the resolution of the car when it was booted without a monitor plugged in is low, you can plug in the HDMI Emulator included in the BOM or a working monitor to fix that.
 
-.. note::
+.. note:: 
   We've had spotty experience with TX2's network card, the hotspot sometimes just doesn't work. If your TX2's network card is faulty, you can use a USB wifi dongle and use your network through the dongle instead of the TX2 network card.
 
 Good work on making it through the advanced section!

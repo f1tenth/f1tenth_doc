@@ -1,8 +1,7 @@
 .. _doc_software_jetson:
 
-DEPRECATED - Configuring the TX2
+2. Configuring the TX2
 ==========================
-
 **Equipment Used:**
 	* Pit/Host laptop/computer running Ubuntu 16.04 or 18.04
 	* Fully built F1TENTH vehicle
@@ -28,7 +27,7 @@ The **TX2** is essentially a supercomputer on a module. We attach it to the Orbi
 JetPack versions:
 
 	* **JetPack 4.3 - OS L4T (Linux4Tegra) 32.3.1 (works w/ Ubuntu Melodic 18.04) (what we use)**
-	* JetPack 3.2 - OS L4T 28.3.1 (Works w/ Ubuntu Xenial 16.04)
+	* JetPack 3.2 - OS L4T 28.3.1 (Works w/ Ubuntu Xenial 16.04) 
 	* JetPack 2.4 - OS L4T 24.2.3 (old version OK for TX1)
 
 We will refer to the **TX2** as **TX2** or **Jetson** interchangeably.
@@ -52,7 +51,7 @@ Install JetPack 4.3 (L4T 32.3.1) on **Pit/Host** computer with `NVIDIA SDK Manag
 	  	:align: center
 
 		NVIDIA SDK Manager.
-
+	
 * If running into errors, close and relaunch SDKM, then choose repair/uninstall under the STEP 4 button.
 
 3. Installing Orbitty BSP on Pit/Host Computer
@@ -95,9 +94,9 @@ Extract the .tgz file and find ``readme.txt`` in the folder; read the instructio
 
 	Layout of Orbitty Carrier Board.
 
-#. Turn the *SYS PWR switch S1* to the left.
+#. Turn the *SYS PWR switch S1* to the left. 
 #. Plug in the battery in.
-#. Turn the powerboard on.
+#. Turn the powerboard on. 
 
 The monitor shall display some text in a terminal window.
 
@@ -108,13 +107,13 @@ Note that the display and keyboard are separate from the **Pit/Host** computer. 
 Watch the first two minutes of `this <http://connecttech.com/flashing-nvidia-jetson-tx2-tx1-module/>`_.
 
 #. Put the Orbitty board and Jetson in to RECOVERY mode.
-
+	
 	#. Press and hold the RECOVERY key, then press the RESET button, the SYS LED shall be off;
 	#. Release the RESET button, wait 2 seconds and release the RECOVERY button. The monitor shall display nothing now. The Jetson and Orbitty are in RECOVERY mode.
-	#. Check if the TX2 shows up in USB devices on the **Pit** computer by opening a terminal and typing ``lsusb``.
+	#. Check if the TX2 shows up in USB devices on the **Pit** computer by opening a terminal and typing ``lsusb``. 
 
 #. On the **Pit/Host** computer manually flash the boards by typing the following into the terminal
-
+	
 	.. code:: bash
 
 		$sudo ./flash.sh cti/tx2/orbitty mmcblk0p1
