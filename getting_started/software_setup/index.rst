@@ -48,10 +48,11 @@ This section has five subsections:
 
 
 #. :ref:`Pit/Host setup <doc_software_host>` details how to install ROS and the simulators on the **Pit/Host** computer/laptop.
-#. :ref:`Configuring the TX2 <doc_software_jetson>` goes over how to set up the **TX2**.
+#. :ref:`Setup NVIDIA Jetson Xavier NX <doc_optional_software_nx>` contains all necessary steps to configure the **NVIDIA Jetson Xavier NX** if you are using this module instead of the **TX2**.
 #. :ref:`Combine setup <doc_software_combine>` goes over how to set up a wireless communication system between the **Pit/Host** laptop and the **TX2** once you have already completed the above two sections.
 #. :ref:`Advanced Setup <doc_software_advance>` concerns hotspot setup and VNC setup on the TX2. This section is optional and for the advanced user.
-#. :ref:`Optional Compute: NVIDIA Jetson Xavier NX <doc_optional_software_nx>` contains all necessary steps to configure the **NVIDIA Jetson Xavier NX** if you are using this module instead of the **TX2**.
+#. :ref:`DEPRECATED - Configuring the TX2 <doc_software_jetson>` goes over how to set up the **TX2**.
+
 
 .. tip::
   If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
