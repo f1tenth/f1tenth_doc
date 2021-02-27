@@ -41,8 +41,8 @@ This section has five subsections:
 
 	 software_host
 	 optional_software_nx
-   software_combine
-   software_advance
+	 software_combine
+	 software_advance
 	 software_jetson
 
 
