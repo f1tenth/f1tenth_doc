@@ -2,6 +2,7 @@
 
 DEPRECATED - Configuring the TX2
 ==========================
+
 **Equipment Used:**
 	* Pit/Host laptop/computer running Ubuntu 16.04 or 18.04
 	* Fully built F1TENTH vehicle

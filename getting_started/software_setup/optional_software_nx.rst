@@ -3,8 +3,6 @@
 2. Setup the NVIDIA Jetson NX
 =========================================
 
-In place of the NVIDIA Jetson TX2 module, an NVIDIA Jetson Xavier NX Developer Kit can be used. However, the software setup for this module is significantly different than the setup for the TX2. Unlike the TX2, the Xavier NX does not require any special software on the Host/Pit computer.
-
 **Equipment Used:**
 
 * Pit/Host laptop/computer running any Operating System

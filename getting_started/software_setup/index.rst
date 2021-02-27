@@ -39,12 +39,11 @@ This section has five subsections:
    :maxdepth: 1
    :name: Software Setup
 
-   software_host
+	 software_host
 	 optional_software_nx
    software_combine
    software_advance
 	 software_jetson
-
 
 
 #. :ref:`Pit/Host setup <doc_software_host>` details how to install ROS and the simulators on the **Pit/Host** computer/laptop.
