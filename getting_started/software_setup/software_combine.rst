@@ -1,6 +1,6 @@
 .. _doc_software_combine:
 
-3. Connecting the Pit/Host and the TX2
+3. Connecting the Pit/Host and the NX
 =======================================
 **Equipment Used:**
 	* Pit/Host laptop/computer running Ubuntu 16.04 or 18.04
@@ -20,8 +20,8 @@ If the **Pit/Host** computer has WiFi capability, then there are 2 options:
 	* Option 2: Set up TX2 as wireless host spot and host computer connects to TX2.
 
 If the **Pit/Host** computer DOES NOT have Wifi capability:
-	
-	#. Connect the **Pit/Host** computer to a WiFi router via an ethernet cable. 
+
+	#. Connect the **Pit/Host** computer to a WiFi router via an ethernet cable.
 	#. Connect the **TX2** to the same router via Wifi.
 
 To make this section easy to follow, the WiFi network SSID will be called and referred to ``F1TENTH_WIFI``. In your scenario, it may be "AirPennNet", "eduroam", "Billys_iPhone" or whatever network you've chosen to communicate over.
@@ -52,8 +52,8 @@ You should see something similar to this:
 	$         RX errors 0  dropped 0  overruns 0  frame 0
 	$         TX packets 0  bytes 0 (0.0 B)
 	$         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-	$         device interrupt 40  
-	$ 
+	$         device interrupt 40
+	$
 	$ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 	$         inet 127.0.0.1  netmask 255.0.0.0
 	$         inet6 ::1  prefixlen 128  scopeid 0x10<host>
@@ -62,21 +62,21 @@ You should see something similar to this:
 	$         RX errors 0  dropped 0  overruns 0  frame 0
 	$         TX packets 1047  bytes 82631 (82.6 KB)
 	$         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-	$ 
+	$
 	$ rndis0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 	$         ether ea:a2:37:fd:d0:e1  txqueuelen 1000  (Ethernet)
 	$         RX packets 0  bytes 0 (0.0 B)
 	$         RX errors 0  dropped 0  overruns 0  frame 0
 	$         TX packets 0  bytes 0 (0.0 B)
 	$         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-	$ 
+	$
 	$ usb0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 	$         ether ea:a2:37:fd:d0:e3  txqueuelen 1000  (Ethernet)
 	$         RX packets 0  bytes 0 (0.0 B)
 	$         RX errors 0  dropped 0  overruns 0  frame 0
 	$         TX packets 0  bytes 0 (0.0 B)
 	$         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-	$ 
+	$
 	$ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 	$         inet 195.0.0.5  netmask 255.255.255.0  broadcast 195.0.0.255
 	$         inet6 fe80::4df8:b83b:9390:319d  prefixlen 64  scopeid 0x20<link>
@@ -103,7 +103,7 @@ Now that the car and the laptop are on the same network, you should check that y
 
 Remember to replace the IP addresses in the two lines above with your specific addresses.
 
-You can now SSH into your car from your laptop. Use :code:`ssh` in the terminal if you're on `macOS or Linux <https://support.rackspace.com/how-to/connecting-to-a-server-using-ssh-on-linux-or-mac-os/>`_, use `PuTTY <https://www.123-reg.co.uk/support/servers/how-do-i-connect-using-ssh-putty/>`_ if you're on Windows. 
+You can now SSH into your car from your laptop. Use :code:`ssh` in the terminal if you're on `macOS or Linux <https://support.rackspace.com/how-to/connecting-to-a-server-using-ssh-on-linux-or-mac-os/>`_, use `PuTTY <https://www.123-reg.co.uk/support/servers/how-do-i-connect-using-ssh-putty/>`_ if you're on Windows.
 
 We recommend using :code:`tmux` while you're ssh-ed into the car. You can install :code:`tmux` via apt-get.
 
@@ -114,4 +114,3 @@ Congratulations on making it through the **System Configuration** section! The :
 .. image:: img/combine/wireless3.gif
 	:align: center
 	:width: 300px
-
