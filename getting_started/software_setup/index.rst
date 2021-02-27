@@ -49,6 +49,7 @@ Many thanks to `Dr. Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh Un
 .. toctree::
    :maxdepth: 1
    :name: Software Setup
+	 :hidden:
 
    software_host
    optional_software_nx
