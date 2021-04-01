@@ -402,7 +402,6 @@ In the last step we need to install ROS on the NVIDIA Jetson NX, too. We use ROS
     $ sudo rosdep init
     $ rosdep update
 
-
 7. It is recommended to load the ROS environment variables automatically when you execute a new shell session. Update your .bashrc script:
 
 .. code-block:: bash
