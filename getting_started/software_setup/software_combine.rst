@@ -32,7 +32,36 @@ If you have a NVIDIA Jetson NX, it comes with a network card onboard. Make sure 
 
 If you have a Nano/Xavier NX, or a Xavier, you'll need to install a M.2 network card from Intel to enable wireless networking.
 
-2. Connecting the NVIDIA Jetson NX to WiFi
+
+2. Wireless Hot Spot on the NVIDIA Jetson NX
+---------------------------------
+**Equipment Used:**
+	* Fully built F1TENTH vehicle
+	* Pit/Host Laptop OR
+	* External monitor/display, HDMI cable, keyboard, mouse
+
+**Approximate Time Investment:** 30 minutes
+
+As you begin to test on larger tracks, you may find a need to have a direct connection to your car, so as to not have to rely on the car being within a certain distance of your router. The solution here is to set up wireless hot spot on the NVIDIA Jetson NX.
+
+Connect to the **NVIDIA Jetson NX** via SSH on the **Pit** laptop or via a monitor, keyboard, and mouse.
+
+On the NVIDIA Jetson NX, go to System Settings > Network.
+
+.. image:: img/combine/wireless1.jpg
+
+On the bottom center of the pop-up window for the network, click on “Use as Hotspot...” You will no longer have internet connection because your wireless antennas will now be used as a hot spot rather than to connect to the previous Wi-Fi connection that you were on.
+
+Note that if you plan on using the wireless hotspot feature often, you will want it to boot up on startup. To do this, open up Network Connections, under Wi-Fi select Hotspot and Edit.
+
+.. image:: img/combine/wireless2.jpg
+
+Under General click on “Automatically connect to this network when available”.
+
+On your phone, tablet, or laptop you can now connect directly to this Hotspot, and ssh into it. The default IP address for Hotspot on the Jetson is 10.42.0.1.
+
+
+3. Connecting the NVIDIA Jetson NX to WiFi
 -------------------------------------------------
 Connect the NVIDIA Jetson NX to ``F1TENTH_WIFI`` by clicking on wireless icon on top-right corner of Ubuntu Desktop and selecting ``F1TENTH_WIFI``. This is done on the NVIDIA Jetson NX with the monitor, keyboard, and mouse connected to it and not the Pit/Host laptop. It might take a while for the NVIDIA Jetson NX to discover the wireless network.
 
@@ -88,13 +117,13 @@ You should see something similar to this:
 
 You should be able to find your car's assigned IP address under :code:`wlan0`, then after ``inet``. In this example, the IP address is ``195.0.0.5``.
 
-3. Connecting the Pit/Host Computer to WiFi
+4. Connecting the Pit/Host Computer to WiFi
 -------------------------------------------------
 Now, on the Pit/Host laptop, connect to the same wireless network, ``F1TENTH_WIFI`` and find its IP Address. If your laptop running Linux or macOS, you could use the same :code:`ifconfig` command in the terminal. On macOS, it may be under ``en0`` or ``en1``. In this example, the IP address of the Pit is ``192.168.1.151``.
 
 If you’re running Linux on the Pit laptop in a virtual machine (VM), connect the Pit  computer to the router. Depending on which VM software you have and the default VM configuration, you may also need to set its network adapter configuration to NAT mode. This ensures your VM will share the wireless connection with your host OS instead of controlling the adapter itself.
 
-4. Connecting to the Pit/Host to the NVIDIA Jetson NX
+5. Connecting to the Pit/Host to the NVIDIA Jetson NX
 -------------------------------------------
 Now that the car and the laptop are on the same network, you should check that you can ping the laptop from the car and you can ping the car from the laptop.
 

@@ -38,7 +38,6 @@ This section has five subsections:
 #. :ref:`Pit/Host setup <doc_software_host>` details how to install ROS and the simulators on the **Pit/Host** computer/laptop.
 #. :ref:`Configuring the NVIDIA Jetson NX <doc_optional_software_nx>` contains all necessary steps to configure the **NVIDIA Jetson Xavier NX**.
 #. :ref:`Combine setup <doc_software_combine>` goes over how to set up a wireless communication system between the **Pit/Host** laptop and the **NVIDIA Jetson NX** once you have already completed the above two sections.
-#. :ref:`Advanced Setup <doc_software_advance>` concerns hotspot setup and VNC setup on the NVIDIA Jetson NX. This section is optional and for the advanced user.
 #. :ref:`DEPRECATED - Configuring the TX2 <doc_software_jetson>` contains all necessary steps to configure the **NVIDIA Jetson TX2**.
 
 .. tip::
@@ -54,5 +53,4 @@ Many thanks to `Dr. Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh Un
    software_host
    optional_software_nx
    software_combine
-   software_advance
    software_jetson

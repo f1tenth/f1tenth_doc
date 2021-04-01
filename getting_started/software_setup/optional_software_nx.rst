@@ -15,8 +15,9 @@
 
 **Approximate Time Investment:** 1-2 hours
 
-1. Initial Configuration Steps
+1. Flash Jetson NX with Software
 ---------------------------
+The setup of the Nvidia Jetson NX is easy and convenient. NVIDIA themselves provide a detailed step-by-step getting started on how to bring the NVIDIA Jetpack Software on the NVIDIA Jetson NX. You can either follow this documentation `here <https://developer.nvidia.com/embedded/learn/get-started-jetson-xavier-nx-devkit>`_ or follow our step-by-step introduction below.
 
 1. Go to the NVIDIA Develoeprs Download Center at https://developer.nvidia.com/downloads and click Jetson.
 
@@ -32,7 +33,7 @@
 
                 Jetson Xavier NX Developer Kit downloads.
 
-3. The next page will require you to log in with an NVIDIA Developer Program login. If you do not have one, click Join Now. If you already have an account, click Login. Registration is free.
+3. The next page will require you to log in with an **NVIDIA Developer Program login**. If you do not have one, click Join Now - Registration is free. If you already have an account, click Login.
 
         .. figure:: img/nx/nx-software-step3.png
                 :align: center
@@ -47,15 +48,17 @@
                 NVIDIA Developer Program profile page download button.
 
 5. Once the zip file has finished downloading, extract it. This will create a new file, sd-blob.img. This is the file that contains the NVIDIA Jetson Xavier NX Developer Kit software and operating system.
-6. Put the microSD card into the SD card reader/writer. If your SD card reader/writer is not part of the host PC (e.g. a USB stick) then plug it into the host PC.
-7. Open your SD card image burning software.
+
+6. Put the acquired microSD card into the SD card reader/writer and then plug the SD card reader into the **Host PC**.
+
+7. Download, install, and launch SD card image burning software `Etcher <https://www.balena.io/etcher/>`_.
 
         .. figure:: img/nx/nx-software-step7.png
                 :align: center
 
-                SD card burner software.
+                SD card burner software Etcher.
 
-8. Choose to flash the image from a file. When the file selection window comes up, choose the sd-blob.img file extracted earlier.
+8. Choose **Flash the file** and select the image you downloaded from NVIDIA. When the file selection window comes up, choose the **sd-XXXX.img** file extracted earlier.
 
         .. figure:: img/nx/nx-software-step8.png
                 :align: center
@@ -69,7 +72,7 @@
 
                 Target selection window.
 
-10. Click "Flash!" (or similar for your software). This process will take some time (20+ minutes).
+10. Click "Flash!" (or similar for your software). This process will take some time and is mainly depending on the speed write speed of your microSD card (20+ minutes).
 
         .. figure:: img/nx/nx-software-step10.png
                 :align: center
@@ -77,7 +80,8 @@
                 Flashing process.
 
 11. Once the flashing process is complete, verify that any activity lights on your SD card reader/writer are no longer blinking. Properly un-mount/eject the microSD card before physically removing it from the reader/writer.
-12. Insert the microSD card into the NVIDIA Jetson Xavier NX module with the label facing up. Push the microSD card all the way in until it locks into place with a small click. The edge of the microSD card should be flush with the PCB of the NVIDIA Jetson Xavier NX module and carrier board.
+
+12. Now its time to bring the software on the NVIDIA Jetson NX. Insert the flashed microSD card into the NVIDIA Jetson Xavier NX module with the label facing up. Push the microSD card all the way in until it locks into place with a small click. The edge of the microSD card should be flush with the PCB of the NVIDIA Jetson Xavier NX module and carrier board.
 
         .. figure:: img/nx/nx-insert-sd.jpg
                 :align: center
@@ -89,148 +93,180 @@
 
                 SD card flush.
 
-13. Connect the USB micro end of the USB micro cable to the USB micro port on the NVIDIA Jetson Xavier NX carrier board. Connect the USB A end of the USB micro cable to the host PC.
+13. When you have entered the microSD card you can power up the Jetson NX on the F1TENTH car for the first time. First of all plug the following into the Jetson NX:
+  * USB Port: A keyboard
+  * USB Port: A mouse
+  * HDMI Port: An external monitor
 
-        .. figure:: img/nx/nx-attach-usb.jpg
+14. Now you can provide energy for the F1TENTH car. You either do this with the battery on the car or plug in an external power supply that provides 16V. The Jetson Xavier NX Developer Kit will power on and boot automatically after you provided the power supply.
+
+.. important:: The barrel jack on the powerboard is only rated for **9.0V - 16.0V**. The power supplies that come with the Jetson NX are 19V and therefore have a higher voltage. **Do not plug those in**. Otherwise you will destroy your powerboard.
+
+15. A green LED next to the Micro-USB connector will light as soon as the developer kit powers on. When you boot the first time, the Jetson Xavier NX Developer Kit will take you through some initial setup, including:
+
+  * Review and accept NVIDIA Jetson software EULA
+  * Select system language, keyboard layout, and time zone
+  * Connect to Wireless network
+  * Create username, password, and computer name
+  * Log in
+
+16. After logging in you should see the following screen. Congratulations, your NVIDIA Jetson NX on your F1TENTH car is ready to go.
+
+        .. figure:: img/nx/nx_ready.jpg
                 :align: center
 
-                Attaching USB micro end of cable.
+                First boot of the NVIDIA Jetson NX.
 
-14. Connect the battery on the F1TENTH vehicle.
-15. Flip the switch on the power distribution board to the ON position.
-16. After several minutes, you should see a new drive become available on the host PC called "L4T-README." If you do not see this then either the flashing of the microSD card failed or your USB cable is bad or incorrect in some way (e.g. missing data lines).
-17. In addition to the new drive, you should also have a new Serial, COM, or TTY device available. On Linux and MacOS, this will be in the form of /dev/ttyACMx where x is a number. On Windows, this will be a new COM port. Open your terminal emulator software and connect to this new port using the following settings:
+..
+  13. Connect the USB micro end of the USB micro cable to the USB micro port on the NVIDIA Jetson Xavier NX carrier board. Connect the USB A end of the USB micro cable to the host PC.
 
-* Baud rate: 115200 bps
-* Data bits: 8
-* Stop bits: 1
-* Parity: None
-* Flow control: None
+          .. figure:: img/nx/nx-attach-usb.jpg
+                  :align: center
 
-18. Once connected, you may not see any output on the terminal. Hitting the space bar should show you the license agreement for the NVIDIA software.
+                  Attaching USB micro end of cable.
 
-        .. figure:: img/nx/nx-software-step18.png
-                :align: center
+  14. Connect the battery on the F1TENTH vehicle.
+  15. Flip the switch on the power distribution board to the ON position.
+  16. After several minutes, you should see a new drive become available on the host PC called "L4T-README." If you do not see this then either the flashing of the microSD card failed or your USB cable is bad or incorrect in some way (e.g. missing data lines).
+  17. In addition to the new drive, you should also have a new Serial, COM, or TTY device available. On Linux and MacOS, this will be in the form of /dev/ttyACMx where x is a number. On Windows, this will be a new COM port. Open your terminal emulator software and connect to this new port using the following settings:
 
-                NVIDIA license agreement.
+  * Baud rate: 115200 bps
+  * Data bits: 8
+  * Stop bits: 1
+  * Parity: None
+  * Flow control: None
 
-19. Hit TAB to select the ``<Ok>`` button. Hit ENTER to accept the license agreement.
-20. On the next screen, choose your language of choice and hit ENTER.
+  18. Once connected, you may not see any output on the terminal. Hitting the space bar should show you the license agreement for the NVIDIA software.
 
-        .. figure:: img/nx/nx-software-step20.png
-                :align: center
+          .. figure:: img/nx/nx-software-step18.png
+                  :align: center
 
-                Language selection.
+                  NVIDIA license agreement.
 
-21. On the next screen, select your region to properly set the time zone and hit ENTER.
+  19. Hit TAB to select the ``<Ok>`` button. Hit ENTER to accept the license agreement.
+  20. On the next screen, choose your language of choice and hit ENTER.
 
-        .. figure:: img/nx/nx-software-step21.png
-                :align: center
+          .. figure:: img/nx/nx-software-step20.png
+                  :align: center
 
-                Region selection.
+                  Language selection.
 
-22. On the next screen, choose your time zone and hit ENTER.
+  21. On the next screen, select your region to properly set the time zone and hit ENTER.
 
-        .. figure:: img/nx/nx-software-step22.png
-                :align: center
+          .. figure:: img/nx/nx-software-step21.png
+                  :align: center
 
-                Time zone selection.
+                  Region selection.
 
-23. On the next screen, you will be asked if the system clock is set to UTC. Choose <Yes> and hit ENTER.
+  22. On the next screen, choose your time zone and hit ENTER.
 
-        .. figure:: img/nx/nx-software-step23.png
-                :align: center
+          .. figure:: img/nx/nx-software-step22.png
+                  :align: center
 
-                System clock base selection.
+                  Time zone selection.
 
-24. On the next screen, you will be asked to enter a name for the new user account. Enter ``f1tenth``, hit TAB to select the ``<Ok>`` button, and then hit ENTER.
+  23. On the next screen, you will be asked if the system clock is set to UTC. Choose <Yes> and hit ENTER.
 
-        .. figure:: img/nx/nx-software-step24.png
-                :align: center
+          .. figure:: img/nx/nx-software-step23.png
+                  :align: center
 
-                User account full name selection.
+                  System clock base selection.
 
-25. On the next screen, you will be asked to enter a username for the new user account. Leave the default of ``f1tenth``, hit TAB to select the ``<Ok>`` button, and hit ENTER.
+  24. On the next screen, you will be asked to enter a name for the new user account. Enter ``f1tenth``, hit TAB to select the ``<Ok>`` button, and then hit ENTER.
 
-        .. figure:: img/nx/nx-software-step25.png
-                :align: center
+          .. figure:: img/nx/nx-software-step24.png
+                  :align: center
 
-                Username selection.
+                  User account full name selection.
 
-26. On the next screen, you will be asked to enter a password for the new user. Enter the password ``G0Fast!`` (with a zero instead of the letter o). Hit TAB to select the ``<Ok>`` button, and hit ENTER.
+  25. On the next screen, you will be asked to enter a username for the new user account. Leave the default of ``f1tenth``, hit TAB to select the ``<Ok>`` button, and hit ENTER.
 
-        .. figure:: img/nx/nx-software-step26.png
-                :align: center
+          .. figure:: img/nx/nx-software-step25.png
+                  :align: center
 
-                Password selection.
+                  Username selection.
 
-27. On the next screen, you will be asked to re-enter the password. Enter the password again, hit TAB to select the ``<Ok>`` button, and then hit ENTER.
+  26. On the next screen, you will be asked to enter a password for the new user. Enter the password ``G0Fast!`` (with a zero instead of the letter o). Hit TAB to select the ``<Ok>`` button, and hit ENTER.
 
-        .. figure:: img/nx/nx-software-step27.png
-                :align: center
+          .. figure:: img/nx/nx-software-step26.png
+                  :align: center
 
-                Password re-enetry.
+                  Password selection.
 
-28. On the next screen, you will receive a warning that the selected password is "too weak" due to the lenth. Hit TAB to select <Yes> and then hit ENTER.
+  27. On the next screen, you will be asked to re-enter the password. Enter the password again, hit TAB to select the ``<Ok>`` button, and then hit ENTER.
 
-        .. figure:: img/nx/nx-software-step28.png
-                :align: center
+          .. figure:: img/nx/nx-software-step27.png
+                  :align: center
 
-                Weak password confirmation.
+                  Password re-enetry.
 
-29. On the next screen, you will be asked to select the desired size of the APP partition. Leave the default, hit TAB to select the ``<Ok>`` button, and then hit ENTER.
+  28. On the next screen, you will receive a warning that the selected password is "too weak" due to the lenth. Hit TAB to select <Yes> and then hit ENTER.
 
-        .. figure:: img/nx/nx-software-step29.png
-                :align: center
+          .. figure:: img/nx/nx-software-step28.png
+                  :align: center
 
-                APP partition size selection.
+                  Weak password confirmation.
 
-30. On the next screen, you will be asked to select a primary network interface. Use the arrow keys to select ``eth0``, hit the TAB key to select the ``<Ok>`` button, and then hit ENTER (we will change this after setup is complete).
+  29. On the next screen, you will be asked to select the desired size of the APP partition. Leave the default, hit TAB to select the ``<Ok>`` button, and then hit ENTER.
 
-        .. figure:: img/nx/nx-software-step30.png
-                :align: center
+          .. figure:: img/nx/nx-software-step29.png
+                  :align: center
 
-                Primary network interface selection.
+                  APP partition size selection.
 
-31. The next several screens will show the status of connecting to the network. Since there is no Ethernet cable connected to ``eth0``, this is expected to fail. Hit ENTER to continue.
+  30. On the next screen, you will be asked to select a primary network interface. Use the arrow keys to select ``eth0``, hit the TAB key to select the ``<Ok>`` button, and then hit ENTER (we will change this after setup is complete).
 
-        .. figure:: img/nx/nx-software-step31.png
-                :align: center
+          .. figure:: img/nx/nx-software-step30.png
+                  :align: center
 
-                Network connection failure.
+                  Primary network interface selection.
 
-32. On the next screen, you will be given several options on how to proceed with connecting to a network. Use the arrow keys to select ``Do not configure the network at this time``, hit the TAB key to select the ``<Ok>`` button, and then hit ENTER.
+  31. The next several screens will show the status of connecting to the network. Since there is no Ethernet cable connected to ``eth0``, this is expected to fail. Hit ENTER to continue.
 
-        .. figure:: img/nx/nx-software-step32.png
-                :align: center
+          .. figure:: img/nx/nx-software-step31.png
+                  :align: center
 
-                Network configuration selection.
+                  Network connection failure.
 
-33. On the next screen, you will be asked to enter the hostname for the NVIDIA Jetson Xavier NX. Erase the current text and type ``jetson-nx``. Hit TAB to select the ``<Ok>`` button, and then hit ENTER.
+  32. On the next screen, you will be given several options on how to proceed with connecting to a network. Use the arrow keys to select ``Do not configure the network at this time``, hit the TAB key to select the ``<Ok>`` button, and then hit ENTER.
 
-        .. figure:: img/nx/nx-software-step33.png
-                :align: center
+          .. figure:: img/nx/nx-software-step32.png
+                  :align: center
 
-                Hostname selection.
+                  Network configuration selection.
 
-34. The next several screens will show the status of the installation and configuration of the NVIDIA Jetson Xavier NX system. During this process, your terminal session will likely be interrupted and the L4T-README drive will be removed and reconnected.
-35. Wait at least 30 seconds and then reconnect your terminal session using the same settings as before. This time you should be prompted with a login for the device. Enter the username ``f1tenth`` and then hit ENTER.
+  33. On the next screen, you will be asked to enter the hostname for the NVIDIA Jetson Xavier NX. Erase the current text and type ``jetson-nx``. Hit TAB to select the ``<Ok>`` button, and then hit ENTER.
 
-        .. figure:: img/nx/nx-software-step35.png
-                :align: center
+          .. figure:: img/nx/nx-software-step33.png
+                  :align: center
 
-                Terminal login.
+                  Hostname selection.
 
-36. You will then be prompted for the password. Enter the password ``G0Fast!`` and hit ENTER. Note that you will not be able to see the characters being entered as you type.
-37. You should now be logged in to the NVIDIA Jetson Xavier NX Developer Kit.
+  34. The next several screens will show the status of the installation and configuration of the NVIDIA Jetson Xavier NX system. During this process, your terminal session will likely be interrupted and the L4T-README drive will be removed and reconnected.
+  35. Wait at least 30 seconds and then reconnect your terminal session using the same settings as before. This time you should be prompted with a login for the device. Enter the username ``f1tenth`` and then hit ENTER.
 
-        .. figure:: img/nx/nx-software-step37.png
-                :align: center
+          .. figure:: img/nx/nx-software-step35.png
+                  :align: center
 
-                Logged in!
+                  Terminal login.
 
+  36. You will then be prompted for the password. Enter the password ``G0Fast!`` and hit ENTER. Note that you will not be able to see the characters being entered as you type.
+  37. You should now be logged in to the NVIDIA Jetson Xavier NX Developer Kit.
 
-2. Configuring WiFi and SSH
+          .. figure:: img/nx/nx-software-step37.png
+                  :align: center
+
+                  Logged in!
+
+2. Run Jetson NX from SSD
+------------------------
+In the build instruction we applied an SSD NVMe on to the Jetson NX. We will now make use of this SSD  by switching the rootfs to point to the SSD. In effect, the system will now run from the SSD, the SD card is only there to boot the system. Therefore everything you install on your system will automatically installed on the SSD.
+
+Please follow this tutorial `here <https://www.jetsonhacks.com/2020/05/29/jetson-xavier-nx-run-from-ssd/>`_ that has both video and commands integrated to enable your Jetson NX to run from the SSD
+
+.. important:: These script changes the rootfs to the SSD after the kernel image is loaded from the eMMC/SD card. For the Xavier NX, you will still need to have the SD card installed for booting. As of this writing, the default configuration of the Jetson NX does not allow direct booting from the NVMe.
+
+3. Configuring WiFi and SSH
 ------------------------
 
 1. We will use the Network Manager command-line tool nmcli to configure the WiFi on the NVIDIA Jetson Xavier NX. To find the interface name of your WiFi adapter, start by typing ``nmcli d`` and hitting ENTER. This will list your available interfaces. My wifi interface is named ``wlan0`` so I will use that in all future steps. If your WiFi interface is named something different, you will have to replace that in future commands.
@@ -300,17 +336,19 @@
                 Setting connection to always use static IP.
 
 13. To save the changes you've made, run the command ``sudo nmcli c up [CONNECTION_NAME]`` where ``[CONNECTION_NAME]`` is replaced with the name of your WiFi connection that you got from step 8.
-14. To verify that you can SSH into the NVIDIA Jetson Xavier NX Developer Kit, verify that the Pit/Host PC is connected to the same network as the Jetson Xavier NX Developer Kit and use an SSH client on the Host PC to connect to the new IP address of the Developer Kit. On Linux this would be done with the command ``ssh f1tenth@[IP_ADDRESS]`` where ``[IP_ADDRESS]`` is replaced with the static IP address that you assigned to the Developer Kit. After you have verified that SSH works correctly, you can close the connection to the Developer Kit in your terminal emulator and disconnect the micro USB cable.
 
-3. Updating Packages
+14. To verify that you can SSH into the NVIDIA Jetson Xavier NX Developer Kit, verify that the Pit/Host PC is connected to the **same network** as the Jetson Xavier NX Developer Kit and use an SSH client on the Host PC to connect to the new IP address of the Developer Kit. On Linux this would be done with the command ``ssh f1tenth@[IP_ADDRESS]`` where ``[IP_ADDRESS]`` is replaced with the static IP address that you assigned to the Developer Kit. After you have verified that SSH works correctly, you can close the connection to the Developer Kit in your terminal emulator.
+
+4. Updating Packages
 -----------------
 
-1. All further steps assume that your NVIDIA Jetson Xavier NX Developer Kit is connected to the internet and you are connected to the Developer Kit via SSH.
-2. To update the list of available packages, run ``sudo apt update``.
-3. To install all available updates, run ``sudo apt full-upgrade``.
-4. Once all packages have been upgraded run ``sudo reboot`` to restart the Developer Kit and apply any changes.
+All further steps assume that your NVIDIA Jetson Xavier NX Developer Kit is connected to the internet. You can execute all the commands directly in the terminal application of the NVIDIA Jetson. Now we are updating the Ubuntu system on the Jetson NX.
 
-4. Creating a Swapfile
+1. To update the list of available packages, run ``sudo apt update``.
+2. To install all available updates, run ``sudo apt full-upgrade``.
+3. Once all packages have been upgraded run ``sudo reboot`` to restart the Developer Kit and apply any changes.
+
+5. Creating a Swapfile
 -------------------
 
 1. Run the following commands to create a swapfile which can help with memory-intensive tasks
@@ -323,41 +361,76 @@
     sudo swapon /var/swapfile
     sudo bash -c 'echo "/var/swapfile swap swap defaults 0 0" >> /etc/fstab'
 
-5. Installing ROS
+6. Installing ROS
 --------------
 
-We use ROS to connect everything together and ultimately run the car. We'll need to set up the :ref:`ROS workspace <ros_workspace>`, set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`. Everything in this section is done on the **Jetson Xavier NX** so you will need to connect to it via SSH from the **Pit/Host** laptop/computer or plug in a monitor, keyboard, and mouse.
+In the last step we need to install ROS on the NVIDIA Jetson NX, too. We use ROS to connect everything together and ultimately run the car with our F1TENTH Software Stack. You can execute all the commands directly in the terminal application of the NVIDIA Jetson. Now we are updating the Ubuntu system on the Jetson NX.
 
-These instructions are specific to setting up the software on the Jetson Xavier NX as the setup is a bit different than the TX2. Many thanks to `Jim from JetsonHacks <https://www.jetsonhacks.com/>`_ and `Josh Whitley from The Autoware Foundation <https://autoware.org/>`_ for figuring this out.
+1. Open a new terminal by pressing Ctrl + Alt + T or execute the “Terminal” application using the Ubuntu 18 launch system.
 
-1. Install the Logitech F710 driver on the Jetson.
+2. Set the Jetson Xavier NX to accept software from packages.ros.org:
 
-  .. code:: bash
+    .. code:: bash
 
-    git clone https://github.com/jetsonhacks/logitech-f710-module
-    cd logitech-f710-module
-    ./install-module.sh
+    $ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
-2. Install ROS
+3. Add a new apt key:
 
-  .. code:: bash
+    .. code:: bash
 
-    $ cd ~
-    $ git clone https://github.com/jetsonhacks/installROS
-    $ cd installROS
-    $ ./installROS -p ros-melodic-ros-base
-    $ ./setupCatkinWorkspace.sh f1tenth_ws
+    $ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 
-  (This will setup a catkin workspace in the home directory named ``f1tenth_ws``)
+4. Update the Debian packages index:
 
-3. We are now ready to install the F1/Tenth ROS packages
+    .. code:: bash
 
-  .. code:: bash
+    $ sudo apt update
 
-    cd ~/f1tenth_ws/src
-    git clone https://github.com/f1tenth/f1tenth_system
-    find . -name '*.py' -exec chmod +x {} \;
-    cd ..
-    source devel/setup.bash
-    rosdep install -a -y -i
-    catkin_make
+5. Install the ROS Desktop package, including support for rqt, rvizand other useful robotics packages:
+
+    .. code:: bash
+
+    $ sudo apt install ros-melodic-desktop
+
+
+.. note:: “ROS Desktop Full” is a more complete package, however it is not recommended for embedded platforms; 2D/3D simulators will be installed, requiring increased storage space and compute power.
+
+
+6. Initialize rosdep. rosdep allows you to easily install system dependencies for source code you want to compile and is required to run some core components in ROS:
+
+    .. code:: bash
+
+    $ sudo rosdep init
+    $ rosdep update
+
+
+7. It is recommended to load the ROS environment variables automatically when you execute a new shell session. Update your .bashrc script:
+
+    .. code:: bash
+
+    $ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+    $ source ~/.bashrc
+
+8. We can check now if the installation was correct by running a roscore command in the terminal window.
+
+
+..
+  1. Install ROS
+
+    .. code:: bash
+
+      $ cd ~
+      $ git clone https://github.com/jetsonhacks/installROS
+      $ cd installROS
+      $ ./installROS -p ros-melodic-ros-base
+      $ ./setupCatkinWorkspace.sh f1tenth_ws
+
+    (This will setup a catkin workspace in the home directory named ``f1tenth_ws``)
+
+2. Install the Logitech F710 driver on the Jetson.
+
+    .. code:: bash
+
+      git clone https://github.com/jetsonhacks/logitech-f710-module
+      cd logitech-f710-module
+      ./install-module.sh

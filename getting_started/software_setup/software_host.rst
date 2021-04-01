@@ -10,16 +10,14 @@
 Overview
 ----------
 The F1TENTH vehicle runs on a Linux operating system. You will need to have Linux and ROS (Robot Operating System) on your **Pit** laptop. This Laptop is used as your main developer environment as well as a debug support. We will assume that you already have some basic knowledge of Linux and ROS as explaining either systems in depth is beyond the scope of this documentation. If you are not familiar with Linux we can recommend you the following links:
-	* Fully built F1TENTH vehicle
-	* Laptop/computer
-
+	* `Introduction to Linux Operating System (OS) <https://www.guru99.com/introduction-linux.html>`_
+	* `The Linux Command Line for beginners <https://itsfoss.com/ubuntu-18-04-release-features/>`_
 
 .. important:: We currently support **Ubuntu Xenial 16.04/ROS Kinetic** and **Bionic 18.04/ROS Melodic**.
 
 We will refer to the **Pit** computer as **Pit** or **Host** computer/laptop interchangeably.
 
-In this **Configure F1TENTH System** section, the **Pit** laptop is first used to flash the NVIDIA JetPack Software onto the **NVIDIA Jetson NX**. Afterwards we use the laptop to SSH into the **NVIDIA Jetson NX**. After this section, the **Pit**'s sole job is to be used to SSH in to the **NVIDIA Jetson NX**.
-
+In this **Configure F1TENTH System** section, the **Pit** laptop is first used to flash the NVIDIA JetPack Software onto the **NVIDIA Jetson NX**. Afterwards we use the laptop to SSH into the **NVIDIA Jetson NX**.
 
 1. Installing Ubuntu
 ---------------------
@@ -31,11 +29,11 @@ Installing Ubuntu may take a while so you may want to get a cup of coffee or tea
 
 2. Installing ROS
 ------------------
-Follow the instructions `here <https://wiki.ros.org/ROS/Installation>`_ to install the supported ROS versions Kinetic or Melodic displayed above.
+Afterwards we are installing ROS on your Host Laptop. You can follow the instructions `here <https://wiki.ros.org/ROS/Installation>`_ to install the supported ROS versions Kinetic or Melodic displayed above for your Ubuntu System. We can recommend to install the **-desktop-full** version so you have everything you need on your Host Laptop.
 
-If you have never used ROS before, ROS has many in-depth and useful tutorials `here <https://wiki.ros.org/ROS/Tutorials>`_ that you may want to try after installing.
+If you have never used ROS before, ROS has many in-depth and useful tutorials which can be found here. `here <https://wiki.ros.org/ROS/Tutorials>`_ that you may want to try after installing.
 
-With a Linux operating system on the **Pit/Host** computer, you're ready to move on to setting up the **NVIDIA Jetson NX!**
+With a Linux operating system on the **Pit/Host** computer, you're ready to move on to setting up the **NVIDIA Jetson NX** on your F1TENTH car.
 
 .. image:: img/host/host01.gif
 	:align: center
