@@ -22,9 +22,9 @@ There are two subsections here. You will need to :ref:`Configure the VESC <doc_f
    :maxdepth: 1
    :name: Firmware Setup
 
-   firmware_vesc
-   firmware_hokuyo10
-	 drive_workspace
+   	firmware_vesc
+   	firmware_hokuyo10
+	 	drive_workspace
 
 #. :ref:`Configuring the VESC <doc_firmware_vesc>` goes over how to set up and tune the VESC.
 #. :ref:`Hokuyo 10LX Ethernet Connection Setup <doc_firmware_hokuyo10>` details how to set up the connection on the TX2.

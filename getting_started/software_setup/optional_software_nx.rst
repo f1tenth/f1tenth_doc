@@ -372,7 +372,7 @@ In the last step we need to install ROS on the NVIDIA Jetson NX, too. We use ROS
 
 .. code-block:: bash
 
-    $ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+    sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
 3. Add a new apt key:
 
@@ -384,14 +384,14 @@ In the last step we need to install ROS on the NVIDIA Jetson NX, too. We use ROS
 
 .. code-block:: bash
 
-    $ sudo apt update
+    sudo apt update
 
 
 5. Install the ROS Desktop package, including support for rqt, rvizand other useful robotics packages:
 
 .. code-block:: bash
 
-    $ sudo apt install ros-melodic-desktop
+    sudo apt install ros-melodic-desktop
 
 .. note:: “ROS Desktop Full” is a more complete package, however it is not recommended for embedded platforms; 2D/3D simulators will be installed, requiring increased storage space and compute power.
 
@@ -399,15 +399,15 @@ In the last step we need to install ROS on the NVIDIA Jetson NX, too. We use ROS
 
 .. code-block:: bash
 
-    $ sudo rosdep init
-    $ rosdep update
+    sudo rosdep init
+    rosdep update
 
 7. It is recommended to load the ROS environment variables automatically when you execute a new shell session. Update your .bashrc script:
 
 .. code-block:: bash
 
-    $ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
-    $ source ~/.bashrc
+    echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+    source ~/.bashrc
 
 8. We can check now if the installation was correct by running a roscore command in the terminal window.
 
