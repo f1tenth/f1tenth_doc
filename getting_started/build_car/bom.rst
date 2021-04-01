@@ -9,7 +9,7 @@ Bill of Materials
   You have different possibilities for creating your F1TENTH car. We are focusing on a hardware setup that is based on the  `Traxxas Slash 4x4 Premium <https://traxxas.com/products/models/electric/6804Rslash4x4platinum>`_ Chassis and the `NVIDIA Jetson Xavier NX <https://developer.nvidia.com/embedded/jetson-xavier-nx-devkit>`_. The hardware setup based on the NVIDIA Jetson TX2 and Traxxas Ford Focus chassis is deprecated.
 
 .. tip::
-	The `Platform Deck <https://www.google.com/url?q=https://drive.google.com/drive/u/1/folders/1o3jRww0UwfmjTBDACD8qu7SDabRzpr5g&sa=D&ust=1585843187302000&usg=AFQjCNGVoQ58ADRmM1Fl6CvUEe602J_JBA>`_ needs to be laser cut. If you laser cutting machines are unavailable at your institution, `Ponoko <https://www.ponoko.com/>`_ is a good place to upload the .dxf file and they will cut and ship it to you.
+	The `Platform Deck <https://drive.google.com/drive/folders/1m6JuSgbCYWefAvTAbb9SPebGBG61cLQo?usp=sharing>`_ needs to be laser cut. If you laser cutting machines are unavailable at your institution, `Ponoko <https://www.ponoko.com/>`_ is a good place to upload the .dxf file and they will cut and ship it to you.
 
 
 .. (scroll to the right to see links)

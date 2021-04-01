@@ -9,13 +9,17 @@
 
 Overview
 ----------
-The F1TENTH vehicle runs on a Linux operating system. You will need to have Linux and ROS (Robot Operating System) on your **Pit** laptop. We will assume that you already have some basic knowledge of Linux and ROS as explaining either systems in depth is beyond the scope of this documentation.
+The F1TENTH vehicle runs on a Linux operating system. You will need to have Linux and ROS (Robot Operating System) on your **Pit** laptop. This Laptop is used as your main developer environment as well as a debug support. We will assume that you already have some basic knowledge of Linux and ROS as explaining either systems in depth is beyond the scope of this documentation. If you are not familiar with Linux we can recommend you the following links:
+	* Fully built F1TENTH vehicle
+	* Laptop/computer
+
+
+.. important:: We currently support **Ubuntu Xenial 16.04/ROS Kinetic** and **Bionic 18.04/ROS Melodic**.
 
 We will refer to the **Pit** computer as **Pit** or **Host** computer/laptop interchangeably.
 
-In this **System Configuration** section,the **Pit** laptop is first used to flash the JetPack onto the **NVIDIA Jetson NX** and then to SSH into the **NVIDIA Jetson NX**. After this section, the **Pit**'s sole job is to be used to SSH in to the **NVIDIA Jetson NX**.
+In this **Configure F1TENTH System** section, the **Pit** laptop is first used to flash the NVIDIA JetPack Software onto the **NVIDIA Jetson NX**. Afterwards we use the laptop to SSH into the **NVIDIA Jetson NX**. After this section, the **Pit**'s sole job is to be used to SSH in to the **NVIDIA Jetson NX**.
 
-.. important:: We currently support **Ubuntu Xenial 16.04/ROS Kinetic** and **Bionic 18.04/ROS Melodic**.
 
 1. Installing Ubuntu
 ---------------------

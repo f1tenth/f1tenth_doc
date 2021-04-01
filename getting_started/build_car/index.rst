@@ -1,7 +1,6 @@
 .. _doc_build_car:
 
-
-Building the Car
+Building the F1TENTH Car
 =====================
 In this build guidelines we are focusing on the hardware setup of our F1TENTH vehicle based on the `Traxxas Slash 4x4 Premium <https://traxxas.com/products/models/electric/6804Rslash4x4platinum>`_ Chassis and the `NVIDIA Jetson Xavier NX <https://developer.nvidia.com/embedded/jetson-xavier-nx-devkit>`_. At the end of this build guidelines, you will have a fully functioning F1TENTH Autonomous Vehicle.
 
