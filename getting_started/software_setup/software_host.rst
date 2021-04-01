@@ -13,7 +13,7 @@ Overview
 The F1TENTH vehicle runs on a Linux operating system. You will need to have Linux and ROS (Robot Operating System) on your **Pit** laptop. This Laptop is used as your main developer environment as well as a debug support. We will assume that you already have some basic knowledge of Linux and ROS as explaining either systems in depth is beyond the scope of this documentation. If you are not familiar with Linux we can recommend you the following links:
 
 	* `Introduction to Linux Operating System (OS) <https://www.guru99.com/introduction-linux.html>`_
-	* `The Linux Command Line for beginners <https://itsfoss.com/ubuntu-18-04-release-features/>`_
+	* `The Linux Command Line for beginners <https://ubuntu.com/tutorials/command-line-for-beginners#1-overview>`_
 
 .. important:: We currently support **Ubuntu Xenial 16.04/ROS Kinetic** and **Bionic 18.04/ROS Melodic**.
 

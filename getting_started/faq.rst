@@ -55,7 +55,7 @@ Wireless Network
 --------------------------------
 High packet-loss, excessive latency on wireless network
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-One common source of network latency is the physical connection between the antenna and the Jetson TX2 module. Please double check that the wires/connectors are properly seated on the Jetson TX2 module. In addition we recommend a high-quality router in order to improve range and network throughput. Note that streaming images from onboard devices such as a camera will generally be slow no matter what.
+One common source of network latency is the physical connection between the antenna and the Jetson NX module. Please double check that the wires/connectors are properly seated on the Jetson NX module. In addition we recommend a high-quality router in order to improve range and network throughput. Note that streaming images from onboard devices such as a camera will generally be slow no matter what.
 
 Increasing range of the gamepad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -159,7 +159,7 @@ The installation for pyTorch has been streamlined with the help with pre-built b
 
 Installing Tensorflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-First double check which Jetpack version and which CUDA version you have installed on your TX2. You should be able to determine the Jetpack version from the GUI that you used when flashing your board. If you are unsure of the CUDA version open a terminal and inspect the results of nvcc --version.
+First double check which Jetpack version and which CUDA version you have installed on your Jetson NX. You should be able to determine the Jetpack version from the GUI that you used when flashing your board. If you are unsure of the CUDA version open a terminal and inspect the results of nvcc --version.
 
 Follow the instructions posted `here <https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html>`_.
 
@@ -167,12 +167,12 @@ Follow the instructions posted `here <https://docs.nvidia.com/deeplearning/frame
 
 ..    A quick google search will likely yield your desired variant. Here are some alternate options for convenience. Add the wheel files to the appropriate installTensoFlowJetsonTX directory and proceed.
 
-..    * `Tensorflow Version 1.1 with JetPack 3.3 <https://forums.developer.nvidia.com/t/tensorflow-1-11-0-wheel-with-jetpack-3-3/59376>`_ 
+..    * `Tensorflow Version 1.1 with JetPack 3.3 <https://forums.developer.nvidia.com/t/tensorflow-1-11-0-wheel-with-jetpack-3-3/59376>`_
 ..    * `Tensorflow Version 1.6 with JetPack 3.1 or 3.2 <https://github.com/openzeka/Tensorflow-for-Jetson-TX2>`_
 
 Using gstreamer and image processing pipeline
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Recording video from sensors like the Zed camera on the Jetson TX2 can be slow. This `github gist <https://gist.github.com/schen2315/d05027bae32fe160f306b59663ad2dae>`_ details a solution using gstreamer.
+Recording video from sensors like the Zed camera on the Jetson NX can be slow. This `github gist <https://gist.github.com/schen2315/d05027bae32fe160f306b59663ad2dae>`_ details a solution using gstreamer.
 
 Kernel
 ----------------

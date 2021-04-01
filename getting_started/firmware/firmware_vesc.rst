@@ -8,7 +8,7 @@
     * Make sure you hold on to the car while testing the motor to prevent it from flying off the stand.
     * Make sure there are no objects (or people) in the vicinity of the wheels while testing.
     * Use a fully-charged LiPO battery instead of a power supply to ensure the motor has enough current to spin up.
-    
+
 **Equipment Required:**
 	* Fully built F1TENTH  vehicle
 	* Box or `Car stand <https://www.amazon.com/Duratrax-Tech-Deluxe-Truck-Stand/dp/B0014T74MS/ref=sr_1_6?keywords=rc+car+jack&link_code=qs&qid=1584393402&sr=8-6>`_  to put vehicle on
@@ -22,23 +22,23 @@
 
 1. Installing the VESC Tool
 -----------------------------
-We need to configure the VESC so that it works with the ROS driver package. Before you start, you'll need to install the `VESC Tool v2.03 <https://github.com/rpasichnyk/vesc_tool/releases/tag/v2.03>`_. The latest version, v2.05 does not contain the firmware that we use. The Linux VESC tool v2.03 can be found `here <https://drive.google.com/file/d/1tGrboseLUIlSdDjkhxDVxyopWc0h4_LC/view?usp=sharing>`_. 
+We need to configure the VESC so that it works with the ROS driver package. Before you start, you'll need to install the `VESC Tool v2.03 <https://github.com/rpasichnyk/vesc_tool/releases/tag/v2.03>`_. The latest version, v2.05 does not contain the firmware that we use. The Linux VESC tool v2.03 can be found `here <https://drive.google.com/file/d/1tGrboseLUIlSdDjkhxDVxyopWc0h4_LC/view?usp=sharing>`_.
 
-.. 
+..
 	`VESC Tool <https://vesc-project.com/vesc_tool>`_ on a laptop or a PC. A pre-built VESC Tool for MacOS can be found `here <https://github.com/rpasichnyk/vesc_tool/releases>`_ .
 
 2. Powering the VESC
 -------------------------
-First we need to power the VESC. Plug the battery in. 
+First we need to power the VESC. Plug the battery in.
 
 .. figure:: img/vesc/vesc01.JPG
 	:align: center
 
 	Plug the battery in. Make sure the polarity is correct.
 
-Note that you don't need to turn on the Powerboard for configuring the VESC. 
+Note that you don't need to turn on the Powerboard for configuring the VESC.
 
-Next, unplug the USB cable of the VESC from the TX2 and plug the USB into your laptop. You may want to use a longer cable.
+Next, unplug the USB cable of the VESC from the Jetson NX and plug the USB into your laptop. You may want to use a longer cable.
 
 .. figure:: img/vesc/vesc02.JPG
 	:align: center
