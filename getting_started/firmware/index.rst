@@ -23,8 +23,8 @@ There are two subsections here. You will need to :ref:`Configure the VESC <doc_f
    :name: Firmware Setup
 	 :hidden:
 
-   firmware_vesc
-   firmware_hokuyo10
+	 firmware_vesc
+	 firmware_hokuyo10
 	 drive_workspace
 
 #. :ref:`Configuring the VESC <doc_firmware_vesc>` goes over how to set up and tune the VESC.
