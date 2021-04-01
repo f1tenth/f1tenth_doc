@@ -353,7 +353,7 @@ All further steps assume that your NVIDIA Jetson Xavier NX Developer Kit is conn
 
 1. Run the following commands to create a swapfile which can help with memory-intensive tasks
 
-  .. code:: bash
+.. code-block:: bash
 
     sudo fallocate -l 4G /var/swapfile
     sudo chmod 600 /var/swapfile
@@ -370,35 +370,34 @@ In the last step we need to install ROS on the NVIDIA Jetson NX, too. We use ROS
 
 2. Set the Jetson Xavier NX to accept software from packages.ros.org:
 
-    .. code:: bash
+.. code-block:: bash
 
     $ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
 3. Add a new apt key:
 
-    .. code:: bash
+.. code-block:: bash
 
     $ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 
 4. Update the Debian packages index:
 
-    .. code:: bash
+.. code-block:: bash
 
     $ sudo apt update
 
+
 5. Install the ROS Desktop package, including support for rqt, rvizand other useful robotics packages:
 
-    .. code:: bash
+.. code-block:: bash
 
     $ sudo apt install ros-melodic-desktop
 
-
 .. note:: “ROS Desktop Full” is a more complete package, however it is not recommended for embedded platforms; 2D/3D simulators will be installed, requiring increased storage space and compute power.
-
 
 6. Initialize rosdep. rosdep allows you to easily install system dependencies for source code you want to compile and is required to run some core components in ROS:
 
-    .. code:: bash
+.. code-block:: bash
 
     $ sudo rosdep init
     $ rosdep update
@@ -406,7 +405,7 @@ In the last step we need to install ROS on the NVIDIA Jetson NX, too. We use ROS
 
 7. It is recommended to load the ROS environment variables automatically when you execute a new shell session. Update your .bashrc script:
 
-    .. code:: bash
+.. code-block:: bash
 
     $ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
     $ source ~/.bashrc
@@ -427,7 +426,8 @@ In the last step we need to install ROS on the NVIDIA Jetson NX, too. We use ROS
 
     (This will setup a catkin workspace in the home directory named ``f1tenth_ws``)
 
-2. Install the Logitech F710 driver on the Jetson.
+7. Install the Logitech F710 driver on the Jetson.
+--------------
 
     .. code:: bash
 

@@ -1,6 +1,6 @@
 .. _doc_drive_workspace:
 
-Workspace Setup
+3. ROS Workspace Setup
 =====================
 **Equipment Required:**
 	* Fully built F1TENTH  vehicle
@@ -11,15 +11,15 @@ Workspace Setup
 
 Overview
 ----------
-We use ROS to connect everything together and ultimately run the car. We'll need to set up the :ref:`ROS workspace <ros_workspace>`, set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`. Everything in this section is done on the **TX2** so you will need to connect to it via SSH from the **Pit** laptop or plug in the monitor, keyboard, and mouse.
+We use ROS to connect everything together and ultimately run the car. We'll need to set up the :ref:`ROS workspace <ros_workspace>`, set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`. Everything in this section is done on the **Jetson NX** so you will need to connect to it via SSH from the **Pit** laptop or plug in the monitor, keyboard, and mouse.
 
 .. _ros_workspace:
 
 1. Setting Up the ROS Workspace
 ---------------------------------
-Connect to the **TX2** either via SSH on the **Pit** laptop or a wired connection (monitor, keyboard, mouse).
+Connect to the **Jetson NX** either via SSH on the **Pit** laptop or a wired connection (monitor, keyboard, mouse).
 
-On the **TX2**, setup your ROS workspace (for the driver nodes onboard the vehicle) by opening a terminal window and following these steps.
+On the **Jetson NX**, setup your ROS workspace (for the driver nodes onboard the vehicle) by opening a terminal window and following these steps.
 
 #. Clone the following repository into a folder on your computer.
 
