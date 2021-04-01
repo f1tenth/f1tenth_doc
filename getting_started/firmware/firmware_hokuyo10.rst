@@ -12,11 +12,11 @@
 
 **Approximate Time Investment:** 30 minutes
 
-Connect to the TX2 either via SSH or a wired connection (monitor, keyboard, mouse).
+Connect to the Jetson NX either via SSH or a wired connection (monitor, keyboard, mouse).
 
 In order to utilize the 10LX you must first configure the eth0 network. From the factory the 10LX is assigned the following ip: ``192.168.0.10``. Note that the lidar is on subnet 0.
 
-Open **Network Configuration** in the Linux GUI on the TX2. In the ipv4 tab, add a route such that the eth0 port is assigned
+Open **Network Configuration** in the Linux GUI on the Jetson NX. In the ipv4 tab, add a route such that the eth0 port is assigned
 
 	* IP address ``192.168.0.15``
 	* Subnet mask is ``255.255.255.0``

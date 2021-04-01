@@ -23,16 +23,16 @@ First, we need to set up the :ref:`workspace <doc_drive_workspace>` on the car a
 .. toctree::
    :maxdepth: 1
    :name: Driving Setup
-	 :hidden:
+   :hidden:
 
    drive_manual
-	 drive_calib_odom
-	 drive_autonomous
+   drive_calib_odom
+   drive_autonomous
 
 
 #. :ref:`Manual Control <drive_manualcontrol>` goes over how to start driving the car with a joystick once the workspace has been setup.
 #. :ref:`Odometry Calibration <doc_drive_calib_odom>` goes over how to calibrate the odometry of the vehicle
-#. :ref:`Autonomous Control <doc_drive_autonomou>` goes over how to drive autonomously with the car.
+#. :ref:`Autonomous Control <doc_drive_autonomous>` goes over how to drive autonomously with the car.
 
 .. tip::
   If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
