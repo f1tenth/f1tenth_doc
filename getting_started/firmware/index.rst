@@ -21,12 +21,15 @@ There are two subsections here. You will need to :ref:`Configure the VESC <doc_f
 .. toctree::
    :maxdepth: 1
    :name: Firmware Setup
+	 :hidden:
 
    firmware_vesc
    firmware_hokuyo10
+	 drive_workspace
 
 #. :ref:`Configuring the VESC <doc_firmware_vesc>` goes over how to set up and tune the VESC.
 #. :ref:`Hokuyo 10LX Ethernet Connection Setup <doc_firmware_hokuyo10>` details how to set up the connection on the TX2.
+#. :ref:`Workspace Setup <doc_drive_workspace>` goes over how to setup the workspace needed to connect all the components on the vehicle.
 
 .. tip::
   If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
