@@ -1,6 +1,6 @@
 .. _doc_drive_workspace:
 
-Workspace Setup
+3. ROS Workspace Setup
 =====================
 **Equipment Required:**
 	* Fully built F1TENTH  vehicle
@@ -11,15 +11,15 @@ Workspace Setup
 
 Overview
 ----------
-We use ROS to connect everything together and ultimately run the car. We'll need to set up the :ref:`ROS workspace <ros_workspace>`, set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`. Everything in this section is done on the **TX2** so you will need to connect to it via SSH from the **Pit** laptop or plug in the monitor, keyboard, and mouse.
+We use ROS to connect everything together and ultimately run the car. We'll need to set up the :ref:`ROS workspace <ros_workspace>`, set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`. Everything in this section is done on the **Jetson NX** so you will need to connect to it via SSH from the **Pit** laptop or plug in the monitor, keyboard, and mouse.
 
 .. _ros_workspace:
 
 1. Setting Up the ROS Workspace
 ---------------------------------
-Connect to the **TX2** either via SSH on the **Pit** laptop or a wired connection (monitor, keyboard, mouse).
+Connect to the **Jetson NX** either via SSH on the **Pit** laptop or a wired connection (monitor, keyboard, mouse).
 
-On the **TX2**, setup your ROS workspace (for the driver nodes onboard the vehicle) by opening a terminal window and following these steps. 
+On the **Jetson NX**, setup your ROS workspace (for the driver nodes onboard the vehicle) by opening a terminal window and following these steps.
 
 #. Clone the following repository into a folder on your computer.
 
@@ -81,7 +81,7 @@ Congratulations! Your onboard driver workspace is all set up.
 		* simulator
 		* system
 
-	#. Algorithms contains the brains of the car which run high level algorithms, such as wall following, pure pursuit, localization. 
+	#. Algorithms contains the brains of the car which run high level algorithms, such as wall following, pure pursuit, localization.
 	#. Simulator contains racecar-simulator which is based off of MIT Racecar’s repository and includes some new worlds such as Levine 2nd floor loop. Simulator also contains f1_10_sim which contains some message types useful for passing drive parameters data from the algorithm nodes to the VESC nodes that drive the car.
 	#. System contains code from MIT Racecar that the car would not be able to work without. For instance, System contains ackermann_msgs (for Ackermann steering), racecar (which contains parameters for max speed, sensor IP addresses, and teleoperation), serial (for USB serial communication with VESC), and vesc (written by MIT for VESC to work with the racecar).
 
@@ -104,7 +104,7 @@ First, as root, open ``/etc/udev/rules.d/99-hokuyo.rules`` in a text editor to c
 Next, open ``/etc/udev/rules.d/99-vesc.rules`` and copy in the following rule for the VESC:
 
 .. code-block:: bash
-	
+
 	KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0666", GROUP="dialout", SYMLINK+="sensors/vesc"
 
 Then open ``/etc/udev/rules.d/99-joypad-f710.rules`` and add this rule for the joypad:
@@ -152,19 +152,19 @@ Once you’ve set up the lidar, you can test it using ​urg_node​/hokuyo_node
 
 A. If you're using the 10LX:
 
-	* Start ``roscore​`` in a terminal window. 
+	* Start ``roscore​`` in a terminal window.
 	* In another (new) terminal window, run ``rosrun urg_node urg_node _ip_address:="192.168.0.10"​``. Make sure to supply the urg node with the correct port number for the 10LX.
 	* This tells ROS to start reading from the lidar and publishing on the ​/scan​ topic. If you get an error saying that there is an “error connecting to Hokuyo,” double check that the Hokuyo is physically plugged into a USB port. You can use the terminal command ``lsusb​to`` check whether Linux successfully detected your lidar. If the node started and is publishing correctly, you should be able to use ``rostopic echo /scan​`` to see live lidar data.
 	* In the racecar config folder under ``lidar_node`` set the following parameter in sensors.yaml: ``ip_address: 192.168.0.10``. In addition in the ``sensors.launch.xml`` change the argument for the lidar launch from ``hokuyo_node`` to ``urg_node`` do the same thing for the ``node_type`` parameter.
 
 B. If you're using the 30LX:
-	
+
 	* Run ``roslaunch racecar teleop.launch`` in a sourced terminal window, by default, the launch file brings up the hokuyo node.
 
 Once your lidar driver node is running, open another terminal and run ``rosrun rviz rviz​`` or simply ``rviz`` to visually see the data. When ``rviz​`` opens, click the “Add” button at the lower left corner. A dialog will pop up; from here, click the *By topic* tab, highlight the *LaserScan* topic, and click *OK*. You might have to switch from viewing in the ``\map`` frame to the ``laser`` frame. If the laser frame is not there, you can type in ``laser`` in the frame text field.
 
 ``rviz`` will now show a collection of points of the lidar data in the gray grid in the center of the screen. You might have to change the size and color of the points in the LaserScan setting to see the points clearer.
-	
+
 	* Try moving a flat object, such as a book, in front of the lidar and to its sides. You should see a corresponding flat line of points on the ​rviz​ grid.
 	* Try picking the car up and moving it around, and note how the lidar scan data changes,
 
