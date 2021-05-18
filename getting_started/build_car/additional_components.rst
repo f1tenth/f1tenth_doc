@@ -24,7 +24,7 @@ Gently place the upper level chassis on top of the standoffs of the lower level 
 
 **VESC 2**
 
-
+**VESC 3**
 
 
 3. Camera
@@ -37,4 +37,6 @@ Gently place the upper level chassis on top of the standoffs of the lower level 
 
 **Open CV Stereo**
 
-**Respberry Pi**
+**Respberry Pi 1**
+
+**Respberry Pi 2**
