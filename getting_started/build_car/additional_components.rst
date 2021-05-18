@@ -1,6 +1,5 @@
 .. _doc_additional_components:
 
-
 5. Additional Hardware Components
 ============================
 
