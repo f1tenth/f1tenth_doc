@@ -44,7 +44,7 @@ in the top left corner.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Getting started
+   :caption: Build and Drive
    :name: sec-getting-started
    :hidden:
 
@@ -53,15 +53,13 @@ in the top left corner.
    getting_started/software_setup/index
    getting_started/firmware/index
    getting_started/driving/index
-   getting_started/faq
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Going Forward
+   :caption: Simulate
    :name: sec-forward
    :hidden:
-
 
    going_forward/simulator/index
 ..
@@ -75,6 +73,7 @@ in the top left corner.
    :name: sec-support-contact
    :hidden:
 
+   getting_started/faq
    support/contact
    support/acknowledgment
 
