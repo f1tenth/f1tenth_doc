@@ -5,13 +5,24 @@
 
 FAQ
 ==========================
-This will be updated as we get new questions. Please post questions in the `F1TENTH Discord <https://f1tenth.discourse.group/>`. Answers to common problems will be compiled here.
+This will be updated as we get new questions. Please post questions in the `F1TENTH Discord <https://f1tenth.discourse.group/>`_. Answers to common problems will be compiled here.
 
 General
 ----------------
-Where can I find additional working examples of autonomous control code?
+Where can I learn more about autonomous racing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Please see this `repository <https://github.com/f1tenth/F110CPSWeek2018>`_ of past competitors submissions.
+There are different places where you find autonomous racing explanations and papers:
+1. `Autonomous Racing Survey <https://arxiv.org/abs/2202.07008>`_ Complete survey paper on the field of autonomous racing that covers all software and hardware aspects.
+2. `Autonomous Racing Survey Paper Repository <https://github.com/JohannesBetz/AutonomousRacing_Literature>`_ List of all papers in the field of autonomous racing.
+
+Where can I find additional working examples of autonomous racing code?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+There are different places where you find autonomous racing code:
+1. `F1TENTH Github Repository <https://github.com/f1tenth>`_ official F1TENTH github respository.
+2. `Learn to Drive (and Race!) Autonomous Vehicles <https://github.com/f1tenth/ESweek2021_educationclassA3>`_ ESWeek 2021 tutorial.
+3. `Raceline Generation <https://github.com/TUMFTM/global_racetrajectory_optimization>`_ Optimal Raceline generation Code from TUM.
+4. `Graph based Planner <https://github.com/TUMFTM/GraphBasedLocalTrajectoryPlanner>`_ Graph-based Trajectory Planner from TUM.
+
 
 Mechanical
 ----------------
