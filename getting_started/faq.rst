@@ -5,7 +5,7 @@
 
 FAQ
 ==========================
-This will be updated as we get new questions. Please post questions in the forum. Answers to common problems will be compiled here.
+This will be updated as we get new questions. Please post questions in the `F1TENTH Discord <https://f1tenth.discourse.group/>`. Answers to common problems will be compiled here.
 
 General
 ----------------
