@@ -9,7 +9,7 @@ This will be updated as we get new questions. Please post questions in the `F1TE
 
 General
 ----------------
-Where can I learn more about autonomous racing
+Where can I learn more about autonomous racing?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 There are different places where you find autonomous racing explanations and papers:
 1. `Autonomous Racing Survey <https://arxiv.org/abs/2202.07008>`_ Complete survey paper on the field of autonomous racing that covers all software and hardware aspects.
@@ -22,6 +22,10 @@ There are different places where you find autonomous racing code:
 2. `Learn to Drive (and Race!) Autonomous Vehicles <https://github.com/f1tenth/ESweek2021_educationclassA3>`_ ESWeek 2021 tutorial.
 3. `Raceline Generation <https://github.com/TUMFTM/global_racetrajectory_optimization>`_ Optimal Raceline generation Code from TUM.
 4. `Graph based Planner <https://github.com/TUMFTM/GraphBasedLocalTrajectoryPlanner>`_ Graph-based Trajectory Planner from TUM.
+
+Material or components are not available
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Yes, we are aware that components are sometimes out of stock. Please be patient here and contact a few vendors. In addition there are many parts that are interchangeable like the NVIDIA Jetson components or the Traxxas chassis
 
 
 Mechanical
@@ -44,7 +48,8 @@ Use the ​Lock, Rock, and Roll​ method shown in `this video <https://youtu.be
 
 I’m not able to steer the car, no response from the steering servo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Double check that the servo wires are properly and securely connected. Be careful about the polarity of the three pin connectors. Confirm that you built the servo_out firmware for the VESC as shown `here <firmware/firmware_vesc.html#updating-the-firmware-on-the-vesc>`_.
+1. Double check that the servo wires are properly and securely connected. Be careful about the polarity of the three pin connectors.
+2. Confirm that you built the servo_out firmware for the VESC as shown `here <firmware/firmware_vesc.html#updating-the-firmware-on-the-vesc>`_.
 
 System identification failure and VESC tuning
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
