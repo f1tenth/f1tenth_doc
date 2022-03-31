@@ -10,22 +10,19 @@
     * Use a fully-charged LiPO battery instead of a power supply to ensure the motor has enough current to spin up.
 
 **Equipment Required:**
-	* Fully built F1TENTH  vehicle
+	* Fully built F1TENTH vehicle
 	* Box or `Car stand <https://www.amazon.com/Duratrax-Tech-Deluxe-Truck-Stand/dp/B0014T74MS/ref=sr_1_6?keywords=rc+car+jack&link_code=qs&qid=1584393402&sr=8-6>`_  to put vehicle on
-	* Laptop/computer (does not need to running Linux)
+	* Laptop/computer (does not need to be running Linux)
 
 **Approximate Time Investment:** 1 hour
 
 .. note::
 
-	If using the VESC mkIV, see `here <https://github.com/RacecarJ/vesc-firmware>`_.
+	If using the VESC mkIV, e.g. hardware based on VESC 4.12, see `here <https://github.com/f1tenth/vesc_firmware>`_ for more details on how you can build your firmware for corresponding VESCs, and prebuilt firmware for different VESC hardware versions.
 
 1. Installing the VESC Tool
 -----------------------------
-We need to configure the VESC so that it works with the ROS driver package. Before you start, you'll need to install the `VESC Tool v2.03 <https://github.com/rpasichnyk/vesc_tool/releases/tag/v2.03>`_. The latest version, v2.05 does not contain the firmware that we use. The Linux VESC tool v2.03 can be found `here <https://drive.google.com/file/d/1tGrboseLUIlSdDjkhxDVxyopWc0h4_LC/view?usp=sharing>`_.
-
-..
-	`VESC Tool <https://vesc-project.com/vesc_tool>`_ on a laptop or a PC. A pre-built VESC Tool for MacOS can be found `here <https://github.com/rpasichnyk/vesc_tool/releases>`_ .
+We need to configure the VESC so that it works with our motor and vehicle transmission. Before you start, you'll need to install the `VESC Tool <https://vesc-project.com/vesc_tool>`_. You'll have to register for an account to download. Add the free tier tool to cart (you don't have to fill in any information other than your email.) After checkout, a download link will be sent to your email address. There should be versions of the software for Linux, Windows and macOS.
 
 2. Powering the VESC
 -------------------------
