@@ -18,10 +18,10 @@ There are different places where you find autonomous racing explanations and pap
 Where can I find additional working examples of autonomous racing code?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 There are different places where you find autonomous racing code:
-1. `F1TENTH Github Repository <https://github.com/f1tenth>`_ official F1TENTH github respository.
-2. `Learn to Drive (and Race!) Autonomous Vehicles <https://github.com/f1tenth/ESweek2021_educationclassA3>`_ ESWeek 2021 tutorial.
-3. `Raceline Generation <https://github.com/TUMFTM/global_racetrajectory_optimization>`_ Optimal Raceline generation Code from TUM.
-4. `Graph based Planner <https://github.com/TUMFTM/GraphBasedLocalTrajectoryPlanner>`_ Graph-based Trajectory Planner from TUM.
+#.  `F1TENTH Github Repository <https://github.com/f1tenth>`_ official F1TENTH github respository.
+#.  `Learn to Drive (and Race!) Autonomous Vehicles <https://github.com/f1tenth/ESweek2021_educationclassA3>`_ ESWeek 2021 tutorial.
+#.  `Raceline Generation <https://github.com/TUMFTM/global_racetrajectory_optimization>`_ Optimal Raceline generation Code from TUM.
+#.  `Graph based Planner <https://github.com/TUMFTM/GraphBasedLocalTrajectoryPlanner>`_ Graph-based Trajectory Planner from TUM.
 
 Material or components are not available
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
