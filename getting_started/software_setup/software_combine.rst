@@ -1,6 +1,6 @@
 .. _doc_software_combine:
 
-3. Connecting the Pit/Host and the NVIDIA Jetson NX
+2. Connecting the Pit/Host and the NVIDIA Jetson NX
 =======================================
 **Equipment Used:**
 	* Pit/Host laptop/computer running Mac, Windows, or Linux
