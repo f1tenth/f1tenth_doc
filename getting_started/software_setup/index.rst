@@ -51,7 +51,6 @@ Many thanks to `Dr. Rosa Zheng <http://www.lehigh.edu/~yrz218/>`_ from Lehigh Un
    :name: Software Setup
 	 :hidden:
 
-   software_host
    optional_software_nx
    software_combine
    software_jetson
