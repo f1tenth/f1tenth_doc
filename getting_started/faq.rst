@@ -13,8 +13,8 @@ Where can I learn more about autonomous racing?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 There are different places where you find autonomous racing explanations and papers:
 
-#. `Autonomous Racing Survey <https://arxiv.org/abs/2202.07008>`_ Complete survey paper on the field of autonomous racing that covers all software and hardware aspects.
-#. `Autonomous Racing Survey Paper Repository <https://github.com/JohannesBetz/AutonomousRacing_Literature>`_ List of all papers in the field of autonomous racing.
+#. `Autonomous Racing Survey <https://arxiv.org/abs/2202.07008>`_: Complete survey paper on the field of autonomous racing that covers all software and hardware aspects.
+#. `Autonomous Racing Survey Paper Repository <https://github.com/JohannesBetz/AutonomousRacing_Literature>`_: List of all papers in the field of autonomous racing.
 
 Where can I find additional working examples of autonomous racing code?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

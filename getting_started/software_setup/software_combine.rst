@@ -9,7 +9,7 @@
 
 **Approximate Time Investment:** 1 hour
 
-.. image:: img/combine/setup2.png
+.. image:: img/combine/Setup2.png
 
 Overview
 ----------
