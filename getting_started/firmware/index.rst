@@ -29,7 +29,7 @@ There are two subsections here. You will need to :ref:`Configure the VESC <doc_f
 
 #. :ref:`Configuring the VESC <doc_firmware_vesc>` goes over how to set up and tune the VESC.
 #. :ref:`Hokuyo 10LX Ethernet Connection Setup <doc_firmware_hokuyo10>` details how to set up the connection on the Jetson NX.
-#. :ref:`Workspace Setup <doc_drive_workspace>` goes over how to setup the workspace needed to connect all the components on the vehicle.
+#. :ref:`F1TENTH Driver Stack Setup <doc_drive_workspace>` goes over how to setup the software drivers necessary to drive the vehicle.
 
 .. tip::
-  If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
+  If you have any build and/or setup questions, post to the `forum <https://f1tenth.discourse.group/>`_.
