@@ -126,7 +126,15 @@ You want to look for a clean step response that has a quick rise time and zero t
 
 	.. Adjusting PID gains.
 
-.. danger:: **REMEMBER TO UNPLUG THE BATTERY WHEN YOU ARE FINISHED OTHERWISE YOU WILL OVERDRAIN THE LIPO BATTERY AND WILL HAVE TO BUY A NEW ONE ON TOP OF CAUSING A FIRE.**
+9. Adjusting Top Speed of the car
+------------------------------------
+By default, the motor configuration sets a safe top motor RPM. If you wish to change the hard limit set by the VESC firmware, you can go to **Motor Settings** > **General**, and change the max ERPM for forward and backwards rotations. You'll also have to change the configuration file mentioned in the Odometry Tuning section in the software stack setup to change the software limit for your motor ERPM.
+
+.. figure:: img/vesc/erpm.png
+	:align: center
+
+
+.. danger:: **Please see the Odometry Tuning section in the software stack setup to see how vehicle velocity is converted to ERPM for the motor to calculate a safe maximum erpm for your motor.**
 
 .. Hopefully you've tuned it well enough that your car will run better than this:
 
