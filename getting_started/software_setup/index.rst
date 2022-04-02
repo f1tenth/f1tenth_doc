@@ -1,7 +1,7 @@
 .. _doc_software_setup:
 
 Configure F1TENTH System
-========================
+============================
 .. note:: This section assumes that you have already completed :ref:`Building the Car <doc_build_car>`.
 
 At the end of this section, you will have the NVIDIA Jetson NX and host laptop set up.

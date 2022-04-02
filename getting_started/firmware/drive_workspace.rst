@@ -180,13 +180,46 @@ Starting the container will also bind mount a ROS 2 workspace ``f1tenth_ws`` cre
 ----------------------
 This section assumes that the lidar has already been plugged in (either to the USB hub or to the ethernet port). If you are using the Hokuyo 10LX or a lidar that is connected via the ethernet port of the Orbitty, make sure that you have completed the :ref:`Hokuyo 10LX Ethernet Connection <doc_firmware_hokuyo10>` section before preceding.
 
-Before the bringup launch, you'll have to set the correct parameters according to which LiDAR you're using in the file located at ``$HOME/f1tenth_ws/src/f1tenth_system/f1tenth_stack/config/sensors.yaml`` on the host (outside the container). Depending on how you've set up docker, you might need root access to write to files in ``f1tenth_ws`` since it's shared between the host and the container.
+Before the bringup launch, you'll have to set the correct parameters according to which LiDAR you're using in the params file ``sensors.yaml``. Depending on how you've set up docker, you might need root access to write to files in ``f1tenth_ws`` since it's shared between the host and the container. All parameter files are located in the following location on your host:
 
 .. code-block:: bash
 	
-	$HOME/f1tenth_ws/src/f1tenth_system/f1ten
+	$HOME/f1tenth_ws/src/f1tenth_system/f1tenth_stack/config/
 
-A. If you're using an ethernet based LiDAR, change the ``ip_address
+And
+
+.. code-block:: bash
+
+	/f1tenth_ws/src/f1tenth_system/f1tenth_stack/config/
+
+In the container.
+
+A. If you're using an ethernet based LiDAR, set the ``ip_address`` field to the corresponding ip address of your LiDAR.
+
+B. If you're using a USB based LiDAR, comment out the ``ip_address`` field, and uncomment the line with the ``serial_port`` field. And set the value to the correct udev name from :ref:`udev rules set up <udev_rules>`.
+
+In your running container, run the following commands to source the ROS 2 underlay and our workspace's overlay:
+
+.. code-block:: bash
+
+	source /opt/ros/foxy/setup.bash
+	source /f1tenth_ws/install/setup.bash
+
+Then, you can launch the bring up with:
+
+.. code-block:: bash
+
+	ros2 launch f1tenth_stack bringup_launch.py
+
+Running the bringup launch will start the VESC drivers, the LiDAR drivers, the joystick drivers, and all necessary packages for running the car. To see the LaserScan messages, in a new bash session inside the container, run
+
+.. code-block:: bash
+
+	source /opt/ros/foxy/setup.bash
+	source /f1tenth_ws/install/setup.bash
+	rviz2
+
+The rviz window should show up. Then you can add a LaserScan visualization in rviz on the ``/scan`` topic.
 
 .. Once you’ve set up the lidar, you can test it using urg_node/hokuyo_node (replace the hokuyo_node by the urg_node if you have 10LX with Ethernet connection: https://github.com/ros-drivers/urg_node.git), rviz, and rostopic.
 
