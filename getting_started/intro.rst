@@ -27,7 +27,7 @@ The building of the F1TENTH car was recorded and be watched here:
 
 
 .. important::
-  | If you have any build and/or setup questions, post to the `F1TENTH Discourse <https://f1tenth.discourse.group>`_.
+  | If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
   | If you have questions/suggestions for this documentation, `submit an issue <https://github.com/f1tenth/f1tenth_doc/issues>`_ on github.
 
 .. image:: img/carbuild.gif
