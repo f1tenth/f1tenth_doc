@@ -7,8 +7,8 @@ Introduction
 Here is where you will find all the information needed to get started and join the F1TENTH community! This build documentation is divided into four sequential sections, each one building on the other:
 
 #. :ref:`Building the F1TENTH Car <doc_build_car>` - Start here if you are building the car from scratch.
-#. :ref:`Configure F1TENTH System <doc_software_setup>`- Start here if you have completed building the car.
-#. :ref:`Install F1TENTH Software Stack <doc_build_car_firmware>` - Start here if you've already done 1 and 2 above.
+#. :ref:`Configure Jetson and Peripherals <doc_software_setup>`- Start here if you have completed building the car.
+#. :ref:`Install F1TENTH Driver Stack <doc_build_car_firmware>` - Start here if you've already done 1 and 2 above.
 #. :ref:`Drive the F1TENTH Car <doc_drive>` - Start here if you have everything set up from the previous three sections and are ready to learn how to set up a workspace on the vehicle and start driving!
 
 **Difficulty Level:** Intermediate-Advanced
