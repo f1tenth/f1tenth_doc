@@ -1,7 +1,7 @@
 .. _doc_software_setup:
 
-Configure F1TENTH System
-============================
+Configure Jetson and Peripherals
+=================================
 .. note:: This section assumes that you have already completed :ref:`Building the Car <doc_build_car>`.
 
 At the end of this section, you will have the NVIDIA Jetson NX and host laptop set up.
@@ -22,7 +22,7 @@ At the end of this section, you will have the NVIDIA Jetson NX and host laptop s
 
 Now that you have a working physical F1TENTH car, you'll want to program it to do something useful, otherwise it's just a glorified and expensive car model at this point.
 
-This **Configure F1TENTH System** section will walk you through how to configure the NVIDIA Jetson NX so that you will be able to run programs on the F1TENTH Autonomous Vehicle System and communicate with the Vehicle.
+This **Configure Jetson and Peripherals** section will walk you through how to configure the NVIDIA Jetson NX so that you will be able to run programs on the F1TENTH Autonomous Vehicle System and communicate with the Vehicle.
 
 The image below represents the flow of information on the F1TENTH Autonomous Vehicle System.
 
