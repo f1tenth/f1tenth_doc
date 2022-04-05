@@ -8,6 +8,7 @@
 * Pit/Host laptop/computer running any Operating System
 * Fully-built F1TENTH vehicle
 * microSD card (16GB minimum)
+* m.2 SSD (optional)
 * USB micro cable (must have both data and power wires)
 * microSD card reader/writer for Pit/Host PC
 * SD card image burning software (e.g. Balena Etcher)
@@ -112,7 +113,7 @@ The setup of the Nvidia Jetson NX is easy and convenient. NVIDIA themselves prov
 
 16. After logging in you should see the following screen. Congratulations, your NVIDIA Jetson NX on your F1TENTH car is ready to go.
 
-        .. figure:: img/nx/nx_ready.jpg
+        .. figure:: img/nx/nx_ready.png
                 :align: center
 
                 First boot of the NVIDIA Jetson NX.
