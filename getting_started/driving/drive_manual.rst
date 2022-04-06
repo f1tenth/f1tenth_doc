@@ -35,25 +35,23 @@ We want to minimize the number of accidents so before we begin, let's first insp
 #. Lastly, run ``ros2 launch f1tenth_stack bringup_launch.py`` to bring up the F1TENTH driver stack.
 	* If you see an error like this: ``[ERROR] [1541708274.096842680]: Couldn't open joystick force feedback!`` It means that the joystick is connected and you can ignore the error.
 
-#. Hold the LB button on the controller to start controlling the car. Use the left joystick to move the car forward and backward and the right joystick for steering.
-	
-	* If nothing happens or if the right joystick is not mapped to steering, your might joystick might be in a different mode, press the *mode* button to change the mode.
-	* If nothing happens, one reason can be that the ``joy_node`` is listening for inputs on the ``js0`` port, but the operating system has assigned a different port to it, like ``js1``. Edit the ``yaml`` file which specifies which port to listen to. You can tell what file that is by reading the launch file (and following the call tree to other launch files).
-	* Note that the LB button acts as a “dead man’s switch,” as releasing it will stop the car. This is for safety in case your car gets out of control.
-	* You can see a mapping of all controls used by the car in ``f110_system/racecar/racecar/config/racecar-v2/joy_teleop.yaml``. For example, in the default configuration, axis 1 (left joystick’s vertical axis) is used for throttle, and axis 2 (right joystick’s horizontal axis) is used for steering. If you need to check which axis correspond to what buttons/axis on the joystick, run the joy node, when the joystick is connected, you can see the index of the button/axis that's changed.
+#. Hold the LB button (Dead man's switch) on the controller to start controlling the car. Use the left joystick to move the car forward and backward and the right joystick for steering. If you're using Logitech F710, switch the switch at the back of the joystick to X. The mode light in the front of the joystick should **not** be constantly on. If it is, press the mode button once.
 
 Troubleshooting
 ------------------
-Here are some common errors:
 
-* **VESC out of sync errors**: Check that the VESC is connected. If the error persists, make sure you're using the right VESC driver node. Currently, the ``vesc`` package in the f110_system repo only supports VESC 6+. If you have an older implementation of VESC (for example the FOCBox), use the repo `here <https://github.com/mit-racecar/vesc>`_ instead.
+* During teleop, if the joystick is not mapped correctly, you can change the mapping in ``/f1tenth_ws/src/f1tenth_system/f1tenth_stack/config/joy_teleop.yaml`` in the container. To identify the mapping, you can launch the bringup launch, and echo the ``/joy`` topic. Move the joystick axis around, you should change in the echoed message. The index of the changed value in the array when you move a joystick in on direction is the axis id to that joystick direction. After identifying the correct indices, change the yaml to reflect it under ``human_control``.
+* If nothing happens, one reason can be that the driver name is listening on the wrong port for the joystick. To double check, you can check ``joy_teleop.yaml`` again for the `device_name` pararmeter. If you're using the Logitech joystick, the name should match with the udev name we've set up before. If you're using another joystick and did not set udev rules, you can check the assigned name by running ``ls /dev/input/*``. It'll usually follow the format ``/dev/input/js*``, for example ``/dev/input/js0``.
+* Note that the LB button acts as a “dead man’s switch,” as releasing it will stop the car. This is for safety in case your car gets out of control.
+* You can see a mapping of all controls used by the car in the ``joy_teleop.yaml`` file. For example, in the default configuration, axis 1 (left joystick’s vertical axis) is used for throttle, and axis 2 (right joystick’s horizontal axis) is used for steering. These might be different joystick to joystick.
+* **VESC out of sync errors**: Check that the VESC is connected. If the error persists, make sure you're using the right VESC firmware.
 * **Serial port busy errors**: Your VESC might have just booted up, give it a few seconds and try again.
-* **SerialException errors** ​and you’re using the 30LX Hokuyo​, the errors might be due to a port conflict: e.g., suppose that the lidar was assigned the (virtual serial bi-directional) port ``ttyACM0`` by the operating system. And suppose that the ``vesc_node`` is told the VESC is connected to port ``ttyACM0`` (as per ``vesc.yaml``). Then when the ``vesc_node`` receives joystick commands from ``joy_node`` (via ROS), it pushes them to ``ACM0`` - so these messages actually go to the lidar, and the VESC gets garbage back. So change the ``vesc.yaml`` port entry to ``ttyACM1``. (This whole discussion remains valid if you switch 0 and 1, i.e. if the OS assigned ACM1 to the lidar and your ``vesc.yaml`` lists ACM1). Note that everytime you power down and up, the OS will assign ports from scratch, which might again break your config files. So a better solution is to use udev rules, as explained in `this <firmware.html#udev-rules-setup>`_ section​. (See the source code of joy node for the default port for the joystick. You can over-ride that using a parameter in the launch file. See the joy documentation for what parameter that is).
-* **urg_node related errors**: Check the ports (e.g. an ip address in sensors.yaml can only be used by 10LX, not 30LX, and vice-versa for the /dev/ttyACMn).
+* **SerialException errors** and you’re using the 30LX Hokuyo, the errors might be due to a port conflict: make sure you've set up udev rules, as explained in :ref:`this section <udev_rules>`.
+* **urg_node related errors**: Check the ports (e.g. an ip address in ``sensors.yaml`` can only be used by 10LX, not 30LX, and vice-versa for the udev name ``/dev/sensors/hokuyo``).
 
-Congratulations on building the car, configuring the system, installing the firmware, and driving the car! You've come a long way. Pat yourself on the back and high five your other hand. You can head over to `Learn <https://f1tenth.org/learn.html>`_ and try out some of the labs there.
+.. Congratulations on building the car, configuring the system, installing the firmware, and driving the car! You've come a long way. Pat yourself on the back and high five your other hand. You can head over to `Learn <https://f1tenth.org/learn.html>`_ and try out some of the labs there.
 
-.. image:: img/drive02.gif
-	:align: center
-	:width: 300px
+.. .. image:: img/drive02.gif
+.. 	:align: center
+.. 	:width: 300px
 
