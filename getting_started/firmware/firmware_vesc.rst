@@ -126,8 +126,8 @@ You want to look for a clean step response that has a quick rise time and zero t
 
 	.. Adjusting PID gains.
 
-9. Adjusting Top Speed of the car
-------------------------------------
+9. Changing the hardware speed limit
+--------------------------------------
 By default, the motor configuration sets a safe top motor RPM. If you wish to change the hard limit set by the VESC firmware, you can go to **Motor Settings** > **General**, and change the max ERPM for forward and backwards rotations. You'll also have to change the configuration file mentioned in the Odometry Tuning section in the software stack setup to change the software limit for your motor ERPM.
 
 .. figure:: img/vesc/erpm.png
