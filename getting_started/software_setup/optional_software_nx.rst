@@ -17,7 +17,7 @@
 **Approximate Time Investment:** 1-2 hours
 
 1. Flash Jetson NX with Software
----------------------------
+----------------------------------
 The setup of the Nvidia Jetson NX is easy and convenient. NVIDIA themselves provide a detailed step-by-step getting started on how to bring the NVIDIA Jetpack Software on the NVIDIA Jetson NX. You can either follow this documentation `here <https://developer.nvidia.com/embedded/learn/get-started-jetson-xavier-nx-devkit>`_ or follow our step-by-step introduction below.
 
 1. Go to the NVIDIA Develoeprs Download Center at https://developer.nvidia.com/downloads and click Jetson.
@@ -260,7 +260,7 @@ The setup of the Nvidia Jetson NX is easy and convenient. NVIDIA themselves prov
                   Logged in!
 
 2. Run Jetson NX from SSD
-------------------------
+---------------------------
 In the build instruction we applied an SSD NVMe on to the Jetson NX. We will now make use of this SSD  by switching the rootfs to point to the SSD. In effect, the system will now run from the SSD, the SD card is only there to boot the system. Therefore everything you install on your system will automatically installed on the SSD.
 
 Please follow this tutorial `here <https://www.jetsonhacks.com/2020/05/29/jetson-xavier-nx-run-from-ssd/>`_ that has both video and commands integrated to enable your Jetson NX to run from the SSD
@@ -268,7 +268,7 @@ Please follow this tutorial `here <https://www.jetsonhacks.com/2020/05/29/jetson
 .. important:: These script changes the rootfs to the SSD after the kernel image is loaded from the eMMC/SD card. For the Xavier NX, you will still need to have the SD card installed for booting. As of this writing, the default configuration of the Jetson NX does not allow direct booting from the NVMe.
 
 3. Configuring WiFi and SSH
-------------------------
+-------------------------------
 
 1. We will use the Network Manager command-line tool nmcli to configure the WiFi on the NVIDIA Jetson Xavier NX. To find the interface name of your WiFi adapter, start by typing ``nmcli d`` and hitting ENTER. This will list your available interfaces. My wifi interface is named ``wlan0`` so I will use that in all future steps. If your WiFi interface is named something different, you will have to replace that in future commands.
 
@@ -341,7 +341,7 @@ Please follow this tutorial `here <https://www.jetsonhacks.com/2020/05/29/jetson
 14. To verify that you can SSH into the NVIDIA Jetson Xavier NX Developer Kit, verify that the Pit/Host PC is connected to the **same network** as the Jetson Xavier NX Developer Kit and use an SSH client on the Host PC to connect to the new IP address of the Developer Kit. On Linux this would be done with the command ``ssh f1tenth@[IP_ADDRESS]`` where ``[IP_ADDRESS]`` is replaced with the static IP address that you assigned to the Developer Kit. After you have verified that SSH works correctly, you can close the connection to the Developer Kit in your terminal emulator.
 
 4. Updating Packages
------------------
+------------------------
 
 All further steps assume that your NVIDIA Jetson Xavier NX Developer Kit is connected to the internet. You can execute all the commands directly in the terminal application of the NVIDIA Jetson. Now we are updating the Ubuntu system on the Jetson NX.
 
@@ -350,7 +350,7 @@ All further steps assume that your NVIDIA Jetson Xavier NX Developer Kit is conn
 3. Once all packages have been upgraded run ``sudo reboot`` to restart the Developer Kit and apply any changes.
 
 5. Creating a Swapfile
--------------------
+---------------------------
 
 1. Run the following commands to create a swapfile which can help with memory-intensive tasks
 
@@ -363,7 +363,7 @@ All further steps assume that your NVIDIA Jetson Xavier NX Developer Kit is conn
     sudo bash -c 'echo "/var/swapfile swap swap defaults 0 0" >> /etc/fstab'
 
 6. Install the Logitech F710 driver on the Jetson.
---------------
+------------------------------------------------------
 
     .. code:: bash
 
