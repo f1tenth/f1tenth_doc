@@ -29,6 +29,15 @@ Developing your own Node for Autonomous Control
 --------------------------------------------------
 Since we're using a docker container, there are two options when it comes to where to put your new custom node. In the following section, we'll go over all the options in detail.
 
-1. Developing directly in the driver stack container.
+1. **Developing directly in the driver stack container.** This is the most straightforward approach since most of the dependencies are already set up for you. When you create a new package alongside ``f1tenth_system``, you'll need to define your dependencies in ``package.xml`` (and ``CMakeLists.txt`` if you're using C++). Then, use rosdep to install your dependencies with the following commands:
 
-2. Create your own docker container.
+.. code-block:: bash
+    
+    cd /f1tenth_ws
+    rosdep install -i --from-path src --rosdistro foxy -y
+
+This will install the dependencies you declared in ``package.xml`` from all the packages in the ``src`` directory in your workspace. Then, run ``colcon build`` to build your packages. After you've added your custom package, you can either create your own launch file to launch your nodes, or add to the bringup launch file we provided to launch your nodes.
+
+2. **Create your own docker container.** This is the more portable solution when you need to put your code on another car.
+If you're an advanced user of Docker, the recommended way to do this is to create your own Dockerfile 
+with the image we provided as the parent image 
