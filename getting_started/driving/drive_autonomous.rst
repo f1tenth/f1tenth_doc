@@ -20,7 +20,8 @@ Sensor Topics
 ---------------
 * ``/scan``: this topic maintains the ``LaserScan`` messages published by the LiDAR.
 * ``/odom``: this topic maintains the ``Odometry`` messages published by the VESC.
-* ``/
+* ``/sensors/imu/raw``: this topic maintains the ``Imu`` messages published by the VESC.
+* ``/sensors/core``: this topic maintains the ``VescStateStamped`` messages published by the VESC on telemetry data.
 
 Drive Topic
 ---------------
