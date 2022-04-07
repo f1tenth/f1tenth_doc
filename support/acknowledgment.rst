@@ -7,17 +7,17 @@ F1TENTH Core Developers
 --------------------------
 Hongrui (Billy) Zheng
 
-Matthew O'Kelly
-
 Johannes Betz
-
-Haoru Xue
 
 
 Contributors
 ==========================
 
+Matthew O'Kelly
+
 Kim Luong
+
+Haoru Xue
 
 Joshua Whitley
 
