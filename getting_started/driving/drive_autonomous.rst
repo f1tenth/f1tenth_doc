@@ -27,6 +27,10 @@ Drive Topic
 ---------------
 * ``/drive``: this topic is listened to by the VESC, needs ``AckermannDriveStamped`` messages. The ``speed`` and ``steering_angle`` fields in the ``drive`` field of these messages are used to command desired steering and velocity to the car.
 
+Bringup and Deadman's Switch
+-------------------------------
+To enable autonomous control, all you have to do is launch the bring up launch described in :ref:`testing teleop and LiDAR <doc_build_car_firmware>`. Then, publish to the ``drive`` topic, and hold the Deadman's Switch for those messages to pass through. The Deadman's Switch for Autonomous Control is by default the **RB** button on the joystick.
+
 Developing your own Node for Autonomous Control
 --------------------------------------------------
 Since we're using a docker container, there are two options when it comes to where to put your new custom node. In the following section, we'll go over all the options in detail.
