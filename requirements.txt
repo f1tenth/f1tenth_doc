@@ -1,4 +1,4 @@
 sphinx
-sphinx_rtd_theme
-sphinx_tabs
-sphinx_copybutton
+sphinx-rtd-theme
+sphinx-tabs
+sphinx-copybutton
