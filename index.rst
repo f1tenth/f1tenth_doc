@@ -3,6 +3,9 @@ F1TENTH - Build Documentation
 
 Welcome to the official build documentation of `F1TENTH <http://f1tenth.org/>`_.
 
+.. note::
+  We've recently `released a beta version <https://twitter.com/f1tenth/status/1512875081466363914?s=20&t=3hpAxyUDGQT6DpdeUulQuQ>`_ of the driver stack on ROS 2, checkout the new documentation `here <https://f1tenth.readthedocs.io/en/foxy_test/>`_!
+
 .. attention::
   #. If you are new to F1TENTH, :ref:`Getting Started <doc_build_intro>` is a good place to start.
 
