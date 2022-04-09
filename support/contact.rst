@@ -7,5 +7,5 @@ F1TENTH is an open source project developed by a community of researchers and st
 * For document edits/suggestions/recommendations, submit an issue on the `GitHub repository <https://github.com/f1tenth/f1tenth_doc/issues>`_.
 
 
-* For specific build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
+* For specific build and/or setup questions, post to the `forum <https://f1tenth.discourse.group>`_.
 

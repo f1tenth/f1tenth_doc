@@ -1,7 +1,7 @@
 .. _doc_drive_workspace:
 
 3. F1TENTH Driver Stack Setup
-=====================
+=================================
 **Equipment Required:**
 	* Fully built F1TENTH  vehicle
 	* Pit/Host computer OR
@@ -9,16 +9,18 @@
 
 **Approximate Time Investment:** 1.5 hour
 
+.. warning:: **Before you proceed**, this specific section goes over how to set up the driver stack **natively** if you have Jetson Xaviers and above, **and** JetPack versions after 5.0 and wish to use ROS 2. For JetPack versions below 5.0 and Jetsons before Xavier, go to :ref:`Driver Stack Setup with Docker Containers <doc_drive_workspace_docker>` and follow the instructions there.
+
 Overview
 ----------
-We use Docker to containerize the software stack. You can find a tutorial on basic Docker concepts `here <https://docs.docker.com/get-started/>`_. We'll also utilize `nvidia-docker <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html>`_ to use the GPU onboard inside containers. Both of these dependencies should already come with JetPack after you've flashed your Jetson.
-
+Since the release of `JetPack 5.0 Developer Preview <https://developer.nvidia.com/jetpack-sdk-50dp>`_ the Jetson can now run on Ubuntu 20.04, and we can install ROS 2 natively and conveniently.
 We use ROS 2 Foxy for communication and run the car. You can find a tutorial on ROS 2 `here <https://docs.ros.org/en/foxy/Tutorials.html>`_.
 
 In the following section, we'll go over how to set up the **drivers** for sensors and the motor control:
 
 #. Setting up :ref:`udev rules <udev_rules>` for our sensors.
-#. Setting up docker :ref:`containers and the software stack<software_stack>`.
+#. Installing :ref:`ROS 2 and its utilities <install_ros2>`.
+#. Setting up the :ref:`driver stack <software_stack>`.
 #. Launch :ref:`teleoperation and the LiDAR <teleop_setup>`.
 
 .. We'll need to set up the :ref:`ROS workspace <ros_workspace>`, set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`.
@@ -150,49 +152,74 @@ making sure to replace ``<your_device_name>`` with the name of your device (e.g.
 
 .. 	We will be focusing on the **System** folder in this section. :ref:`Going Forward <doc_going_forward_intro>` will utilize the firsit two folders - **Algorithms** and **Simulator**.
 
-.. _software_stack:
-2. Setting up the Driver Stack inside a Container
--------------------------------------------------------
+.. _install_ros2:
+2. Installing ROS 2 and its Utilities
+---------------------------------------
+First, follow the instructions from `the official ROS 2 Foxy Installation Guide <https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html>`_ to install ROS 2 via Debian Packages.
 
-First, clone the repo in a convenient place (we'll be using the home directory)
+Next, we'll need ``colcon`` as the main build tool for ROS 2. Install it following the `instructions here <https://docs.ros.org/en/foxy/Tutorials/Colcon-Tutorial.html?highlight=colcon#install-colcon>`_.
+
+Lastly, we'll need ``rosdep`` as the dependency resolution tool. Install it following the `instructions here <https://docs.ros.org/en/foxy/How-To-Guides/Building-a-Custom-Debian-Package.html?highlight=rosdep#install-dependencies>`_ and initialize it following the `instructions here <https://docs.ros.org/en/foxy/How-To-Guides/Building-a-Custom-Debian-Package.html?highlight=rosdep#install-dependencies>`_.
+
+.. _software_stack:
+3. Setting up the Driver Stack
+----------------------------------
+
+First, we'll create a ROS 2 workspace for our driver stack with the following commands. We'll be using ``f1tenth_ws`` as the name of our workspace going forward in this section.
 
 .. code-block:: bash
 
-	cd
+	cd $HOME
+	mkdir -p f1tenth_ws/src
+
+Then, make this into a ROS 2 workspace by running:
+
+.. code-block:: bash
+
+	cd f1tenth_ws
+	colcon build
+
+Next, we'll clone the repo into the ``src`` directory of our workspace:
+
+.. code-block:: bash
+
+	cd src
 	git clone https://github.com/f1tenth/f1tenth_system.git
 
-Next, run the script ``run_container.sh`` in the ``scripts`` directory in the repo. This pulls the pre-built image built for the car with ROS 2, and will create a persistent container on your car.
+Then we'll update the git submodules and pull in all the necessary packages
 
 .. code-block:: bash
 
-	cd f1tenth_system/scripts
-	./run_contaianer.sh
+	cd f1tenth_system
+	git submodule update --init --force --remote
+
+After git finishes cloning, we can now install all dependencies for our packages with ``rosdep``:
+
+.. code-block:: bash
+
+	cd $HOME/f1tenth_ws
+	rosdep update
+	rosdep install --from-paths src -i -y
+
+Lastly, after dependencies are installed, we can build our workspace again with the driver stack pacakges:
+
+.. code-block:: bash
+
+	colcon build
 
 You can find more details on how the drivers are set up in the README of the `f1tenth_system repo <https://github.com/f1tenth/f1tenth_system>`_.
 
-If you need multiple bash sessions into the container, you can use ``tmux``, which is included in the docker image. See `a quick start guide on tmux <https://tmuxcheatsheet.com/>`_.
-
-Starting the container will also bind mount a ROS 2 workspace ``f1tenth_ws`` created in the car's home directory. 
-
 .. _teleop_setup:
 
-3. Launching Teleop and Testing the LiDAR
-----------------------
+4. Launching Teleop and Testing the LiDAR
+----------------------------------------------
 This section assumes that the lidar has already been plugged in (either to the USB hub or to the ethernet port). If you are using the Hokuyo 10LX or a lidar that is connected via the ethernet port of the Orbitty, make sure that you have completed the :ref:`Hokuyo 10LX Ethernet Connection <doc_firmware_hokuyo10>` section before preceding.
 
-Before the bringup launch, you'll have to set the correct parameters according to which LiDAR you're using in the params file ``sensors.yaml``. Depending on how you've set up docker, you might need root access to write to files in ``f1tenth_ws`` since it's shared between the host and the container. All parameter files are located in the following location on your host:
+Before the bringup launch, you'll have to set the correct parameters according to which LiDAR you're using in the params file ``sensors.yaml``. All parameter files are located in the following location:
 
 .. code-block:: bash
-	
+
 	$HOME/f1tenth_ws/src/f1tenth_system/f1tenth_stack/config/
-
-And
-
-.. code-block:: bash
-
-	/f1tenth_ws/src/f1tenth_system/f1tenth_stack/config/
-
-In the container.
 
 A. If you're using an ethernet based LiDAR, set the ``ip_address`` field to the corresponding ip address of your LiDAR.
 
@@ -203,7 +230,8 @@ In your running container, run the following commands to source the ROS 2 underl
 .. code-block:: bash
 
 	source /opt/ros/foxy/setup.bash
-	source /f1tenth_ws/install/setup.bash
+	cd $HOME/f1tenth_ws
+	source install/setup.bash
 
 Then, you can launch the bring up with:
 
@@ -211,12 +239,13 @@ Then, you can launch the bring up with:
 
 	ros2 launch f1tenth_stack bringup_launch.py
 
-Running the bringup launch will start the VESC drivers, the LiDAR drivers, the joystick drivers, and all necessary packages for running the car. To see the LaserScan messages, in a new bash session inside the container, run
+Running the bringup launch will start the VESC drivers, the LiDAR drivers, the joystick drivers, and all necessary packages for running the car. To see the LaserScan messages, in a new terminal window, run
 
 .. code-block:: bash
 
 	source /opt/ros/foxy/setup.bash
-	source /f1tenth_ws/install/setup.bash
+	cd $HOME/f1tenth_ws
+	source install/setup.bash
 	rviz2
 
 The rviz window should show up. Then you can add a LaserScan visualization in rviz on the ``/scan`` topic.

@@ -20,11 +20,11 @@ Open **Network Configuration** in the Linux GUI on the Jetson NX. In the ipv4 ta
 
 	* IP address ``192.168.0.15``
 	* Subnet mask is ``255.255.255.0``
-	* Gateway is ``192.168.0.1``
+	* Gateway is ``192.168.0.10``
 
 Call the connection ``Hokuyo``. Save the connection and close the network configuration GUI.
 
-When you plug in the 10LX make sure that the Hokuyo connection is selected. If everything is configured properly you should now be able to ping ``192.168.0.1``.
+When you plug in the 10LX make sure that the Hokuyo connection is selected. If everything is configured properly you should now be able to ping ``192.168.0.10``.
 
 .. image:: img/hokuyo1.gif
 	:align: center
