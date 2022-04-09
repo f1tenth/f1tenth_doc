@@ -28,13 +28,13 @@ Now that everything is built, configured, and installed, the odometry of the veh
 
 	$HOME/f1tenth_ws/src/f1tenth_system/f1tenth_stack/config/vesc.yaml
 
-on the host, and at:
+if you're using the driver stack natively, or on the host if you're using docker containers, and
 
 .. code-block:: bash
 
 	$/f1tenth_ws/src/f1tenth_system/f1tenth_stack/config/vesc.yaml
 
-in the container.
+in the container if you're using docker containers. Note that the ``config`` directory has all the parameter files used by the driver stack.
 
 2. In the first few steps, make sure you've lifted the car up with a pit stand or a box, so the wheels can spin freely.
 
@@ -46,13 +46,13 @@ in the container.
 
 	$HOME/f1tenth_ws/src/f1tenth_system/vesc/vesc_ackermann/src/vesc_to_odom.cpp
 
-in the host, and
+if you're using the driver stack natively, or on the host if you're using docker containers, and
 
 .. code-block:: bash
 
 	/f1tenth_ws/src/f1tenth_system/vesc/vesc_ackermann/src/vesc_to_odom.cpp
 
-in the container.
+in the container if you're using docker containers.
 
 Modify line ``100`` so it reads:
 

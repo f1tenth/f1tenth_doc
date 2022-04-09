@@ -29,13 +29,14 @@ We want to minimize the number of accidents so before we begin, let's first insp
 2. Driving the Car
 ----------------------
 #. Open a terminal on the **Pit** laptop and SSH into the car from your computer.
-#. Run the ``run_container.sh`` script in the ``f1tenth_system`` repo to start the Docker container.
-#. Inside the bash session inside the container, run ``tmux`` and spawn several new windows by using ``ctrl+b`` then ``c`` multiple times. You can navigate through these windows with ``ctrl+b`` then ``p`` or ``n``. This is one way to add and navigate through windows, you can also check the tmux cheatsheet for creating and navigating panes, and using mouse mode. You can always create more windows if you need. These will come in handy when you need to run more than one node, or launch more than one launch file.
-#. In one bash session, first source the ROS 2 underlay with ``source /opt/ros/foxy/setup.bash``. Then, make sure you're in our ROS 2 workspace ``/f1tenth_ws`` and run ``colcon build`` to build the workspace. Then source the workspace overlay with ``source install/setup.bash``.
-#. Lastly, run ``ros2 launch f1tenth_stack bringup_launch.py`` to bring up the F1TENTH driver stack.
-	* If you see an error like this: ``[ERROR] [1541708274.096842680]: Couldn't open joystick force feedback!`` It means that the joystick is connected and you can ignore the error.
+#. Launch teleop following the instructions for Launching and Testing teleop and the LiDAR in either :ref:`driver stack setup <doc_drive_workspace>` or :ref:`driver stack setup inside a docker container <doc_drive_workspace_docker>` depending on your setup.
+#. Hold the LB button (Dead man's switch) on the controller to start controlling the car. Use the left joystick to move the car forward and backward and the right joystick for steering. If you're using Logitech F710, switch the switch at the back of the joystick to D. The mode light in the front of the joystick should **not** be constantly on. If it is, press the mode button once.
 
-#. Hold the LB button (Dead man's switch) on the controller to start controlling the car. Use the left joystick to move the car forward and backward and the right joystick for steering. If you're using Logitech F710, switch the switch at the back of the joystick to X. The mode light in the front of the joystick should **not** be constantly on. If it is, press the mode button once.
+.. #. Run the ``run_container.sh`` script in the ``f1tenth_system`` repo to start the Docker container.
+.. #. Inside the bash session inside the container, run ``tmux`` and spawn several new windows by using ``ctrl+b`` then ``c`` multiple times. You can navigate through these windows with ``ctrl+b`` then ``p`` or ``n``. This is one way to add and navigate through windows, you can also check the tmux cheatsheet for creating and navigating panes, and using mouse mode. You can always create more windows if you need. These will come in handy when you need to run more than one node, or launch more than one launch file.
+.. #. In one bash session, first source the ROS 2 underlay with ``source /opt/ros/foxy/setup.bash``. Then, make sure you're in our ROS 2 workspace ``/f1tenth_ws`` and run ``colcon build`` to build the workspace. Then source the workspace overlay with ``source install/setup.bash``.
+.. #. Lastly, run ``ros2 launch f1tenth_stack bringup_launch.py`` to bring up the F1TENTH driver stack.
+.. 	* If you see an error like this: ``[ERROR] [1541708274.096842680]: Couldn't open joystick force feedback!`` It means that the joystick is connected and you can ignore the error.
 
 Troubleshooting
 ------------------
