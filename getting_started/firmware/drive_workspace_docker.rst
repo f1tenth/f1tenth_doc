@@ -168,7 +168,7 @@ Next, run the script ``run_container.sh`` in the ``scripts`` directory in the re
 .. code-block:: bash
 
     cd f1tenth_system/scripts
-    ./run_contaianer.sh
+    ./run_container.sh
 
 You can find more details on how the drivers are set up in the README of the `f1tenth_system repo <https://github.com/f1tenth/f1tenth_system>`_.
 
