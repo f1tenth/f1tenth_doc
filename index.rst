@@ -3,6 +3,9 @@ F1TENTH - Build Documentation
 
 Welcome to the official build documentation of `F1TENTH <http://f1tenth.org/>`_.
 
+.. note::
+  You're currently viewing the documentation for F1TENTH on ROS 2. Check `here <https://f1tenth.readthedocs.io/en/stable/>`_ for the ROS 1 documentations!
+
 .. attention::
   #. If you are new to F1TENTH, :ref:`Getting Started <doc_build_intro>` is a good place to start.
 
