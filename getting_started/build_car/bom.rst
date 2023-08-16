@@ -3,7 +3,7 @@
 
 Bill of Materials
 ------------------------
-`Master BOM <https://docs.google.com/spreadsheets/d/1ykUyrZq-vLlMTf0TIcdMrRbGKcRWglW6ol76QyGst2I/edit#gid=2038095912>`_
+`Master BOM <https://docs.google.com/spreadsheets/d/1WT-UdjLTnyrb7CvHcuCxKLnRIN8DWroQ/edit?usp=sharing&ouid=109361333655731858904&rtpof=true&sd=true>`_
 
 .. note::
   You have different possibilities for creating your F1TENTH car. We are focusing on a hardware setup that is based on the  `Traxxas Slash 4x4 Premium <https://traxxas.com/products/models/electric/6804Rslash4x4platinum>`_ Chassis and the `NVIDIA Jetson Xavier NX <https://developer.nvidia.com/embedded/jetson-xavier-nx-devkit>`_. The hardware setup based on the NVIDIA Jetson TX2 and Traxxas Ford Focus chassis is deprecated.
@@ -16,7 +16,7 @@ Bill of Materials
 
 .. raw:: html
 
-    <iframe width="650" height="950" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQpeGA74hmfi7aZCqyUDgmA6UDSbyWWVRLzpCmqXuTEX1TZNTnYAlQf3Kv69imXkLvwF-V_q2LC5tEd/pubhtml?widget=true&amp;headers=false"></iframe>
+    <iframe width="650" height="950" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRuF3GM3UmTwcYbOtr3AtgkkBH2fq1R16bCkxm6pkRqP4Z7zXDOd5xkseBmqETPhQ/pubhtml?widget=true&amp;headers=false"></iframe>
 
 .. raw:: html
 
