@@ -72,6 +72,15 @@ in the top left corner.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Autoware @ F1TENTH
+   :name: sec-autoware
+   :hidden:
+
+   autoware/intro
+
+
+.. toctree::
+   :maxdepth: 1
    :caption: Support
    :name: sec-support-contact
    :hidden:
