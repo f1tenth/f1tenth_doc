@@ -183,7 +183,7 @@ Terminal 2
    cd autoware && . install/setup.bash
    ros2 launch slam_toolbox online_async_launch.py slam_params_file:=/home/autoware/src/universe/autoware.universe/f1tenth/f1tenth_system/f1tenth_stack/config/f1tenth_online_async.yaml
 
-3. Launch RViz2, Add __/map__ by topic. Add __/graph_visualization__ by topic. On the top left corner of rviz, panels – add new panel – add SlamToolBoxPlugin panel. Once you’re done mapping, save the map using the plugin. You can give it a name in the text box next to Save Map. Map will be saved in whichever directory you run slam_toolbox.
+3. Launch RViz2, Add `/map` by topic. Add `/graph_visualization` by topic. On the top left corner of rviz, panels – add new panel – add SlamToolBoxPlugin panel. Once you’re done mapping, save the map using the plugin. You can give it a name in the text box next to Save Map. Map will be saved in whichever directory you run slam_toolbox.
 
 Create a map without an f1tenth race car 
 ------------------
@@ -249,7 +249,6 @@ Terminal 1
    ros2 launch launch_autoware_f1tenth demo_launch.py
 
 2. Replay a trajectory from your previously saved file. You can use the `2D Pose Estimate` tool in RViz2 anytime to reset the car's pose.
-
 
 Terminal 2
 
@@ -323,3 +322,10 @@ Terminal 3
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
    ros2 action send_goal /planning/replaytrajectory autoware_auto_planning_msgs/action/ReplayTrajectory "{replay_path: "/tmp/path"}" --feedback
+
+Troubleshooting/Tips
+------------------
+
+1. If editing files doesn't seem to change anything, delete the respective package files in the install and build folders under autoware and rebuild the respective package using --packages-select again.
+
+2. You may need to insert a hdmi emulator to the Jetson for NoMachine to initiate remote desktop when running on a real F1tenth car. Sometimes you will need to put the emulator in and out a few times for NoMachine to start remote desktop.
