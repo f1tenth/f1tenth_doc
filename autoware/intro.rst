@@ -188,6 +188,11 @@ Terminal 2
 
 3. Launch RViz2, Add `/map` by topic. Add `/graph_visualization` by topic. On the top left corner of rviz, panels – add new panel – add SlamToolBoxPlugin panel. Once you’re done mapping, save the map using the plugin. You can give it a name in the text box next to Save Map. Map will be saved in whichever directory you run slam_toolbox.
 
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/bgrxjXlJbhI?si=SlJxkM58pcCGAmRl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Create a map without an f1tenth race car 
 ------------------
 
@@ -238,6 +243,10 @@ Terminal 3
    cd autoware && . install/setup.bash
    ros2 action send_goal /planning/recordtrajectory autoware_auto_planning_msgs/action/RecordTrajectory "{record_path: "/tmp/path"}" --feedback
 
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/gJ8JWyzbRf8?si=rwwJ1aJ2frcrkCQF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+
 How to replay a trajectory (simulation) 
 ------------------
 
@@ -260,6 +269,10 @@ Terminal 2
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
    ros2 action send_goal /planning/replaytrajectory autoware_auto_planning_msgs/action/ReplayTrajectory "{replay_path: "/tmp/path"}" --feedback
+
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fxg8eQYiIrw?si=EKagh_k7uJ0uR3MM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 How to record a trajectory (real car) 
 ------------------
@@ -325,6 +338,11 @@ Terminal 3
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
    ros2 action send_goal /planning/replaytrajectory autoware_auto_planning_msgs/action/ReplayTrajectory "{replay_path: "/tmp/path"}" --feedback
+
+.. raw:: html
+   
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/tgc5UBhRX_g?si=uMVFJnku-eHHyK1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 Troubleshooting/Tips
 ------------------
