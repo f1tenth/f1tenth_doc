@@ -101,7 +101,10 @@ Set up Autoware workspace
    Building Autoware requires a lot of memory. Jetson NX can crash during a build because of insufficient memory. To avoid this problem, 16-32GB of swap should be configured.
 
    Optional: Check the current swapfile
+
 .. code-block:: bash
+
+   #Optional: Check current memory usage
    free -h
 
    #Remove the current swapfile
@@ -116,7 +119,6 @@ Set up Autoware workspace
    ```
 
    #Optional: Check if the change is reflected
-
    free -h
 
 4. Build the workspace.
@@ -125,6 +127,7 @@ Set up Autoware workspace
    For more advanced options, refer to the `documentation <https://colcon.readthedocs.io/>`_.
 
 .. code-block:: bash
+
    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 
@@ -212,7 +215,7 @@ Rviz2 should launch automatically with the target map loaded (black markers). Af
 
 
 .. image:: ../img/f1tenth_autoware_sim.jpg
-   :width: 700_
+   :width: 700
 
 2. Launch the `teleop_twist_keyboard` node for keyboard tele-operation. Focus on (select) this terminal and use `U`, `I`, `O` keys to manually control the f1tenth car in the simulation.  Use `Q` and `Z` keys to increase and decrease the speed.
 
