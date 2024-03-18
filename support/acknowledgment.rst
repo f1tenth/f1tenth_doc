@@ -30,7 +30,7 @@ Jim Benson (`JetsonHacks <https://www.jetsonhacks.com/>`_)
 Community Outreach
 =====================
 
-Rahul Mangharam
+Rahul Mangharam (F1Tenth Leader)
 
 F1TENTH Clemson and Venkat Krovi
 
