@@ -1,8 +1,8 @@
 .. _doc_build_car:
 
-Building the F1TENTH Car
+Building the RoboRacer Car
 =====================
-In this build guidelines we are focusing on the hardware setup of our F1TENTH vehicle based on the `Traxxas Slash 4x4 Premium <https://traxxas.com/products/models/electric/6804Rslash4x4platinum>`_ Chassis and the `NVIDIA Jetson Xavier NX <https://developer.nvidia.com/embedded/jetson-xavier-nx-devkit>`_. At the end of this build guidelines, you will have a fully functioning F1TENTH Autonomous Vehicle.
+In this build guidelines we are focusing on the hardware setup of our RoboRacer vehicle based on the `Traxxas Slash 4x4 Premium <https://traxxas.com/products/models/electric/6804Rslash4x4platinum>`_ Chassis and the `NVIDIA Jetson Xavier NX <https://developer.nvidia.com/embedded/jetson-xavier-nx-devkit>`_. At the end of this build guidelines, you will have a fully functioning RoboRacer Autonomous Vehicle.
 
 There are three main sections to the car.
 
@@ -20,7 +20,7 @@ There are three main sections to the car.
 .. danger::
 	**LIPO (LITHIUM POLYMER) BATTERY SAFETY WARNING**
 
-	The F1TENTH Autonomous Vehicle uses lithium polymer batteries. LiPO batteries allow your car to run for a long time, but they are not something to play with or joke about. They store a large amount of energy in a small space and can damage your car and cause a fire if used improperly. With this in mind, here are some safety tips for using them with the car.
+	The RoboRacer Autonomous Vehicle uses lithium polymer batteries. LiPO batteries allow your car to run for a long time, but they are not something to play with or joke about. They store a large amount of energy in a small space and can damage your car and cause a fire if used improperly. With this in mind, here are some safety tips for using them with the car.
 
 	* When charging batteries, always monitor them and place them in a fireproof bag on a non-flammable surface clear of any other objects.
 	* Do not leave a LIPO battery connected to the car when you’re not using it. The battery will discharge and its voltage will drop to a level too low to charge it safely again.
@@ -35,7 +35,7 @@ There are three main sections to the car.
 
 
 .. note::
-  If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
+  If you have any build and/or setup questions, post to the `forum <https://robo-racer.slack.com/ssb/redirect>`_.
 
 .. toctree::
    :maxdepth: 1

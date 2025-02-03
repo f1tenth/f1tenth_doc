@@ -12,7 +12,7 @@ The following two sections are optional.
 Wireless Hot Spot on the NVIDIA Jetson NX
 ---------------------------------
 **Equipment Used:**
-	* Fully built F1TENTH vehicle
+	* Fully built RoboRacer vehicle
 	* Pit/Host Laptop OR
 	* External monitor/display, HDMI cable, keyboard, mouse
 
@@ -41,7 +41,7 @@ On your phone, tablet, or laptop you can now connect directly to this Hotspot, a
 VNC Server on the NVIDIA Jetson NX
 -------------------------
 **Equipment Used:**
-	* Fully built F1TENTH vehicle
+	* Fully built RoboRacer vehicle
 	* Pit/Host Laptop OR
 	* External monitor/display, HDMI cable, keyboard, mouse
 

@@ -1,10 +1,10 @@
-# F1tenth documentation
+# RoboRacer documentation
 
-This repository contains the source files of [F1tenth](http://f1tenth.org)'s documentation, in reStructuredText markup language (reST).
+This repository contains the source files of [F1tenth](http://roboracer.ai)'s documentation, in reStructuredText markup language (reST).
 
 ## Contributing changes
 
-**Pull Requests should use the `master` branch by default. Only make Pull Requests against other branches (e.g. `2.1` or `3.0`) if your changes only apply to that specific version of f1tenth.**
+**Pull Requests should use the `master` branch by default. Only make Pull Requests against other branches (e.g. `2.1` or `3.0`) if your changes only apply to that specific version of RoboRacer.**
 
 Though arguably less convenient to edit than a wiki, this git repository is meant to receive pull requests to always improve the documentation, add new pages, etc. Having direct access to the source files in a revision control system is a big plus to ensure the quality of our documentation.
 

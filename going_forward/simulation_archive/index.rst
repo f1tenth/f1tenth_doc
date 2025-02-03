@@ -4,7 +4,7 @@ Simulation
 ===============
 Why would we want to use a simulator? We want to test the car’s algorithms in a controlled environment before we bring it into the real world so that we minimize risk of crashing. If you’ve ever had to fix a Traxxas RC car before, you might know that they can be a pain to fix. For instance, if a front steering servo plastic piece were to break, we would have to disassemble about 20 parts in order to replace it. The simulator will be our best friend for quite a while during development.
 
-We will use a simulator built for F1TENTH that has a C++ backend and uses RViz to visualize. The underlying physics model of the car is a 2D single track model descriped `here in section 5 <https://commonroad.in.tum.de/static/docs/vehicleModels_commonRoad.pdf>`_.
+We will use a simulator built for RoboRacer that has a C++ backend and uses RViz to visualize. The underlying physics model of the car is a 2D single track model descriped `here in section 5 <https://commonroad.in.tum.de/static/docs/vehicleModels_commonRoad.pdf>`_.
 
 Installing the Simulator and Setting up Packages for Skeleton Code
 ---------------------------------------------------------------------

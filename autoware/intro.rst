@@ -3,11 +3,11 @@
 Autoware Installation on the F1TENTH
 ==================
 
-Jetson Xavier NX and F1tenth Recordreplay Demo
+Jetson Xavier NX and RoboRacer Recordreplay Demo
 ------------------
-This tutorial provides step-by-step instructions for installing and setting up the Autoware development environment on the F1tenth race car. The Autoware installation process in this branch is modified from the main one to adapt to the Jetson Xavier NX hardware and software systems. One major difference of this Autoware environment is that it runs on `ROS2 galactic` instead of `ROS2 humble` due to the fact that the NVIDIA Jetson currently only supports Ubuntu 20.04 or below. To natively build and run autoware without using docker, galactic is used to increase system compatibility. The original `Autoware installation documentation <https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/>`_ from main branch, and the `F1tenth build documentation <https://f1tenth.readthedocs.io/en/foxy_test/index.html>`_ (running ROS2 foxy) are here for your reference.
+This tutorial provides step-by-step instructions for installing and setting up the Autoware development environment on the RoboRacer race car. The Autoware installation process in this branch is modified from the main one to adapt to the Jetson Xavier NX hardware and software systems. One major difference of this Autoware environment is that it runs on `ROS2 galactic` instead of `ROS2 humble` due to the fact that the NVIDIA Jetson currently only supports Ubuntu 20.04 or below. To natively build and run autoware without using docker, galactic is used to increase system compatibility. The original `Autoware installation documentation <https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/>`_ from main branch, and the `RoboRacer build documentation <https://f1tenth.readthedocs.io/en/foxy_test/index.html>`_ (running ROS2 foxy) are here for your reference.
 
-This repo also includes a F1tenth Recordreplay demo. This demo allows the user to first build a map, record a trajectory by manually driving the F1tenth race car, and then perform trajectory following in both the `F1tenth gym simulator` and in `real-world`(testing in progress) running the Autoware framework. Instructions for installing the F1tenth gym simulator are provided. The approximate time investment is based on running Jetson Xavier NX on 20W 6core power mode.
+This repo also includes a RoboRacer Recordreplay demo. This demo allows the user to first build a map, record a trajectory by manually driving the RoboRacer race car, and then perform trajectory following in both the `RoboRacer gym simulator` and in `real-world`(testing in progress) running the Autoware framework. Instructions for installing the RoboRacer gym simulator are provided. The approximate time investment is based on running Jetson Xavier NX on 20W 6core power mode.
 
 Flash JetPack 5.1.1 (rev. 1) to Jetson Xavier NX
 ------------------
@@ -151,22 +151,22 @@ The f1tenth_gym_ros simulator is used in this case, click `here <https://github.
    cd autoware/src/universe/autoware.universe/f1tenth/f1tenth_gym_ros/f1tenth_gym
    pip3 install -e .
 
-F1tenth Recordreplay Demo 
+RoboRacer Recordreplay Demo 
 ------------------
-This demo allows the user to first build a map, record a trajectory by manually driving the F1tenth race car, and then perform trajectory following in both the `F1tenth gym simulator` and in `real-world`(testing in progress) running the Autoware framework.
+This demo allows the user to first build a map, record a trajectory by manually driving the RoboRacer race car, and then perform trajectory following in both the `RoboRacer gym simulator` and in `real-world`(testing in progress) running the Autoware framework.
 
 How to create a map 
 ------------------
 
-This part assumes that you have a fully built and properly tuned f1tenth car. For instructions on how to configure an f1tenth car, see `f1tenth_system <https://github.com/autowarefoundation/autoware.universe/tree/f1tenth_galactic/f1tenth/f1tenth_system>`_.
+This part assumes that you have a fully built and properly tuned RoboRacer car. For instructions on how to configure an RoboRacer car, see `f1tenth_system <https://github.com/autowarefoundation/autoware.universe/tree/f1tenth_galactic/f1tenth/f1tenth_system>`_.
 
-On your f1tenth car, install the slamtoolbox 
+On your RoboRacer car, install the slamtoolbox 
 
 .. code-block:: bash
 
    sudo apt install ros-galactic-slam-toolbox
 
-1. Start the f1tenth system
+1. Start the RoboRacer system
 
 Terminal 1
 
@@ -193,12 +193,12 @@ Terminal 2
 
    <iframe width="560" height="315" src="https://www.youtube.com/embed/bgrxjXlJbhI?si=SlJxkM58pcCGAmRl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Create a map without an f1tenth race car 
+Create a map without an RoboRacer race car 
 ------------------
 
-If you do not have an f1tenth car, You can draw your own map and save as .png files. Make sure you set the corresponding .yaml file correctly. You can also use the map provided in the f1tenth simulation folder under /map directory.
+If you do not have an RoboRacer car, You can draw your own map and save as .png files. Make sure you set the corresponding .yaml file correctly. You can also use the map provided in the RoboRacer simulation folder under /map directory.
 
-Change map in the f1tenth simulator 
+Change map in the RoboRacer simulator 
 ------------------
 
 Navigate to /home/autoware-f1/autoware/install/f1tenth_gym_ros/share/f1tenth_gym_ros/config. In `sim.yaml`, update the map file path.
@@ -214,7 +214,7 @@ Terminal 1
 
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_f1tenth demo_launch.py
+   ros2 launch launch_autoware_RoboRacer demo_launch.py
 
 Rviz2 should launch automatically with the target map loaded (black markers). After a short peroid of time the simulated Lidar data (colored markers) should be overlaid on top of the map indicating the simulator is running correctly. It can take up to `5 minutes` for the Lidar data to show up if the simulator is launched the first time. You may use your mouse's left/right buttons and scroll wheel in RViz2 to zoom-out and adjust the camera angle to top-down view.
 
@@ -222,7 +222,7 @@ Rviz2 should launch automatically with the target map loaded (black markers). Af
 .. image:: ../img/f1tenth_autoware_sim.jpg
    :width: 700
 
-2. Launch the `teleop_twist_keyboard` node for keyboard tele-operation. Focus on (select) this terminal and use `U`, `I`, `O` keys to manually control the f1tenth car in the simulation.  Use `Q` and `Z` keys to increase and decrease the speed.
+2. Launch the `teleop_twist_keyboard` node for keyboard tele-operation. Focus on (select) this terminal and use `U`, `I`, `O` keys to manually control the RoboRacer car in the simulation.  Use `Q` and `Z` keys to increase and decrease the speed.
 
 Terminal 2
 
@@ -258,7 +258,7 @@ Terminal 1
 
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_f1tenth demo_launch.py
+   ros2 launch launch_autoware_RoboRacer demo_launch.py
 
 2. Replay a trajectory from your previously saved file. You can use the `2D Pose Estimate` tool in RViz2 anytime to reset the car's pose.
 
@@ -285,7 +285,7 @@ Terminal 1
 
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_f1tenth realcar_launch.py
+   ros2 launch launch_autoware_RoboRacer realcar_launch.py
 
 2. Launch the `particle_filter` node for localization. You need the library range_libc to utilize the GPU. For instructions on setup, see `particle_filter <https://github.com/autowarefoundation/autoware.universe/tree/f1tenth_galactic/f1tenth/particle_filter>`_.
 
@@ -317,7 +317,7 @@ Terminal 1
 
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_f1tenth realcar_launch.py
+   ros2 launch launch_autoware_RoboRacer realcar_launch.py
 
 2. Launch the `particle_filter` node for localization. You need the library range_libc to utilize the GPU. For instructions on setup, see `particle_filter <https://github.com/autowarefoundation/autoware.universe/tree/f1tenth_galactic/f1tenth/particle_filter>`_.
 
@@ -349,4 +349,4 @@ Troubleshooting/Tips
 
 1. If editing files doesn't seem to change anything, delete the respective package files in the install and build folders under autoware and rebuild the respective package using --packages-select again.
 
-2. You may need to insert a hdmi emulator to the Jetson for NoMachine to initiate remote desktop when running on a real F1tenth car. Sometimes you will need to put the emulator in and out a few times for NoMachine to start remote desktop.
+2. You may need to insert a hdmi emulator to the Jetson for NoMachine to initiate remote desktop when running on a real RoboRacer car. Sometimes you will need to put the emulator in and out a few times for NoMachine to start remote desktop.

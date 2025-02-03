@@ -3,7 +3,7 @@
 Acknowledgements
 ==================
 
-F1TENTH Core Developers
+RoboRacer Core Developers
 --------------------------
 Hongrui (Billy) Zheng
 
@@ -21,22 +21,22 @@ Haoru Xue
 
 Joshua Whitley
 
-F1TENTH Lehigh and Rosa Zheng
+RoboRacer Lehigh and Rosa Zheng
 
-F1TENTH UCSD and Jack Silberman
+RoboRacer UCSD and Jack Silberman
 
 Jim Benson (`JetsonHacks <https://www.jetsonhacks.com/>`_)
 
 Community Outreach
 =====================
 
-Rahul Mangharam (F1Tenth Leader)
+Rahul Mangharam (RoboRacer Leader)
 
-F1TENTH Clemson and Venkat Krovi
+RoboRacer Clemson and Venkat Krovi
 
 Jaroslav Klapálek
 
-.. Many thanks to the `F1TENTH <http://f1tenth.org/crew.html>`_ community at the University of Pennsylvania for compiling this documentation and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
+.. Many thanks to the `RoboRacer <http://roboracer.ai/crew.html>`_ community at the University of Pennsylvania for compiling this documentation and `Jim Benson <https://www.jetsonhacks.com/>`_ for all the insightful edits.
 
 .. .. image:: img/thanks.gif
 .. 	:align: center

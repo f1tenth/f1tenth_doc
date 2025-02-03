@@ -3,7 +3,7 @@
 Manual Control
 =================
 **Equipment Required:**
-	* Fully built F1TENTH  vehicle
+	* Fully built RoboRacer  vehicle
 	* Pit/Host computer
 	* Logitech F710 joypad
 
@@ -23,7 +23,7 @@ We want to minimize the number of accidents so before we begin, let's first insp
 #. Plug the USB dongle receiver of the **Logitech Joypad** into the **USB hub**.
 #. Make sure you have the VESC connected.
 #. Ensure that both your car and laptop are connected to a wireless access point if you need the car connected to the Internet while you drive it. Otherwise, go back and go through :ref:`Configure Jetson and Peripherals <doc_software_setup>`.
-#. Make sure you’ve cloned the ``f110_system`` repository and set up your docker container as explained in the :ref:`previous section <doc_drive_workspace>`.
+#. Make sure you’ve cloned the ``RoboRacer _system`` repository and set up your docker container as explained in the :ref:`previous section <doc_drive_workspace>`.
 #. This section uses the program ``tmux`` (available via apt-get) to let you run multiple terminals over one SSH connection, and multiple terminals inside the container. You can also use the remote desktop if you prefer a GUI.
 
 2. Driving the Car
@@ -35,7 +35,7 @@ We want to minimize the number of accidents so before we begin, let's first insp
 .. #. Run the ``run_container.sh`` script in the ``f1tenth_system`` repo to start the Docker container.
 .. #. Inside the bash session inside the container, run ``tmux`` and spawn several new windows by using ``ctrl+b`` then ``c`` multiple times. You can navigate through these windows with ``ctrl+b`` then ``p`` or ``n``. This is one way to add and navigate through windows, you can also check the tmux cheatsheet for creating and navigating panes, and using mouse mode. You can always create more windows if you need. These will come in handy when you need to run more than one node, or launch more than one launch file.
 .. #. In one bash session, first source the ROS 2 underlay with ``source /opt/ros/foxy/setup.bash``. Then, make sure you're in our ROS 2 workspace ``/f1tenth_ws`` and run ``colcon build`` to build the workspace. Then source the workspace overlay with ``source install/setup.bash``.
-.. #. Lastly, run ``ros2 launch f1tenth_stack bringup_launch.py`` to bring up the F1TENTH driver stack.
+.. #. Lastly, run ``ros2 launch f1tenth_stack bringup_launch.py`` to bring up the RoboRacer driver stack.
 .. 	* If you see an error like this: ``[ERROR] [1541708274.096842680]: Couldn't open joystick force feedback!`` It means that the joystick is connected and you can ignore the error.
 
 Troubleshooting
@@ -51,7 +51,7 @@ Troubleshooting
 * **SerialException errors** and you’re using the 30LX Hokuyo, the errors might be due to a port conflict: make sure you've set up udev rules, as explained in :ref:`this section <udev_rules>`.
 * **urg_node related errors**: Check the ports (e.g. an ip address in ``sensors.yaml`` can only be used by 10LX, not 30LX, and vice-versa for the udev name ``/dev/sensors/hokuyo``).
 
-.. Congratulations on building the car, configuring the system, installing the firmware, and driving the car! You've come a long way. Pat yourself on the back and high five your other hand. You can head over to `Learn <https://f1tenth.org/learn.html>`_ and try out some of the labs there.
+.. Congratulations on building the car, configuring the system, installing the firmware, and driving the car! You've come a long way. Pat yourself on the back and high five your other hand. You can head over to `Learn <https://roboracer.ai/learn.html>`_ and try out some of the labs there.
 
 .. .. image:: img/drive02.gif
 .. 	:align: center

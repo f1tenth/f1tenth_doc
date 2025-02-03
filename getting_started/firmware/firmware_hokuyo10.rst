@@ -6,7 +6,7 @@
 	If you have a 30LX or a LIDAR that connects via USB, you can skip this section.
 
 **Equipment Required:**
-	* Fully built F1TENTH vehicle with a Hokuyo 10LX lidar
+	* Fully built RoboRacer vehicle with a Hokuyo 10LX lidar
 	* Pit/Host Laptop OR
 	* External monitor/display, HDMI cable, keyboard, mouse
 

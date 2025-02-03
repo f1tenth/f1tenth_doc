@@ -12,7 +12,7 @@ You can use a keyboard or USB joystick to drive the car around, or you can place
 
 ROS API
 ------------------------
-The simulator was set up with two main objectives in mind- similitude to the real car and fast prototyping of racing algorithms. The **simulator** node was written such that it can be swapped out with the F1/10 car itself, and if all topic names remain the same, the same exact code can be run to drive the car. The rest of the ROS nodes are organized so that new planning algorithms can be added quickly and toggled between during driving.
+The simulator was set up with two main objectives in mind- similitude to the real car and fast prototyping of racing algorithms. The **simulator** node was written such that it can be swapped out with the RoboRacer car itself, and if all topic names remain the same, the same exact code can be run to drive the car. The rest of the ROS nodes are organized so that new planning algorithms can be added quickly and toggled between during driving.
 
 .. figure:: img/sim_graph_public.png
 	:align: center

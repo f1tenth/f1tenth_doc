@@ -6,7 +6,7 @@
 **Equipment Used:**
 
 * Pit/Host laptop/computer running any Operating System
-* Fully-built F1TENTH vehicle
+* Fully-built RoboRacer vehicle
 * microSD card (16GB minimum)
 * m.2 SSD (optional)
 * USB micro cable (must have both data and power wires)
@@ -96,12 +96,12 @@ The setup of the Nvidia Jetson NX is easy and convenient. NVIDIA themselves prov
 
                 SD card flush.
 
-13. When you have entered the microSD card you can power up the Jetson NX on the F1TENTH car for the first time. First of all plug the following into the Jetson NX:
+13. When you have entered the microSD card you can power up the Jetson NX on the RoboRacer car for the first time. First of all plug the following into the Jetson NX:
   * USB Port: A keyboard
   * USB Port: A mouse
   * HDMI Port: An external monitor
 
-14. Now you can provide energy for the F1TENTH car. You either do this with the battery on the car or plug in an external power supply that provides 16V. The Jetson Xavier NX Developer Kit will power on and boot automatically after you provided the power supply.
+14. Now you can provide energy for the RoboRacer car. You either do this with the battery on the car or plug in an external power supply that provides 16V. The Jetson Xavier NX Developer Kit will power on and boot automatically after you provided the power supply.
 
 .. important:: The barrel jack on the powerboard is only rated for **9.0V - 16.0V**. The power supplies that come with the Jetson NX are 19V and therefore have a higher voltage. **Do not plug those in**. Otherwise you will destroy your powerboard.
 
@@ -113,7 +113,7 @@ The setup of the Nvidia Jetson NX is easy and convenient. NVIDIA themselves prov
   * Create username, password, and computer name
   * Log in
 
-16. After logging in you should see the following screen. Congratulations, your NVIDIA Jetson NX on your F1TENTH car is ready to go.
+16. After logging in you should see the following screen. Congratulations, your NVIDIA Jetson NX on your RoboRacer car is ready to go.
 
         .. figure:: img/nx/nx_ready.png
                 :align: center
@@ -128,7 +128,7 @@ The setup of the Nvidia Jetson NX is easy and convenient. NVIDIA themselves prov
 
                   Attaching USB micro end of cable.
 
-  14. Connect the battery on the F1TENTH vehicle.
+  14. Connect the battery on the RoboRacer vehicle.
   15. Flip the switch on the power distribution board to the ON position.
   16. After several minutes, you should see a new drive become available on the host PC called "L4T-README." If you do not see this then either the flashing of the microSD card failed or your USB cable is bad or incorrect in some way (e.g. missing data lines).
   17. In addition to the new drive, you should also have a new Serial, COM, or TTY device available. On Linux and MacOS, this will be in the form of /dev/ttyACMx where x is a number. On Windows, this will be a new COM port. Open your terminal emulator software and connect to this new port using the following settings:

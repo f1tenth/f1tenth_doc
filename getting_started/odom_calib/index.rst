@@ -7,7 +7,7 @@ Calibrating the Odometry
 One final step.
 
 **Required Equipment:**
-	* Fully built F1TENTH vehicle 
+	* Fully built RoboRacer vehicle 
 	* Pit/Host computer
 	* Logitech F710 joypad
 	* Tape measure
@@ -23,4 +23,4 @@ Now that everything is built, configured, and installed, the odometry of the veh
 #. Follow this great `Tuning Guide <https://mushr.io/tutorials/tuning/>`_ that `Mushr <https://mushr.io/about/>`_ put together.
 
 .. tip:: 
-  If you have any build and/or setup questions, post to the `forum <http://f1tenth.org/forum.html>`_.
+  If you have any build and/or setup questions, post to the `forum <https://robo-racer.slack.com/ssb/redirect>`_.

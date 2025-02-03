@@ -6,7 +6,7 @@ This instructions displays how to setup the NVIDIA Jetson TX2. The usage of the 
 
 **Equipment Used:**
 	* Pit/Host laptop/computer running Ubuntu 16.04 or 18.04
-	* Fully built F1TENTH vehicle
+	* Fully built RoboRacer vehicle
 	* External monitor/display
 	* HDMI cable
 	* Keyboard
