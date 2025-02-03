@@ -166,7 +166,7 @@ On your RoboRacer car, install the slamtoolbox
 
    sudo apt install ros-galactic-slam-toolbox
 
-1. Start the RoboRacer system
+1. Start the f1tenth system
 
 Terminal 1
 
@@ -214,7 +214,7 @@ Terminal 1
 
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_RoboRacer demo_launch.py
+   ros2 launch launch_autoware_f1tenth demo_launch.py
 
 Rviz2 should launch automatically with the target map loaded (black markers). After a short peroid of time the simulated Lidar data (colored markers) should be overlaid on top of the map indicating the simulator is running correctly. It can take up to `5 minutes` for the Lidar data to show up if the simulator is launched the first time. You may use your mouse's left/right buttons and scroll wheel in RViz2 to zoom-out and adjust the camera angle to top-down view.
 
@@ -258,7 +258,7 @@ Terminal 1
 
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_RoboRacer demo_launch.py
+   ros2 launch launch_autoware_f1tenth demo_launch.py
 
 2. Replay a trajectory from your previously saved file. You can use the `2D Pose Estimate` tool in RViz2 anytime to reset the car's pose.
 
@@ -285,7 +285,7 @@ Terminal 1
 
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_RoboRacer realcar_launch.py
+   ros2 launch launch_autoware_f1tenth realcar_launch.py
 
 2. Launch the `particle_filter` node for localization. You need the library range_libc to utilize the GPU. For instructions on setup, see `particle_filter <https://github.com/autowarefoundation/autoware.universe/tree/f1tenth_galactic/f1tenth/particle_filter>`_.
 
@@ -317,7 +317,7 @@ Terminal 1
 
    source /opt/ros/galactic/setup.bash
    cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_RoboRacer realcar_launch.py
+   ros2 launch launch_autoware_f1tenth realcar_launch.py
 
 2. Launch the `particle_filter` node for localization. You need the library range_libc to utilize the GPU. For instructions on setup, see `particle_filter <https://github.com/autowarefoundation/autoware.universe/tree/f1tenth_galactic/f1tenth/particle_filter>`_.
 

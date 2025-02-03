@@ -23,7 +23,7 @@ We want to minimize the number of accidents so before we begin, let's first insp
 #. Plug the USB dongle receiver of the **Logitech Joypad** into the **USB hub**.
 #. Make sure you have the VESC connected.
 #. Ensure that both your car and laptop are connected to a wireless access point if you need the car connected to the Internet while you drive it. Otherwise, go back and go through :ref:`Configure Jetson and Peripherals <doc_software_setup>`.
-#. Make sure you’ve cloned the ``RoboRacer _system`` repository and set up your docker container as explained in the :ref:`previous section <doc_drive_workspace>`.
+#. Make sure you’ve cloned the ``f110_system`` repository and set up your docker container as explained in the :ref:`previous section <doc_drive_workspace>`.
 #. This section uses the program ``tmux`` (available via apt-get) to let you run multiple terminals over one SSH connection, and multiple terminals inside the container. You can also use the remote desktop if you prefer a GUI.
 
 2. Driving the Car
