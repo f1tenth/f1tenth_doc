@@ -1,6 +1,6 @@
 .. _doc_autoware_intro:
 
-Autoware Installation on the F1TENTH
+Autoware Installation on the RoboRacer
 ==================
 
 Jetson Xavier NX and RoboRacer Recordreplay Demo
