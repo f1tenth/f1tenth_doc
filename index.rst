@@ -7,7 +7,7 @@ Welcome to the official build documentation of `RoboRacer <http://roboracer.ai/>
   You're currently viewing the documentation for RoboRacer on ROS 2. Check `here <https://f1tenth.readthedocs.io/en/stable/>`_ for the ROS 1 documentations!
 
 .. attention::
-  #. If you are new to F1TENTH, :ref:`Getting Started <doc_build_intro>` is a good place to start.
+  #. If you are new to RoboRacer, :ref:`Getting Started <doc_build_intro>` is a good place to start.
 
   #. If you already have a working car and the work environment set up:
 
@@ -72,7 +72,7 @@ in the top left corner.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Autoware @ F1TENTH
+   :caption: Autoware @ RoboRacer
    :name: sec-autoware
    :hidden:
 
