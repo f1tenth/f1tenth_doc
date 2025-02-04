@@ -1,6 +1,6 @@
 .. _doc_drive:
 
-Driving the F1TENTH Car
+Driving the RoboRacer Car
 ====================
 
 .. note:: This section assumes that you have already completed :ref:`Building the Car <doc_build_car>`, :ref:`System Configuration <doc_software_setup>`, and :ref:`Installing Driver Stack <doc_build_car_firmware>`.
@@ -10,7 +10,7 @@ Driving the F1TENTH Car
 
 
 **Required Equipment:**
-	* Fully built F1TENTH vehicle
+	* Fully built RoboRacer vehicle
 	* Pit/Host computer
 	* Logitech F710 joypad
 
@@ -35,4 +35,4 @@ First, we need to set up the :ref:`driver stack <doc_drive_workspace>` on the ca
 #. :ref:`Autonomous Control <doc_drive_autonomous>` goes over how to drive autonomously with the car.
 
 .. tip::
-  If you have any build and/or setup questions, post to the `forum <https://f1tenth.discourse.group>`_.
+  If you have any build and/or setup questions, post to the `forum <https://robo-racer.slack.com/ssb/redirect>`_.

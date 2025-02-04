@@ -4,7 +4,7 @@
 ====================================================
 **Equipment Used:**
 	* Pit/Host laptop/computer running Mac, Windows, or Linux
-	* Fully built F1TENTH vehicle with its NVIDIA Jetson NX connected to a keyboard, mouse, and an external monitor/display via HDMI cable
+	* Fully built RoboRacer vehicle with its NVIDIA Jetson NX connected to a keyboard, mouse, and an external monitor/display via HDMI cable
 	* Wifi Router
 
 **Approximate Time Investment:** 1 hour
@@ -15,7 +15,7 @@ Overview
 ----------
 We could now log into the Jetson using a monitor, keyboard, and mouse, but ideally we would want remote access when we’re driving the car. Throughout this tutorial, you will be asked to configure the Jetson’s and your laptop’s network settings. Make sure to get these right! Using the wrong IP address may lead to conflicts with another classmate, meaning neither of you will be able to connect.
 
-If your **Pit/Host** computer has WiFi capability, you connect both the computer and the F1TENTH car to a wireless router which reserves a static IP address for Jetson NX on the vehicle.
+If your **Pit/Host** computer has WiFi capability, you connect both the computer and the RoboRacer car to a wireless router which reserves a static IP address for Jetson NX on the vehicle.
 
 If the **Pit/Host** computer doesn't have Wifi capability:
 
@@ -33,7 +33,7 @@ If you have a NVIDIA Jetson Nano or a Xavier, you'll need to install an addition
 
 2. Connecting the NVIDIA Jetson NX to WiFi
 -------------------------------------------------
-Power up the F1TENTH vehicle and connect the car to a monitor (via HDMI) and both a mouse and keyboard (via USB). You see the Jetson NX is showing its main Desktop which is an UBUNTU 18.04 version.
+Power up the RoboRacer vehicle and connect the car to a monitor (via HDMI) and both a mouse and keyboard (via USB). You see the Jetson NX is showing its main Desktop which is an UBUNTU 18.04 version.
 You can now connect the NVIDIA Jetson NX to the ``F1TENTH_WIFI`` by clicking on wireless icon on top-right corner of Ubuntu Desktop and selecting ``F1TENTH_WIFI``. It might take a while for the NVIDIA Jetson NX to discover the wireless network.
 
 .. image:: img/combine/wifi_setup.png

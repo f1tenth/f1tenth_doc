@@ -5,7 +5,7 @@
 
 FAQ
 ==========================
-This will be updated as we get new questions. Please post questions in the `F1TENTH Discourse <https://f1tenth.discourse.group/>`_. Answers to common problems will be compiled here.
+This will be updated as we get new questions. Please post questions in the `RoboRacer Discourse <https://robo-racer.slack.com/ssb/redirect/>`_. Answers to common problems will be compiled here.
 
 General
 ----------------
@@ -20,7 +20,7 @@ Where can I find additional working examples of autonomous racing code?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 There are different places where you find autonomous racing code:
 
-#. `F1TENTH Github Repository <https://github.com/f1tenth>`_: Official F1TENTH github respository.
+#. `RoboRacer Github Repository <https://github.com/f1tenth>`_: Official RoboRacer github respository.
 #. `Learn to Drive (and Race!) Autonomous Vehicles <https://github.com/f1tenth/ESweek2021_educationclassA3>`_: ESWeek 2021 tutorial.
 #. `Raceline Generation <https://github.com/TUMFTM/global_racetrajectory_optimization>`_: Optimal Raceline generation Code from TUM.
 #. `Graph based Planner <https://github.com/TUMFTM/GraphBasedLocalTrajectoryPlanner>`_: Graph-based Trajectory Planner from TUM.

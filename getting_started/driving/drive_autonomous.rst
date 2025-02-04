@@ -8,7 +8,7 @@ Autonomous Control
 This section goes through how to subscribe to sensor topics, and how to publish drive topic to control the car.
 
 **Required Equipment:**
-    * Fully built F1TENTH vehicle
+    * Fully built RoboRacer vehicle
     * Pit/Host computer
     * Logitech F710 joypad
 

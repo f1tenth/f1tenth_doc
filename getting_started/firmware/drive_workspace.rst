@@ -1,9 +1,9 @@
 .. _doc_drive_workspace:
 
-3. F1TENTH Driver Stack Setup
+3. RoboRacer Driver Stack Setup
 =================================
 **Equipment Required:**
-	* Fully built F1TENTH  vehicle
+	* Fully built RoboRacer  vehicle
 	* Pit/Host computer OR
 	* External monitor/display, HDMI cable, keyboard, mouse
 

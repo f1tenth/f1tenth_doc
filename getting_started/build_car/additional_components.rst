@@ -3,7 +3,7 @@
 5. Additional Hardware Components
 ============================
 
-We have used and tested additional hardware for the F1TENTH vehicle. In this section we will provide a detailed overview of the components we tested and how to add them to the car.
+We have used and tested additional hardware for the RoboRacer vehicle. In this section we will provide a detailed overview of the components we tested and how to add them to the car.
 
 1. Lidar
 ---------------------------------------------------------------

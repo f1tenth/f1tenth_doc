@@ -23,7 +23,7 @@ Open a terminal and run the following commands to instal the required packages.
 
 Getting the Example Launch File
 ---------------------------------------
-The f110 repo contains a launch file that demonstrates running the laser_scan_matcher on pre-recorded bag data. Copy it into your workspace’s ``src/`` folder, e.g.
+The RoboRacer  repo contains a launch file that demonstrates running the laser_scan_matcher on pre-recorded bag data. Copy it into your workspace’s ``src/`` folder, e.g.
 
 .. code-block:: bash
 

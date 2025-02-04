@@ -3,7 +3,7 @@
 
 2. Autonomy Elements
 ======================
-In the second part of the hardware setup we start preparing the autonomy elements for our F1TENTH car. The complete process for the second hardware part can be watched in this video tutorial too.
+In the second part of the hardware setup we start preparing the autonomy elements for our RoboRacer car. The complete process for the second hardware part can be watched in this video tutorial too.
 
 .. raw:: html
 
@@ -83,7 +83,7 @@ We can now move on to mounting all of the autonomy elements onto the Upper Level
 
 DEPRECATED: Preparing the NVIDIA Jetson TX2
 ---------------------------------
-In this section we are describing how to use the NVIDIA Jetson TX2 as a main ECU for the F1TENTH vehicle. This setup is deprecated and no longer recommended.
+In this section we are describing how to use the NVIDIA Jetson TX2 as a main ECU for the RoboRacer vehicle. This setup is deprecated and no longer recommended.
 
 **1. Removing the NVIDIA Jetson TX2 Developer Board**
 

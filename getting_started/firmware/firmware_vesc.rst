@@ -10,7 +10,7 @@
     * Use a fully-charged LiPO battery instead of a power supply to ensure the motor has enough current to spin up.
 
 **Equipment Required:**
-	* Fully built F1TENTH vehicle
+	* Fully built RoboRacer vehicle
 	* Box or `Car stand <https://www.amazon.com/Duratrax-Tech-Deluxe-Truck-Stand/dp/B0014T74MS/ref=sr_1_6?keywords=rc+car+jack&link_code=qs&qid=1584393402&sr=8-6>`_  to put vehicle on
 	* Laptop/computer (does not need to be running Linux)
 

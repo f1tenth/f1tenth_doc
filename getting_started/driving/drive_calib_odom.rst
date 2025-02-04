@@ -4,10 +4,10 @@ Calibrating the Odometry
 =========================
 .. note:: This section assumes that you have already completed :ref:`Building the Car <doc_build_car>`, :ref:`System Configuration <doc_software_setup>`, :ref:`Installing Driver Stack <doc_build_car_firmware>`, and :ref:`Manual Control <drive_manualcontrol>`.
 
-One final step that's crucial to get an accurate estimate of the car's current velocity, and accurate localization and mapping later on is to calibrate the odometry estimation. On the F1TENTH vehicle, the odometry is estimated from the motor's ERPM and the current angle of the servo.
+One final step that's crucial to get an accurate estimate of the car's current velocity, and accurate localization and mapping later on is to calibrate the odometry estimation. On the RoboRacer vehicle, the odometry is estimated from the motor's ERPM and the current angle of the servo.
 
 **Required Equipment:**
-	* Fully built F1TENTH vehicle
+	* Fully built RoboRacer vehicle
 	* Pit/Host computer
 	* Logitech F710 joypad
 	* Tape measure
@@ -93,4 +93,4 @@ Changing the software speed limit
 If you wish to change the top speed of the car and has already followed the instructions to change the hardware limit in :ref:`the vesc firmware section <doc_firmware_vesc>`. All you'll need to do is also change the ``speed_min`` and ``speed_max`` values in ``vesc.yaml``. Note that the corresponding max speed in meters/second will be the max erpm value divided by the erpm gain. (e.g. ``speed_max/speed_to_erpm_gain``)
 
 .. tip::
-  If you have any build and/or setup questions, post to the `forum <https://f1tenth.discourse.group>`_.
+  If you have any build and/or setup questions, post to the `forum <https://robo-racer.slack.com/ssb/redirect>`_.

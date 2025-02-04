@@ -3,7 +3,7 @@
 Recording Data on the Car
 ================================
 
-.. note:: This section requires a fully built F1TENTH vehicle.
+.. note:: This section requires a fully built RoboRacer vehicle.
 
 ROSbags​ are useful for recording data from the car (e.g. LIDAR, odometry) and playing it back later. This feature is useful because it allows you to capture data from when the car is running and later study the data or perform analysis on it to help you develop and implement better racing algorithms.
 

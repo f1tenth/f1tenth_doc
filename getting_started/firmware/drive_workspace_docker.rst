@@ -1,9 +1,9 @@
 .. _doc_drive_workspace_docker:
 
-3. F1TENTH Driver Stack Setup with Docker Containers
+3. RoboRacer Driver Stack Setup with Docker Containers
 =========================================================
 **Equipment Required:**
-    * Fully built F1TENTH  vehicle
+    * Fully built RoboRacer  vehicle
     * Pit/Host computer OR
     * External monitor/display, HDMI cable, keyboard, mouse
 
