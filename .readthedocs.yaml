@@ -1,5 +1,10 @@
 version: 2
 
+addons:
+  flyout:
+    enabled: true
+    position: attached
+
 build:
   os: "ubuntu-22.04"
   tools:
