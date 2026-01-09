@@ -77,6 +77,7 @@ html_theme_options = {
     'prev_next_buttons_location': 'bottom',
     # 'display_version': True,  # Display the docs version
     # 'navigation_depth': 4,  # Depth of the headers shown in the navigation bar
+    'flyout_display': 'attached',  # Attach flyout to sidebar instead of floating
 }
 
 # VCS options: https://docs.readthedocs.io/en/latest/vcs.html#github

@@ -85,10 +85,10 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "sphinx", specifier = ">=9.1.0" },
-    { name = "sphinx-copybutton", specifier = ">=0.5.2" },
-    { name = "sphinx-rtd-theme", specifier = ">=0.5.1" },
-    { name = "sphinx-tabs", specifier = ">=3.4.7" },
+    { name = "sphinx", specifier = ">=7.0.0" },
+    { name = "sphinx-copybutton", specifier = ">=0.5.0" },
+    { name = "sphinx-rtd-theme", specifier = ">=3.0.0" },
+    { name = "sphinx-tabs", specifier = ">=3.4.0" },
 ]
 
 [[package]]
