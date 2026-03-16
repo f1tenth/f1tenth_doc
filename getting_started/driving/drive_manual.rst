@@ -17,26 +17,96 @@ Before we can get the car to drive itself, it’s a good idea to test the car to
 
 1. Vehicle Inspection
 -----------------------
-We want to minimize the number of accidents so before we begin, let's first inspect our vehicle.
+Before beginning manual control, inspect the vehicle to reduce the chance of unexpected behavior or hardware issues.
 
-#. Make sure you have the car running off its LIPO battery.
-#. Plug the USB dongle receiver of the **Logitech Joypad** into the **USB hub**.
-#. Make sure you have the VESC connected.
-#. Ensure that both your car and laptop are connected to a wireless access point if you need the car connected to the Internet while you drive it. Otherwise, go back and go through :ref:`Configure Jetson and Peripherals <doc_software_setup>`.
-#. Make sure you’ve cloned the ``f110_system`` repository and set up your docker container as explained in the :ref:`previous section <doc_drive_workspace>`.
-#. This section uses the program ``tmux`` (available via apt-get) to let you run multiple terminals over one SSH connection, and multiple terminals inside the container. You can also use the remote desktop if you prefer a GUI.
+#. Make sure the car is powered using its LiPo battery.
+#. Plug the USB dongle receiver for the **Logitech F710 joypad** into the **USB hub** on the car.
+#. Make sure the **VESC** is connected properly.
+#. If Internet access is required while driving, ensure that both the car and the laptop are connected to the same network. Otherwise, go back and complete :ref:`Configure Jetson and Peripherals <doc_software_setup>`.
+#. Make sure the ``f1tenth_system`` repository has already been set up in the workspace and that the required Docker container has been configured as explained in the :ref:`previous section <doc_drive_workspace>`.
+#. This section uses ``tmux`` to let you run multiple terminals over one SSH connection and multiple terminals inside the container. You may also use Remote Desktop if you prefer a GUI.
+
+Finding the Jetson IP Address
+-------------------------------
+
+Before connecting to the car through SSH, you need to determine the IP address of the Jetson.
+
+From the Jetson Terminal
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have access to the Jetson terminal, either directly through a monitor or through Remote Desktop, run:
+
+``hostname -I``
+
+Example output:
+
+``172.16.61.134``
+
+This number is the Jetson IP address.
+
+You can now connect from your laptop using:
+
+``ssh <username>@<jetson_ip>``
+
+Example:
+
+``ssh tristan@172.16.61.134``
+
+From Your Laptop
+^^^^^^^^^^^^^^^^^^
+
+If the Jetson is connected to the same network as your laptop through WiFi or Ethernet, you can also try identifying its IP address from your laptop.
+
+Run:
+
+``arp -a``
+
+This command lists devices currently connected to the network. Look for an unfamiliar IP address that appeared after powering on the car.
+
+Notes
+^^^^^^^^
+
+* Your laptop and the Jetson must be connected to the **same network** for SSH to work.
+* The first time you connect, SSH may ask:
+
+  ``Are you sure you want to continue connecting (yes/no)?``
+
+  Type ``yes`` and press Enter.
+* When entering the password, **no characters will appear on the screen**. This is normal terminal behavior.
 
 2. Driving the Car
 ----------------------
-#. Open a terminal on the **Pit** laptop and SSH into the car from your computer.
-#. Launch teleop following the instructions for Launching and Testing teleop and the LiDAR in either :ref:`driver stack setup <doc_drive_workspace>` or :ref:`driver stack setup inside a docker container <doc_drive_workspace_docker>` depending on your setup.
-#. Hold the LB button (Dead man's switch) on the controller to start controlling the car. Use the left joystick to move the car forward and backward and the right joystick for steering. If you're using Logitech F710, switch the switch at the back of the joystick to D. The mode light in the front of the joystick should **not** be constantly on. If it is, press the mode button once.
 
-.. #. Run the ``run_container.sh`` script in the ``f1tenth_system`` repo to start the Docker container.
-.. #. Inside the bash session inside the container, run ``tmux`` and spawn several new windows by using ``ctrl+b`` then ``c`` multiple times. You can navigate through these windows with ``ctrl+b`` then ``p`` or ``n``. This is one way to add and navigate through windows, you can also check the tmux cheatsheet for creating and navigating panes, and using mouse mode. You can always create more windows if you need. These will come in handy when you need to run more than one node, or launch more than one launch file.
-.. #. In one bash session, first source the ROS 2 underlay with ``source /opt/ros/foxy/setup.bash``. Then, make sure you're in our ROS 2 workspace ``/f1tenth_ws`` and run ``colcon build`` to build the workspace. Then source the workspace overlay with ``source install/setup.bash``.
-.. #. Lastly, run ``ros2 launch f1tenth_stack bringup_launch.py`` to bring up the RoboRacer driver stack.
-.. 	* If you see an error like this: ``[ERROR] [1541708274.096842680]: Couldn't open joystick force feedback!`` It means that the joystick is connected and you can ignore the error.
+#. Open a terminal on the **Pit / Host** laptop and SSH into the Jetson.
+
+   Example:
+
+   ``ssh <username>@<jetson_ip>``
+
+#. Go to the workspace:
+
+   ``cd ~/f1tenth_ws``
+
+#. Source the workspace:
+
+   ``source install/setup.bash``
+
+#. Verify that the joystick is detected:
+
+   ``ls /dev/input/js*``
+
+   If the controller is connected correctly, you should see something like:
+
+   ``/dev/input/js0``
+
+#. Launch the RoboRacer driver stack:
+
+   ``ros2 launch f1tenth_stack bringup_launch.py``
+
+#. Before testing on the ground, lift the drive wheels off the ground and verify that the controls respond correctly.
+
+#. Hold the **LB** button on the controller to enable manual control. The **LB** button acts as the dead man's switch. Use the **left joystick** to move the car forward and backward and the **right joystick** to steer.
+
 
 Troubleshooting
 ------------------
