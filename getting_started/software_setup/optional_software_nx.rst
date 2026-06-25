@@ -1,346 +1,86 @@
 .. _doc_optional_software_nx:
+.. _doc_software_combine:
 
-1. Configuring the NVIDIA Jetson NX
-=========================================
+Configuring and Connecting to the NVIDIA Jetson NX
+====================================================
 
 **Equipment Used:**
 
-* Pit/Host laptop/computer running any Operating System
+* Pit/Host laptop/computer (a host PC running Ubuntu is required to flash the Jetson)
 * Fully-built RoboRacer vehicle
-* microSD card (16GB minimum)
-* m.2 SSD (optional)
-* USB micro cable (must have both data and power wires)
-* microSD card reader/writer for Pit/Host PC
-* SD card image burning software (e.g. Balena Etcher)
-* Terminal emulation software (e.g. PuTTy, screen, miniterm.py, etc.)
+* External monitor/display
+* HDMI cable
+* Keyboard
+* Mouse
+* Wireless router
 
-**Approximate Time Investment:** 1-2 hours
+**Approximate Time Investment:** 2-3 hours
 
-.. tip:: `JetPack 5.0 Developer Preview <https://developer.nvidia.com/jetpack-sdk-50dp>`_ is released on Apr. 7 2022 with support for AGX Xavier, Xavier NX, and AGX Orin. We highly recommend flashing your Xavier with JetPack 5.0 since L4T 34.1 uses Ubuntu 20.04.
+.. image:: img/combine/Setup2.png
 
-1. Flash Jetson NX with Software
-----------------------------------
-The setup of the Nvidia Jetson NX is easy and convenient. NVIDIA themselves provide a detailed step-by-step getting started on how to bring the NVIDIA Jetpack Software on the NVIDIA Jetson NX. You can either follow this documentation `here <https://developer.nvidia.com/embedded/learn/get-started-jetson-xavier-nx-devkit>`_ or follow our step-by-step introduction below.
+Overview
+----------
+We could log into the Jetson using a monitor, keyboard, and mouse, but ideally we want remote access while we're driving the car. In this section you'll flash the Jetson, connect it and your **Pit/Host** laptop to the same wireless network, and set up SSH and remote desktop access. Make sure to get the network settings right! Using the wrong IP address may lead to conflicts with another classmate, meaning neither of you will be able to connect.
 
-1. Go to the NVIDIA Develoeprs Download Center at https://developer.nvidia.com/downloads and click Jetson.
+If your **Pit/Host** computer has WiFi capability, connect both the computer and the RoboRacer car to a wireless router which reserves a static IP address for the Jetson NX on the vehicle.
 
-        .. figure:: img/nx/nx-software-step1.png
-                :align: center
+If the **Pit/Host** computer doesn't have WiFi capability:
 
-                NVIDIA Developers Download Center
+	#. Connect the **Pit/Host** computer to a WiFi router via an ethernet cable.
+	#. Connect the **NVIDIA Jetson NX** to the same router via WiFi.
 
-2. Under SD Card Image Method, click Jetson Xavier NX Developer Kit.
+To make this section easy to follow, the router's WiFi network SSID will be referred to as ``F1TENTH_WIFI``. In your scenario, it'll be the SSID of your router's access point.
 
-        .. figure:: img/nx/nx-software-step2.png
-                :align: center
+1. Flash the Jetson NX with the NVIDIA SDK Manager
+----------------------------------------------------
+Flashing the Jetson and installing the NVIDIA JetPack software is handled by the **NVIDIA SDK Manager**. Rather than burning an SD card image by hand, follow NVIDIA's official guide and use **Option 2 - NVIDIA SDK Manager** to flash your Jetson:
 
-                Jetson Xavier NX Developer Kit downloads.
+`NVIDIA SDK Manager flashing guide <https://docs.nvidia.com/jetson/orin-nano-devkit/user-guide/latest/setup_bsp.html#option-2-nvidia-sdk-manager>`_
 
-3. The next page will require you to log in with an **NVIDIA Developer Program login**. If you do not have one, click Join Now - Registration is free. If you already have an account, click Login.
-
-        .. figure:: img/nx/nx-software-step3.png
-                :align: center
-
-                NVIDIA Developer Program login page.
-
-4. Once you have logged in, you will be redirected to your profile settings page. At the top of this page, you should see a banner with a button with the text "Jetson Xavier NX Developer Kit SD Card Image." Click this button.
-
-        .. figure:: img/nx/nx-software-step4.png
-                :align: center
-
-                NVIDIA Developer Program profile page download button.
-
-5. Once the zip file has finished downloading, extract it. This will create a new file, sd-blob.img. This is the file that contains the NVIDIA Jetson Xavier NX Developer Kit software and operating system.
-
-6. Put the acquired microSD card into the SD card reader/writer and then plug the SD card reader into the **Host PC**.
-
-7. Download, install, and launch SD card image burning software `Etcher <https://www.balena.io/etcher/>`_.
-
-        .. figure:: img/nx/nx-software-step7.png
-                :align: center
-
-                SD card burner software Etcher.
-
-8. Choose **Flash the file** and select the image you downloaded from NVIDIA. When the file selection window comes up, choose the **sd-XXXX.img** file extracted earlier.
-
-        .. figure:: img/nx/nx-software-step8.png
-                :align: center
-
-                File selection window.
-
-9. For the "target" device, choose the microSD card in the microSD card reader/writer.
-
-        .. figure:: img/nx/nx-software-step9.png
-                :align: center
-
-                Target selection window.
-
-10. Click "Flash!" (or similar for your software). This process will take some time and is mainly depending on the speed write speed of your microSD card (20+ minutes).
-
-        .. figure:: img/nx/nx-software-step10.png
-                :align: center
-
-                Flashing process.
-
-11. Once the flashing process is complete, verify that any activity lights on your SD card reader/writer are no longer blinking. Properly un-mount/eject the microSD card before physically removing it from the reader/writer.
-
-12. Now its time to bring the software on the NVIDIA Jetson NX. Insert the flashed microSD card into the NVIDIA Jetson Xavier NX module with the label facing up. Push the microSD card all the way in until it locks into place with a small click. The edge of the microSD card should be flush with the PCB of the NVIDIA Jetson Xavier NX module and carrier board.
-
-        .. figure:: img/nx/nx-insert-sd.jpg
-                :align: center
-
-                Insert SD card.
-
-        .. figure:: img/nx/nx-sd-inserted.jpg
-                :align: center
-
-                SD card flush.
-
-13. When you have entered the microSD card you can power up the Jetson NX on the RoboRacer car for the first time. First of all plug the following into the Jetson NX:
-  * USB Port: A keyboard
-  * USB Port: A mouse
-  * HDMI Port: An external monitor
-
-14. Now you can provide energy for the RoboRacer car. You either do this with the battery on the car or plug in an external power supply that provides 16V. The Jetson Xavier NX Developer Kit will power on and boot automatically after you provided the power supply.
+Once flashing is complete, boot the Jetson with a monitor, keyboard, and mouse connected, and complete the initial Ubuntu setup (language, keyboard layout, time zone, and the ``f1tenth`` user account).
 
 .. important:: The barrel jack on the powerboard is only rated for **9.0V - 16.0V**. The power supplies that come with the Jetson NX are 19V and therefore have a higher voltage. **Do not plug those in**. Otherwise you will destroy your powerboard.
 
-15. A green LED next to the Micro-USB connector will light as soon as the developer kit powers on. When you boot the first time, the Jetson Xavier NX Developer Kit will take you through some initial setup, including:
+2. Vehicle Hardware Setup
+----------------------------
+If you have an NVIDIA Jetson NX, it comes with a network card onboard. Make sure the antennas are connected. The battery should be plugged into the vehicle and the Powerboard should be on.
 
-  * Review and accept NVIDIA Jetson software EULA
-  * Select system language, keyboard layout, and time zone
-  * Connect to Wireless network
-  * Create username, password, and computer name
-  * Log in
+If you have an NVIDIA Jetson Nano or a Xavier, you'll need to install an additional M.2 network card from Intel to enable wireless networking.
 
-16. After logging in you should see the following screen. Congratulations, your NVIDIA Jetson NX on your RoboRacer car is ready to go.
-
-        .. figure:: img/nx/nx_ready.png
-                :align: center
-
-                First boot of the NVIDIA Jetson NX.
-
-..
-  13. Connect the USB micro end of the USB micro cable to the USB micro port on the NVIDIA Jetson Xavier NX carrier board. Connect the USB A end of the USB micro cable to the host PC.
-
-          .. figure:: img/nx/nx-attach-usb.jpg
-                  :align: center
-
-                  Attaching USB micro end of cable.
-
-  14. Connect the battery on the RoboRacer vehicle.
-  15. Flip the switch on the power distribution board to the ON position.
-  16. After several minutes, you should see a new drive become available on the host PC called "L4T-README." If you do not see this then either the flashing of the microSD card failed or your USB cable is bad or incorrect in some way (e.g. missing data lines).
-  17. In addition to the new drive, you should also have a new Serial, COM, or TTY device available. On Linux and MacOS, this will be in the form of /dev/ttyACMx where x is a number. On Windows, this will be a new COM port. Open your terminal emulator software and connect to this new port using the following settings:
-
-  * Baud rate: 115200 bps
-  * Data bits: 8
-  * Stop bits: 1
-  * Parity: None
-  * Flow control: None
-
-  18. Once connected, you may not see any output on the terminal. Hitting the space bar should show you the license agreement for the NVIDIA software.
-
-          .. figure:: img/nx/nx-software-step18.png
-                  :align: center
-
-                  NVIDIA license agreement.
-
-  19. Hit TAB to select the ``<Ok>`` button. Hit ENTER to accept the license agreement.
-  20. On the next screen, choose your language of choice and hit ENTER.
-
-          .. figure:: img/nx/nx-software-step20.png
-                  :align: center
-
-                  Language selection.
-
-  21. On the next screen, select your region to properly set the time zone and hit ENTER.
-
-          .. figure:: img/nx/nx-software-step21.png
-                  :align: center
-
-                  Region selection.
-
-  22. On the next screen, choose your time zone and hit ENTER.
-
-          .. figure:: img/nx/nx-software-step22.png
-                  :align: center
-
-                  Time zone selection.
-
-  23. On the next screen, you will be asked if the system clock is set to UTC. Choose <Yes> and hit ENTER.
-
-          .. figure:: img/nx/nx-software-step23.png
-                  :align: center
-
-                  System clock base selection.
-
-  24. On the next screen, you will be asked to enter a name for the new user account. Enter ``f1tenth``, hit TAB to select the ``<Ok>`` button, and then hit ENTER.
-
-          .. figure:: img/nx/nx-software-step24.png
-                  :align: center
-
-                  User account full name selection.
-
-  25. On the next screen, you will be asked to enter a username for the new user account. Leave the default of ``f1tenth``, hit TAB to select the ``<Ok>`` button, and hit ENTER.
-
-          .. figure:: img/nx/nx-software-step25.png
-                  :align: center
-
-                  Username selection.
-
-  26. On the next screen, you will be asked to enter a password for the new user. Enter the password ``G0Fast!`` (with a zero instead of the letter o). Hit TAB to select the ``<Ok>`` button, and hit ENTER.
-
-          .. figure:: img/nx/nx-software-step26.png
-                  :align: center
-
-                  Password selection.
-
-  27. On the next screen, you will be asked to re-enter the password. Enter the password again, hit TAB to select the ``<Ok>`` button, and then hit ENTER.
-
-          .. figure:: img/nx/nx-software-step27.png
-                  :align: center
-
-                  Password re-enetry.
-
-  28. On the next screen, you will receive a warning that the selected password is "too weak" due to the lenth. Hit TAB to select <Yes> and then hit ENTER.
-
-          .. figure:: img/nx/nx-software-step28.png
-                  :align: center
-
-                  Weak password confirmation.
-
-  29. On the next screen, you will be asked to select the desired size of the APP partition. Leave the default, hit TAB to select the ``<Ok>`` button, and then hit ENTER.
-
-          .. figure:: img/nx/nx-software-step29.png
-                  :align: center
-
-                  APP partition size selection.
-
-  30. On the next screen, you will be asked to select a primary network interface. Use the arrow keys to select ``eth0``, hit the TAB key to select the ``<Ok>`` button, and then hit ENTER (we will change this after setup is complete).
-
-          .. figure:: img/nx/nx-software-step30.png
-                  :align: center
-
-                  Primary network interface selection.
-
-  31. The next several screens will show the status of connecting to the network. Since there is no Ethernet cable connected to ``eth0``, this is expected to fail. Hit ENTER to continue.
-
-          .. figure:: img/nx/nx-software-step31.png
-                  :align: center
-
-                  Network connection failure.
-
-  32. On the next screen, you will be given several options on how to proceed with connecting to a network. Use the arrow keys to select ``Do not configure the network at this time``, hit the TAB key to select the ``<Ok>`` button, and then hit ENTER.
-
-          .. figure:: img/nx/nx-software-step32.png
-                  :align: center
-
-                  Network configuration selection.
-
-  33. On the next screen, you will be asked to enter the hostname for the NVIDIA Jetson Xavier NX. Erase the current text and type ``jetson-nx``. Hit TAB to select the ``<Ok>`` button, and then hit ENTER.
-
-          .. figure:: img/nx/nx-software-step33.png
-                  :align: center
-
-                  Hostname selection.
-
-  34. The next several screens will show the status of the installation and configuration of the NVIDIA Jetson Xavier NX system. During this process, your terminal session will likely be interrupted and the L4T-README drive will be removed and reconnected.
-  35. Wait at least 30 seconds and then reconnect your terminal session using the same settings as before. This time you should be prompted with a login for the device. Enter the username ``f1tenth`` and then hit ENTER.
-
-          .. figure:: img/nx/nx-software-step35.png
-                  :align: center
-
-                  Terminal login.
-
-  36. You will then be prompted for the password. Enter the password ``G0Fast!`` and hit ENTER. Note that you will not be able to see the characters being entered as you type.
-  37. You should now be logged in to the NVIDIA Jetson Xavier NX Developer Kit.
-
-          .. figure:: img/nx/nx-software-step37.png
-                  :align: center
-
-                  Logged in!
-
-2. Run Jetson NX from SSD
----------------------------
-In the build instruction we applied an SSD NVMe on to the Jetson NX. We will now make use of this SSD  by switching the rootfs to point to the SSD. In effect, the system will now run from the SSD, the SD card is only there to boot the system. Therefore everything you install on your system will automatically installed on the SSD.
-
-Please follow this tutorial `here <https://www.jetsonhacks.com/2020/05/29/jetson-xavier-nx-run-from-ssd/>`_ that has both video and commands integrated to enable your Jetson NX to run from the SSD
-
-.. important:: These script changes the rootfs to the SSD after the kernel image is loaded from the eMMC/SD card. For the Xavier NX, you will still need to have the SD card installed for booting. As of this writing, the default configuration of the Jetson NX does not allow direct booting from the NVMe.
-
-3. Configuring WiFi and SSH
+3. Connecting to WiFi and SSH
 -------------------------------
+Power up the RoboRacer vehicle and connect the car to a monitor (via HDMI) and both a mouse and keyboard (via USB). The Jetson NX will boot to its Ubuntu Desktop.
 
-1. We will use the Network Manager command-line tool nmcli to configure the WiFi on the NVIDIA Jetson Xavier NX. To find the interface name of your WiFi adapter, start by typing ``nmcli d`` and hitting ENTER. This will list your available interfaces. My wifi interface is named ``wlan0`` so I will use that in all future steps. If your WiFi interface is named something different, you will have to replace that in future commands.
+To connect the NVIDIA Jetson NX to WiFi, click the wireless icon in the top-right corner of the Ubuntu Desktop and select your network (``F1TENTH_WIFI``). It might take a while for the NVIDIA Jetson NX to discover the wireless network.
 
-        .. figure:: img/nx/nx-wifi-step-1.png
-                :align: center
+.. image:: img/combine/wifi_setup.png
 
-                WiFi network selection.
+After you're connected to the wireless network, open a terminal and type:
 
-2. To make sure that your WiFi radio is turned on, type ``nmcli r wifi on`` and hit ENTER. This will not show anything on the terminal if the command succeeded.
+.. code-block:: bash
 
-        .. figure:: img/nx/nx-wifi-step-2.png
-                :align: center
+    ifconfig
 
-                Enable WiFi radio.
+You should be able to find your car's assigned IP address under :code:`wlan0`, after ``inet``.
 
-3. To see the list of WiFi SSIDs that your WiFi adapter can see, type ``nmcli d wifi list`` and hit ENTER. After the list is printed, hit ``q`` to continue.
+Next, connect your **Pit/Host** laptop to the **same** wireless network, ``F1TENTH_WIFI``, and find its IP address. On Linux or macOS you can use the same :code:`ifconfig` command (on macOS it may be under ``en0`` or ``en1``). If you're running Linux on the Pit laptop in a virtual machine (VM), you may need to set its network adapter to NAT mode so the VM shares the host's wireless connection instead of controlling the adapter itself.
 
-        .. figure:: img/nx/nx-wifi-step-3.png
-                :align: center
+Now that the car and the laptop are on the **same network**, check that they can reach each other:
 
-                WiFi SSID selection.
+| On the NVIDIA Jetson NX, open a terminal and type :code:`ping [PIT_IP]` (the IP address of the Pit computer).
+| On the Pit computer, open a terminal and type :code:`ping [JETSON_IP]` (the IP address of the NVIDIA Jetson NX).
 
-4. To connect to a specific WiFi SSID, use the command ``sudo nmcli d wifi connect [SSID] password [PASSWORD]`` where ``[SSID]`` is replaced with the SSID with which you want to connect and ``[PASSWORD]`` is replaced with the password to connect to that SSID. Hit ENTER.
+Remember to replace the IP addresses above with **your specific addresses**.
 
-        .. figure:: img/nx/nx-wifi-step-4.png
-                :align: center
+You can now SSH into the car from your laptop:
 
-                Connect to specific WiFi network.
+.. code-block:: bash
 
-5. If the connection was successful, you should see the message ``Device 'wlan0' successfully activated with [GUID]``.
-6. By default, WiFi will be connected using DHCP which means you may get a new IP address each time the device is turned on. In the next steps, we will configure the WiFi connection with a static IP address so you can SSH into the Developer Kit reliably. To set a static IP address, you will need to know the subnet, IP address range, and gateway of your wifi network.
-7. To get the currently-assigned IP address use the command ``ip addr show dev wlan0``.
+    ssh f1tenth@[IP_ADDRESS]
 
-        .. figure:: img/nx/nx-wifi-step-7.png
-                :align: center
+where ``[IP_ADDRESS]`` is the Jetson's WiFi IP address that you found above. Use :code:`ssh` directly if you're on `macOS or Linux <https://support.rackspace.com/how-to/connecting-to-a-server-using-ssh-on-linux-or-mac-os/>`_, or use `PuTTY <https://www.123-reg.co.uk/support/servers/how-do-i-connect-using-ssh-putty/>`_ if you're on Windows.
 
-                Currently-connected WiFi IP address.
-
-8. To set a static IP address, you will also need to know the name of the connection. This is usually the same as the SSID of the WiFi network but not always. To see the list of current connections, use the command ``nmcli c show``.
-
-        .. figure:: img/nx/nx-wifi-step-8.png
-                :align: center
-
-                List of connections.
-
-9. To set a static IP address use the command ``sudo nmcli c mod [CONNECTION_NAME] ipv4.address [NEW_ADDRESS]/[CIDR]`` where ``[CONNECTION_NAME]`` is replaced with the name of your WiFi connection that you got from step 8, ``[NEW_ADDRESS]`` is replaced with the static IP address that you want to set, and ``[CIDR]`` is the `CIDR representation <https://www.ionos.com/digitalguide/server/know-how/cidr-classless-inter-domain-routing/>`_ of the subnet (usually 24).
-
-        .. figure:: img/nx/nx-wifi-step-9.png
-                :align: center
-
-                Setting static IP address.
-
-10. To set the connection's default gateway, use the command ``sudo nmcli c mod [CONNECTION_NAME] ipv4.gateway [GATEWAY_IP]`` where ``[CONNECTION_NAME]`` is replaced with the name of your WiFi connection that you got from step 8 and ``[GATEWAY_IP]`` is replaced with the IP address of your WiFi network's gateway/router.
-
-        .. figure:: img/nx/nx-wifi-step-10.png
-                :align: center
-
-                Setting IP gateway.
-
-11. To set the connection's DNS servers, use the command ``sudo nmcli c mod [CONNECTION_NAME] ipv4.dns "[DNS_SERVER1]"`` where ``[CONNECTION_NAME]`` is replaced with the name of your WiFi connection that you got from step 8 and ``[DNS_SERVERS]`` is replaced with a comma-separated list of DNS server IP addresses. Google DNS servers at 8.8.8.8 and 8.8.4.4 are recommended.
-12. To disable DHCP and always use the static IP address on this connection, use the command ``sudo nmcli c mod [CONNECTION_NAME] ipv4.method manual`` where ``[CONNECTION_NAME]`` is replaced with the name of your WiFi connection that you got from step 8.
-
-        .. figure:: img/nx/nx-wifi-step-12.png
-                :align: center
-
-                Setting connection to always use static IP.
-
-13. To save the changes you've made, run the command ``sudo nmcli c up [CONNECTION_NAME]`` where ``[CONNECTION_NAME]`` is replaced with the name of your WiFi connection that you got from step 8.
-
-14. To verify that you can SSH into the NVIDIA Jetson Xavier NX Developer Kit, verify that the Pit/Host PC is connected to the **same network** as the Jetson Xavier NX Developer Kit and use an SSH client on the Host PC to connect to the new IP address of the Developer Kit. On Linux this would be done with the command ``ssh f1tenth@[IP_ADDRESS]`` where ``[IP_ADDRESS]`` is replaced with the static IP address that you assigned to the Developer Kit. After you have verified that SSH works correctly, you can close the connection to the Developer Kit in your terminal emulator.
+We recommend using `tmux <https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/>`_ while you're ssh-ed into the car. That way you can close the terminal and your code on the car keeps running, since the SSH session is only paused. You'll need to install :code:`tmux` on the respective system you are using.
 
 4. Updating Packages
 ------------------------
@@ -372,3 +112,11 @@ All further steps assume that your NVIDIA Jetson Xavier NX Developer Kit is conn
       git clone https://github.com/jetsonhacks/logitech-f710-module
       cd logitech-f710-module
       ./install-module.sh
+
+7. Using a Remote Desktop
+----------------------------
+Although we now have SSH access to the car, it is still inconvenient to run GUI applications on the car remotely. In this section, we'll go over how to set up a remote desktop so you can easily use GUI applications like rviz. In our example, we'll use **NoMachine**. If you're an advanced user and can find another remote desktop solution that works on the car, feel free to use it.
+
+First, download NoMachine for your **pit/host** computer's specific OS `here <https://www.nomachine.com/download>`__. Then, while your Jetson is still connected to the monitor, install NoMachine following this guide `here <https://knowledgebase.nomachine.com/AR02R01074>`__. Note that the guide uses Jetson Nano, the same applies to Jetson Xavier NX. You only have to follow the *Install NoMachine* section and don't have to set up an alternative desktop environment.
+
+After NoMachine is installed on both sides, go to your pit/host's NoMachine, click **Add** to configure your connection and insert the IP address of the Jetson. You'll only need to change the *Host* field. Click connect to connect to the Jetson. You'll then be prompted for the Jetson's username and password to log in. Now you should have remote desktop access to the Jetson.

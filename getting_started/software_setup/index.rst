@@ -29,16 +29,15 @@ The image below represents the flow of information on the RoboRacer Autonomous V
 .. figure:: img/f1tenth_sys_flow_NEW.png
   	:align: center
 
-	.. Flow of information on the RoboRacer Autonomous Vehicle System.
+	Flow of information on the RoboRacer Autonomous Vehicle System.
 
 The **NVIDIA Jetson NX** is the main brain of the entire system. It gives commands to the **VESC** which controls the **Servo** and the **Brushless Motor** on the RoboRacer Vehicle. The **NVIDIA Jetson NX** also receives information from the **LiDAR** either via USB or Ethernet. All of these communication are done through ROS 2, we'll go over how to set that up later on.
 
-The **Pit/Host** laptop is is your main computer that's used as remote access to the onboard computer of the car. The operating system on this laptop doesn't matter since we're only using it for remote access via SSH or remote desktop. We'll discuss how to use the simulator in a later section.
+The **Pit/Host** laptop is your main computer that's used to remotely access the onboard computer of the car. The operating system on this laptop doesn't matter since we're only using it for remote access via SSH or remote desktop. We'll discuss how to use the simulator in a later section.
 
-The configuration of the RoboRacer system has three subsections:
+The configuration of the RoboRacer system has two subsections:
 
-#. :ref:`Configuring the NVIDIA Jetson NX <doc_optional_software_nx>` contains all necessary steps to flash the **NVIDIA Jetson Xavier NX** with an operating system.
-#. :ref:`Wireless setup <doc_software_combine>` goes over how to set up a wireless communication system between the **Pit/Host** laptop and the **NVIDIA Jetson NX** once you have already completed the above section.
+#. :ref:`Configuring and Connecting to the NVIDIA Jetson NX <doc_optional_software_nx>` walks you through flashing the **NVIDIA Jetson Xavier NX**, connecting it and your **Pit/Host** laptop to the same wireless network, and setting up SSH and remote desktop access.
 #. :ref:`DEPRECATED - Configuring the TX2 <doc_software_jetson>` contains all necessary steps to configure the **NVIDIA Jetson TX2**. Note that we no longer support the TX2.
 
 .. tip::
@@ -52,5 +51,4 @@ The configuration of the RoboRacer system has three subsections:
 	 :hidden:
 
    optional_software_nx
-   software_combine
    software_jetson
