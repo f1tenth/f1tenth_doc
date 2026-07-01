@@ -64,12 +64,12 @@ On the left side of the screen, click on the **Firmware** tab, then press the **
 
 	Update the firmware.
 
-Once the firmware has been flashed and the VESC has reconnected, enable servo output from the PPM port (needed for steering) by going to **App Settings** > **General** > **Enable Servo Output** in the VESC Tool.
+Once the firmware has been flashed and the VESC has reconnected, enable servo output from the PPM port (needed for steering) by going to **App Settings** > **General** > **Enable Servo Output** in the VESC Tool. After ticking the box, click the **Write App Configuration** button (the button with a down arrow and the letter "A") on the right side of the screen to save the setting to the VESC. If you skip this step the change is not written to the device and servo output stays disabled.
 
 .. figure:: img/vesc/servo.png
 	:align: center
 
-	Enable Servo Output under App Settings > General.
+	Enable Servo Output under App Settings > General, then click Write App Configuration to save it.
 
 5. Uploading the Motor Configuration XML
 -------------------------------------------
