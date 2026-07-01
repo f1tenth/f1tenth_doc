@@ -1,3 +1,5 @@
+:orphan:
+
 .. _doc_going_forward_simulation:
 
 Simulation

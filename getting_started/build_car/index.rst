@@ -1,7 +1,7 @@
 .. _doc_build_car:
 
 Building the RoboRacer Car
-=====================
+==========================
 In this build guidelines we are focusing on the hardware setup of our RoboRacer vehicle based on the `Traxxas Slash 4x4 Premium <https://traxxas.com/products/models/electric/6804Rslash4x4platinum>`_ Chassis and the `NVIDIA Jetson Xavier NX <https://developer.nvidia.com/embedded/jetson-xavier-nx-devkit>`_. At the end of this build guidelines, you will have a fully functioning RoboRacer Autonomous Vehicle.
 
 There are three main sections to the car.
@@ -35,7 +35,7 @@ There are three main sections to the car.
 
 
 .. note::
-  If you have any build and/or setup questions, post to the `forum <https://robo-racer.slack.com/ssb/redirect>`_.
+  If you have any build and/or setup questions, post to the `RoboRacer Slack <https://join.slack.com/t/robo-racer/shared_invite/zt-42lsbf50y-_3YPNLl_d3s~wPylAOMg0g>`_.
 
 .. toctree::
    :maxdepth: 1

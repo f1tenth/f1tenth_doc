@@ -44,7 +44,7 @@ We first need to install NVIDIA SDK Manager. It provides an end-to-end developme
 
 2. Installing JetPack on Pit/Host Computer
 --------------------------------------------
-Install JetPack 4.3 (L4T 32.3.1) on **Pit/Host** computer with `NVIDIA SDK Manager <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html>`_.
+Install JetPack 4.3 (L4T 32.3.1) on **Pit/Host** computer with `NVIDIA SDK Manager <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html>`__.
 	#. In Hardware Configuration: select Host Machine and in for Target Hardware, select Jetson TX2.
 	#. If your window does not display all information, press Tab to scroll down, or use a bigger monitor.
 	#. Follow instructions in SDKM,

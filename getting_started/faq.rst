@@ -5,7 +5,7 @@
 
 FAQ
 ==========================
-This will be updated as we get new questions. Please post questions in the `RoboRacer Discourse <https://robo-racer.slack.com/ssb/redirect/>`_. Answers to common problems will be compiled here.
+This will be updated as we get new questions. Please post questions in the `RoboRacer Slack <https://join.slack.com/t/robo-racer/shared_invite/zt-42lsbf50y-_3YPNLl_d3s~wPylAOMg0g>`_. Answers to common problems will be compiled here.
 
 General
 ----------------
@@ -28,6 +28,15 @@ There are different places where you find autonomous racing code:
 Material or components are not available
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Yes, we are aware that components are sometimes out of stock. Please be patient here and contact a few vendors. In addition there are many parts that are interchangeable like the NVIDIA Jetson components or the Traxxas chassis
+
+Can I use a different onboard computer or LiDAR?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Yes. The build guide documents one reference setup (an NVIDIA Jetson Orin Nano and a supported LiDAR), but the hardware is not fixed:
+
+* **Onboard computer:** any compute that can run the ``f1tenth_stack`` driver stack (ROS 2) and has enough USB/ethernet ports to interface with the peripherals works. Other NVIDIA Jetson boards (e.g. Xavier NX, AGX, Orin) use the same flashing workflow.
+* **LiDAR:** you may use any LiDAR as long as it is supported by the ``f1tenth_stack``. See the **LIDAR variants** entry below for the ethernet vs USB setup details. Generally, any LiDAR that publishes a ROS 2 ``sensor_msgs/LaserScan`` should work if you run the ``f1tenth_stack`` using the `no_lidar` launch file. For a list of officially supported LiDARs please check the `LiDAR variants <#lidar-variants>`__ entry below. If you have a LiDAR setup that works with the ``f1tenth_stack`` but is not listed in the supported LiDARs, please create a pull request to add it to the list.
+
+For competitions please check the `RoboRacer competition rules <https://github.com/f1tenth/roboracer_rules>`__ for your event.
 
 
 Mechanical
@@ -86,7 +95,7 @@ Software
 ----------------
 LIDAR variants
 ^^^^^^^^^^^^^^^^
-If you are using the Hokuyo 10LX please confirm that you properly configured the wired network connection as described :ref:`here <doc_firmware_hokuyo10>`.
+The driver stack supports several LiDARs. If you are using an ethernet LiDAR such as the **Hokuyo 10LX** or the **SICK TiM 5xx**, confirm that you properly configured the wired network connection as described in the :ref:`Driver Stack Setup <doc_firmware_hokuyo10>`. USB LiDARs (for example the Hokuyo UST-10/20LX) are detected over USB and do not require the wired network setup. In general, any LiDAR that works with ``f1tenth_stack`` works. For competitions please check the `RoboRacer competition rules <https://github.com/f1tenth/roboracer_rules>`__ for your event.
 
 
 USB works, but LIDAR and VESC do not work

@@ -95,7 +95,7 @@ Place the battery into the compartment opposite of the motor.
 
 
 DEPRECATED: Installing the Brushless Motor - Traxxas Ford Fiesta Chassis Only
------------------------------------
+-----------------------------------------------------------------------------
 If you are not using the Traxxas Slash 4x4 chassis you will have to replace the premounted electrical engine with a new brushless motor listed in the Bill of Material. To install this brushless motor, first remove the blue Motor Plate and the spur gear from the Brushed Motor. Loosen the set screw with one of the hex keys provided in the Traxxas kit then pull the Spur Gear off. If it feels a bit stuck, carefully use a flathead screwdriver to push it off.
 
 	 .. figure:: img/llchassis/llchassis06.JPG

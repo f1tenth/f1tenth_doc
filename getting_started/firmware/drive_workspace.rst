@@ -1,279 +1,253 @@
 .. _doc_drive_workspace:
 
-3. RoboRacer Driver Stack Setup
+2. RoboRacer Driver Stack Setup
 =================================
 **Equipment Required:**
-	* Fully built RoboRacer  vehicle
+	* Fully built RoboRacer vehicle
 	* Pit/Host computer OR
 	* External monitor/display, HDMI cable, keyboard, mouse
 
 **Approximate Time Investment:** 1.5 hour
 
-.. warning:: **Before you proceed**, this specific section goes over how to set up the driver stack **natively** if you have Jetson Xaviers and above, **and** JetPack versions after 5.0 and wish to use ROS 2. For JetPack versions below 5.0 and Jetsons before Xavier, go to :ref:`Driver Stack Setup with Docker Containers <doc_drive_workspace_docker>` and follow the instructions there.
+.. warning:: **Before you proceed**, this section sets up the driver stack **natively** for Jetson Xavier and above running **JetPack 5.0 or newer** (Ubuntu 20.04+) with ROS 2. For JetPack versions below 5.0 and Jetsons before Xavier, go to :ref:`Driver Stack Setup with Docker Containers <doc_drive_workspace_docker>` and follow the instructions there instead.
 
 Overview
 ----------
-Since the release of `JetPack 5.0 Developer Preview <https://developer.nvidia.com/jetpack-sdk-50dp>`_ the Jetson can now run on Ubuntu 20.04, and we can install ROS 2 natively and conveniently.
-We use ROS 2 Foxy for communication and run the car. You can find a tutorial on ROS 2 `here <https://docs.ros.org/en/foxy/Tutorials.html>`_.
+We use **ROS 2 Humble** for communication and to run the car. You can find a tutorial on ROS 2 `here <https://docs.ros.org/en/humble/Tutorials.html>`_.
 
-In the following section, we'll go over how to set up the **drivers** for sensors and the motor control:
+In this section you'll install ROS 2 Humble and its utilities, set up udev rules for the sensors, install and build the F1TENTH driver stack, and configure your LiDAR.
 
-#. Setting up :ref:`udev rules <udev_rules>` for our sensors.
-#. Installing :ref:`ROS 2 and its utilities <install_ros2>`.
-#. Setting up the :ref:`driver stack <software_stack>`.
-#. Launch :ref:`teleoperation and the LiDAR <teleop_setup>`.
+Everything in this section is done on the **Jetson NX**, so you'll need to connect to it via SSH from the Pit laptop or plug in the monitor, keyboard, and mouse.
 
-.. We'll need to set up the :ref:`ROS workspace <ros_workspace>`, set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`.
+1. Installing ROS 2 Humble
+----------------------------
+Follow the official ROS 2 Humble installation guide to install ROS 2 from Debian packages:
 
-Everything in this section is done on the **Jetson NX** so you will need to connect to it via SSH from the Pit laptop or plug in the monitor, keyboard, and mouse.
+`ROS 2 Humble — Ubuntu (Debian packages) Installation <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html>`_
 
-.. _udev_rules:
-
-1. udev Rules Setup
-----------------------
-When you connect the VESC and a USB lidar to the Jetson, the operating system will assign them device names of the form ``/dev/ttyACMx``, where ``x`` is a number that depends on the order in which they were plugged in. For example, if you plug in the lidar before you plug in the VESC, the lidar will be assigned the name ``/dev/ttyACM0``, and the VESC will be assigned ``/dev/ttyACM1``. This is a problem, as the car’s configuration needs to know which device names the lidar and VESC are assigned, and these can vary every time we reboot the Jetson, depending on the order in which the devices are initialized.
-
-Fortunately, Linux has a utility named udev that allows us to assign each device a “virtual” name based on its vendor and product IDs. For example, if we plug a USB device in and its vendor ID matches the ID for Hokuyo laser scanners (15d1), udev could assign the device the name ``/dev/sensors/hokuyo`` instead of the more generic ``/dev/ttyACMx``. This allows our configuration scripts to refer to things like ``/dev/sensors/hokuyo`` and ``/dev/sensors/vesc``, which do not depend on the order in which the devices were initialized. We will use udev to assign persistent device names to the lidar, VESC, and joypad by creating three configuration files (“rules”) in the directory ``/etc/udev/rules.d``.
-
-First, **as root**, open ``/etc/udev/rules.d/99-hokuyo.rules`` in a text editor to create a new rules file for the Hokuyo. Copy the following rule exactly as it appears below in a single line and save it:
+When you reach the install step, install the **ROS-Base Install (Bare Bones)** — this provides the communication libraries, message packages, and command-line tools, with **no GUI tools**:
 
 .. code-block:: bash
 
-	KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="15d1", MODE="0666", GROUP="dialout", SYMLINK+="sensors/hokuyo"
+    sudo apt install ros-humble-ros-base
+
+2. Installing rosdep
+----------------------
+``rosdep`` is the dependency-resolution tool we'll use to install the driver stack's dependencies. Install and initialize it by following the official guide:
+
+`Installing and initializing rosdep <https://docs.ros.org/en/humble/Installation/Alternatives/Ubuntu-Install-Binary.html#installing-and-initializing-rosdep>`_
+
+3. udev Rules Setup
+----------------------
+When you connect the VESC and a USB LiDAR to the Jetson, the operating system will assign them device names of the form ``/dev/ttyACMx``, where ``x`` is a number that depends on the order in which they were plugged in. For example, if you plug in the LiDAR before the VESC, the LiDAR will be assigned ``/dev/ttyACM0`` and the VESC ``/dev/ttyACM1``. This is a problem, as the car's configuration needs to know which device name belongs to which device, and these can change every time you reboot depending on the initialization order.
+
+Fortunately, Linux has a utility named udev that lets us assign each device a "virtual" name based on its vendor and product IDs. We will use udev to assign persistent device names to the LiDAR, VESC, and joypad by creating configuration files ("rules") in the directory ``/etc/udev/rules.d``.
+
+.. tip:: These rule files have to be created **as root** with a text editor. If you don't already have a terminal editor you're comfortable with, install ``nano`` and use it to open and edit each file — it's the easiest option:
+
+    .. code-block:: bash
+
+        sudo apt install nano
+
+    Then open any file below with ``sudo nano <filename>`` (for example ``sudo nano /etc/udev/rules.d/99-vesc.rules``), paste the rule, and save with ``Ctrl+O`` then exit with ``Ctrl+X``.
+
+**Hokuyo LiDAR rule (skip this first rule if you are not using a Hokuyo USB LiDAR — e.g. if you're using an ethernet SICK LiDAR).**
+
+Open ``/etc/udev/rules.d/99-hokuyo.rules`` and copy in the following rule exactly as it appears below, on a single line, then save it:
+
+.. code-block:: bash
+
+    KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="15d1", MODE="0666", GROUP="dialout", SYMLINK+="sensors/hokuyo"
 
 Next, open ``/etc/udev/rules.d/99-vesc.rules`` and copy in the following rule for the VESC:
 
 .. code-block:: bash
 
-	KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0666", GROUP="dialout", SYMLINK+="sensors/vesc"
+    KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0666", GROUP="dialout", SYMLINK+="sensors/vesc"
 
 Then open ``/etc/udev/rules.d/99-joypad-f710.rules`` and add this rule for the joypad:
 
 .. code-block:: bash
 
-	KERNEL=="js[0-9]*", ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c219", SYMLINK+="input/joypad-f710"
+    KERNEL=="js[0-9]*", ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c219", SYMLINK+="input/joypad-f710"
 
-Finally, trigger (activate) the rules by running
+.. note:: The Logitech F710 has a **D/X** switch on the back. The rule above uses the DirectInput (**D**) product ID ``c219``. If your joypad enumerates with product ID ``c21f`` instead, it is in XInput (**X**) mode — either flip the switch to **D**, or replace ``c219`` with ``c21f`` in the rule above. Run ``lsusb`` (look for the *Logitech* entry) to confirm which product ID your joypad reports.
 
-.. code-block:: bash
-
-	sudo udevadm control --reload-rules
-	sudo udevadm trigger
-
-Reboot your system, and you should find three new devices by running
+Finally, trigger (activate) the rules by running:
 
 .. code-block:: bash
 
-	ls /dev/sensors
+    sudo udevadm control --reload-rules
+    sudo udevadm trigger
 
-and:
-
-.. code-block:: bash
-
-	ls /dev/input
-
-If you want to add additional devices and don’t know their vendor or product IDs, you can use the command
+Reboot your system, and you should find the new devices by running:
 
 .. code-block:: bash
 
-	sudo udevadm info --name=<your_device_name> --attribute-walk
+    ls /dev/sensors
+    ls /dev/input
 
-making sure to replace ``<your_device_name>`` with the name of your device (e.g. ttyACM0 if that’s what the OS assigned it. The Unix utility dmesg can help you find that). The topmost entry will be the entry for your device; lower entries are for the device’s parents.
-
-.. .. _ros_workspace:
-
-.. 1. Setting Up the ROS Workspace
-.. ---------------------------------
-.. Connect to the **Jetson NX** either via SSH on the **Pit** laptop or a wired connection (monitor, keyboard, mouse).
-
-.. On the **Jetson NX**, setup your ROS workspace (for the driver nodes onboard the vehicle) by opening a terminal window and following these steps.
-
-.. #. Clone the following repository into a folder on your computer.
-
-.. 	.. code-block:: bash
-
-.. 		$​ ​cd​ ~/sandbox (or whatever folder you want to work ​in​)
-.. 		$​ git ​clone​ https://github.com/f1tenth/f1tenth_system
-
-.. #. Create a workspace folder if you haven’t already, here called ``f1tenth_ws``, and copy the ``f1tenth_system`` folder into it.
-
-.. 	.. code-block:: bash
-
-.. 		$​ mkdir -p f1tenth_ws/src
-.. 		$​ cp -r f1tenth_system f1tenth_ws/src/
-
-.. #. You might need to install some additional ROS packages.
-
-.. 	For ROS Kinetic:
-
-.. 		.. code-block:: bash
-
-.. 			$​ sudo apt-get update
-.. 			$​ sudo apt-get install ros-kinetic-driver-base
-
-.. 	For ROS Melodic:
-
-.. 		.. code-block:: bash
-
-.. 			$​ sudo apt-get update
-.. 			$​ sudo apt-get install ros-melodic-driver-base
-
-.. #. Make all the Python scripts executable.
-
-.. 	.. code-block:: bash
-
-.. 		$​ ​cd​ f1tenth_ws
-.. 		$​ find . -name “*.py” -exec chmod +x {} \;
-
-.. #. Move to your workspace folder and compile the code (catkin_make does more than code compilation - see online reference).
-
-.. 	.. code-block:: bash
-
-.. 		$​ catkin_make
-
-.. #. Finally, source your working directory into your shell using
-
-.. 	.. code-block:: bash
-
-.. 		$​ source devel/setup.bash
-
-.. ..
-.. 	Workspace Content Breakdown
-.. 	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. 	Examine the contents of your workspace and you will see 3 folders. In the ROS world we call these **meta-packages** since they contain package.
-
-.. 		* algorithms
-.. 		* simulator
-.. 		* system
-
-.. 	#. Algorithms contains the brains of the car which run high level algorithms, such as wall following, pure pursuit, localization.
-.. 	#. Simulator contains racecar-simulator which is based off of MIT Racecar’s repository and includes some new worlds such as Levine 2nd floor loop. Simulator also contains f1_10_sim which contains some message types useful for passing drive parameters data from the algorithm nodes to the VESC nodes that drive the car.
-.. 	#. System contains code from MIT Racecar that the car would not be able to work without. For instance, System contains ackermann_msgs (for Ackermann steering), racecar (which contains parameters for max speed, sensor IP addresses, and teleoperation), serial (for USB serial communication with VESC), and vesc (written by MIT for VESC to work with the racecar).
-
-.. 	We will be focusing on the **System** folder in this section. :ref:`Going Forward <doc_going_forward_intro>` will utilize the firsit two folders - **Algorithms** and **Simulator**.
-
-.. _install_ros2:
-2. Installing ROS 2 and its Utilities
----------------------------------------
-First, follow the instructions from `the official ROS 2 Foxy Installation Guide <https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html>`_ to install ROS 2 via Debian Packages.
-
-Next, we'll need ``colcon`` as the main build tool for ROS 2. Install it following the `instructions here <https://docs.ros.org/en/foxy/Tutorials/Colcon-Tutorial.html?highlight=colcon#install-colcon>`_.
-
-Lastly, we'll need ``rosdep`` as the dependency resolution tool. Install it following the `instructions here <https://docs.ros.org/en/foxy/How-To-Guides/Building-a-Custom-Debian-Package.html?highlight=rosdep#install-dependencies>`_ and initialize it following the `instructions here <https://docs.ros.org/en/foxy/How-To-Guides/Building-a-Custom-Debian-Package.html?highlight=rosdep#install-dependencies>`_.
-
-.. _software_stack:
-3. Setting up the Driver Stack
-----------------------------------
-
-First, we'll create a ROS 2 workspace for our driver stack with the following commands. We'll be using ``f1tenth_ws`` as the name of our workspace going forward in this section.
+If you want to add additional devices and don't know their vendor or product IDs, you can use the command:
 
 .. code-block:: bash
 
-	cd $HOME
-	mkdir -p f1tenth_ws/src
+    sudo udevadm info --name=<your_device_name> --attribute-walk
 
-Then, make this into a ROS 2 workspace by running:
+making sure to replace ``<your_device_name>`` with the name of your device (e.g. ``ttyACM0`` if that's what the OS assigned it — the Unix utility ``dmesg`` can help you find that). The topmost entry will be the entry for your device; lower entries are for the device's parents.
 
-.. code-block:: bash
-
-	cd f1tenth_ws
-	colcon build
-
-Next, we'll clone the repo into the ``src`` directory of our workspace:
+4. Installing the F1TENTH Driver Stack
+----------------------------------------
+First, source ROS 2 so that ``colcon`` and the other build tools are available (do this in every new terminal, or add it to your ``~/.bashrc``):
 
 .. code-block:: bash
 
-	cd src
-	git clone https://github.com/f1tenth/f1tenth_system.git
+    source /opt/ros/humble/setup.bash
 
-Then we'll update the git submodules and pull in all the necessary packages
-
-.. code-block:: bash
-
-	cd f1tenth_system
-	git submodule update --init --force --remote
-
-After git finishes cloning, we can now install all dependencies for our packages with ``rosdep``:
+Create a ROS workspace:
 
 .. code-block:: bash
 
-	cd $HOME/f1tenth_ws
-	rosdep update
-	rosdep install --from-paths src -i -y
+    cd $HOME && mkdir -p f1tenth_ws/src
 
-Lastly, after dependencies are installed, we can build our workspace again with the driver stack pacakges:
+Clone the F1TENTH stack repo from the ``humble-devel`` branch:
 
 .. code-block:: bash
 
-	colcon build
+    cd f1tenth_ws/src
+    git clone --branch humble-devel https://github.com/f1tenth/f1tenth_system.git
+
+Update the git submodules to pull in all the necessary packages:
+
+.. code-block:: bash
+
+    cd f1tenth_system
+    git submodule update --init --recursive --remote
+
+Install the dependencies with ``rosdep``:
+
+.. code-block:: bash
+
+    cd $HOME/f1tenth_ws
+    rosdep update --include-eol --rosdistro=humble
+    rosdep install --include-eol --from-paths src -i -y --rosdistro=humble
+
+Build the workspace:
+
+.. code-block:: bash
+
+    colcon build
+
+.. note:: If you get a CMake error about ``asio_cmake_module`` being missing while building the ``vesc_driver`` package, install it and build again:
+
+    .. code-block:: bash
+
+        sudo apt install ros-humble-asio-cmake-module
+        colcon build
 
 You can find more details on how the drivers are set up in the README of the `f1tenth_system repo <https://github.com/f1tenth/f1tenth_system>`_.
 
-.. _teleop_setup:
+.. _lidar_setup:
+.. _doc_firmware_hokuyo10:
 
-4. Launching Teleop and Testing the LiDAR
-----------------------------------------------
-This section assumes that the lidar has already been plugged in (either to the USB hub or to the ethernet port). If you are using the Hokuyo 10LX or a lidar that is connected via the ethernet port of the Orbitty, make sure that you have completed the :ref:`Hokuyo 10LX Ethernet Connection <doc_firmware_hokuyo10>` section before preceding.
+5. Setting Up Your LiDAR
+--------------------------
+The driver stack supports different LiDARs. Follow the option that matches your hardware.
 
-Before the bringup launch, you'll have to set the correct parameters according to which LiDAR you're using in the params file ``sensors.yaml``. All parameter files are located in the following location:
+Option 1 — Hokuyo LiDAR
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you are using a **USB Hokuyo** (e.g. the 30LX), no extra setup is needed — it is referenced through the udev rule you created in the udev Rules Setup section above.
+
+If you have a **Hokuyo 10LX** that connects over **ethernet**, you'll need to configure the ``eth0`` network. From the factory, the 10LX is assigned the IP ``192.168.0.10`` (note that the LiDAR is on subnet 0).
+
+Open **Network Configuration** in the Linux GUI on the Jetson NX. In the IPv4 tab, add a connection so that the ``eth0`` port is assigned:
+
+    * IP address ``192.168.0.15``
+    * Subnet mask ``255.255.255.0``
+    * Gateway ``192.168.0.10``
+
+Name the connection ``Hokuyo``, save it, and close the network configuration GUI. When you plug in the 10LX, make sure the ``Hokuyo`` connection is selected. If everything is configured properly, you should now be able to ping ``192.168.0.10``.
+
+.. image:: img/hokuyo1.gif
+    :align: center
+    :width: 200px
+
+Option 2 — SICK ethernet LiDAR
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you are using a SICK ethernet LiDAR (e.g. a SICK TiM), follow these steps.
+
+1. Install the SICK LiDAR driver:
 
 .. code-block:: bash
 
-	$HOME/f1tenth_ws/src/f1tenth_system/f1tenth_stack/config/
+    sudo apt install ros-humble-sick-scan-xd
 
-A. If you're using an ethernet based LiDAR, set the ``ip_address`` field to the corresponding ip address of your LiDAR.
+2. Configure the Jetson's wired (ethernet) connection so it is on the **same subnet** as the LiDAR. Open the network settings, edit the **Wired** connection's **IPv4** tab, set the method to **Manual**, and add an address:
 
-B. If you're using a USB based LiDAR, comment out the ``ip_address`` field, and uncomment the line with the ``serial_port`` field. And set the value to the correct udev name from :ref:`udev rules set up <udev_rules>`.
+    * Address: ``192.168.0.15``
+    * Netmask: ``255.255.255.0``
+    * Gateway: leave blank (no gateway is required for a direct connection)
 
-In your running container, run the following commands to source the ROS 2 underlay and our workspace's overlay:
+The address just needs to be on the ``192.168.0.x`` subnet and different from the LiDAR's address. Click **Apply**.
 
-.. code-block:: bash
+.. figure:: img/sick/ipv4_setup.png
+    :align: center
 
-	source /opt/ros/foxy/setup.bash
-	cd $HOME/f1tenth_ws
-	source install/setup.bash
+    Setting a static IPv4 address for the wired connection to the SICK LiDAR.
 
-Then, you can launch the bring up with:
-
-.. code-block:: bash
-
-	ros2 launch f1tenth_stack bringup_launch.py
-
-Running the bringup launch will start the VESC drivers, the LiDAR drivers, the joystick drivers, and all necessary packages for running the car. To see the LaserScan messages, in a new terminal window, run
+3. Find the LiDAR's IP address. SICK LiDARs ship with a factory IP on the ``192.168.0.x`` subnet. Scan the subnet to discover which address it's using:
 
 .. code-block:: bash
 
-	source /opt/ros/foxy/setup.bash
-	cd $HOME/f1tenth_ws
-	source install/setup.bash
-	rviz2
+    sudo nmap -sn 192.168.0.0/24
 
-The rviz window should show up. Then you can add a LaserScan visualization in rviz on the ``/scan`` topic.
+4. Point the launch files at your LiDAR's IP address. Both files are in:
 
-.. Once you’ve set up the lidar, you can test it using urg_node/hokuyo_node (replace the hokuyo_node by the urg_node if you have 10LX with Ethernet connection: https://github.com/ros-drivers/urg_node.git), rviz, and rostopic.
+.. code-block:: bash
 
-.. A. If you're using the 10LX:
+    /home/nvidia/f1tenth_ws/src/f1tenth_system/f1tenth_stack/launch/
 
-.. 	* Start ``roscore​`` in a terminal window.
-.. 	* In another (new) terminal window, run ``rosrun urg_node urg_node _ip_address:="192.168.0.10"​``. Make sure to supply the urg node with the correct port number for the 10LX.
-.. 	* This tells ROS to start reading from the lidar and publishing on the ​/scan​ topic. If you get an error saying that there is an “error connecting to Hokuyo,” double check that the Hokuyo is physically plugged into a USB port. You can use the terminal command ``lsusb​to`` check whether Linux successfully detected your lidar. If the node started and is publishing correctly, you should be able to use ``rostopic echo /scan​`` to see live lidar data.
-.. 	* In the racecar config folder under ``lidar_node`` set the following parameter in sensors.yaml: ``ip_address: 192.168.0.10``. In addition in the ``sensors.launch.xml`` change the argument for the lidar launch from ``hokuyo_node`` to ``urg_node`` do the same thing for the ``node_type`` parameter.
+Open ``sick_tim_5xx.launch``, go to **line 22**, and set the ``hostname`` to your LiDAR's IP address:
 
-.. B. If you're using the 30LX:
+.. code-block:: xml
 
-.. 	* Run ``roslaunch racecar teleop.launch`` in a sourced terminal window, by default, the launch file brings up the hokuyo node.
+    <arg name="hostname" default="X.X.X.X"/>
 
-.. Once your lidar driver node is running, open another terminal and run ``rosrun rviz rviz​`` or simply ``rviz`` to visually see the data. When ``rviz​`` opens, click the “Add” button at the lower left corner. A dialog will pop up; from here, click the *By topic* tab, highlight the *LaserScan* topic, and click *OK*. You might have to switch from viewing in the ``\map`` frame to the ``laser`` frame. If the laser frame is not there, you can type in ``laser`` in the frame text field.
+.. figure:: img/sick/sick_tim_5xx_launch.png
+    :align: center
 
-.. ``rviz`` will now show a collection of points of the lidar data in the gray grid in the center of the screen. You might have to change the size and color of the points in the LaserScan setting to see the points clearer.
+    Setting the LiDAR IP in ``sick_tim_5xx.launch``.
 
-.. 	* Try moving a flat object, such as a book, in front of the lidar and to its sides. You should see a corresponding flat line of points on the ​rviz​ grid.
-.. 	* Try picking the car up and moving it around, and note how the lidar scan data changes,
+Then open ``sick_bringup_launch.py``, go to **line 114**, and set the ``arguments`` path so it points at your ``sick_tim_5xx.launch`` file:
 
-.. You can also see the lidar data in text form by using ​``rostopic echo /scan`` ​. The type of message published to it is sensor_msgs/LaserScan​, which you can also see by running ``rostopic info /scan​`` . There are many fields in this message type, but for our course, the most important one is ​ranges​, which is a list of distances the sensor records in order as it sweeps from its rightmost position to its leftmost position.
+.. code-block:: python
 
-.. With all of the parts connected now, we can move on to driving with a joystick!
+    arguments=["/home/nvidia/f1tenth_ws/src/f1tenth_system/f1tenth_stack/launch/sick_tim_5xx.launch"]
 
-.. .. image:: img/drive01.gif
-.. 	:align: center
-.. 	:width: 200pt
+.. figure:: img/sick/sick_bringup_launch.png
+    :align: center
+
+    Pointing ``sick_bringup_launch.py`` at the SICK launch file.
+
+.. note:: The exact line numbers (22 and 114) may shift slightly if the files have been updated — look for the ``hostname`` argument in ``sick_tim_5xx.launch`` and the ``arguments=[...]`` entry of the ``sick_node`` in ``sick_bringup_launch.py``.
+
+6. Launching the Driver Stack
+-------------------------------
+Once your LiDAR is configured, source the ROS 2 underlay and your workspace's overlay, then launch the bringup:
+
+.. code-block:: bash
+
+    source /opt/ros/humble/setup.bash
+    cd $HOME/f1tenth_ws
+    source install/setup.bash
+    ros2 launch f1tenth_stack bringup_launch.py
+
+Running the bringup launch will start the VESC drivers, the LiDAR drivers, the joystick drivers, and all necessary packages for running the car. To see the LaserScan messages, open a new terminal and run:
+
+.. code-block:: bash
+
+    source /opt/ros/humble/setup.bash
+    cd $HOME/f1tenth_ws
+    source install/setup.bash
+    rviz2
+
+The rviz window should show up. Add a **LaserScan** visualization on the ``/scan`` topic to see your LiDAR data.

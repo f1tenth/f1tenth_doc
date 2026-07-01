@@ -13,9 +13,9 @@
 
 Overview
 ----------
-We use Docker to containerize the software stack. You can find a tutorial on basic Docker concepts `here <https://docs.docker.com/get-started/>`_. We'll also utilize `nvidia-docker <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html>`_ to use the GPU onboard inside containers. Both of these dependencies should already come with JetPack after you've flashed your Jetson.
+We use Docker to containerize the software stack. You can find a tutorial on basic Docker concepts `here <https://docs.docker.com/get-started/>`__. We'll also utilize `nvidia-docker <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html>`_ to use the GPU onboard inside containers. Both of these dependencies should already come with JetPack after you've flashed your Jetson.
 
-We use ROS 2 Foxy for communication and run the car. You can find a tutorial on ROS 2 `here <https://docs.ros.org/en/foxy/Tutorials.html>`_.
+We use ROS 2 Foxy for communication and run the car. You can find a tutorial on ROS 2 `here <https://docs.ros.org/en/foxy/Tutorials.html>`__.
 
 In the following section, we'll go over how to set up the **drivers** for sensors and the motor control:
 
@@ -153,6 +153,7 @@ making sure to replace ``<your_device_name>`` with the name of your device (e.g.
 ..  We will be focusing on the **System** folder in this section. :ref:`Going Forward <doc_going_forward_intro>` will utilize the firsit two folders - **Algorithms** and **Simulator**.
 
 .. _software_stack:
+
 2. Setting up the Driver Stack inside a Container
 -------------------------------------------------------
 
@@ -168,7 +169,7 @@ Next, run the script ``run_container.sh`` in the ``scripts`` directory in the re
 .. code-block:: bash
 
     cd f1tenth_system/scripts
-    ./run_contaianer.sh
+    ./run_container.sh
 
 You can find more details on how the drivers are set up in the README of the `f1tenth_system repo <https://github.com/f1tenth/f1tenth_system>`_.
 
@@ -180,7 +181,7 @@ Starting the container will also bind mount a ROS 2 workspace ``f1tenth_ws`` cre
 
 3. Launching Teleop and Testing the LiDAR
 ---------------------------------------------
-This section assumes that the lidar has already been plugged in (either to the USB hub or to the ethernet port). If you are using the Hokuyo 10LX or a lidar that is connected via the ethernet port of the Orbitty, make sure that you have completed the :ref:`Hokuyo 10LX Ethernet Connection <doc_firmware_hokuyo10>` section before preceding.
+This section assumes that the lidar has already been plugged in (either to the USB hub or to the ethernet port). If you are using the Hokuyo 10LX or a lidar that is connected via the ethernet port of the Orbitty, make sure that you have completed the :ref:`Hokuyo 10LX Ethernet Connection <doc_firmware_hokuyo10>` LiDAR setup before proceeding.
 
 Before the bringup launch, you'll have to set the correct parameters according to which LiDAR you're using in the params file ``sensors.yaml``. Depending on how you've set up docker, you might need root access to write to files in ``f1tenth_ws`` since it's shared between the host and the container. All parameter files are located in the following location on your host:
 

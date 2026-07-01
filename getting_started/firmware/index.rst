@@ -16,7 +16,7 @@ At the end of this section, you will have the VESC tuned and the lidar connectio
 
 With the physical car is built and the system configuration setup, we can start to install the firmware needed on the car.
 
-There are two subsections here. You will need to :ref:`Configure the VESC <doc_firmware_vesc>` but you can skip the :ref:`Hokuyo Ethernet Connection <doc_firmware_hokuyo10>` section if you have a lidar (e.g. Hokuyo 30LX) that is connected via USB instead.
+You will need to :ref:`Configure the VESC <doc_firmware_vesc>` and set up the driver stack. Use the native :ref:`Driver Stack Setup <doc_drive_workspace>` (section 2) **or** the :ref:`Docker Containers <doc_drive_workspace_docker>` version (section 3) depending on your JetPack version — not both. LiDAR setup (Hokuyo or SICK) is covered within the Driver Stack Setup section.
 
 .. toctree::
    :maxdepth: 1
@@ -24,14 +24,12 @@ There are two subsections here. You will need to :ref:`Configure the VESC <doc_f
    :hidden:
 
    firmware_vesc
-   firmware_hokuyo10
    drive_workspace
    drive_workspace_docker
 
 #. :ref:`Configuring the VESC <doc_firmware_vesc>` goes over how to set up and tune the VESC.
-#. :ref:`Hokuyo 10LX Ethernet Connection Setup <doc_firmware_hokuyo10>` details how to set up the connection on the Jetson NX.
-#. :ref:`RoboRacer Driver Stack Setup <doc_drive_workspace>` goes over how to setup the software drivers necessary to drive the vehicle with **JetPack 5.0**.
-#. :ref:`RoboRacer Driver Stack Setup <doc_drive_workspace_docker>` goes over how to setup the software drivers necessary to drive the vehicle with JetPack version before 5.0 with **Docker Containers**.
+#. :ref:`RoboRacer Driver Stack Setup <doc_drive_workspace>` goes over how to set up the software drivers natively to drive the vehicle with **JetPack 5.0 and above**.
+#. :ref:`RoboRacer Driver Stack Setup with Docker Containers <doc_drive_workspace_docker>` goes over how to set up the software drivers for **JetPack versions before 5.0** using **Docker Containers**.
 
 .. tip::
-  If you have any build and/or setup questions, post to the `forum <https://robo-racer.slack.com/ssb/redirect/>`_.
+  If you have any build and/or setup questions, post to the `RoboRacer Slack <https://join.slack.com/t/robo-racer/shared_invite/zt-42lsbf50y-_3YPNLl_d3s~wPylAOMg0g>`_.

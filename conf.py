@@ -45,7 +45,7 @@ if env_tags != None:
 language = os.getenv('READTHEDOCS_LANGUAGE', 'en')
 is_i18n = tags.has('i18n')
 
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', '.venv']
 
 # GDScript syntax highlighting
 from gdscript import GDScriptLexer
@@ -61,9 +61,7 @@ highlight_language = 'gdscript'
 # on_rtd is whether we are on readthedocs.org, this line of code grabbed from docs.readthedocs.org
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
-import sphinx_rtd_theme
 html_theme = 'sphinx_rtd_theme'
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 if on_rtd:
     using_rtd_theme = True
 
@@ -85,7 +83,9 @@ html_context = {
     "display_github": not is_i18n, # Integrate GitHub
     "github_user": "f1tenth", # Username
     "github_repo": "f1tenth_doc", # Repo name
-    "github_version": "master", # Version
+    # Branch used for "Edit on GitHub" links. Prefer the branch RTD is building
+    # (so version branches like `foxy` link correctly), falling back to `main`.
+    "github_version": os.getenv("READTHEDOCS_GIT_IDENTIFIER", "main"), # Version
     "conf_py_path": "/", # Path in the checkout to the docs root
 }
 

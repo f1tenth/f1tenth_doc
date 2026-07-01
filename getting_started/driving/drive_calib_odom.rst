@@ -93,4 +93,4 @@ Changing the software speed limit
 If you wish to change the top speed of the car and has already followed the instructions to change the hardware limit in :ref:`the vesc firmware section <doc_firmware_vesc>`. All you'll need to do is also change the ``speed_min`` and ``speed_max`` values in ``vesc.yaml``. Note that the corresponding max speed in meters/second will be the max erpm value divided by the erpm gain. (e.g. ``speed_max/speed_to_erpm_gain``)
 
 .. tip::
-  If you have any build and/or setup questions, post to the `forum <https://robo-racer.slack.com/ssb/redirect>`_.
+  If you have any build and/or setup questions, post to the `RoboRacer Slack <https://join.slack.com/t/robo-racer/shared_invite/zt-42lsbf50y-_3YPNLl_d3s~wPylAOMg0g>`_.

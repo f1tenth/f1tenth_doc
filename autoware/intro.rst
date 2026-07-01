@@ -1,22 +1,22 @@
 .. _doc_autoware_intro:
 
 Autoware Installation on the RoboRacer
-==================
+======================================
 
 Jetson Xavier NX and RoboRacer Recordreplay Demo
-------------------
+------------------------------------------------
 This tutorial provides step-by-step instructions for installing and setting up the Autoware development environment on the RoboRacer race car. The Autoware installation process in this branch is modified from the main one to adapt to the Jetson Xavier NX hardware and software systems. One major difference of this Autoware environment is that it runs on `ROS2 galactic` instead of `ROS2 humble` due to the fact that the NVIDIA Jetson currently only supports Ubuntu 20.04 or below. To natively build and run autoware without using docker, galactic is used to increase system compatibility. The original `Autoware installation documentation <https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/>`_ from main branch, and the `RoboRacer build documentation <https://f1tenth.readthedocs.io/en/foxy_test/index.html>`_ (running ROS2 foxy) are here for your reference.
 
-This repo also includes a RoboRacer Recordreplay demo. This demo allows the user to first build a map, record a trajectory by manually driving the RoboRacer race car, and then perform trajectory following in both the `RoboRacer gym simulator` and in `real-world`(testing in progress) running the Autoware framework. Instructions for installing the RoboRacer gym simulator are provided. The approximate time investment is based on running Jetson Xavier NX on 20W 6core power mode.
+This repo also includes a RoboRacer Recordreplay demo. This demo allows the user to first build a map, record a trajectory by manually driving the RoboRacer race car, and then perform trajectory following in both the `RoboRacer gym simulator` and in `real-world` (testing in progress) running the Autoware framework. Instructions for installing the RoboRacer gym simulator are provided. The approximate time investment is based on running Jetson Xavier NX on 20W 6core power mode.
 
 Flash JetPack 5.1.1 (rev. 1) to Jetson Xavier NX
-------------------
+------------------------------------------------
 (Approximate Time Investment: 1-1.5 hours)
 
 There are multiple ways to install JetPack on a Jetson as described in `Jetpack 5.1.1 Documentation <https://developer.nvidia.com/embedded/jetpack-sdk-511>`_. The recommended ways to install are via the `NVIDIA SDK Manager Method` or the `SD Card Image Method`. This repo was tested on JetPack 5.1.1. Other JetPack versions may also work but have not yet been tested.
 
 NVIDIA SDK Manager Method:
-------------------
+--------------------------
 This method requires a Linux host computer running Ubuntu Linux x64 version `18.04` or `20.04` with `~40GB` of disk space
 
 This method you will first install `NVIDIA SDK Manager` on your host machine, connect the host machine to the Jetson Xavier NX via a micro-USB cable, download all of the necessary JetPack components using the SDK Manager, and then flash the JetPack to the target Jetson Xavier NX. This method allows you to directly flash the JetPack to the `SD Card` or to the `NVME SSD drive` on the race car Jetson. You may need to create an NVIDIA account to download the NVIDIA SDK manager.
@@ -29,7 +29,7 @@ This method you will first install `NVIDIA SDK Manager` on your host machine, co
 
 
 SD Card Image Method:
-------------------
+---------------------
 This method requires a computer with Internet connection and the ability to read and write SD cards
 
 1. Download `JetPack 5.1.1 <https://developer.nvidia.com/downloads/embedded/l4t/r35_release_v3.1/sd_card_b49/jp511-xnx-sd-card-image.zip/>`_
@@ -44,14 +44,14 @@ Once the JetPack is successfully flashed to the Jetson NX, boot the system and t
 
 
 Install ROS2 galactic 
-------------------
+---------------------
 (Approximate Time Investment: 0.5 hour)
 
 1. Follow the `ROS2 instructions <https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html>`_ to install ROS2 galactic
 
 
 Set up Autoware development environment  
-------------------
+---------------------------------------
 (Approximate Time Investment: 0.5 hour)
 
 1. Clone the `galactic` branch of `autowarefoundation/autoware` and move to the directory.
@@ -73,7 +73,7 @@ Set up Autoware development environment
 
 
 Set up Autoware workspace  
-------------------
+-------------------------
 (Approximate Time Investment: 6-7 hours)
 
 1. Create the `src` directory and clone repositories into it.
@@ -135,7 +135,7 @@ Ignore the `stderr` warnings during the build.
    
 
 Install f1tenth_gym simulator dependencies 
-------------------
+------------------------------------------
 (Approximate Time Investment: 10 minutes)
 
 Install `onnx` and roll back `setuptools` to version 65.5.0  
@@ -152,11 +152,11 @@ The f1tenth_gym_ros simulator is used in this case, click `here <https://github.
    pip3 install -e .
 
 RoboRacer Recordreplay Demo 
-------------------
-This demo allows the user to first build a map, record a trajectory by manually driving the RoboRacer race car, and then perform trajectory following in both the `RoboRacer gym simulator` and in `real-world`(testing in progress) running the Autoware framework.
+---------------------------
+This demo allows the user to first build a map, record a trajectory by manually driving the RoboRacer race car, and then perform trajectory following in both the `RoboRacer gym simulator` and in `real-world` (testing in progress) running the Autoware framework.
 
 How to create a map 
-------------------
+-------------------
 
 This part assumes that you have a fully built and properly tuned RoboRacer car. For instructions on how to configure an RoboRacer car, see `f1tenth_system <https://github.com/autowarefoundation/autoware.universe/tree/f1tenth_galactic/f1tenth/f1tenth_system>`_.
 
@@ -194,17 +194,17 @@ Terminal 2
    <iframe width="560" height="315" src="https://www.youtube.com/embed/bgrxjXlJbhI?si=SlJxkM58pcCGAmRl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Create a map without an RoboRacer race car 
-------------------
+------------------------------------------
 
 If you do not have an RoboRacer car, You can draw your own map and save as .png files. Make sure you set the corresponding .yaml file correctly. You can also use the map provided in the RoboRacer simulation folder under /map directory.
 
 Change map in the RoboRacer simulator 
-------------------
+-------------------------------------
 
 Navigate to /home/autoware-f1/autoware/install/f1tenth_gym_ros/share/f1tenth_gym_ros/config. In `sim.yaml`, update the map file path.
 
 How to record a trajectory (simulation) 
-------------------
+---------------------------------------
 
 1. Use the `demo_launch` launch file to launch `gym_bridge`, `recordreplay_planner`, and `trajectory_follower_f1tenth` nodes. 
 
@@ -248,7 +248,7 @@ Terminal 3
    <iframe width="560" height="315" src="https://www.youtube.com/embed/gJ8JWyzbRf8?si=rwwJ1aJ2frcrkCQF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
 
 How to replay a trajectory (simulation) 
-------------------
+---------------------------------------
 
 1. Use the `demo_launch` launch file to launch `gym_bridge`, `recordreplay_planner`, and `trajectory_follower_f1tenth` nodes if they are not currently running.
 
@@ -275,7 +275,7 @@ Terminal 2
     <iframe width="560" height="315" src="https://www.youtube.com/embed/fxg8eQYiIrw?si=EKagh_k7uJ0uR3MM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 How to record a trajectory (real car) 
-------------------
+-------------------------------------
 
 1. Use the `realcar_launch` launch file to launch the `f1tenth_stack`, `recordreplay_planner`, and `trajectory_follower_f1tenth` nodes.
 
@@ -307,7 +307,7 @@ The default path for the recording is is set to `"/tmp/path"`. This recording wi
    ros2 action send_goal /planning/recordtrajectory autoware_auto_planning_msgs/action/RecordTrajectory "{record_path: "/tmp/path"}" --feedback
 
 How to replay a trajectory (real car) 
-------------------
+-------------------------------------
 
 1. Use the `realcar_launch` launch file to launch `f1tenth_stack`, `recordreplay_planner`, and `trajectory_follower_f1tenth` nodes.
 
@@ -345,7 +345,7 @@ Terminal 3
 
 
 Troubleshooting/Tips
-------------------
+--------------------
 
 1. If editing files doesn't seem to change anything, delete the respective package files in the install and build folders under autoware and rebuild the respective package using --packages-select again.
 

@@ -72,7 +72,7 @@ Now, we are going to connect these to the VESC. This part is a tad tricky.
 
 
 3. Connecting the Battery with the VESC
-----------------------------
+---------------------------------------
 
 Plug the `charge adapter <https://www.amazon.com/gp/product/B078P9V99B/ref=crt_ewc_title_huc_1?ie=UTF8&psc=1&smid=A87AJ0MK8WLZZ>`_ into the battery plug,
 
@@ -106,7 +106,7 @@ After connecting the batter the car should look like this.
 
 
 4. Connecting the NVIDIA Jetson NX with the VESC
-----------------------------
+------------------------------------------------
 
 The NVIDIA Jetson NX needs to be connected to the powerboard. Use the barrel jack to pig tail connector. The board uses a 2.5x5.5mm power jack (MFN: PJ-036BH-SMT-TR). It is an unfortunate fact of life that the connections for barrel jacks are not standarized. For the specific barrel jack on this board, the center pin is POWER. Do not plug in a power supply whose center pin is ground. Connect one of the ends of the cable with GND on the powerboard, the other one with the 12V connector. Afterwards you can plug in the barrel jack in the NVIDIA Jetson NX.
 
@@ -208,7 +208,7 @@ Your final vehicle should look like the following:
 .. figure:: img/together/final.JPG
    :align: center
 
-	Final product! It looks a bit messy but cable management is an art!
+   Final product! It looks a bit messy but cable management is an art!
 
 
 Now we're ready to start driving!
@@ -218,7 +218,7 @@ Now we're ready to start driving!
    :width: 300px
 
 DEPRECATED: NVIDIA TX2 Setup
-----------
+----------------------------
 
 Attach the two wires for the Jetson Wi-Fi antenna to the two gold-colored connectors near the fan connector on the heat sink (the order of the wires doesn’t matter). This can be a little tricky, so you might want to use a flathead screwdriver to ensure the connections are tight. ​ Don’t press too hard​ , however as you can easily damage the connectors if you use excessive force!
 

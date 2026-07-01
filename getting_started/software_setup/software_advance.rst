@@ -1,3 +1,5 @@
+:orphan:
+
 .. _doc_software_advance:
 
 Advanced Setups
@@ -10,7 +12,7 @@ The following two sections are optional.
  .. _jetson_wireless:
 
 Wireless Hot Spot on the NVIDIA Jetson NX
----------------------------------
+-----------------------------------------
 **Equipment Used:**
 	* Fully built RoboRacer vehicle
 	* Pit/Host Laptop OR
@@ -39,7 +41,7 @@ On your phone, tablet, or laptop you can now connect directly to this Hotspot, a
  .. _jetson_vnc:
 
 VNC Server on the NVIDIA Jetson NX
--------------------------
+----------------------------------
 **Equipment Used:**
 	* Fully built RoboRacer vehicle
 	* Pit/Host Laptop OR
