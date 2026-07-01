@@ -71,6 +71,8 @@ Then open ``/etc/udev/rules.d/99-joypad-f710.rules`` and add this rule for the j
 
     KERNEL=="js[0-9]*", ACTION=="add", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c219", SYMLINK+="input/joypad-f710"
 
+.. note:: The Logitech F710 has a **D/X** switch on the back. The rule above uses the DirectInput (**D**) product ID ``c219``. If your joypad enumerates with product ID ``c21f`` instead, it is in XInput (**X**) mode — either flip the switch to **D**, or replace ``c219`` with ``c21f`` in the rule above. Run ``lsusb`` (look for the *Logitech* entry) to confirm which product ID your joypad reports.
+
 Finally, trigger (activate) the rules by running:
 
 .. code-block:: bash
