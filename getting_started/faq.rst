@@ -86,7 +86,7 @@ Software
 ----------------
 LIDAR variants
 ^^^^^^^^^^^^^^^^
-If you are using the Hokuyo 10LX please confirm that you properly configured the wired network connection as described :ref:`here <doc_firmware_hokuyo10>`.
+The driver stack supports several LiDARs. If you are using an ethernet LiDAR such as the **Hokuyo 10LX** or the **SICK TiM 5xx**, confirm that you properly configured the wired network connection as described in the :ref:`Driver Stack Setup <doc_firmware_hokuyo10>`. USB LiDARs (for example the Hokuyo UST-10/20LX) are detected over USB and do not require the wired network setup.
 
 
 USB works, but LIDAR and VESC do not work
