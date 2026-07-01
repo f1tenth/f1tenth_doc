@@ -85,7 +85,9 @@ html_context = {
     "display_github": not is_i18n, # Integrate GitHub
     "github_user": "f1tenth", # Username
     "github_repo": "f1tenth_doc", # Repo name
-    "github_version": "master", # Version
+    # Branch used for "Edit on GitHub" links. Prefer the branch RTD is building
+    # (so version branches like `foxy` link correctly), falling back to `main`.
+    "github_version": os.getenv("READTHEDOCS_GIT_IDENTIFIER", "main"), # Version
     "conf_py_path": "/", # Path in the checkout to the docs root
 }
 
