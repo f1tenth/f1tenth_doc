@@ -82,7 +82,7 @@ We can now move on to mounting all of the autonomy elements onto the Upper Level
 
 
 DEPRECATED: Preparing the NVIDIA Jetson TX2
----------------------------------
+-------------------------------------------
 In this section we are describing how to use the NVIDIA Jetson TX2 as a main ECU for the RoboRacer vehicle. This setup is deprecated and no longer recommended.
 
 **1. Removing the NVIDIA Jetson TX2 Developer Board**

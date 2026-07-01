@@ -1,3 +1,5 @@
+:orphan:
+
 .. _doc_software_host:
 
 1. Pit/Host Setup

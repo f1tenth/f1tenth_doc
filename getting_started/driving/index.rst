@@ -1,7 +1,7 @@
 .. _doc_drive:
 
 Driving the RoboRacer Car
-====================
+=========================
 
 .. note:: This section assumes that you have already completed :ref:`Building the Car <doc_build_car>`, :ref:`System Configuration <doc_software_setup>`, and :ref:`Installing Driver Stack <doc_build_car_firmware>`.
 

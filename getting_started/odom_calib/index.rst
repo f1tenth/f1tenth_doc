@@ -1,4 +1,6 @@
-.. _doc_calib_odom:
+:orphan:
+
+.. _doc_calib_odom_legacy:
 
 Calibrating the Odometry
 =========================
