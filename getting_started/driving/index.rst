@@ -35,4 +35,4 @@ First, we need to set up the :ref:`driver stack <doc_drive_workspace>` on the ca
 #. :ref:`Autonomous Control <doc_drive_autonomous>` goes over how to drive autonomously with the car.
 
 .. tip::
-  If you have any build and/or setup questions, post to the `forum <https://robo-racer.slack.com/ssb/redirect>`_.
+  If you have any build and/or setup questions, post to the `RoboRacer Slack <https://join.slack.com/t/robo-racer/shared_invite/zt-42lsbf50y-_3YPNLl_d3s~wPylAOMg0g>`_.

@@ -23,4 +23,4 @@ Now that everything is built, configured, and installed, the odometry of the veh
 #. Follow this great `Tuning Guide <https://mushr.io/tutorials/tuning/>`_ that `Mushr <https://mushr.io/about/>`_ put together.
 
 .. tip:: 
-  If you have any build and/or setup questions, post to the `forum <https://robo-racer.slack.com/ssb/redirect>`_.
+  If you have any build and/or setup questions, post to the `RoboRacer Slack <https://join.slack.com/t/robo-racer/shared_invite/zt-42lsbf50y-_3YPNLl_d3s~wPylAOMg0g>`_.

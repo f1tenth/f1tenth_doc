@@ -32,4 +32,4 @@ You will need to :ref:`Configure the VESC <doc_firmware_vesc>` and set up the dr
 #. :ref:`RoboRacer Driver Stack Setup with Docker Containers <doc_drive_workspace_docker>` goes over how to set up the software drivers for **JetPack versions before 5.0** using **Docker Containers**.
 
 .. tip::
-  If you have any build and/or setup questions, post to the `forum <https://robo-racer.slack.com/ssb/redirect/>`_.
+  If you have any build and/or setup questions, post to the `RoboRacer Slack <https://join.slack.com/t/robo-racer/shared_invite/zt-42lsbf50y-_3YPNLl_d3s~wPylAOMg0g>`_.
