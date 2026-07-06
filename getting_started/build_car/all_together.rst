@@ -216,13 +216,3 @@ Now we're ready to start driving!
 .. figure:: img/together/together05.gif
    :align: center
    :width: 300px
-
-DEPRECATED: NVIDIA TX2 Setup
-----------------------------
-
-Attach the two wires for the Jetson Wi-Fi antenna to the two gold-colored connectors near the fan connector on the heat sink (the order of the wires doesn’t matter). This can be a little tricky, so you might want to use a flathead screwdriver to ensure the connections are tight. ​ Don’t press too hard​ , however as you can easily damage the connectors if you use excessive force!
-
-.. figure:: img/together/together05.JPG
-  	:align: center
-
-	Attached antenna wires.

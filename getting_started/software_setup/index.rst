@@ -35,10 +35,9 @@ The **NVIDIA Jetson NX** is the main brain of the entire system. It gives comman
 
 The **Pit/Host** laptop is your main computer that's used to remotely access the onboard computer of the car. The operating system on this laptop doesn't matter since we're only using it for remote access via SSH or remote desktop. We'll discuss how to use the simulator in a later section.
 
-The configuration of the RoboRacer system has two subsections:
+The configuration of the RoboRacer system is covered below:
 
 #. :ref:`Configuring and Connecting to the NVIDIA Jetson NX <doc_optional_software_nx>` walks you through flashing the **NVIDIA Jetson Xavier NX**, connecting it and your **Pit/Host** laptop to the same wireless network, and setting up SSH and remote desktop access.
-#. :ref:`DEPRECATED - Configuring the TX2 <doc_software_jetson>` contains all necessary steps to configure the **NVIDIA Jetson TX2**. Note that we no longer support the TX2.
 
 .. tip::
   If you have any build and/or setup questions, post to the `RoboRacer Slack <https://join.slack.com/t/robo-racer/shared_invite/zt-42lsbf50y-_3YPNLl_d3s~wPylAOMg0g>`_.
@@ -51,4 +50,3 @@ The configuration of the RoboRacer system has two subsections:
 	 :hidden:
 
    optional_software_nx
-   software_jetson
