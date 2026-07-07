@@ -9,7 +9,7 @@
 
 **Approximate Time Investment:** 1.5 hour
 
-.. warning:: **Before you proceed**, this section sets up the driver stack **natively** for Jetson Xavier and above running **JetPack 5.0 or newer** (Ubuntu 20.04+) with ROS 2. For JetPack versions below 5.0 and Jetsons before Xavier, go to :ref:`Driver Stack Setup with Docker Containers <doc_drive_workspace_docker>` and follow the instructions there instead.
+.. warning:: **Before you proceed**, this section sets up the driver stack **natively** with **ROS 2 Humble**, for Jetsons running **JetPack 6 (Ubuntu 22.04)** — including the reference **Jetson Orin Nano Super**. If your Jetson runs an older JetPack (Ubuntu 20.04) or is a pre-Xavier board, use the :ref:`Driver Stack Setup with Docker Containers <doc_drive_workspace_docker>` instead, which runs Humble in a container.
 
 Overview
 ----------
@@ -17,7 +17,7 @@ We use **ROS 2 Humble** for communication and to run the car. You can find a tut
 
 In this section you'll install ROS 2 Humble and its utilities, set up udev rules for the sensors, install and build the F1TENTH driver stack, and configure your LiDAR.
 
-Everything in this section is done on the **Jetson NX**, so you'll need to connect to it via SSH from the Pit laptop or plug in the monitor, keyboard, and mouse.
+Everything in this section is done on the **Jetson**, so you'll need to connect to it via SSH from the Pit laptop or plug in the monitor, keyboard, and mouse.
 
 1. Installing ROS 2 Humble
 ----------------------------
@@ -159,7 +159,7 @@ If you are using a **USB Hokuyo** (e.g. the 30LX), no extra setup is needed — 
 
 If you have a **Hokuyo 10LX** that connects over **ethernet**, you'll need to configure the ``eth0`` network. From the factory, the 10LX is assigned the IP ``192.168.0.10`` (note that the LiDAR is on subnet 0).
 
-Open **Network Configuration** in the Linux GUI on the Jetson NX. In the IPv4 tab, add a connection so that the ``eth0`` port is assigned:
+Open **Network Configuration** in the Linux GUI on the Jetson. In the IPv4 tab, add a connection so that the ``eth0`` port is assigned:
 
     * IP address ``192.168.0.15``
     * Subnet mask ``255.255.255.0``

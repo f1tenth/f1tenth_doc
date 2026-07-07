@@ -23,6 +23,10 @@ To make things easier to follow, we define **Front**, **Rear**, **Away**, and **
 .. important::
 	**This piece is not symmetric.** Notice in the figure above that the big M5 VESC mounting holes marked in yellow are not centered. The holes need to be skewed **TOWARDS** to you.
 
+.. todo::
+
+   **Hardware refresh (Orin Nano Super):** The Platform Deck hole pattern and its photos (``ulchassis01``, ``ulchassis02_NX``) are cut for the **Xavier NX** footprint. The ``1NU4FZ`` deck folder is labelled "Fits Orin Nano or Xavier NX" — verify the Orin Nano Super carrier's mount holes against the current schematic, publish an updated ``.dxf`` if needed, and reshoot the plate photos.
+
 The following image shows the five components that we will be mounting on the Platform Deck.
 
 .. figure:: img/ulchassis/ulchassis02_NX.JPG
@@ -65,6 +69,10 @@ Afterwards you can directly attach the black antennas to the antenna mount. Just
 
 3. Mounting the NVIDIA Jetson NX
 -----------------------------------------
+
+.. todo::
+
+   **Hardware refresh (Orin Nano Super):** The mounting steps and photos (``ulchassisNX_04``–``ulchassisNX_07``) — clipping antennas, the specific M3 standoff mount holes, and the "4 main holes on top of the Jetson" — are Xavier-NX-specific. Rewrite for the **Orin Nano Super** carrier's mounting pattern and reshoot.
 
 Now its time to mount the NVIDIA Jetson NX. Before we mount the Jetson please connect the antenna cables first. Flip the Jetson around and clip both antenna cables to the antenna connectors on the Jetson.
 

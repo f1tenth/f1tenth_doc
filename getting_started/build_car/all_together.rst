@@ -108,6 +108,10 @@ After connecting the batter the car should look like this.
 4. Connecting the NVIDIA Jetson NX with the VESC
 ------------------------------------------------
 
+.. todo::
+
+   **Hardware refresh (Orin Nano Super):** The power wiring here (barrel jack to the 12V powerboard rail) and photos (``together_NX_*``) assume the **Xavier NX**. Verify the **Orin Nano Super** power input (barrel jack vs. USB-C, and the 9–16 V powerboard limit) and reshoot. Note: the antenna step later on this page still references the "Jetson TX2 Kit" — correct that to the current kit.
+
 The NVIDIA Jetson NX needs to be connected to the powerboard. Use the barrel jack to pig tail connector. The board uses a 2.5x5.5mm power jack (MFN: PJ-036BH-SMT-TR). It is an unfortunate fact of life that the connections for barrel jacks are not standarized. For the specific barrel jack on this board, the center pin is POWER. Do not plug in a power supply whose center pin is ground. Connect one of the ends of the cable with GND on the powerboard, the other one with the 12V connector. Afterwards you can plug in the barrel jack in the NVIDIA Jetson NX.
 
 .. figure:: img/together/together_NX_03.JPG

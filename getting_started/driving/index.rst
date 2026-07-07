@@ -20,6 +20,10 @@ Driving the RoboRacer Car
 
 First, we need to set up the :ref:`driver stack <doc_drive_workspace>` on the car and then we'll learn how to :ref:`control the car <drive_manualcontrol>` with a joystick.
 
+.. todo::
+
+   **Hardware refresh (8BitDo Ultimate 2C):** The BoM joypad is now the **8BitDo Ultimate 2C** (alternative: DualShock 4), but the driving pages, the udev rule (product ID ``c219``/``c21f``, the D/X switch) in the Driver Stack Setup, and the ``logitech-f710-module`` install all target the **Logitech F710**. Add 8BitDo udev/product-id and driver details (or confirm plug-and-play) and update the joypad references throughout.
+
 .. toctree::
    :maxdepth: 1
    :name: Driving Setup

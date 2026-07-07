@@ -11,6 +11,10 @@ In the second part of the hardware setup we start preparing the autonomy element
 
 1. Preparing the NVIDIA Jetson NX
 ---------------------------------
+.. todo::
+
+   **Hardware refresh (Orin Nano Super):** This section and its photos (``autonomy12``–``autonomy16``) describe unscrewing a **Jetson Xavier NX** from its carrier board and unclipping its Wi-Fi antennas. The reference compute is now the **Jetson Orin Nano Super**, whose dev-kit form factor and antenna routing differ. Rewrite the steps and reshoot the photos.
+
 When you purchase a NVIDIA Jetson NX, it is attached to small plastic development board. In order to use it on the car, you will need to unscrew the Jetson NX and its Wi-Fi antenna from the development board. First of all unbox your NVIDIA Jetson NX.
 
 .. figure:: img/autonomy/autonomy12.JPG

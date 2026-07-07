@@ -9,7 +9,7 @@
 
 **Approximate Time Investment:** 1.5 hour
 
-.. warning:: **Before you proceed**, this specific section goes over how to set up the driver stack in **Docker Containers** if you have Jetsons before Xavier, or JetPack versions before 5.0 and wish to use ROS 2. For JetPack versions 5.0 and above on Jetson Xaviers and above, go to :ref:`Driver Stack Setup <doc_drive_workspace>` and follow the instructions there.
+.. warning:: **Before you proceed**, this specific section goes over how to set up the driver stack in **Docker Containers** if your Jetson runs an **older JetPack (Ubuntu 20.04)** or is a pre-Xavier board and you wish to use ROS 2 Humble. For **JetPack 6 (Ubuntu 22.04)** — including the reference Orin Nano Super — go to :ref:`Driver Stack Setup <doc_drive_workspace>` and follow the instructions there.
 
 Overview
 ----------
@@ -25,7 +25,7 @@ In the following section, we'll go over how to set up the **drivers** for sensor
 
 .. We'll need to set up the :ref:`ROS workspace <ros_workspace>`, set up some :ref:`udev rules <udev_rules>`, and :ref:`test the lidar connection <lidar_setup>`.
 
-Everything in this section is done on the **Jetson NX** so you will need to connect to it via SSH from the Pit laptop or plug in the monitor, keyboard, and mouse.
+Everything in this section is done on the **Jetson** so you will need to connect to it via SSH from the Pit laptop or plug in the monitor, keyboard, and mouse.
 
 .. _udev_rules:
 

@@ -82,7 +82,7 @@ Wireless Network
 --------------------------------
 High packet-loss, excessive latency on wireless network
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-One common source of network latency is the physical connection between the antenna and the Jetson NX module. Please double check that the wires/connectors are properly seated on the Jetson NX module. In addition we recommend a high-quality router in order to improve range and network throughput. Note that streaming images from onboard devices such as a camera will generally be slow no matter what.
+One common source of network latency is the physical connection between the antenna and the Jetson module. Please double check that the wires/connectors are properly seated on the Jetson module. In addition we recommend a high-quality router in order to improve range and network throughput. Note that streaming images from onboard devices such as a camera will generally be slow no matter what.
 
 
 Wireless interference with the gamepad

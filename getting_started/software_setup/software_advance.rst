@@ -6,12 +6,12 @@ Advanced Setups
 ===================
 The following two sections are optional.
 
-* :ref:`Wireless Hot Spot on the NVIDIA Jetson NX <jetson_wireless>` is relevant if you want to test on larger tracks and need to have a direct connection to your vehicle.
-* :ref:`VNC Server on the NVIDIA Jetson NX <jetson_wireless>` is useful if you're running mapping and localization algorithms, you’ll need to see RViz and use its tools for some applications.
+* :ref:`Wireless Hot Spot on the NVIDIA Jetson <jetson_wireless>` is relevant if you want to test on larger tracks and need to have a direct connection to your vehicle.
+* :ref:`VNC Server on the NVIDIA Jetson <jetson_wireless>` is useful if you're running mapping and localization algorithms, you'll need to see RViz and use its tools for some applications.
 
  .. _jetson_wireless:
 
-Wireless Hot Spot on the NVIDIA Jetson NX
+Wireless Hot Spot on the NVIDIA Jetson
 -----------------------------------------
 **Equipment Used:**
 	* Fully built RoboRacer vehicle
@@ -20,11 +20,11 @@ Wireless Hot Spot on the NVIDIA Jetson NX
 
 **Approximate Time Investment:** 30 minutes
 
-As you begin to test on larger tracks, you may find a need to have a direct connection to your car, so as to not have to rely on the car being within a certain distance of your router. The solution here is to set up wireless hot spot on the NVIDIA Jetson NX.
+As you begin to test on larger tracks, you may find a need to have a direct connection to your car, so as to not have to rely on the car being within a certain distance of your router. The solution here is to set up wireless hot spot on the NVIDIA Jetson.
 
-Connect to the **NVIDIA Jetson NX** via SSH on the **Pit** laptop or via a monitor, keyboard, and mouse.
+Connect to the **NVIDIA Jetson** via SSH on the **Pit** laptop or via a monitor, keyboard, and mouse.
 
-On the NVIDIA Jetson NX, go to System Settings > Network.
+On the NVIDIA Jetson, go to System Settings > Network.
 
 .. image:: img/combine/wireless1.jpg
 
@@ -40,7 +40,7 @@ On your phone, tablet, or laptop you can now connect directly to this Hotspot, a
 
  .. _jetson_vnc:
 
-VNC Server on the NVIDIA Jetson NX
+VNC Server on the NVIDIA Jetson
 ----------------------------------
 **Equipment Used:**
 	* Fully built RoboRacer vehicle
@@ -74,7 +74,7 @@ Setting up a VNC server on the Jetson allows you to control the Jetson remotely.
 #. In your favorite VNC client (Ubuntu has Remmina installed by default, and VNC Viewer is available across most platforms), connect to your car's IP with port number 5900 to see the remote desktop. Note that the resolution of the car when it was booted without a monitor plugged in is low, you can plug in the HDMI Emulator included in the BOM or a working monitor to fix that.
 
 .. note::
-  We've had spotty experience with NVIDIA Jetson NX's network card, the hotspot sometimes just doesn't work. If your NVIDIA Jetson NX's network card is faulty, you can use a USB wifi dongle and use your network through the dongle instead of the NVIDIA Jetson NX network card.
+  We've had spotty experience with NVIDIA Jetson's network card, the hotspot sometimes just doesn't work. If your NVIDIA Jetson's network card is faulty, you can use a USB wifi dongle and use your network through the dongle instead of the NVIDIA Jetson network card.
 
 Good work on making it through the advanced section!
 

@@ -28,8 +28,8 @@ You will need to :ref:`Configure the VESC <doc_firmware_vesc>` and set up the dr
    drive_workspace_docker
 
 #. :ref:`Configuring the VESC <doc_firmware_vesc>` goes over how to set up and tune the VESC.
-#. :ref:`RoboRacer Driver Stack Setup <doc_drive_workspace>` goes over how to set up the software drivers natively to drive the vehicle with **JetPack 5.0 and above**.
-#. :ref:`RoboRacer Driver Stack Setup with Docker Containers <doc_drive_workspace_docker>` goes over how to set up the software drivers for **JetPack versions before 5.0** using **Docker Containers**.
+#. :ref:`RoboRacer Driver Stack Setup <doc_drive_workspace>` goes over how to set up the software drivers natively to drive the vehicle on **JetPack 6 (Ubuntu 22.04)**.
+#. :ref:`RoboRacer Driver Stack Setup with Docker Containers <doc_drive_workspace_docker>` goes over how to set up the software drivers on **older JetPack releases (Ubuntu 20.04)** using **Docker Containers**.
 
 .. tip::
   If you have any build and/or setup questions, post to the `RoboRacer Slack <https://join.slack.com/t/robo-racer/shared_invite/zt-42lsbf50y-_3YPNLl_d3s~wPylAOMg0g>`_.

@@ -13,6 +13,10 @@ We begin with setting up the Lower Level chassis. We will be removing the intern
 
 1. Removing Traxxas Stock Components
 --------------------------------------
+.. todo::
+
+   **Hardware refresh (Fiesta ST Rally VXL):** The reference chassis is now the **Traxxas Fiesta ST Rally VXL** (brushless Velineon/VXL), but these steps and photos (``llchassis01`` onward) describe the older **Slash 4x4** with a **brushed "XL5 ESC"** and **"Titan"** motor. Update the disassembly steps for the Fiesta Rally VXL and reshoot, or add a clear substitution note.
+
 Take the Traxxas from its box. Remove the four `Body Clips <https://www.amainhobbies.com/traxxas-standard-size-body-clips-12-tra1834/p3271?gclid=EAIaIQobChMI4de1q7uk6AIVjYCfCh3UqAz8EAQYASABEgIapvD_BwE>`_ to remove the Body so you are left with this:
 
 .. figure:: img/llchassis/llchassis01.JPG

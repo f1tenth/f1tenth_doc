@@ -35,7 +35,7 @@ First we need to power the VESC. Plug the battery in, and make sure the polarity
 
 	Plug the battery in, making sure the polarity is correct.
 
-Next, unplug the USB cable of the VESC from the Jetson NX and plug the USB into your laptop that's running the VESC Tool. You may want to use a longer cable.
+Next, unplug the USB cable of the VESC from the Jetson and plug the USB into your laptop that's running the VESC Tool. You may want to use a longer cable.
 
 .. figure:: img/vesc/vesc02.JPG
 	:align: center
