@@ -1,5 +1,3 @@
-:orphan:
-
 .. _doc_drive_rosbag:
 
 Recording Data on the Car

@@ -1,22 +1,19 @@
+.. _doc_going_forward_simulation:
+
 RoboRacer Simulator
-================================================
+===========================================
 
-.. warning:: The following section is the documentation of the **DEPRECATED** simulation in ROS 1. We utilize a new simulation in ROS 2 at `this link <https://github.com/f1tenth/f1tenth_gym_ros>`_. This documentation page will soon be updated for that simulation.
+The RoboRacer simulator lets you develop and test autonomy code without a physical car. It is maintained as a separate project, so this page points you to the current, actively
+maintained simulator documentation rather than duplicating it here.
 
-This page goes over how to install the RoboRacer simulator. This simulator is for single car, has ROS in the loop, and does not have camera integration. If you are looking for a simulator that has multi agent capabilities and uses the OpenAI gym environment, you can find that `here <https://github.com/f1tenth/f1tenth_gym>`_.
+**ROS 2 simulator (recommended).** The ``f1tenth_gym_ros`` bridge runs the simulator in ROS 2 and mirrors the interfaces used on the car, so code you write against it ports
+directly to a real vehicle:
 
-.. image:: img/basic_sim.gif
-  :align: center
+* `f1tenth_gym_ros on GitHub <https://github.com/f1tenth/f1tenth_gym_ros>`_
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Installation
-   :name: sim-install
+**Core gym environment.** The underlying Gym environment (multi-agent, no ROS required, suitable for RL policy training) and its documentation:
 
-   sim_install
-   sim_use
-   sim_info
+* `f1tenth_gym documentation <https://f1tenth-gym.readthedocs.io/>`_
+* `f1tenth_gym on GitHub <https://github.com/f1tenth/f1tenth_gym>`_
 
-
-
-
+Follow the setup and usage instructions in those repositories to get the simulator running.

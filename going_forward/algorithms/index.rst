@@ -1,5 +1,3 @@
-:orphan:
-
 .. _doc_going_forward_algorithms:
 
 Algorithms

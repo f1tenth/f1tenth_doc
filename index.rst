@@ -12,7 +12,7 @@ Welcome to the official build documentation of `RoboRacer <http://roboracer.ai/>
   #. If you already have a working car and the work environment set up:
 
  	- Head over to `Learn <https://roboracer.ai/learn.html>`_ and try out some of the **Labs**.
-  	- Check out :ref:`Simulator <doc_going_forward_intro>` to learn how to install the simulator and implement some fun algorithms.
+  	- Check out the :ref:`Simulator <doc_going_forward_simulation>` and implement some fun algorithms.
 
 
 .. image:: img/f1tenth_NX.png
@@ -65,9 +65,7 @@ in the top left corner.
    :hidden:
 
    going_forward/simulator/index
-..
    going_forward/drive_rosbag
-   going_forward/simulation/index
    going_forward/algorithms/index
 
 .. toctree::
