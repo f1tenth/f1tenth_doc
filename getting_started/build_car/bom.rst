@@ -6,7 +6,7 @@ Bill of Materials
 `Master BOM <https://docs.google.com/spreadsheets/d/1WT-UdjLTnyrb7CvHcuCxKLnRIN8DWroQ/edit?usp=sharing&ouid=109361333655731858904&rtpof=true&sd=true>`_
 
 .. note::
-  You have different possibilities for creating your RoboRacer car. We are focusing on a hardware setup that is based on the  `Traxxas Slash 4x4 Premium <https://traxxas.com/products/models/electric/6804Rslash4x4platinum>`_ Chassis and the `NVIDIA Jetson Xavier NX <https://developer.nvidia.com/embedded/jetson-xavier-nx-devkit>`_.
+  You have different possibilities for creating your RoboRacer car. We are focusing on a hardware setup that is based on the  `Traxxas Fiesta ST Rally VXL <https://traxxas.com/products/landing/fiesta-st-rally-vxl/>`_ Chassis and the `NVIDIA Jetson Orin Nano Super <https://www.sparkfun.com/products/22098>`_.
 
 .. tip::
 	The `Platform Deck <https://drive.google.com/drive/folders/1NU4FZzvMEGKCOFzDBvnjyePnnSMvsZPG?usp=sharing>`_ needs to be laser cut. If you laser cutting machines are unavailable at your institution, `Ponoko <https://www.ponoko.com/>`_ is a good place to upload the .dxf file and they will cut and ship it to you.

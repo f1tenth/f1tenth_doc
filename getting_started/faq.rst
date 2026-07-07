@@ -76,7 +76,7 @@ Excessive motor vibration and inertia from the drivetrain can negatively affect 
 
 Printing and laser cutting replacement parts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The base plate is a simple laser cut piece. The CAD files are provided `here <https://drive.google.com/drive/u/1/folders/1o3jRww0UwfmjTBDACD8qu7SDabRzpr5g>`_.
+The base plate is a simple laser cut piece. The CAD files are provided `here <https://drive.google.com/drive/folders/1NU4FZzvMEGKCOFzDBvnjyePnnSMvsZPG?usp=sharing>`_.
 
 Wireless Network
 --------------------------------
