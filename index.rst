@@ -4,7 +4,7 @@ RoboRacer - Build Documentation
 Welcome to the official build documentation of `RoboRacer <http://roboracer.ai/>`_.
 
 .. note::
-  You're currently viewing the documentation for RoboRacer on ROS 2. Check `here <https://f1tenth.readthedocs.io/en/stable/>`_ for the ROS 1 documentations!
+  You're currently viewing the documentation for RoboRacer on ROS 2. Check `here <https://f1tenth.readthedocs.io/en/ros1/>`_ for the ROS 1 documentations!
 
 .. attention::
   #. If you are new to RoboRacer, :ref:`Getting Started <doc_build_intro>` is a good place to start.
@@ -65,8 +65,6 @@ in the top left corner.
    :hidden:
 
    going_forward/simulator/index
-   going_forward/drive_rosbag
-   going_forward/algorithms/index
 
 .. toctree::
    :maxdepth: 1
