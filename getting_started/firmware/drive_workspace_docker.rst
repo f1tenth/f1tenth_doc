@@ -15,7 +15,7 @@ Overview
 ----------
 We use Docker to containerize the software stack. You can find a tutorial on basic Docker concepts `here <https://docs.docker.com/get-started/>`__. We'll also utilize `nvidia-docker <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html>`_ to use the GPU onboard inside containers. Both of these dependencies should already come with JetPack after you've flashed your Jetson.
 
-We use ROS 2 Foxy for communication and run the car. You can find a tutorial on ROS 2 `here <https://docs.ros.org/en/foxy/Tutorials.html>`__.
+We use ROS 2 Humble for communication and run the car. You can find a tutorial on ROS 2 `here <https://docs.ros.org/en/humble/Tutorials.html>`__.
 
 In the following section, we'll go over how to set up the **drivers** for sensors and the motor control:
 
@@ -205,7 +205,7 @@ In your running container, run the following commands to source the ROS 2 underl
 
 .. code-block:: bash
 
-    source /opt/ros/foxy/setup.bash
+    source /opt/ros/humble/setup.bash
     source /f1tenth_ws/install/setup.bash
 
 Then, you can launch the bring up with:
@@ -218,7 +218,7 @@ Running the bringup launch will start the VESC drivers, the LiDAR drivers, the j
 
 .. code-block:: bash
 
-    source /opt/ros/foxy/setup.bash
+    source /opt/ros/humble/setup.bash
     source /f1tenth_ws/install/setup.bash
     rviz2
 

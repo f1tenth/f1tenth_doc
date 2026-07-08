@@ -40,9 +40,13 @@ Since we're using a docker container, there are two options when it comes to whe
 .. code-block:: bash
     
     cd /f1tenth_ws
-    rosdep install -i --from-path src --rosdistro foxy -y
+    rosdep install -i --from-path src --rosdistro humble -y
 
 This will install the dependencies you declared in ``package.xml`` from all the packages in the ``src`` directory in your workspace. Then, run ``colcon build`` to build your packages. After you've added your custom package, you can either create your own launch file to launch your nodes, or add to the bringup launch file we provided to launch your nodes.
 
 2. **Create your own docker container.** This is the more portable solution when you need to put your code on another car.
 If you're an advanced user of Docker, the recommended way to do this is to create your own Dockerfile with ROS 2 included (you can use ROS's official image). If you **need GPU access** in your custom Dockerfile, you can use the image we provided (``f1tenth/focal-l4t-foxy:f1tenth-stack``) as the parent image. The containers (your custom container and the driver stack container) will be put on the same network by default by docker, so communication through ROS 2 should work automatically.
+
+.. todo::
+
+   **ROS 2 Humble migration:** ``f1tenth/focal-l4t-foxy`` is the ROS 2 **Foxy** image. Replace it with the ROS 2 Humble driver-stack image tag once confirmed.

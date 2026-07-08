@@ -22,7 +22,7 @@ Calibrating the steering and odometry
 
 Now that everything is built, configured, and installed, the odometry of the vehicle needs to be calibrated. The VESC receives input velocities in m/s and steering angles in radians. However the motor and servo requires commands in revolution per minute (RPM) and servo positions. The conversion parameters will need to be tuned to your specific car.
 
-1. The parameters in `vesc.yaml <https://github.com/f1tenth/f1tenth_system/blob/foxy-devel/f1tenth_stack/config/vesc.yaml>`_ need to be calibrated. This yaml file is located at:
+1. The parameters in `vesc.yaml <https://github.com/f1tenth/f1tenth_system/blob/humble-devel/f1tenth_stack/config/vesc.yaml>`_ need to be calibrated. This yaml file is located at:
 
 .. code-block:: bash
 
