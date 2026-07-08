@@ -10,14 +10,13 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: "3.11"
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+          enable-cache: true
       - name: Build HTML (warnings as errors)
-        run: sphinx-build -W --keep-going -b html . _build/html
+        run: uv run sphinx-build -W --keep-going -b html . _build/html
       - name: Link check
         # Non-blocking: external links break over time and shouldn't fail the build.
         continue-on-error: true
-        run: sphinx-build -b linkcheck . _build/linkcheck
+        run: uv run sphinx-build -b linkcheck . _build/linkcheck
