@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Godot Engine documentation build configuration file
+# RoboRacer documentation build configuration file
 
 import sys
 import os
@@ -24,7 +24,7 @@ master_doc = 'index'
 
 # General information about the project
 
-project = 'RoboRacer- Build'
+project = 'RoboRacer Build'
 # copyright = '2018-2020, RoboRacercommunity (CC-BY-NC-SA 4.0)'
 # author = 'RoboRacer community'
 
@@ -113,7 +113,7 @@ html_show_sphinx = True
 html_last_updated_fmt = '%b %d, %Y'
 
 # Output file base name for HTML help builder
-htmlhelp_basename = 'F1TENTH_build'
+htmlhelp_basename = 'RoboRacer_build'
 
 # -- Options for reStructuredText parser ----------------------------------
 
@@ -126,7 +126,7 @@ file_insertion_enabled = False
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'F1tenth.tex', 'RoboRacer Build Documentation',
+  (master_doc, 'RoboRacerBuild.tex', 'RoboRacer Build Documentation',
    'RoboRacer community', 'manual'),
 ]
 
