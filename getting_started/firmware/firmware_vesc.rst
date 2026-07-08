@@ -51,6 +51,8 @@ Launch the VESC Tool. On the Welcome page, press the **AutoConnect** button on b
 
 	Click *Autoconnect* in the VESC Tool.
 
+.. _doc_vesc_firmware_update:
+
 4. Updating the Firmware on the VESC
 -----------------------------------------
 The first thing you'll need to do is update the firmware onboard the VESC.
@@ -79,6 +81,8 @@ After firmware update, Select **Load Motor Configuration XML** from the drop dow
 	:align: center
 
 	Upload the XML file.
+
+.. _doc_vesc_motor_params:
 
 6. Detecting and Calculating Motor Parameters
 ------------------------------------------------

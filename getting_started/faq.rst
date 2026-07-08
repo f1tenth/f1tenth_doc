@@ -60,13 +60,13 @@ Use the ​Lock, Rock, and Roll​ method shown in `this video <https://youtu.be
 I’m not able to steer the car, no response from the steering servo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1. Double check that the servo wires are properly and securely connected. Be careful about the polarity of the three pin connectors.
-2. Confirm that you built the servo_out firmware for the VESC as shown `here <firmware/firmware_vesc.html#updating-the-firmware-on-the-vesc>`_.
+2. Confirm that you built the servo_out firmware for the VESC as shown in :ref:`Updating the Firmware on the VESC <doc_vesc_firmware_update>`.
 
 System identification failure and VESC tuning
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 First check that you have the correct firmware and hardware version installed.
 
-Second check that you have properly updated the parameters for system identification in the FOC tab. See the image in the VESC tuning/setup instruction section `here <firmware/firmware_vesc.html#detecting-and-calculating-motor-parameters>`_.
+Second check that you have properly updated the parameters for system identification in the FOC tab. See the image in the VESC tuning/setup instruction section :ref:`Detecting and Calculating Motor Parameters <doc_vesc_motor_params>`.
 
 Third check your battery voltage. Are you below the cutoff level? Are you using recommended batteries (e.g. 7 cell NiMH or 3S LiPO).
 
