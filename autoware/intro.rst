@@ -1,352 +1,178 @@
 .. _doc_autoware_intro:
 
-Autoware Installation on the RoboRacer
-======================================
+Autoware on the RoboRacer Car
+=============================
 
-Jetson Xavier NX and RoboRacer Recordreplay Demo
-------------------------------------------------
-This tutorial provides step-by-step instructions for installing and setting up the Autoware development environment on the RoboRacer race car. The Autoware installation process in this branch is modified from the main one to adapt to the Jetson Xavier NX hardware and software systems. One major difference of this Autoware environment is that it runs on `ROS2 galactic` instead of `ROS2 humble` due to the fact that the NVIDIA Jetson currently only supports Ubuntu 20.04 or below. To natively build and run autoware without using docker, galactic is used to increase system compatibility. The original `Autoware installation documentation <https://autowarefoundation.github.io/autoware-documentation/main/installation/autoware/source-installation/>`_ from main branch, and the `RoboRacer build documentation <https://f1tenth.readthedocs.io/en/foxy_test/index.html>`_ (running ROS2 foxy) are here for your reference.
+`Autoware <https://autoware.org/>`_ is an open-source autonomous driving stack built on ROS 2.
+The `autoware.roboracer <https://github.com/mlab-upenn/autoware.roboracer>`_ project (based on
+Autoware release 1.6.0, ROS 2 Humble) adds the interfaces, vehicle/sensor models, and configurations
+needed to run Autoware on the **RoboRacer Off-Road** platform, with the **Jetson AGX Orin** as the
+target compute.
 
-This repo also includes a RoboRacer Recordreplay demo. This demo allows the user to first build a map, record a trajectory by manually driving the RoboRacer race car, and then perform trajectory following in both the `RoboRacer gym simulator` and in `real-world` (testing in progress) running the Autoware framework. Instructions for installing the RoboRacer gym simulator are provided. The approximate time investment is based on running Jetson Xavier NX on 20W 6core power mode.
+This page is a **quickstart**: it walks through installing Autoware on the Jetson and running it on a
+physical RoboRacer car. It is intentionally condensed.
 
-Flash JetPack 5.1.1 (rev. 1) to Jetson Xavier NX
-------------------------------------------------
-(Approximate Time Investment: 1-1.5 hours)
+.. note::
+   For the full documentation, including x86 host installation, manual (non-scripted) setup,
+   software- and hardware-in-the-loop simulation, map creation and calibration, the launch modes,
+   architecture overview, and the track tuning guide, see the complete
+   `autoware.roboracer documentation <https://github.com/mlab-upenn/autoware.roboracer/blob/roboracer_humble/docs/Home.md>`_.
 
-There are multiple ways to install JetPack on a Jetson as described in `Jetpack 5.1.1 Documentation <https://developer.nvidia.com/embedded/jetpack-sdk-511>`_. The recommended ways to install are via the `NVIDIA SDK Manager Method` or the `SD Card Image Method`. This repo was tested on JetPack 5.1.1. Other JetPack versions may also work but have not yet been tested.
+.. _doc_autoware_installation:
 
-NVIDIA SDK Manager Method:
---------------------------
-This method requires a Linux host computer running Ubuntu Linux x64 version `18.04` or `20.04` with `~40GB` of disk space
+Installation (Jetson AGX Orin)
+------------------------------
 
-This method you will first install `NVIDIA SDK Manager` on your host machine, connect the host machine to the Jetson Xavier NX via a micro-USB cable, download all of the necessary JetPack components using the SDK Manager, and then flash the JetPack to the target Jetson Xavier NX. This method allows you to directly flash the JetPack to the `SD Card` or to the `NVME SSD drive` on the race car Jetson. You may need to create an NVIDIA account to download the NVIDIA SDK manager.
+These steps install Autoware on a Jetson AGX Orin running **JetPack 6.2.1** on **Ubuntu 22.04**.
+The approximate total time investment is roughly a day, most of it in the workspace build.
+For the full guide, see
+`Installation, Jetson AGX Orin <https://github.com/mlab-upenn/autoware.roboracer/blob/roboracer_humble/docs/installation/jetson-agx-orin.md>`_.
 
-1. Download and install `SDK Manager <https://developer.nvidia.com/sdk-manager>`_ on your host machine.
+1. **Flash JetPack 6.2.1** to the Jetson AGX Orin. The recommended method is the
+   `NVIDIA SDK Manager <https://developer.nvidia.com/sdk-manager>`_ (be sure to also select
+   *Jetson SDK Components*). See the
+   `JetPack 6.2.1 documentation <https://developer.nvidia.com/embedded/jetpack-sdk-621>`_ for details.
 
-2. Follow the steps at `Install Jetson Software with SDK Manager <https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html>`_. Select JetPack version 5.1.1 (rev. 1). The target hardware will be the Jetson Xavier NX.
+2. **Install the ZED camera drivers and SDK.** The RoboRacer Off-Road car uses a ZED camera, so before
+   proceeding install both the capture card driver and the ZED SDK, matching the versions to your card
+   and JetPack version. Follow the
+   `Stereolabs driver guide <https://www.stereolabs.com/docs/embedded/zed-link/install-the-drivers>`_
+   and the `ZED SDK for Jetson guide <https://www.stereolabs.com/docs/development/zed-sdk/jetson>`_.
 
-3. If you have trouble flashing the JetPack, you can put the Jetson into `Force Recovery Mode` by using a jumper to connect `PINs #9 and #10` of the connector J50 before powering up the Jetson.
+3. **Install the JetPack packages** (CUDA, cuDNN, and TensorRT), which Autoware requires, then reboot.
 
+   .. code-block:: bash
 
-SD Card Image Method:
----------------------
-This method requires a computer with Internet connection and the ability to read and write SD cards
+      sudo apt update && sudo apt upgrade -y
+      sudo apt install -y nvidia-jetpack
+      sudo reboot
 
-1. Download `JetPack 5.1.1 <https://developer.nvidia.com/downloads/embedded/l4t/r35_release_v3.1/sd_card_b49/jp511-xnx-sd-card-image.zip/>`_
+4. **Clone the repository and install the Autoware dependencies.** The ``setup-dev-env.sh`` script
+   installs the system dependencies Autoware needs. The ``--jetson`` flag makes it use a
+   Jetson-compatible OpenCV, build ``spconv`` and ``cumm`` from source, and skip the CUDA/NVIDIA
+   drivers already provided by JetPack. Afterwards, install the cuDNN and TensorRT CMake modules.
 
-2. If you have not previously run a JetPack 5.x release on your Jetson Xavier NX Developer kit, you must first update its QSPI before using this JetPack 5.x SD Card image. See the `SD Card Image Method <https://developer.nvidia.com/embedded/jetpack-sdk-511>`_ section for more information.
+   .. code-block:: bash
 
-2. Follow the steps at `Jetson Xavier NX Developer Kit - Get Started <https://developer.nvidia.com/embedded/learn/get-started-jetson-xavier-nx-devkit#prepare>`_ to write the Jetpack to the microSD card.
+      cd ~
+      git clone -b roboracer_humble https://github.com/mlab-upenn/autoware.roboracer.git autoware
+      cd autoware
+      ./setup-dev-env.sh --jetson
+      sudo apt install -y ros-humble-cudnn-cmake-module ros-humble-tensorrt-cmake-module
 
-3. Insert your microSD card to the Jetson.
+5. **Set up the workspace.** Autoware uses
+   `vcstool <https://github.com/dirk-thomas/vcstool>`_ to assemble the workspace. Create the ``src``
+   directory and clone all of the required repositories into it.
 
-Once the JetPack is successfully flashed to the Jetson NX, boot the system and the Ubuntu desktop environment should launch
+   .. code-block:: bash
 
+      cd ~/autoware
+      mkdir -p src
+      vcs import src < repositories/autoware.repos
 
-Install ROS2 galactic 
----------------------
-(Approximate Time Investment: 0.5 hour)
+6. **Install the ROS package dependencies** for everything in the workspace using ``rosdep``.
 
-1. Follow the `ROS2 instructions <https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html>`_ to install ROS2 galactic
+   .. code-block:: bash
 
+      source /opt/ros/humble/setup.bash
+      sudo apt update && sudo apt upgrade
+      rosdep update
+      rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 
-Set up Autoware development environment  
----------------------------------------
-(Approximate Time Investment: 0.5 hour)
+7. **Build the workspace.** Autoware uses `colcon <https://colcon.readthedocs.io/>`_ to build.
 
-1. Clone the `galactic` branch of `autowarefoundation/autoware` and move to the directory.
+   .. code-block:: bash
 
-.. code-block:: bash
+      colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 
-   git clone -b galactic https://github.com/autowarefoundation/autoware.git
-   cd autoware
+   Ignore the ``stderr`` warnings during the build.
 
-2. If you are installing Autoware for the first time, you can automatically install the dependencies by using the provided Ansible script. 
+   .. tip::
+      Building Autoware is memory-hungry and can crash on systems with limited RAM. If the build
+      fails, add 16 to 32 GB of swap before rebuilding:
 
-.. code-block:: bash
+      .. code-block:: bash
 
-   ./setup-dev-env.sh --no-nvidia --no-cuda-drivers
+         sudo fallocate -l 32G /swapfile
+         sudo chmod 600 /swapfile
+         sudo mkswap /swapfile
+         sudo swapon /swapfile
+         sudo bash -c 'echo "/swapfile swap swap defaults 0 0" >> /etc/fstab'
 
-   #The NVIDIA library and cuda driver installation are disabled as they are already installed with the JetPack. If you force the cuda driver installation here, it can mess up the kernel and cause errors at bootup. You will need to reflash the JetPack if this happens.
+8. **Configure the network and DDS settings** by following the official
+   `Autoware DDS documentation <https://autowarefoundation.github.io/autoware-documentation/main/installation/additional-settings-for-developers/network-configuration/dds-settings/>`_
+   before running.
 
-3. Under the `autoware` folder, go to the `autoware.repos` file and change the version of `universe/autoware.universe` from `galactic` to `f1tenth_galactic`
+.. _doc_autoware_on_vehicle:
 
+Running on the Car
+------------------
 
-Set up Autoware workspace  
--------------------------
-(Approximate Time Investment: 6-7 hours)
+This runs Autoware on the physical RoboRacer Off-Road car. It assumes you have
+completed the installation above and have a **point cloud map and Lanelet2 map** for your environment
+(see
+`Map Creation & Calibration <https://github.com/mlab-upenn/autoware.roboracer/blob/roboracer_humble/docs/map-creation.md>`_).
+For the full guide, see
+`On-Vehicle Operation <https://github.com/mlab-upenn/autoware.roboracer/blob/roboracer_humble/docs/on-vehicle-operation.md>`_.
 
-1. Create the `src` directory and clone repositories into it.
+1. **Physical setup.** Power the Jetson and vehicle electronics, verify the ZED camera is recognized
+   by the OS, and confirm the USB connection to the motor/servo controller is present (the
+   ``roboracer_interface_node`` uses the f1tenth stack to talk to the hardware).
 
-   autoware uses `vcstool <https://github.com/dirk-thomas/vcstool>`_ to construct workspaces.
+2. **Source the workspace** on the Jetson.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   cd autoware
-   mkdir src
-   vcs import src < autoware.repos
+      source /opt/ros/humble/setup.bash
+      source ~/autoware/install/setup.bash
 
-2. Install dependent ROS packages.
+3. **(Optional) Test manual control** without launching Autoware. This brings up the vehicle
+   interface and joystick teleop only, which is useful for map recording and hardware verification.
+   Manual driving requires holding the dead-man button (RB) on the controller.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   source /opt/ros/galactic/setup.bash
-   rosdep update --include-eol-distros
-   rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO -r
+      ros2 launch f1tenth_stack no_lidar_bringup.launch.py
 
-   #Ignore the `Invalid version` errors during rosdep installation
+4. **Launch Autoware.** Pick a launch mode for your use case (see
+   `Launch Modes <https://github.com/mlab-upenn/autoware.roboracer/blob/roboracer_humble/docs/launch-modes.md>`_
+   for the full comparison), and set ``map_path`` to your map directory.
 
-3. Create swapfile. Originally from Autoware `troubleshooting section <https://autowarefoundation.github.io/autoware-documentation/main/support/troubleshooting/#build-issues>`_
+   Full stack, for real-world operation with obstacle avoidance:
 
-   Building Autoware requires a lot of memory. Jetson NX can crash during a build because of insufficient memory. To avoid this problem, 16-32GB of swap should be configured.
+   .. code-block:: bash
 
-   Optional: Check the current swapfile
+      ros2 launch offroad_launch autoware.launch.xml \
+        vehicle_model:=roboracer_offroad \
+        sensor_model:=roboracer_offroad_sensor_kit \
+        map_path:=/path/to/your/map/ \
+        launch_vehicle_interface:=true
 
-.. code-block:: bash
+   Minimal racing stack, for a closed circuit with the circuit planner and lowest overhead:
 
-   #Optional: Check current memory usage
-   free -h
+   .. code-block:: bash
 
-   #Remove the current swapfile
-   sudo swapoff /swapfile
-   sudo rm /swapfile`
-   
-   #Create a new swapfile
-   sudo fallocate -l 32G /swapfile
-   sudo chmod 600 /swapfile
-   sudo mkswap /swapfile
-   sudo swapon /swapfile
-   ```
+      ros2 launch offroad_launch_minimal autoware_minimal.launch.xml \
+        vehicle_model:=roboracer_offroad \
+        sensor_model:=roboracer_offroad_sensor_kit \
+        map_path:=/path/to/your/map/ \
+        launch_vehicle_interface:=true
 
-   #Optional: Check if the change is reflected
-   free -h
+5. **Initialize localization.** By default the ``pose_initializer`` node uses the ZED's onboard pose
+   estimate to initialize automatically. Otherwise, use the **2D Pose Estimate** tool in RViz to click
+   the vehicle's approximate position and heading on the map.
 
-4. Build the workspace.
+6. **Set a goal and engage.** For the full and lite stacks, use the **2D Goal Pose** tool in RViz to
+   set a destination; once the route is shown and localization is stable, press **Auto**. The minimal
+   stack uses the circuit route planner, which needs no goal, so it drives laps continuously; just
+   press **Auto** once localization initializes. Just as manual driving requires holding the RB
+   dead-man button, autonomous driving requires holding a different dead-man button (LB) on the
+   controller; releasing it stops the vehicle.
 
-   autoware uses `colcon <https://github.com/colcon>`_ to build workspaces.
-   For more advanced options, refer to the `documentation <https://colcon.readthedocs.io/>`_.
+   .. warning::
+      To stop the vehicle at any time, release the dead-man button on the controller, press the
+      **Emergency Stop** button in RViz, or publish to ``/system/emergency/control_cmd``.
 
-.. code-block:: bash
-
-   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-
-
-Ignore the `stderr` warnings during the build.
-   
-
-Install f1tenth_gym simulator dependencies 
-------------------------------------------
-(Approximate Time Investment: 10 minutes)
-
-Install `onnx` and roll back `setuptools` to version 65.5.0  
-
-.. code-block:: bash
-
-   pip3 install onnx setuptools==65.5.0
-
-The f1tenth_gym_ros simulator is used in this case, click `here <https://github.com/f1tenth/f1tenth_gym_ros>`_ for details.
-
-.. code-block:: bash
-
-   cd autoware/src/universe/autoware.universe/f1tenth/f1tenth_gym_ros/f1tenth_gym
-   pip3 install -e .
-
-RoboRacer Recordreplay Demo 
----------------------------
-This demo allows the user to first build a map, record a trajectory by manually driving the RoboRacer race car, and then perform trajectory following in both the `RoboRacer gym simulator` and in `real-world` (testing in progress) running the Autoware framework.
-
-How to create a map 
--------------------
-
-This part assumes that you have a fully built and properly tuned RoboRacer car. For instructions on how to configure an RoboRacer car, see `f1tenth_system <https://github.com/autowarefoundation/autoware.universe/tree/f1tenth_galactic/f1tenth/f1tenth_system>`_.
-
-On your RoboRacer car, install the slamtoolbox 
-
-.. code-block:: bash
-
-   sudo apt install ros-galactic-slam-toolbox
-
-1. Start the f1tenth system
-
-Terminal 1
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 launch f1tenth_stack bringup_launch.py
-
-2. Start the slamtoolbox
-
-Terminal 2
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 launch slam_toolbox online_async_launch.py slam_params_file:=/home/autoware/src/universe/autoware.universe/f1tenth/f1tenth_system/f1tenth_stack/config/f1tenth_online_async.yaml
-
-3. Launch RViz2, Add `/map` by topic. Add `/graph_visualization` by topic. On the top left corner of rviz, panels – add new panel – add SlamToolBoxPlugin panel. Once you’re done mapping, save the map using the plugin. You can give it a name in the text box next to Save Map. Map will be saved in whichever directory you run slam_toolbox.
-
-
-.. raw:: html
-
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/bgrxjXlJbhI?si=SlJxkM58pcCGAmRl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-Create a map without an RoboRacer race car 
-------------------------------------------
-
-If you do not have an RoboRacer car, You can draw your own map and save as .png files. Make sure you set the corresponding .yaml file correctly. You can also use the map provided in the RoboRacer simulation folder under /map directory.
-
-Change map in the RoboRacer simulator 
--------------------------------------
-
-Navigate to /home/autoware-f1/autoware/install/f1tenth_gym_ros/share/f1tenth_gym_ros/config. In `sim.yaml`, update the map file path.
-
-How to record a trajectory (simulation) 
----------------------------------------
-
-1. Use the `demo_launch` launch file to launch `gym_bridge`, `recordreplay_planner`, and `trajectory_follower_f1tenth` nodes. 
-
-Terminal 1
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_f1tenth demo_launch.py
-
-Rviz2 should launch automatically with the target map loaded (black markers). After a short peroid of time the simulated Lidar data (colored markers) should be overlaid on top of the map indicating the simulator is running correctly. It can take up to `5 minutes` for the Lidar data to show up if the simulator is launched the first time. You may use your mouse's left/right buttons and scroll wheel in RViz2 to zoom-out and adjust the camera angle to top-down view.
-
-
-.. image:: ../img/f1tenth_autoware_sim.jpg
-   :width: 700
-
-2. Launch the `teleop_twist_keyboard` node for keyboard tele-operation. Focus on (select) this terminal and use `U`, `I`, `O` keys to manually control the RoboRacer car in the simulation.  Use `Q` and `Z` keys to increase and decrease the speed.
-
-Terminal 2
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 run teleop_twist_keyboard teleop_twist_keyboard
-
-3. Record a trajectory and save at your preferred path. To stop recording, `Ctrl + C` and your path will be automatically saved. 
-The default path for the recording is set to `"/tmp/path"`. This recording will be automatically erased after system reboot. 
-
-Terminal 3
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 action send_goal /planning/recordtrajectory autoware_auto_planning_msgs/action/RecordTrajectory "{record_path: "/tmp/path"}" --feedback
-
-.. raw:: html
-
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/gJ8JWyzbRf8?si=rwwJ1aJ2frcrkCQF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
-
-How to replay a trajectory (simulation) 
----------------------------------------
-
-1. Use the `demo_launch` launch file to launch `gym_bridge`, `recordreplay_planner`, and `trajectory_follower_f1tenth` nodes if they are not currently running.
-
-Terminal 1
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_f1tenth demo_launch.py
-
-2. Replay a trajectory from your previously saved file. You can use the `2D Pose Estimate` tool in RViz2 anytime to reset the car's pose.
-
-Terminal 2
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 action send_goal /planning/replaytrajectory autoware_auto_planning_msgs/action/ReplayTrajectory "{replay_path: "/tmp/path"}" --feedback
-
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/fxg8eQYiIrw?si=EKagh_k7uJ0uR3MM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-How to record a trajectory (real car) 
--------------------------------------
-
-1. Use the `realcar_launch` launch file to launch the `f1tenth_stack`, `recordreplay_planner`, and `trajectory_follower_f1tenth` nodes.
-
-Terminal 1
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_f1tenth realcar_launch.py
-
-2. Launch the `particle_filter` node for localization. You need the library range_libc to utilize the GPU. For instructions on setup, see `particle_filter <https://github.com/autowarefoundation/autoware.universe/tree/f1tenth_galactic/f1tenth/particle_filter>`_.
-
-Terminal 2
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 launch particle_filter localize_launch.py
-
-3. Record a trajectory and save at your preferred path. To stop recording, `Ctrl + C` and your path will be automatically saved. 
-The default path for the recording is is set to `"/tmp/path"`. This recording will be automatically erased after system reboot.
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 action send_goal /planning/recordtrajectory autoware_auto_planning_msgs/action/RecordTrajectory "{record_path: "/tmp/path"}" --feedback
-
-How to replay a trajectory (real car) 
--------------------------------------
-
-1. Use the `realcar_launch` launch file to launch `f1tenth_stack`, `recordreplay_planner`, and `trajectory_follower_f1tenth` nodes.
-
-Terminal 1
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 launch launch_autoware_f1tenth realcar_launch.py
-
-2. Launch the `particle_filter` node for localization. You need the library range_libc to utilize the GPU. For instructions on setup, see `particle_filter <https://github.com/autowarefoundation/autoware.universe/tree/f1tenth_galactic/f1tenth/particle_filter>`_.
-
-Terminal 2
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 launch particle_filter localize_launch.py
-
-3. Replay a trajectory from your previously saved file
-
-Terminal 3
-
-.. code-block:: bash
-
-   source /opt/ros/galactic/setup.bash
-   cd autoware && . install/setup.bash
-   ros2 action send_goal /planning/replaytrajectory autoware_auto_planning_msgs/action/ReplayTrajectory "{replay_path: "/tmp/path"}" --feedback
-
-.. raw:: html
-   
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/tgc5UBhRX_g?si=uMVFJnku-eHHyK1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
-Troubleshooting/Tips
---------------------
-
-1. If editing files doesn't seem to change anything, delete the respective package files in the install and build folders under autoware and rebuild the respective package using --packages-select again.
-
-2. You may need to insert a hdmi emulator to the Jetson for NoMachine to initiate remote desktop when running on a real RoboRacer car. Sometimes you will need to put the emulator in and out a few times for NoMachine to start remote desktop.
+For hardware-in-the-loop simulation (Autoware on the Jetson driving the off-road simulator on a
+separate x86 host), see
+`Hardware-in-the-Loop Simulation <https://github.com/mlab-upenn/autoware.roboracer/blob/roboracer_humble/docs/simulation/hardware-in-loop.md>`_.
