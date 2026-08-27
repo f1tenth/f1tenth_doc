@@ -4,7 +4,7 @@ Install RoboRacer Driver Stack
 ==============================
 .. note:: This section assumes that you have already completed :ref:`Building the Car <doc_build_car>` and :ref:`System Configuration <doc_software_setup>`.
 
-At the end of this section, you will have the VESC tuned and the lidar connection completed.
+At the end of this section, you will have the VESC tuned, the driver stack built, and the lidar and joypad connections completed.
 
 **Required Equipment:**
 	* Fully built RoboRacer vehicle
@@ -16,10 +16,10 @@ At the end of this section, you will have the VESC tuned and the lidar connectio
 
 With the physical car is built and the system configuration setup, we can start to install the firmware needed on the car.
 
-You will need to :ref:`Configure the VESC <doc_firmware_vesc>` and set up the driver stack. Use the native :ref:`Driver Stack Setup <doc_drive_workspace>` (section 2) **or** the :ref:`Docker Containers <doc_drive_workspace_docker>` version (section 3) depending on your JetPack version — not both. LiDAR setup (Hokuyo or SICK) is covered within the Driver Stack Setup section.
+You will need to :ref:`Configure the VESC <doc_firmware_vesc>` and set up the driver stack. Use the native :ref:`Driver Stack Setup <doc_drive_workspace>` (section 2) **or** the :ref:`Docker Containers <doc_drive_workspace_docker>` version (section 3) depending on your JetPack version — not both. LiDAR setup (Hokuyo or SICK) and joypad configuration are covered within the Driver Stack Setup section.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :name: Firmware Setup
    :hidden:
 
@@ -28,7 +28,7 @@ You will need to :ref:`Configure the VESC <doc_firmware_vesc>` and set up the dr
    drive_workspace_docker
 
 #. :ref:`Configuring the VESC <doc_firmware_vesc>` goes over how to set up and tune the VESC.
-#. :ref:`RoboRacer Driver Stack Setup <doc_drive_workspace>` goes over how to set up the software drivers natively to drive the vehicle with **JetPack 5.0 and above**.
+#. :ref:`RoboRacer Driver Stack Setup <doc_drive_workspace>` goes over how to set up the software drivers natively to drive the vehicle with **JetPack 5.0 and above**. It splits into two self-contained pages — :ref:`Ubuntu 24.04 - ROS 2 Jazzy <doc_drive_workspace_jazzy>` and :ref:`Ubuntu 22.04 - ROS 2 Humble <doc_drive_workspace_humble>` — and you follow only the one matching your JetPack version.
 #. :ref:`RoboRacer Driver Stack Setup with Docker Containers <doc_drive_workspace_docker>` goes over how to set up the software drivers for **JetPack versions before 5.0** using **Docker Containers**.
 
 .. tip::
