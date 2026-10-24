@@ -72,6 +72,18 @@ in the top left corner.
 
 .. toctree::
    :maxdepth: 1
+   :caption: RoboRacer Off-Road
+   :name: sec-offroad
+   :titlesonly:
+   :hidden:
+
+   roboracer_offroad/index
+   roboracer_offroad/build
+   roboracer_offroad/autoware_stack
+   roboracer_offroad/simulator
+
+.. toctree::
+   :maxdepth: 1
    :caption: Autoware @ RoboRacer
    :name: sec-autoware
    :hidden:
